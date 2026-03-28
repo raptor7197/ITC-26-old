@@ -48,9 +48,9 @@ export default function Timeline() {
   return (
     <section
       id="timeline"
-      className="relative w-full flex flex-col pt-8 sm:pt-10 md:pt-12 lg:pt-14 xl:pt-16 pb-8 sm:pb-10 md:pb-12 overflow-x-hidden px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12"
+      className="relative w-full flex flex-col pt-8 sm:pt-10 md:pt-12 lg:pt-14 xl:pt-16 pb-8 sm:pb-10 md:pb-12 px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12"
     >
-      <div className="absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
+      <div className="max-[640px]:hidden absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
         <Image
           src="/images/vector11.svg"
           alt="Zig-zag Line"
@@ -59,7 +59,7 @@ export default function Timeline() {
         />
       </div>
 
-      <h2 className="font-angkor text-[28px] leading-[1.1] sm:text-[40px] md:text-[50px] lg:text-[60px] xl:text-[75px] text-white mb-4 sm:mb-8 md:mb-12 xl:mb-20 relative xl:absolute top-0 sm:top-[25px] md:top-[20px] left-0 sm:left-[9%] md:left-[7%] xl:left-[10%] z-10 text-left xl:text-left w-full xl:w-auto">
+      <h2 className="font-angkor text-[40px] leading-[1.1] md:text-[50px] lg:text-[60px] xl:text-[75px] text-white mb-8 md:mb-12 xl:mb-20 relative xl:absolute top-[25px] md:top-[20px] left-[9%] md:left-[7%] xl:left-[10%] z-10 text-left w-full xl:w-auto max-[640px]:text-[28px] max-[640px]:mb-4 max-[640px]:top-0 max-[640px]:!left-auto max-[640px]:px-3 max-[640px]:text-center">
         TIMELINE
       </h2>
 

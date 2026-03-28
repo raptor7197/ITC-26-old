@@ -28,9 +28,9 @@ export default function Photos() {
   return (
     <section
       id="photos"
-      className="relative w-full mt-0 sm:mt-0 pt-4 sm:pt-10 md:pt-12 lg:pt-20 pb-8 sm:pb-12 md:pb-16 px-[5%] sm:px-4 md:px-6 lg:px-8 xl:px-[86px] flex flex-col items-center overflow-x-hidden"
+      className="relative w-full mt-0 sm:mt-0 pt-4 sm:pt-10 md:pt-12 lg:pt-20 pb-8 sm:pb-12 md:pb-16 px-[5%] sm:px-4 md:px-6 lg:px-8 xl:px-[86px] flex flex-col items-center"
     >
-      <div className="absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[50px] sm:h-[60px] md:h-[70px] lg:h-[80px] xl:h-[100px] my-6 sm:my-8 md:my-10 pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
+      <div className="max-[640px]:hidden absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[50px] sm:h-[60px] md:h-[70px] lg:h-[80px] xl:h-[100px] my-6 sm:my-8 md:my-10 pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
         <div className="absolute inset-0 w-full h-full rotate-180 scale-y-[-1] scale-x-[-1]">
           <Image
             src="/images/vector11.svg"
@@ -41,7 +41,7 @@ export default function Photos() {
         </div>
       </div>
 
-      <h2 className="font-angkor text-[24px] leading-[1.1] sm:text-[28px] md:text-[32px] lg:text-[38px] xl:text-[44px] 2xl:text-[50px] text-white mb-2 sm:mb-4 md:mb-6 xl:mb-8 2xl:mb-12 relative xl:absolute top-0 md:top-0 xl:top-[40px] 2xl:top-[50px] xl:right-[5%] z-10 text-center md:text-right w-full xl:w-auto whitespace-nowrap pr-2 ">
+      <h2 className="font-angkor text-[28px] leading-[1.1] md:text-[32px] lg:text-[38px] xl:text-[44px] 2xl:text-[70px] text-white mb-4 md:mb-6 xl:mb-8 2xl:mb-12 relative xl:absolute top-0 md:top-0 xl:top-[40px] 2xl:top-[45px] xl:right-[3%] z-10 text-right w-full xl:w-auto whitespace-nowrap pr-2 max-[640px]:text-[24px] max-[640px]:mb-2 max-[640px]:px-3 max-[640px]:pr-3 max-[640px]:text-center max-[640px]:whitespace-normal">
         PHOTOS SECTION
       </h2>
 

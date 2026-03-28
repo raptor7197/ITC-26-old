@@ -5,7 +5,7 @@ export default function HeroWithTimer() {
   const px = "px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]";
 
   return (
-    <div className="relative w-full overflow-x-hidden">
+    <div className="relative w-full">
       <section
         className={`hero-section relative w-full flex flex-col ${px} pt-[88px] sm:pt-[90px] md:pt-[100px] lg:pt-[110px] xl:pt-[120px] pb-0`}
       >
@@ -115,7 +115,7 @@ export default function HeroWithTimer() {
             </div>
 
             {/* ABOUT US label */}
-            <div className="absolute top-0 left-0 w-[41%] h-full flex items-center justify-center z-20 overflow-hidden">
+            <div className="absolute top-4 left-0 w-[41%] h-full flex items-center justify-center z-20 overflow-hidden">
               <h2
                 className="font-angkor text-white text-center leading-[1.1] whitespace-nowrap
                            text-[16px]

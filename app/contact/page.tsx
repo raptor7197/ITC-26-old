@@ -6,7 +6,7 @@ import { members1 } from "../commitee/data";
 
 export default function ContactUs() {
   return (
-    <main className="min-h-screen relative text-white font-poppins selection:bg-white/20 pt-[120px] pb-20 overflow-x-hidden">
+    <main className="min-h-screen relative text-white font-poppins selection:bg-white/20 pt-[120px] pb-20">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none opacity-20">
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-600/30 rounded-full blur-[100px]" />

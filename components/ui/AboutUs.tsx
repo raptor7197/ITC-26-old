@@ -11,7 +11,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className={`about-us-section relative w-full pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12 pb-4 sm:pb-6 md:pb-8 ${contentPadding} text-white overflow-x-hidden`}
+      className={`about-us-section relative w-full pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12 pb-4 sm:pb-6 md:pb-8 ${contentPadding} text-white`}
     >
       {/* ========== MAIN CONTENT ========== */}
       <div

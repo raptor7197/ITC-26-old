@@ -41,9 +41,9 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative w-full pb-4 sm:pb-0 flex flex-col items-center mt-0 sm:mt-0 pt-4 sm:pt-10 md:pt-12 lg:pt-14 px-3 sm:px-4 md:px-6 lg:px-8 overflow-x-hidden"
+      className="relative w-full pb-4 sm:pb-0 flex flex-col items-center mt-0 sm:mt-0 pt-4 sm:pt-10 md:pt-12 lg:pt-14 px-3 sm:px-4 md:px-6 lg:px-8"
     >
-      <div className="absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] my-10 pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
+      <div className="max-[640px]:hidden absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] my-10 pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
         <div className="absolute inset-0 w-full h-full rotate-180 scale-y-[-1]">
           <Image
             src="/images/vector11.svg"
@@ -54,7 +54,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <h2 className="font-angkor text-[28px] leading-[1.1] sm:text-[32px] md:text-[40px] lg:text-[50px] xl:text-[60px] 2xl:text-[75px] text-white mb-2 sm:mb-3 md:mb-6 xl:mb-8 2xl:mb-10 relative xl:absolute xl:top-[40px] 2xl:top-[50px] xl:right-[5%] z-10 text-center sm:text-right w-full xl:w-auto mt-4 pr-5">
+      <h2 className="font-angkor text-[32px] leading-[1.1] md:text-[40px] lg:text-[50px] xl:text-[60px] 2xl:text-[75px] text-white mb-3 md:mb-6 xl:mb-8 2xl:mb-10 relative xl:absolute xl:top-[40px] 2xl:top-[65px] xl:right-[5%] z-10 text-right w-full xl:w-auto mt-4 pr-5 max-[640px]:text-[28px] max-[640px]:mb-2 max-[640px]:px-3 max-[640px]:pr-3 max-[640px]:text-center">
         TESTIMONIALS
       </h2>
 

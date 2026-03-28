@@ -1,7 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+
+function getScrollRoot(): HTMLElement {
+  return (
+    (document.scrollingElement as HTMLElement | null) ??
+    document.documentElement
+  );
+}
+
+function getScrollTop(): number {
+  return getScrollRoot().scrollTop;
+}
 
 const sections = [
   { id: "hero", label: "Home" },
@@ -17,16 +27,15 @@ export default function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Show floating nav after scrolling down a bit
     const handleScroll = () => {
-      if (window.scrollY > 300) {
+      const scrollTop = getScrollTop();
+      if (scrollTop > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
 
-      // Determine active section
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = scrollTop + 200;
 
       for (const section of sections) {
         const element = document.getElementById(section.id);
@@ -42,20 +51,20 @@ export default function FloatingNav() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const root = getScrollRoot();
+    root.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => root.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
-    if (element) {
-      const offset = 100;
-      const elementPosition = element.offsetTop - offset;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
-    }
+    if (!element) return;
+    const root = getScrollRoot();
+    const offset = 100;
+    const top =
+      element.getBoundingClientRect().top + root.scrollTop - offset;
+    root.scrollTo({ top, behavior: "smooth" });
   };
 
   return (

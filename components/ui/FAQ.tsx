@@ -4,9 +4,9 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="faq-section relative w-full py-8 sm:py-12 md:py-16 px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%] text-white overflow-x-hidden"
+      className="faq-section relative w-full py-8 sm:py-12 md:py-16 px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%] text-white"
     >
-      <div className="absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] my-10 pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
+      <div className="max-[640px]:hidden absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] my-10 pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
         <div className="absolute inset-0 w-full h-full rotate-180 scale-y-[-1] scale-x-[-1]">
           <Image
             src="/images/vector11.svg"
@@ -17,9 +17,13 @@ export default function FAQ() {
         </div>
       </div>
 
-      <h2 className="font-angkor text-[24px] sm:text-[30px] md:text-[36px] lg:text-[42px] xl:text-[50px] leading-tight mb-4 sm:mb-8 xl:mb-10 mt-4 sm:mt-16 md:mt-20 xl:mt-[100px] text-center lg:text-left">
-        FREQUENTLY <span className="text-[#6aaff1]">ASKED QUESTIONS</span>
+      <h2 className="font-angkor text-[30px] md:text-[36px] lg:text-[42px] xl:text-[75px] leading-tight mb-8 xl:mb-10 mt-16 md:mt-20 xl:mt-[0px] ml-[50px] text-left max-[640px]:mx-auto max-[640px]:ml-0 max-[640px]:mt-4 max-[640px]:mb-4 max-[640px]:px-3 max-[640px]:text-[24px] max-[640px]:text-center">
+        FREQUENTLY <br /><span className="text-[#6aaff1]">ASKED QUESTIONS</span>
       </h2>
+
+      {/* <h2 className="font-angkor text-[24px] leading-[1.1] sm:text-[28px] md:text-[32px] lg:text-[38px] xl:text-[44px] 2xl:text-[70px] text-white mb-2 sm:mb-4 md:mb-6 xl:mb-8 2xl:mb-12 relative xl:absolute top-0 md:top-0 xl:top-[40px] 2xl:top-[45px] xl:right-[3%] z-10 text-center md:text-right w-full xl:w-auto whitespace-nowrap pr-2 ">
+        FREQUENTLY <span className="text-[#6aaff1]">ASKED QUESTIONS</span>
+      </h2> */}
 
       <div className="flex flex-col-reverse xl:flex-row gap-4 sm:gap-8 md:gap-10 xl:gap-14 w-full max-w-full ">
         <div className="flex-1 flex flex-col gap-4 sm:gap-6 md:gap-7 min-w-0 items-center">
