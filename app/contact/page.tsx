@@ -6,7 +6,7 @@ import { members1 } from "../commitee/data";
 
 export default function ContactUs() {
   return (
-    <main className="min-h-screen relative text-white font-poppins selection:bg-white/20 pt-[120px] pb-20 overflow-x-hidden">
+    <main className="min-h-screen relative text-white font-poppins selection:bg-white/20 pt-[120px] pb-20">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none opacity-20">
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-600/30 rounded-full blur-[100px]" />
@@ -14,7 +14,7 @@ export default function ContactUs() {
       </div>
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 font-angkor">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 font-angkor text-[#90cbfb]">
           CONTACT US
         </h1>
         <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
@@ -24,8 +24,8 @@ export default function ContactUs() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           {/* Contact Info Column */}
           <div className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm h-full">
-            <h2 className="text-2xl font-bold mb-8 text-yellow-400 border-b border-white/10 pb-4">
-              Get in Touch
+            <h2 className="text-2xl font-bold mb-8 text-yellow-400 border-b border-white/10 pb-4 ">
+              <span className="text-[#90cbfb]">Get in Touch</span>
             </h2>
 
             <div className="space-y-10">
@@ -121,7 +121,7 @@ export default function ContactUs() {
 
           {/* General Chairs Column */}
           <div className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm h-full flex flex-col">
-            <h2 className="text-2xl font-bold mb-8 text-yellow-400 border-b border-white/10 pb-4">
+            <h2 className="text-2xl font-bold mb-8 text-[#90cbfb] border-b border-white/10 pb-4">
               General Chairs
             </h2>
             <div className="space-y-8 flex-1">
