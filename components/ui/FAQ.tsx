@@ -19,19 +19,20 @@ export default function FAQ() {
 
       {/* Phones: short label + globals media query caps size; sm+: full title in zig-zag pocket */}
       <h2
-        className="faq-heading-mobile font-angkor angkor-section-title z-30 text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:mx-auto max-[639px]:mt-10 max-[639px]:mb-8 max-[639px]:w-full max-[639px]:min-w-0 max-[639px]:pt-2 max-[639px]:text-center sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mb-0 sm:mt-5 sm:ml-8 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:flex-col sm:items-center sm:justify-center sm:pr-[49.2%] sm:pl-2 sm:translate-y-2.5 md:h-[100px] lg:h-[110px] xl:h-[123px]"
+        className="faq-heading-mobile font-angkor z-30 text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:mx-auto max-[639px]:mt-10 max-[639px]:mb-8 max-[639px]:w-full max-[639px]:min-w-0 max-[639px]:pt-2 max-[639px]:text-center sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mb-0 sm:mt-5 sm:ml-8 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:flex-col sm:items-center sm:justify-center sm:pr-[49.2%] sm:pl-2 sm:translate-y-2.5 md:h-[100px] lg:h-[110px] xl:h-[123px]"
         aria-label="Frequently asked questions"
       >
-        <span className="inline-flex max-w-full items-baseline gap-0 whitespace-nowrap leading-none sm:hidden">
-          <span className="text-white">FAQ</span>
-          {/* Uppercase S matches FAQ cap height; lowercase “s” reads tiny in Angkor */}
-          <span className="text-[#6aaff1]">s</span>
-        </span>
-        <span className="hidden leading-[1.08] sm:inline-block sm:text-left">
-          FREQUENTLY
-          <br />
-          <span className="whitespace-nowrap text-[#6aaff1]">
-            ASKED QUESTIONS
+        <span className="angkor-title-pocket flex min-h-0 w-full min-w-0 max-w-full flex-1 flex-col items-center justify-center max-[639px]:mx-auto">
+          <span className="angkor-section-title inline-flex max-w-full items-baseline gap-0 whitespace-nowrap leading-none sm:hidden">
+            <span className="text-white">FAQ</span>
+            {/* Uppercase S matches FAQ cap height; lowercase “s” reads tiny in Angkor */}
+            <span className="text-[#6aaff1]">s</span>
+          </span>
+          <span className="hidden w-full min-w-0 max-w-full text-center sm:block sm:text-left angkor-section-title faq-zigzag-title">
+            <span className="block whitespace-nowrap text-white">FREQUENTLY</span>
+            <span className="block whitespace-nowrap text-[#6aaff1]">
+              ASKED QUESTIONS
+            </span>
           </span>
         </span>
       </h2>

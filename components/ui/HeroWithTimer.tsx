@@ -44,8 +44,7 @@ export default function HeroWithTimer() {
           >
             {/* Left: logo + headings */}
             <div
-              className="relative z-30 flex w-full flex-col items-start max-sm:items-center
-                         max-sm:px-3
+              className="relative z-30 flex w-full min-w-0 max-w-full flex-col items-start max-sm:items-center
                          sm:w-[55%] md:w-[54%] lg:w-[52%] xl:w-[50%]
                          sm:pl-5 md:pl-6 lg:pl-7 xl:pl-8 sm:pr-0"
             >
@@ -68,7 +67,7 @@ export default function HeroWithTimer() {
               </div>
 
               {/* Headings */}
-              <div className="w-full max-sm:text-center text-white font-space-grotesk font-bold">
+              <div className="w-full min-w-0 max-w-full max-sm:text-center text-white font-space-grotesk font-bold">
                 <div
                   className="hero-title
                              text-[28px]  leading-[1.05]
@@ -96,18 +95,22 @@ export default function HeroWithTimer() {
                   <span className="sm:hidden"> </span>INTELLIGENT SILICON
                 </h3>
 
-                {/* Below sm (640px): parallelogram countdown under subtitle, then centered ABOUT US */}
-                <div className="mt-5 flex w-full max-w-md flex-col items-center px-1 sm:hidden">
-                  <div
-                    className="w-full -skew-x-[20deg] rounded-sm border border-white/35 bg-gradient-to-r from-[#022241] to-[#0557A7] py-2 shadow-[0_4px_24px_rgba(0,0,0,0.35)]"
-                  >
-                    <div className="skew-x-[20deg] min-w-0 px-3 py-1">
-                      <CountdownTimer variant="capsule" />
+                {/* Below sm (640px): skew paints past layout box — clip + narrow so bar stays inside dashed guides */}
+                <div className="mt-5 flex w-full min-w-0 max-w-full flex-col items-stretch overflow-x-clip sm:hidden">
+                  <div className="mx-auto w-[calc(100%-2.5rem)] min-w-0 max-w-full">
+                    <div
+                      className="w-full -skew-x-[20deg] rounded-sm border border-white/35 bg-gradient-to-r from-[#022241] to-[#0557A7] py-2 shadow-[0_4px_24px_rgba(0,0,0,0.35)]"
+                    >
+                      <div className="skew-x-[20deg] min-w-0 px-3 py-1">
+                        <CountdownTimer variant="capsule" />
+                      </div>
                     </div>
                   </div>
-                  <h2 className="font-angkor angkor-section-title angkor-heading-gutter mt-10 pt-2 text-center text-white">
-                    ABOUT US
-                  </h2>
+                  <div className="angkor-title-pocket mt-10 w-full min-w-0 max-w-full">
+                    <h2 className="font-angkor pt-2 text-center text-white [padding-inline:0]">
+                      <span className="angkor-section-title">ABOUT US</span>
+                    </h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -116,7 +119,7 @@ export default function HeroWithTimer() {
             <div className="hidden sm:block flex-1 min-w-0" aria-hidden />
           </div>
 
-          {/* Timer / zig-zag bar: hidden below sm; mobile uses parallelogram timer + ABOUT US in hero column */}
+          {/* Timer / zig-zag bar: hidden below sm; mobile uses skewed capsule timer + ABOUT US in hero column */}
           <header
             className="relative hidden w-full flex-shrink-0 min-w-0 z-10
                        h-[55px] sm:block sm:h-[70px] md:h-[90px] lg:h-[100px] xl:h-[115px]
@@ -133,9 +136,9 @@ export default function HeroWithTimer() {
             </div>
 
             {/* ABOUT US label (sm+) */}
-            <div className="absolute top-4 left-0 z-20 flex h-full w-[41%] items-center justify-center overflow-hidden">
-              <h2 className="font-angkor angkor-section-title text-center whitespace-nowrap text-white max-w-full">
-                ABOUT US
+            <div className="hero-zigzag-title-pocket absolute top-4 left-0 z-20 flex h-full w-[41%] min-w-0 items-center justify-center overflow-hidden px-1">
+              <h2 className="font-angkor min-w-0 max-w-full text-center whitespace-nowrap text-white">
+                <span className="angkor-section-title">ABOUT US</span>
               </h2>
             </div>
 

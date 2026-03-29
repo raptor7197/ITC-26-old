@@ -120,7 +120,10 @@ body {
     }
 }
 
-/* 60px when strip is 110px (lg / ~1080px); scales with strip height */
+/*
+ * Angkor headings: strip height sets a coarse max; inside .angkor-title-pocket, container query (cqi)
+ * caps size to the zig-zag “pocket” width so copy stays inside guide margins and before the diagonal cut.
+ */
 .angkor-section-title {
     font-size: clamp(
         14px,
@@ -130,24 +133,65 @@ body {
     line-height: 1.1;
 }
 
-/* Hero timer bar: 60px when strip is 100px (lg) */
-.angkor-hero-title {
-    font-size: clamp(
-        14px,
-        calc(var(--zigzag-hero-height) * 60 / 100),
-        78px
-    );
-    line-height: 1.1;
+.angkor-title-pocket {
+    container-type: inline-size;
+    container-name: angkor-title;
+    min-width: 0;
+    max-width: 100%;
 }
 
-/* Photos row is shorter — 60px when strip is 80px (lg) */
-.angkor-section-title--photos {
+/* Section zig-zag (Testimonials, FAQ, Hero mobile column, etc.) */
+.angkor-title-pocket .angkor-section-title {
     font-size: clamp(
         14px,
-        calc(var(--zigzag-photos-height) * 60 / 80),
+        min(
+            calc(var(--zigzag-section-height) * 60 / 110),
+            11.5cqi
+        ),
         78px
     );
-    line-height: 1.1;
+}
+
+/* Photos strip is shorter — tighter strip cap + pocket width */
+.angkor-title-pocket--photos .angkor-section-title {
+    font-size: clamp(
+        14px,
+        min(
+            calc(var(--zigzag-photos-height) * 60 / 80),
+            12cqi
+        ),
+        78px
+    );
+}
+
+/* Hero timer bar (sm+): ~41% width pocket beside clip-path */
+.hero-zigzag-title-pocket {
+    container-type: inline-size;
+    min-width: 0;
+}
+
+.hero-zigzag-title-pocket .angkor-section-title {
+    font-size: clamp(
+        14px,
+        min(
+            calc(var(--zigzag-hero-height) * 60 / 100),
+            13cqi
+        ),
+        78px
+    );
+}
+
+/* FAQ sm+: two lines in left pocket — lower cqi + slightly tighter max */
+.angkor-title-pocket .angkor-section-title.faq-zigzag-title {
+    font-size: clamp(
+        14px,
+        min(
+            calc(var(--zigzag-section-height) * 60 / 110),
+            9.25cqi
+        ),
+        72px
+    );
+    line-height: 1.08;
 }
 
 .angkor-heading-gutter {
@@ -284,7 +328,7 @@ body {
     }
 }
 
-/* FAQ title on phones: same Angkor scale as other sections (.angkor-section-title); layout only */
+/* FAQ title on phones: width clamp only; size comes from .angkor-title-pocket .angkor-section-title */
 @media (max-width: 639px) {
     .faq-section .faq-heading-mobile {
         max-width: 100%;
@@ -294,10 +338,6 @@ body {
         margin-right: 0 !important;
     }
 
-    .faq-section .faq-heading-mobile span {
-        font-size: inherit !important;
-        line-height: inherit !important;
-    }
 }
 
 /* Very Small Mobile (up to 360px) */
