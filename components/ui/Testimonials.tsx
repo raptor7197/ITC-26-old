@@ -68,103 +68,120 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="relative w-full pb-4 sm:pb-0 flex flex-col items-center mt-0 sm:mt-0 pt-4 sm:pt-10 md:pt-12 lg:pt-14 px-3 sm:px-4 md:px-6 lg:px-8 overflow-x-hidden"
+      className="relative mt-0 flex w-full flex-col items-stretch pb-3 pt-6 sm:mt-0 sm:pb-4 sm:pt-3 md:pb-5 md:pt-4 lg:pb-6 lg:pt-5 px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]"
     >
-      <div className="absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] my-10 pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
+      <div className="max-[640px]:hidden absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
         <div className="absolute inset-0 w-full h-full rotate-180 scale-y-[-1]">
           <Image
             src="/images/vector11.svg"
             alt="Separator"
             fill
-            className="object-contain"
+            className="object-fill"
           />
         </div>
       </div>
 
-      <h2 className="font-angkor text-[28px] leading-[1.1] sm:text-[32px] md:text-[40px] lg:text-[50px] xl:text-[60px] 2xl:text-[75px] text-white mb-2 sm:mb-3 md:mb-6 xl:mb-8 2xl:mb-10 relative xl:absolute xl:top-[40px] 2xl:top-[50px] xl:right-[5%] z-10 text-center sm:text-right w-full xl:w-auto mt-4 pr-5">
+      {/* vector11: first segment ends at x=667/1355 — pad-left centers heading in the right trapezoid; flex + strip height centers vertically */}
+      <h2 className="font-angkor angkor-section-title z-30 text-center text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:mt-10 max-[639px]:mb-4 max-[639px]:pt-2 sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mt-0 sm:mb-0 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:items-center sm:justify-center sm:pl-[49.2%] sm:pr-2 sm:translate-y-2.5 md:h-[100px] lg:h-[110px] xl:h-[123px]">
         TESTIMONIALS
       </h2>
 
-      <div className="relative w-4/5 max-w-[1100px] overflow-hidden mx-auto pt-1 sm:pt-10 md:pt-12 xl:pt-[130px] 2xl:pt-[160px] mb-0 sm:mb-0">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
-        >
-          {extendedTestimonials.map((testimonial, index) => (
-            <div
-              key={`${testimonial.id}-${index}`}
-              className="relative flex-shrink-0 w-full flex justify-center px-2 sm:px-2"
-            >
-              <div className="relative w-full max-w-[90%] sm:max-w-[450px] md:max-w-[500px] min-h-[180px] sm:min-h-[220px] md:min-h-[250px] xl:min-h-[293px] bg-[#d9d9d9] rounded-sm p-3 sm:p-4 md:p-6 xl:p-10 shadow-lg mx-auto sm:mx-0 mt-3 sm:mt-4 mb-0 sm:my-0">
-                <div className="absolute top-3 sm:top-4 md:top-6 xl:top-10 left-3 sm:left-4 md:left-6 xl:left-10 w-[30px] sm:w-[40px] md:w-[50px] xl:w-[66px] h-[30px] sm:h-[40px] md:h-[50px] xl:h-[66px] rounded-full overflow-hidden">
-                  <Image
-                    src="/images/ellipse13.svg"
-                    alt="Avatar"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+      {/* Reserve strip height when heading is out of flow (sm+) */}
+      <div
+        className="hidden shrink-0 sm:block sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px]"
+        aria-hidden
+      />
 
-                <div className="ml-[45px] sm:ml-[55px] md:ml-[70px] xl:ml-[90px] mb-2 sm:mb-4">
-                  <h4 className="font-poppins text-[14px] sm:text-[16px] md:text-[18px] xl:text-[20px] 2xl:text-[24px] text-black leading-none mb-1">
-                    {testimonial.name}
-                  </h4>
-                  <p className="font-poppins text-[12px] sm:text-[14px] md:text-[16px] xl:text-[20px] 2xl:text-[24px] text-black leading-none">
-                    {testimonial.company}
-                  </p>
-                </div>
-
-                <div className="relative font-poppins text-[11px] sm:text-[13px] md:text-[16px] xl:text-[18px] 2xl:text-[24px] text-black mt-3 sm:mt-5 pl-5 sm:pl-6 md:pl-9 pr-4 sm:pr-6 md:pr-10 overflow-hidden break-words">
-                  <div className="absolute left-0 top-0 w-[10px] sm:w-[14px] md:w-[18px] xl:w-[24px] h-[8px] sm:h-[11px] md:h-[14px] xl:h-[18px]">
-                    <Image
-                      src="/images/vector.svg"
-                      alt=""
-                      fill
-                      className="object-contain object-top"
-                      aria-hidden
-                    />
-                  </div>
-                  <p>{testimonial.quote}</p>
-                  <p className="flex justify-end items-baseline mt-2">
-                    <span className="inline-flex shrink-0 w-[10px] sm:w-[14px] md:w-[18px] xl:w-[24px] h-[8px] sm:h-[11px] md:h-[14px] xl:h-[18px] relative">
-                      <Image
-                        src="/images/vector-open.svg"
-                        alt=""
-                        fill
-                        className="object-contain object-bottom"
-                        aria-hidden
-                      />
-                    </span>
-                  </p>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="hidden lg:flex absolute left-0 right-0 justify-between px-4 lg:px-12 xl:px-20 top-[calc(50%+6px)] xl:top-[calc(50%+65px)] 2xl:top-[calc(50%+80px)] -translate-y-1/2 pointer-events-none z-20">
+      <div className="relative mb-0 w-full pt-1 sm:mb-0 sm:pt-2 md:pt-3">
+        <div className="flex w-full items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-14 2xl:gap-16">
           <button
+            type="button"
             onClick={goToPrev}
-            className="relative w-[20px] lg:w-[24px] xl:w-[25px] h-[40px] lg:h-[55px] xl:h-[60px] rotate-180 pointer-events-auto cursor-pointer hover:opacity-80 transition-opacity"
+            className="relative hidden h-[40px] w-[20px] shrink-0 cursor-pointer transition-opacity hover:opacity-80 md:flex md:h-[48px] md:w-[22px] lg:h-[55px] lg:w-[24px] xl:h-[60px] xl:w-[25px] rotate-180 pointer-events-auto md:items-center md:justify-center"
             aria-label="Previous testimonial"
           >
             <Image
               src="/images/vector8.svg"
-              alt="Previous"
+              alt=""
               fill
               className="object-contain"
             />
           </button>
+
+          <div className="min-w-0 w-full max-w-[min(100%,26rem)] overflow-hidden max-[639px]:mx-auto max-[639px]:w-[calc(100%-1.5rem)] sm:max-w-[28rem] md:max-w-[30rem] lg:max-w-[32rem] xl:max-w-[36rem]">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+              }}
+            >
+              {extendedTestimonials.map((testimonial, index) => (
+                <div
+                  key={`${testimonial.id}-${index}`}
+                  className="relative flex w-full shrink-0 justify-center px-0.5 sm:px-1"
+                >
+                  <div className="relative flex w-full min-h-[200px] flex-col rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:min-h-[240px] sm:mt-4 sm:my-0 sm:p-4 md:min-h-[270px] md:p-6 md:px-6 xl:min-h-[310px] xl:p-10">
+                    <div className="flex shrink-0 items-start gap-2 self-start sm:gap-3 md:gap-4">
+                      <div className="relative h-[30px] w-[30px] shrink-0 overflow-hidden rounded-full sm:h-[40px] sm:w-[40px] md:h-[50px] md:w-[50px] xl:h-[66px] xl:w-[66px]">
+                        <Image
+                          src="/images/ellipse13.svg"
+                          alt="Avatar"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="mb-1 font-poppins text-[14px] leading-none text-black sm:text-[16px] md:text-[18px] xl:text-[20px] 2xl:text-[24px]">
+                          {testimonial.name}
+                        </h4>
+                        <p className="font-poppins text-[12px] leading-none text-black sm:text-[14px] md:text-[16px] xl:text-[20px] 2xl:text-[24px]">
+                          {testimonial.company}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 flex w-full justify-center sm:mt-10 md:mt-12">
+                      <div className="relative w-full max-w-[92%] overflow-hidden break-words pl-5 text-left font-poppins text-[11px] text-black sm:max-w-[88%] sm:pl-6 sm:text-[13px] md:max-w-[85%] md:pl-9 md:text-[16px] md:pr-6 xl:max-w-[82%] xl:text-[18px] 2xl:text-[24px] xl:pr-10">
+                        <div className="absolute left-0 top-0 h-[8px] w-[10px] sm:h-[11px] sm:w-[14px] md:h-[14px] md:w-[18px] xl:h-[18px] xl:w-[24px]">
+                          <Image
+                            src="/images/vector.svg"
+                            alt=""
+                            fill
+                            className="object-contain object-top"
+                            aria-hidden
+                          />
+                        </div>
+                        <p>loremjhebgjhdsbkjdvkjdkvhbjdhj</p>
+                        <p>hesbdjcsudyub</p>
+                        <p className="flex items-baseline gap-4">
+                          <span>sdbjhbdjhyvhsd</span>
+                          <span className="relative inline-flex h-[8px] w-[10px] shrink-0 sm:h-[11px] sm:w-[14px] md:h-[14px] md:w-[18px] xl:h-[18px] xl:w-[24px]">
+                            <Image
+                              src="/images/vector-open.svg"
+                              alt=""
+                              fill
+                              className="object-contain object-bottom"
+                              aria-hidden
+                            />
+                          </span>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          ))}
+            </div>
+          </div>
+
           <button
+            type="button"
             onClick={goToNext}
-            className="relative w-[20px] lg:w-[24px] xl:w-[25px] h-[40px] lg:h-[55px] xl:h-[60px] pointer-events-auto cursor-pointer hover:opacity-80 transition-opacity"
+            className="relative hidden h-[40px] w-[20px] shrink-0 cursor-pointer transition-opacity hover:opacity-80 md:flex md:h-[48px] md:w-[22px] lg:h-[55px] lg:w-[24px] xl:h-[60px] xl:w-[25px] pointer-events-auto md:items-center md:justify-center"
             aria-label="Next testimonial"
           >
             <Image
               src="/images/vector7.svg"
-              alt="Next"
+              alt=""
               fill
               className="object-contain"
             />
@@ -172,7 +189,7 @@ export default function Testimonials() {
         </div>
       </div>
 
-      <div className="testimonial-dots hidden md:flex gap-3 mt-4 sm:mt-6 mb-0 justify-center items-center">
+      <div className="testimonial-dots mt-5 mb-2 flex flex-wrap items-center justify-center gap-2 sm:mt-6 sm:mb-0 md:mb-3 md:gap-3 lg:mb-9">
         {testimonials.map((_, index) => (
           <button
             key={index}

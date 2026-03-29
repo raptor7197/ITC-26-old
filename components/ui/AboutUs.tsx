@@ -6,22 +6,28 @@ import Carousel3D from "./Carousel3D";
  * AboutUs Section - Main content only (header with zig-zag + timer is in HeroWithTimer)
  */
 export default function AboutUs() {
-  const contentPadding = "px-[5%] sm:px-5 md:px-6 lg:px-8 xl:px-[2.25%]";
+  /* Same horizontal inset as layout guide lines (dotted borders) */
+  const contentPadding =
+    "px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]";
 
   return (
     <section
       id="about"
-      className={`about-us-section relative w-full pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12 pb-4 sm:pb-6 md:pb-8 ${contentPadding} text-white overflow-x-hidden`}
+      className={`about-us-section relative w-full pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12 pb-1 sm:pb-2 md:pb-3 ${contentPadding} text-white`}
     >
       {/* ========== MAIN CONTENT ========== */}
       <div
-        className={`flex flex-col xl:flex-row gap-6 sm:gap-8 md:gap-10 xl:gap-16 w-full max-w-full min-w-0`}
+        className="flex w-full min-w-0 max-w-full flex-col gap-6 sm:gap-8 md:gap-10 xl:flex-row xl:items-center xl:gap-16"
       >
-        <div className="flex-1 min-w-0 overflow-hidden break-words ml-2 sm:ml-6 md:ml-8 lg:ml-10 xl:ml-12 mr-2 sm:mr-6 md:mr-8 lg:mr-10 xl:mr-12">
-          <h3 className="font-space-grotesk font-bold text-[22px] sm:text-[28px] md:text-[32px] lg:text-[38px] xl:text-[44px] leading-[1.2] mb-4 sm:mb-6 text-center md:text-left">
+        {/* Same inset as hero text column + vertically centered with carousel (xl+) */}
+        <div
+          className="flex min-h-0 min-w-0 flex-1 flex-col justify-center overflow-hidden break-words
+                     max-sm:px-3 sm:pl-5 md:pl-6 lg:pl-7 xl:pl-8 sm:pr-0"
+        >
+          <h3 className="mb-4 text-center font-space-grotesk text-[22px] font-bold leading-[1.2] sm:mb-6 sm:text-[28px] md:text-left md:text-[32px] lg:text-[38px] xl:text-[44px]">
             Welcome to ITC INDIA 2026
           </h3>
-          <div className="font-poppins text-[14px] sm:text-[16px] md:text-[17px] leading-[1.6] text-white/90 space-y-3 sm:space-y-4 text-center md:text-left">
+          <div className="space-y-3 text-center font-poppins text-[14px] leading-[1.6] text-white/90 sm:space-y-4 sm:text-[16px] md:text-left md:text-[17px]">
             <p>
               International Test Conference is the world&apos;s premier venue
               dedicated to the electronic test of devices, boards and
@@ -39,8 +45,10 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div className="flex-1 relative hidden md:flex items-center justify-center min-w-0">
-          <Carousel3D />
+        <div className="about-3d-column relative hidden min-h-0 min-w-0 flex-1 overflow-hidden md:flex md:items-center md:justify-center">
+          <div className="about-3d-carousel min-h-0 min-w-0 w-full max-w-full overflow-hidden">
+            <Carousel3D />
+          </div>
         </div>
       </div>
     </section>
