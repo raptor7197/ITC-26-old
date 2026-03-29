@@ -117,9 +117,11 @@ export default function RootLayout({
         </div>
 
         <AuthProvider>
-          <Navbar />
-          {children}
-          <Footer />
+          <div className="page-shell relative z-10 min-h-0 w-full max-w-none">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
         </AuthProvider>
       </body>
     </html>

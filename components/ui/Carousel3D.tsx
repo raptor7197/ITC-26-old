@@ -73,12 +73,11 @@ export default function Carousel3D() {
     setIsDragging(false);
   };
 
-  // Radius of the cylinder — cards sit on this circle
   const radius = 180;
 
   return (
     <div
-      className="relative w-full max-w-[420px] mx-auto xl:mx-0 xl:ml-8 select-none"
+      className="carousel-3d-root relative mx-auto min-h-0 min-w-0 w-full max-w-full overflow-hidden select-none xl:mx-0"
       style={{ perspective: "1000px" }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -87,80 +86,78 @@ export default function Carousel3D() {
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-      {/* Carousel container — aspect ratio keeps it proportional */}
-      <div className="relative w-full aspect-[5/3] flex items-center justify-center">
+      {/* No viewport scale — scale was overflowing/clipping and triggered scrollbars in some browsers */}
+      <div className="origin-[50%_50%] scale-100">
+        {/* Fixed heights (shorter at 2xl+) so 3D scene fits; overflow-hidden clips 3D paint */}
         <div
-          className="absolute w-[200px] sm:w-[220px] md:w-[240px] lg:w-[260px] h-full"
-          style={{
-            transformStyle: "preserve-3d",
-            transform: `rotateY(${rotation}deg)`,
-            transition: isDragging ? "none" : undefined,
-          }}
+          className="relative mx-auto flex w-full max-w-full items-center justify-center overflow-hidden
+                     h-[188px] sm:h-[205px] md:h-[222px] lg:h-[238px] xl:h-[252px] 2xl:h-[232px] min-[2200px]:h-[248px] min-[2800px]:h-[260px]"
         >
-          {carouselItems.map((item, index) => {
-            const angle = index * angleStep;
-            return (
-              <div
-                key={index}
-                className="absolute top-1/2 left-1/2 w-[200px] sm:w-[220px] md:w-[240px] lg:w-[260px] h-[120px] sm:h-[135px] md:h-[150px] lg:h-[160px]"
-                style={{
-                  transformStyle: "preserve-3d",
-                  transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`,
-                  backfaceVisibility: "hidden",
-                }}
-              >
-                {/* Card with curved appearance via shadow + border */}
+          <div
+            className="absolute w-[200px] sm:w-[220px] md:w-[240px] lg:w-[260px] h-full max-h-full"
+            style={{
+              transformStyle: "preserve-3d",
+              transform: `rotateY(${rotation}deg)`,
+              transition: isDragging ? "none" : undefined,
+            }}
+          >
+            {carouselItems.map((item, index) => {
+              const angle = index * angleStep;
+              return (
                 <div
-                  className={`
-                    relative w-full h-full rounded-3xl overflow-hidden
+                  key={index}
+                  className="absolute top-1/2 left-1/2 w-[200px] sm:w-[220px] md:w-[240px] lg:w-[260px] h-[120px] sm:h-[135px] md:h-[150px] lg:h-[160px]"
+                  style={{
+                    transformStyle: "preserve-3d",
+                    transform: `translate(-50%, -50%) rotateY(${angle}deg) translateZ(${radius}px)`,
+                    backfaceVisibility: "hidden",
+                  }}
+                >
+                  <div
+                    className={`
+                    relative h-full w-full cursor-grab overflow-hidden rounded-3xl border border-gray-200/80
                     bg-gradient-to-br ${item.bg}
-                    border border-gray-200/80
                     shadow-[0_4px_24px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.9)]
+                    active:cursor-grabbing
                     flex flex-col items-start justify-center
                     px-5 sm:px-6 md:px-7
-                    cursor-grab active:cursor-grabbing
                   `}
-                >
-                  {/* Subtle IEEE badge */}
-                  <div className="absolute top-2.5 right-3 flex items-center gap-1 opacity-40">
-                    <div className="w-[6px] h-[6px] rounded-full bg-blue-600" />
-                    <span className="text-[8px] sm:text-[9px] font-semibold text-gray-500 tracking-wider">
-                      IEEE
+                  >
+                    <div className="absolute right-3 top-2.5 flex items-center gap-1 opacity-40">
+                      <div className="h-[6px] w-[6px] rounded-full bg-blue-600" />
+                      <span className="text-[8px] font-semibold tracking-wider text-gray-500 sm:text-[9px]">
+                        IEEE
+                      </span>
+                    </div>
+
+                    <span className="font-space-grotesk text-[28px] font-bold leading-none tracking-tight text-[#022241] sm:text-[32px] md:text-[36px] lg:text-[40px]">
+                      {item.stat}
                     </span>
+
+                    <span className="mt-1 font-space-grotesk text-[13px] font-bold tracking-[0.08em] text-[#03396c] sm:text-[14px] md:text-[15px] lg:text-[16px]">
+                      {item.label}
+                    </span>
+
+                    <span className="mt-1.5 font-poppins text-[11px] text-gray-500 sm:text-[12px] md:text-[13px]">
+                      {item.detail}
+                    </span>
+
+                    <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#03396c] via-[#0557A7] to-[#03396c] opacity-60" />
                   </div>
-
-                  {/* Stat number */}
-                  <span className="font-space-grotesk font-bold text-[28px] sm:text-[32px] md:text-[36px] lg:text-[40px] leading-none text-[#022241] tracking-tight">
-                    {item.stat}
-                  </span>
-
-                  {/* Label */}
-                  <span className="font-space-grotesk font-bold text-[13px] sm:text-[14px] md:text-[15px] lg:text-[16px] text-[#03396c] tracking-[0.08em] mt-1">
-                    {item.label}
-                  </span>
-
-                  {/* Detail */}
-                  <span className="font-poppins text-[11px] sm:text-[12px] md:text-[13px] text-gray-500 mt-1.5">
-                    {item.detail}
-                  </span>
-
-                  {/* Bottom accent line */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#03396c] via-[#0557A7] to-[#03396c] opacity-60" />
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      {/* Reflection / shadow underneath */}
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-[30px] rounded-[50%] opacity-20 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)",
-        }}
-      />
+        <div
+          className="pointer-events-none absolute bottom-0 left-1/2 h-[24px] w-[60%] -translate-x-1/2 rounded-[50%] opacity-20 2xl:h-[20px]"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, rgba(0,0,0,0.5) 0%, transparent 70%)",
+          }}
+        />
+      </div>
     </div>
   );
 }

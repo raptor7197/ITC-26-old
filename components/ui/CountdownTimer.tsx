@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 type CountdownTimerProps = {
-  variant?: "default" | "compact" | "desktop";
+  variant?: "default" | "compact" | "desktop" | "capsule";
 };
 
 export default function CountdownTimer({
@@ -56,6 +56,27 @@ export default function CountdownTimer({
     { value: timeLeft.hours, label: "HOURS" },
     { value: timeLeft.minutes, label: "MINUTES" },
   ];
+
+  // Capsule: single row for mobile hero (below subtitle, above ABOUT US); outer shell is parallelogram in HeroWithTimer
+  if (variant === "capsule") {
+    return (
+      <div className="relative z-10 flex w-full items-center justify-between gap-2 px-1 font-sarpanch text-white">
+        {segments.map(({ value, label }) => (
+          <div
+            key={label}
+            className="flex min-w-0 flex-1 flex-col items-center justify-center text-center"
+          >
+            <span className="text-[clamp(15px,4.2vw,20px)] font-bold leading-none tabular-nums">
+              {value}
+            </span>
+            <span className="mt-0.5 text-[6px] font-medium tracking-wider">
+              {label}
+            </span>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   // Desktop: fills zig-zag gap, uses fluid typography so it always fits
   if (variant === "desktop") {

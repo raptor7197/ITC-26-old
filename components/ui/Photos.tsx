@@ -7,12 +7,14 @@ const photos = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
 
 export default function Photos() {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const extendedPhotos = [...photos, photos[0]];
   const totalSlides = photos.length;
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
-    }, 4000); // 4 seconds
+    }, 4000);
 
     return () => clearInterval(interval);
   }, [totalSlides]);
@@ -28,62 +30,71 @@ export default function Photos() {
   return (
     <section
       id="photos"
-      className="relative w-full mt-0 sm:mt-0 pt-4 sm:pt-10 md:pt-12 lg:pt-20 pb-8 sm:pb-12 md:pb-16 px-[5%] sm:px-4 md:px-6 lg:px-8 xl:px-[86px] flex flex-col items-center"
+      className="relative mt-0 flex w-full flex-col items-stretch pb-1 pt-6 sm:mt-0 sm:pb-2 sm:pt-3 md:pb-2 md:pt-4 lg:pb-3 lg:pt-5 px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]"
     >
-      <div className="max-[640px]:hidden absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[50px] sm:h-[60px] md:h-[70px] lg:h-[80px] xl:h-[100px] my-6 sm:my-8 md:my-10 pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
-        <div className="absolute inset-0 w-full h-full rotate-180 scale-y-[-1] scale-x-[-1]">
+      <div className="max-[640px]:hidden absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
+        <div className="absolute inset-0 h-full w-full rotate-180 scale-y-[-1]">
           <Image
             src="/images/vector11.svg"
             alt="Separator"
             fill
-            className="object-contain"
+            className="object-fill"
           />
         </div>
       </div>
 
-      <h2 className="font-angkor text-[28px] leading-[1.1] md:text-[32px] lg:text-[38px] xl:text-[44px] 2xl:text-[70px] text-white mb-4 md:mb-6 xl:mb-8 2xl:mb-12 relative xl:absolute top-0 md:top-0 xl:top-[40px] 2xl:top-[45px] xl:right-[3%] z-10 text-right w-full xl:w-auto whitespace-nowrap pr-2 max-[640px]:text-[24px] max-[640px]:mb-2 max-[640px]:px-3 max-[640px]:pr-3 max-[640px]:text-center max-[640px]:whitespace-normal">
-        PHOTOS SECTION
+      <h2 className="font-angkor angkor-section-title z-30 text-center text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:mt-10 max-[639px]:mb-4 max-[639px]:pt-2 sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mt-0 sm:mb-0 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:translate-y-2.5 sm:items-center sm:justify-center sm:pl-[49.2%] sm:pr-2 md:h-[100px] lg:h-[110px] xl:h-[123px]">
+        PHOTOS
       </h2>
 
-      <div className="relative w-full max-w-[1400px] overflow-hidden mx-auto pt-2 sm:pt-6 md:pt-8 xl:pt-[90px] 2xl:pt-[110px] mb-0">
-        <div
-          className="flex transition-transform duration-500 ease-in-out"
-          style={{
-            transform: `translateX(-${currentIndex * 100}%)`,
-          }}
-        >
-          {photos.map((photo, index) => (
-            <div
-              key={`${photo.id}-${index}`}
-              className="relative flex-shrink-0 w-full flex justify-center px-2"
-            >
-              <div className="w-[90%] sm:w-[80%] md:w-[70%] max-w-[600px] h-[180px] sm:h-[240px] md:h-[300px] lg:h-[350px] bg-[#d9d9d9] rounded-lg overflow-hidden"></div>
-            </div>
-          ))}
-        </div>
+      <div
+        className="hidden shrink-0 sm:block sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px]"
+        aria-hidden
+      />
 
-        {/* Navigation Arrows - Hidden on mobile and sm, visible on md and above */}
-        <div className="hidden md:flex absolute left-0 right-0 justify-between px-4 md:px-12 xl:px-20 top-[calc(50%+30px)] xl:top-[calc(50%+50px)] -translate-y-1/2 pointer-events-none z-20">
+      <div className="relative mb-0 w-full pt-1 sm:mb-0 sm:pt-2 md:pt-3">
+        <div className="flex w-full items-center justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 xl:gap-14 2xl:gap-16">
           <button
+            type="button"
             onClick={goToPrev}
-            className="relative w-[20px] md:w-[24px] xl:w-[25px] h-[40px] md:h-[55px] xl:h-[60px] rotate-180 pointer-events-auto cursor-pointer hover:opacity-80 transition-opacity"
+            className="relative hidden h-[40px] w-[20px] shrink-0 rotate-180 cursor-pointer transition-opacity hover:opacity-80 md:flex md:h-[48px] md:w-[22px] md:items-center md:justify-center lg:h-[55px] lg:w-[24px] xl:h-[60px] xl:w-[25px] pointer-events-auto"
             aria-label="Previous photo"
           >
             <Image
               src="/images/vector8.svg"
-              alt="Previous"
+              alt=""
               fill
               className="object-contain"
             />
           </button>
+
+          <div className="min-w-0 w-full max-w-[min(100%,26rem)] overflow-hidden max-[639px]:mx-auto max-[639px]:w-[calc(100%-1.5rem)] sm:max-w-[28rem] md:max-w-[30rem] lg:max-w-[32rem] xl:max-w-[36rem]">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+              }}
+            >
+              {extendedPhotos.map((photo, index) => (
+                <div
+                  key={`${photo.id}-${index}`}
+                  className="relative flex w-full shrink-0 justify-center px-0.5 sm:px-1"
+                >
+                  <div className="relative w-full min-h-[200px] rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:my-0 sm:mt-4 sm:min-h-[240px] sm:p-4 md:min-h-[270px] md:p-6 md:px-6 xl:min-h-[310px] xl:p-10" />
+                </div>
+              ))}
+            </div>
+          </div>
+
           <button
+            type="button"
             onClick={goToNext}
-            className="relative w-[20px] md:w-[24px] xl:w-[25px] h-[40px] md:h-[55px] xl:h-[60px] pointer-events-auto cursor-pointer hover:opacity-80 transition-opacity"
+            className="relative hidden h-[40px] w-[20px] shrink-0 cursor-pointer transition-opacity hover:opacity-80 md:flex md:h-[48px] md:w-[22px] md:items-center md:justify-center lg:h-[55px] lg:w-[24px] xl:h-[60px] xl:w-[25px] pointer-events-auto"
             aria-label="Next photo"
           >
             <Image
               src="/images/vector7.svg"
-              alt="Next"
+              alt=""
               fill
               className="object-contain"
             />
@@ -91,12 +102,13 @@ export default function Photos() {
         </div>
       </div>
 
-      <div className="testimonial-dots hidden md:flex gap-3 mt-4 sm:mt-6 mb-0 justify-center items-center">
+      <div className="testimonial-dots mt-5 mb-2 flex flex-wrap items-center justify-center gap-2 sm:mt-6 sm:mb-0 md:mb-3 md:gap-3 lg:mb-3">
         {photos.map((_, index) => (
           <button
             key={index}
+            type="button"
             onClick={() => setCurrentIndex(index)}
-            className={`w-[12px] h-[12px] min-w-[12px] min-h-[12px] max-w-[12px] max-h-[12px] rounded-full transition-all duration-300 flex-shrink-0 p-0 border-0 ${
+            className={`h-[12px] w-[12px] min-h-[12px] min-w-[12px] max-h-[12px] max-w-[12px] flex-shrink-0 rounded-full border-0 p-0 transition-all duration-300 ${
               currentIndex === index
                 ? "bg-white opacity-100"
                 : "bg-white opacity-30 hover:opacity-50"

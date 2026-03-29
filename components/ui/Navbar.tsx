@@ -55,8 +55,11 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-7 left-1/2 -translate-x-1/2 w-fit h-[68px] border-[2px] border-white items-center justify-center gap-10 px-10 z-50 bg-[#03396c]/95 backdrop-blur-md hidden xl:flex transition-all duration-300">
-        <div className="flex gap-6 xl:gap-10 h-full items-center">
+      <nav
+        className="fixed top-7 left-1/2 z-50 hidden h-[68px] w-fit max-w-[calc(100vw-1.5rem)] -translate-x-1/2 flex flex-row items-center border-2 border-white bg-[#03396c]/40 px-7 backdrop-blur-md transition-all duration-300 xl:flex xl:px-10"
+        aria-label="Primary"
+      >
+        <div className="flex h-full items-center gap-6 xl:gap-10">
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -64,7 +67,7 @@ export default function Navbar() {
             >
               {link.dropdown ? (
                 <div className="relative h-full flex items-center cursor-pointer group">
-                  <span className="font-poppins font-bold text-[16px] xl:text-[20px] text-white group-hover:text-gray-300 transition-colors flex items-center gap-1">
+                  <span className="font-poppins font-bold uppercase tracking-wide text-[15px] text-white group-hover:text-gray-200 transition-colors flex items-center gap-1.5 xl:text-[16px]">
                     {link.name}
                     <svg
                       className="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180"
@@ -97,7 +100,7 @@ export default function Navbar() {
               ) : (
                 <Link
                   href={link.href!}
-                  className="font-poppins font-bold text-[16px] xl:text-[20px] text-white hover:text-gray-300 transition-colors whitespace-nowrap"
+                  className="font-poppins font-bold uppercase tracking-wide text-[15px] text-white hover:text-gray-200 transition-colors whitespace-nowrap xl:text-[16px]"
                 >
                   {link.name}
                 </Link>
@@ -110,7 +113,7 @@ export default function Navbar() {
             pathname === "/fellowship" ||
             pathname === "/fellowship/register" ||
             pathname === "/dashboard") && (
-            <div className="ml-auto flex gap-3">
+            <div className="ml-5 flex shrink-0 gap-2 border-l border-white/35 pl-5 xl:ml-8 xl:gap-3 xl:pl-8">
               {(pathname === "/fellowship/application" ||
                 pathname === "/fellowship" ||
                 pathname === "/fellowship/register") && (

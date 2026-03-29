@@ -59,11 +59,11 @@ export default function Timeline() {
         />
       </div>
 
-      <h2 className="font-angkor text-[40px] leading-[1.1] md:text-[50px] lg:text-[60px] xl:text-[75px] text-white mb-8 md:mb-12 xl:mb-20 relative xl:absolute top-[25px] md:top-[20px] left-[9%] md:left-[7%] xl:left-[10%] z-10 text-left w-full xl:w-auto max-[640px]:text-[28px] max-[640px]:mb-4 max-[640px]:top-0 max-[640px]:!left-auto max-[640px]:px-3 max-[640px]:text-center">
+      <h2 className="font-angkor angkor-section-title angkor-heading-gutter text-white mb-8 md:mb-12 xl:mb-20 relative xl:absolute top-[25px] md:top-[20px] left-[9%] md:left-[7%] xl:left-[10%] z-10 text-left w-full xl:w-auto max-[640px]:mb-4 max-[640px]:top-0 max-[640px]:!left-auto max-[640px]:text-center">
         TIMELINE
       </h2>
 
-      <div className="relative w-full max-w-[1360px] flex flex-col items-center mt-0 sm:mt-12 md:mt-16 xl:mt-0">
+      <div className="relative w-full max-w-full flex flex-col items-center mt-0 sm:mt-12 md:mt-16 xl:mt-0">
         <div className="absolute top-[60px] sm:top-[70px] md:top-[80px] xl:top-[90px] left-0 w-full h-[250px] sm:h-[300px] md:h-[320px] xl:h-[480px] z-0 pointer-events-none opacity-50">
           <Image
             src="/images/vector12.svg"
@@ -78,7 +78,7 @@ export default function Timeline() {
           className="relative z-10 w-full max-w-full flex justify-center items-center mb-6 sm:mb-12 cursor-pointer"
           onClick={() => setSelectedDay(1)}
         >
-          <div className="relative w-full max-w-[90%] sm:max-w-[450px] md:max-w-[500px] xl:max-w-[525px] aspect-[525/175] h-auto hover:scale-105 transition-transform duration-300">
+          <div className="relative w-full max-w-full aspect-[525/175] h-auto px-2 sm:px-4 md:px-6 hover:scale-105 transition-transform duration-300">
             <Image
               src="/images/timeline-card1.svg"
               alt="Day 1 Event"
@@ -95,7 +95,7 @@ export default function Timeline() {
           className="relative z-10 w-full max-w-full flex justify-center items-center mb-6 sm:mb-12 cursor-pointer"
           onClick={() => setSelectedDay(2)}
         >
-          <div className="relative w-full max-w-[90%] sm:max-w-[450px] md:max-w-[500px] xl:max-w-[525px] aspect-[525/175] h-auto rotate-180 hover:scale-105 transition-transform duration-300">
+          <div className="relative w-full max-w-full aspect-[525/175] h-auto rotate-180 px-2 sm:px-4 md:px-6 hover:scale-105 transition-transform duration-300">
             <Image
               src="/images/timeline-card2.svg"
               alt="Day 2 Event"
@@ -112,7 +112,7 @@ export default function Timeline() {
           className="relative z-10 w-full max-w-full flex justify-center items-center cursor-pointer"
           onClick={() => setSelectedDay(3)}
         >
-          <div className="relative w-full max-w-[90%] sm:max-w-[450px] md:max-w-[500px] xl:max-w-[525px] aspect-[525/175] h-auto hover:scale-105 transition-transform duration-300">
+          <div className="relative w-full max-w-full aspect-[525/175] h-auto px-2 sm:px-4 md:px-6 hover:scale-105 transition-transform duration-300">
             <Image
               src="/images/timeline-card3.svg"
               alt="Day 3 Event"
@@ -143,7 +143,7 @@ export default function Timeline() {
               <div className="w-8 h-16 sm:w-10 sm:h-20 md:w-12 md:h-24 lg:w-14 lg:h-28 xl:w-16 xl:h-32 rounded-full bg-gradient-to-b from-[#6366f1] via-[#4f46e5] to-[#3730a3] border-2 border-[#818cf8] flex-shrink-0 hidden sm:block" />
 
               {/* Rectangle body */}
-              <div className="bg-gradient-to-b from-[#1e1b4b] via-[#312e81] to-[#1e1b4b] border-2 border-[#818cf8] rounded-r-2xl p-4 sm:p-6 md:p-8 max-w-[90%] sm:max-w-[450px] md:max-w-[500px] lg:max-w-[550px] max-h-[70vh] overflow-y-auto ml-0 sm:ml-[-8px]">
+              <div className="bg-gradient-to-b from-[#1e1b4b] via-[#312e81] to-[#1e1b4b] border-2 border-[#818cf8] rounded-r-2xl p-4 sm:p-6 md:p-8 w-[min(100%,calc(100vw-2rem))] max-w-full max-h-[70vh] overflow-y-auto ml-0 sm:ml-[-8px]">
                 <button
                   onClick={() => setSelectedDay(null)}
                   className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white hover:text-red-400 text-xl sm:text-2xl font-bold"
