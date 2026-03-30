@@ -3,6 +3,15 @@
 :root {
     --background: #03396c;
     --foreground: #ffffff;
+    /* Scrollbar — deep channel + lit thumb (site blues / white highlights) */
+    --scrollbar-track-fade: rgba(2, 34, 65, 0.45);
+    --scrollbar-channel: rgba(3, 57, 108, 0.25);
+    --scrollbar-thumb-top: rgba(255, 255, 255, 0.2);
+    --scrollbar-thumb-mid: #3b7eb8;
+    --scrollbar-thumb-core: #0557a7;
+    --scrollbar-thumb-depth: #021a33;
+    --scrollbar-glow: rgba(106, 175, 241, 0.4);
+    --scrollbar-glow-strong: rgba(106, 175, 241, 0.55);
 }
 
 /* Full viewport width — never cap the app column (survives stale CSS / third-party) */
@@ -41,6 +50,9 @@ html {
     max-width: 100%;
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
+    color-scheme: dark;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-mid) var(--scrollbar-channel);
 }
 
 body {
@@ -50,6 +62,176 @@ body {
     background: var(--background);
     color: var(--foreground);
     font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+}
+
+/* WebKit — 15px bar; strip stepper arrows (often drawn as button background images, esp. Linux GTK) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+}
+
+/* Collapse buttons + remove default arrow bitmaps / masks */
+html::-webkit-scrollbar-button,
+body::-webkit-scrollbar-button,
+*::-webkit-scrollbar-button {
+    display: block !important;
+    width: 0 !important;
+    min-width: 0 !important;
+    max-width: 0 !important;
+    height: 0 !important;
+    min-height: 0 !important;
+    max-height: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    background: transparent !important;
+    background-image: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+html::-webkit-scrollbar-button:single-button,
+body::-webkit-scrollbar-button:single-button,
+*::-webkit-scrollbar-button:single-button,
+html::-webkit-scrollbar-button:double-button,
+body::-webkit-scrollbar-button:double-button,
+*::-webkit-scrollbar-button:double-button {
+    display: block !important;
+    width: 0 !important;
+    height: 0 !important;
+    background-image: none !important;
+    -webkit-mask-image: none !important;
+}
+
+/* Chromium also exposes :decrement / :increment without :start/:end */
+html::-webkit-scrollbar-button:decrement,
+html::-webkit-scrollbar-button:increment,
+body::-webkit-scrollbar-button:decrement,
+body::-webkit-scrollbar-button:increment,
+*::-webkit-scrollbar-button:decrement,
+*::-webkit-scrollbar-button:increment,
+html::-webkit-scrollbar-button:vertical:decrement,
+html::-webkit-scrollbar-button:vertical:increment,
+html::-webkit-scrollbar-button:horizontal:decrement,
+html::-webkit-scrollbar-button:horizontal:increment,
+body::-webkit-scrollbar-button:vertical:decrement,
+body::-webkit-scrollbar-button:vertical:increment,
+body::-webkit-scrollbar-button:horizontal:decrement,
+body::-webkit-scrollbar-button:horizontal:increment,
+*::-webkit-scrollbar-button:vertical:decrement,
+*::-webkit-scrollbar-button:vertical:increment,
+*::-webkit-scrollbar-button:horizontal:decrement,
+*::-webkit-scrollbar-button:horizontal:increment,
+html::-webkit-scrollbar-button:vertical:start:decrement,
+html::-webkit-scrollbar-button:vertical:end:increment,
+html::-webkit-scrollbar-button:horizontal:start:decrement,
+html::-webkit-scrollbar-button:horizontal:end:increment,
+body::-webkit-scrollbar-button:vertical:start:decrement,
+body::-webkit-scrollbar-button:vertical:end:increment,
+body::-webkit-scrollbar-button:horizontal:start:decrement,
+body::-webkit-scrollbar-button:horizontal:end:increment,
+*::-webkit-scrollbar-button:vertical:start:decrement,
+*::-webkit-scrollbar-button:vertical:end:increment,
+*::-webkit-scrollbar-button:horizontal:start:decrement,
+*::-webkit-scrollbar-button:horizontal:end:increment,
+html::-webkit-scrollbar-button:vertical:double-button:start:decrement,
+html::-webkit-scrollbar-button:vertical:double-button:end:increment,
+html::-webkit-scrollbar-button:horizontal:double-button:start:decrement,
+html::-webkit-scrollbar-button:horizontal:double-button:end:increment,
+body::-webkit-scrollbar-button:vertical:double-button:start:decrement,
+body::-webkit-scrollbar-button:vertical:double-button:end:increment,
+body::-webkit-scrollbar-button:horizontal:double-button:start:decrement,
+body::-webkit-scrollbar-button:horizontal:double-button:end:increment,
+*::-webkit-scrollbar-button:vertical:double-button:start:decrement,
+*::-webkit-scrollbar-button:vertical:double-button:end:increment,
+*::-webkit-scrollbar-button:horizontal:double-button:start:decrement,
+*::-webkit-scrollbar-button:horizontal:double-button:end:increment {
+    display: block !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+    background: transparent !important;
+    background-image: none !important;
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+}
+
+*::-webkit-scrollbar-track {
+    margin: 0;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--scrollbar-track-fade) 15%,
+        var(--scrollbar-track-fade) 85%,
+        transparent
+    );
+    border-radius: 100px;
+}
+
+*::-webkit-scrollbar-track:horizontal {
+    margin: 0;
+    background: linear-gradient(
+        180deg,
+        transparent,
+        var(--scrollbar-track-fade) 15%,
+        var(--scrollbar-track-fade) 85%,
+        transparent
+    );
+}
+
+*::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: linear-gradient(
+        180deg,
+        var(--scrollbar-thumb-top) 0%,
+        rgba(255, 255, 255, 0.06) 12%,
+        var(--scrollbar-thumb-mid) 38%,
+        var(--scrollbar-thumb-core) 58%,
+        var(--scrollbar-thumb-depth) 100%
+    );
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow:
+        0 0 12px var(--scrollbar-glow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.22),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(106, 175, 241, 0.55) 28%,
+        #4d93d4 50%,
+        #0557a7 72%,
+        #021a33 100%
+    );
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow:
+        0 0 16px var(--scrollbar-glow-strong),
+        inset 0 1px 0 rgba(255, 255, 255, 0.32),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+*::-webkit-scrollbar-thumb:active {
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.15) 0%,
+        #2d6aa3 45%,
+        #022241 100%
+    );
+    box-shadow:
+        0 0 8px rgba(5, 87, 167, 0.5),
+        inset 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+*::-webkit-scrollbar-corner {
+    background: transparent;
 }
 
 .font-space-grotesk {
