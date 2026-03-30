@@ -10,6 +10,7 @@ const testimonials = [
     company: "Synopsys",
     quote:
       "ITC was fantastic. It was a huge conference as the one in the States, which I've been to for, you know, 30 something years, but this one was really great.",
+    img: "/images/ellipse13.svg",
   },
   {
     id: 2,
@@ -17,14 +18,15 @@ const testimonials = [
     company: "NXP Semiconductor",
     quote:
       "It was really exciting to see the energy and the combination of the young and experienced engineers.",
+    img: "/images/ellipse13.svg",
   },
   {
     id: 3,
     name: "Dr. Sakthivel Ramachandran",
-    company:
-      "Associate Dean, School of Electronics Engineering, VIT Vellore",
+    company: "Associate Dean, School of Electronics Engineering, VIT Vellore",
     quote:
       "This is one of the beautiful workshops as this conference aims for promoting testing all over India.",
+    img: "/images/ellipse13.svg",
   },
   {
     id: 4,
@@ -32,12 +34,14 @@ const testimonials = [
     company: "Synopsys",
     quote:
       "I really enjoyed the ambience around it, the energy that the different tech guys were having here, it was quite the enjoyable ambience for me.",
+    img: "/images/ellipse13.svg",
   },
   {
     id: 5,
     name: "Suresh Babu",
     company: "Caliber Interconnect",
     quote: "I appreciate the IEEE organising committee.",
+    img: "/images/ellipse13.svg",
   },
 ];
 
@@ -124,7 +128,7 @@ export default function Testimonials() {
                     <div className="flex shrink-0 items-start gap-2 self-start sm:gap-3 md:gap-4">
                       <div className="relative h-[30px] w-[30px] shrink-0 overflow-hidden rounded-full sm:h-[40px] sm:w-[40px] md:h-[50px] md:w-[50px] xl:h-[66px] xl:w-[66px]">
                         <Image
-                          src="/images/ellipse13.svg"
+                          src={testimonial.img}
                           alt="Avatar"
                           fill
                           className="object-cover"
@@ -151,10 +155,8 @@ export default function Testimonials() {
                             aria-hidden
                           />
                         </div>
-                        <p>loremjhebgjhdsbkjdvkjdkvhbjdhj</p>
-                        <p>hesbdjcsudyub</p>
                         <p className="flex items-baseline gap-4">
-                          <span>sdbjhbdjhyvhsd</span>
+                          <span>{testimonial.quote}</span>
                           <span className="relative inline-flex h-[8px] w-[10px] shrink-0 sm:h-[11px] sm:w-[14px] md:h-[14px] md:w-[18px] xl:h-[18px] xl:w-[24px]">
                             <Image
                               src="/images/vector-open.svg"
@@ -168,8 +170,8 @@ export default function Testimonials() {
                       </div>
                     </div>
                   </div>
-            </div>
-          ))}
+                </div>
+              ))}
             </div>
           </div>
 
