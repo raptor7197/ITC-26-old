@@ -60,7 +60,7 @@ export default function CountdownTimer({
   // Capsule: single row for mobile hero (below subtitle, above ABOUT US); outer shell is parallelogram in HeroWithTimer
   if (variant === "capsule") {
     return (
-      <div className="relative z-10 flex w-full items-center justify-between gap-2 px-1 font-sarpanch text-white">
+      <div className="relative z-10 flex w-full items-center justify-evenly gap-1.5 px-0 font-sarpanch text-white">
         {segments.map(({ value, label }) => (
           <div
             key={label}
