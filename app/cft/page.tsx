@@ -171,7 +171,7 @@ export default function CallForTutorials() {
                   <p className="text-xs text-gray-300 uppercase">
                     Tutorial submission deadline
                   </p>
-                  <p className="text-lg font-semibold">CLOSED</p>
+                  <p className="text-lg font-semibold">15th April, 2026</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-300 uppercase">
@@ -185,6 +185,22 @@ export default function CallForTutorials() {
                   </p>
                   <p className="text-lg font-semibold">13th June, 2026</p>
                 </div>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
+                <a
+                  href="https://easychair.org/my/conference?conf=itcindia2026"
+                  className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
+                >
+                  SUBMIT TUTORIAL
+                </a>
+                <a
+                  href="/ITC_India_2026_Tutorial_Proposal_Template.pdf"
+                  download="ITC_India_2026_Tutorial_Proposal_Template.pdf"
+                  className="block w-full bg-transparent border-2 border-[#6aaff1] hover:bg-[#6aaff1]/20 text-white font-bold text-center py-3 rounded transition-colors"
+                >
+                  DOWNLOAD IEEE TEMPLATE
+                </a>
               </div>
             </div>
 
