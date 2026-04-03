@@ -18,9 +18,7 @@ export default function CallForTutorials() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Main Content Column */}
           <div className="lg:col-span-2 space-y-12">
-            {/* Submission Guidelines */}
             <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Submission Guidelines
@@ -77,7 +75,6 @@ export default function CallForTutorials() {
               </ul>
             </section>
 
-            {/* Call for Submission Text */}
             <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Call for Submission
@@ -108,7 +105,6 @@ export default function CallForTutorials() {
               </div>
             </section>
 
-            {/* Topics of Interest */}
             <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Topics of Interest
@@ -165,9 +161,7 @@ export default function CallForTutorials() {
             </section>
           </div>
 
-          {/* Sidebar Information */}
           <div className="lg:col-span-1 space-y-8">
-            {/* Important Dates Box */}
             <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Important Dates
@@ -177,7 +171,7 @@ export default function CallForTutorials() {
                   <p className="text-xs text-gray-300 uppercase">
                     Tutorial submission deadline
                   </p>
-                  <p className="text-lg font-semibold">31st March, 2026</p>
+                  <p className="text-lg font-semibold">CLOSED</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-300 uppercase">
@@ -194,7 +188,6 @@ export default function CallForTutorials() {
               </div>
             </div>
 
-            {/* Contact Info */}
             <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300">
               <h4 className="font-bold text-white mb-2">Need Help?</h4>
               <p className="mb-4">

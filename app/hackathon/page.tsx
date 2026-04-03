@@ -504,6 +504,19 @@ export default function HackathonPage() {
                     rules or exhibiting misconduct.
                   </span>
                 </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#6aaff1] mt-1">▸</span>
+                  <span>
+                    The initial project proposal submission is limited to
+                    2-pages and must be submitted by the due date. Feedback will
+                    be provided to all the teams by the ART committee to help
+                    complete the proposed research.
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="text-[#6aaff1] mt-1">▸</span>
+                  <span>Submission to be made through EasyChair.</span>
+                </li>
               </ul>
             </div>
           </div>

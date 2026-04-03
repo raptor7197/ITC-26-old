@@ -16,6 +16,7 @@ const navLinks = [
       { name: "CFP", href: "/cfp" },
       { name: "CFT", href: "/cft" },
       { name: "ART", href: "/art" },
+      { name: "POSTERS", href: "/call-for-posters" },
       { name: "HACKATHON", href: "/hackathon" },
       { name: "FELLOWSHIP", href: "/fellowship" },
     ],

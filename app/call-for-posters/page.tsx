@@ -1,10 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
-export default function CallForPapers() {
+export default function CallForPosters() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1360px] mx-auto flex flex-col">
+        {/* Header Section */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 md:gap-5 mb-4">
             <Image
@@ -12,7 +13,7 @@ export default function CallForPapers() {
               alt="ITC Logo"
               width={60}
               height={60}
-              className="w-9/12 h-9/12 md:w-14 md:h-14 object-contain mb-9"
+              className="w-10 h-10 md:w-14 md:h-14 object-contain"
             />
             <h1 className="text-3xl md:text-5xl font-bold">
               10th IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
@@ -22,7 +23,7 @@ export default function CallForPapers() {
             JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
           </p>
           <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white">
-            Call for Papers
+            Call for Posters
           </h2>
         </div>
 
@@ -41,22 +42,19 @@ export default function CallForPapers() {
                   technologies.
                 </p>
                 <p>
-                  We seek high-quality unpublished submissions for papers (4-6
-                  pages) and posters (1-6 pages) covering the theoretical,
-                  practical, and experimental aspects of VLSI testing.
+                  We seek high-quality unpublished submissions for posters (1-6
+                  pages) covering the theoretical, practical, and experimental
+                  aspects of VLSI testing.
                 </p>
               </div>
             </section>
 
+            {/* Submission Format */}
             <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Submission Format
               </h3>
               <ul className="list-disc list-outside ml-5 space-y-3 text-gray-200">
-                <li>
-                  <strong>Full Papers:</strong> 4-6 pages following IEEE
-                  standard two-column format
-                </li>
                 <li>
                   <strong>Posters:</strong> 1-6 pages following IEEE standard
                   two-column format
@@ -68,6 +66,7 @@ export default function CallForPapers() {
               </ul>
             </section>
 
+            {/* Review Process */}
             <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Review Process
@@ -85,6 +84,7 @@ export default function CallForPapers() {
               </ul>
             </section>
 
+            {/* Submission Guidelines */}
             <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Submission Guidelines
@@ -95,18 +95,13 @@ export default function CallForPapers() {
                   conference, symposium or journal, will be summarily rejected
                 </li>
                 <li>
-                  Accepted papers will be submitted for inclusion into IEEE
-                  Xplore subject to meeting IEEE Xplore&apos;s scope and quality
-                  requirements
-                </li>
-                <li>
                   For detailed information about the submission process,
                   requirements and deadlines, the selection process and any
                   other questions regarding the program itself or contact
                   information, please consult the ITC India web site at{" "}
                   <a
                     href="https://itctestweekindia.org"
-                    className="text-blue-300 hover:text-blue-100 underline"
+                    className="text-blue-300 hover:text-blue-100 underline break-all"
                   >
                     https://itctestweekindia.org
                   </a>{" "}
@@ -123,7 +118,7 @@ export default function CallForPapers() {
                   submission site
                 </li>
                 <li>
-                  An electronic copy of a complete paper up to 6 pages,
+                  An electronic copy of a complete poster (1-6 pages),
                   double-columned in IEEE Format, A4 size (
                   <a
                     href="https://www.ieee.org/conferences/publishing/templates.html"
@@ -148,14 +143,10 @@ export default function CallForPapers() {
                   bibliographic citations to the author(s) own published works
                   or affiliations should be made in the third person
                 </li>
-                <li>
-                  A submission of 1-3 pages will be reviewed as a poster
-                  submission. A submission of 4-6 pages may be accepted as a
-                  paper or poster depending on the reviewer feedback
-                </li>
               </ul>
             </section>
 
+            {/* Conference Tracks & Suggested Topics */}
             <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Conference Tracks & Suggested Topics
@@ -240,7 +231,9 @@ export default function CallForPapers() {
             </section>
           </div>
 
+          {/* Sidebar Information */}
           <div className="lg:col-span-1 space-y-8">
+            {/* Important Dates Box */}
             <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg sticky top-24">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Important Dates
@@ -248,15 +241,9 @@ export default function CallForPapers() {
               <div className="space-y-4">
                 <div>
                   <p className="text-xs text-gray-300 uppercase">
-                    Abstract Submission Deadline
+                    Poster Submission Deadline
                   </p>
-                  <p className="text-lg font-semibold">CLOSED</p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-300 uppercase">
-                    Paper Submission Deadline
-                  </p>
-                  <p className="text-lg font-semibold">CLOSED</p>
+                  <p className="text-lg font-semibold">15th April, 2026</p>
                 </div>
                 <div>
                   <p className="text-xs text-gray-300 uppercase">
@@ -264,25 +251,26 @@ export default function CallForPapers() {
                   </p>
                   <p className="text-lg font-semibold">10th May, 2026</p>
                 </div>
-                <div>
-                  <p className="text-xs text-gray-300 uppercase">
-                    Camera-ready Paper and IEEE Copyright Transfer Due
-                  </p>
-                  <p className="text-lg font-semibold">31st May 2026</p>
-                </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/10">
+              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
                 <a
                   href="https://easychair.org/conferences/?conf=itcindia2026"
                   className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
                 >
-                  SUBMIT PAPER
+                  SUBMIT POSTER
+                </a>
+                <a
+                  href="https://www.ieee.org/conferences/publishing/templates.html"
+                  className="block w-full bg-transparent border-2 border-[#6aaff1] hover:bg-[#6aaff1]/20 text-white font-bold text-center py-3 rounded transition-colors"
+                >
+                  DOWNLOAD IEEE TEMPLATE
                 </a>
               </div>
             </div>
 
-            <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300 lg:!mt-49">
+            {/* Contact Info */}
+            <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300 lg:!mt-20">
               <h4 className="font-bold text-white mb-2">Need Help?</h4>
               <p className="mb-4">
                 For detailed information about the submission process,
@@ -297,7 +285,7 @@ export default function CallForPapers() {
                   </span>
                   <a
                     href="https://itctestweekindia.org"
-                    className="text-blue-300 hover:underline"
+                    className="text-blue-300 hover:underline break-all"
                   >
                     itctestweekindia.org
                   </a>
@@ -314,7 +302,6 @@ export default function CallForPapers() {
                   </a>
                 </p>
               </div>
-
             </div>
           </div>
         </div>
