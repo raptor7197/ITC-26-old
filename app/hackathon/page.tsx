@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
 
+/**
+ * Horizontal inset: guide line position plus a fixed gutter so content does not sit on the dashes.
+ * Guide lines remain at 5% / 4% / …; padding is that value + rem for breathing room.
+ */
+const guidePadding =
+  "px-[calc(5%+1rem)] sm:px-[calc(4%+1.25rem)] md:px-[calc(3%+1.5rem)] lg:px-[calc(2.5%+1.75rem)] xl:px-[calc(2.25%+2rem)]";
+
 export default function HackathonPage() {
   return (
-    <main className="min-h-screen relative bg-[#03396c] text-white font-poppins overflow-hidden selection:bg-white/20">
+    <main className="relative min-h-screen w-full min-w-0 max-w-full overflow-x-hidden bg-[#03396c] font-poppins text-white selection:bg-white/20">
       <div
         className="absolute inset-0 z-0 opacity-10 pointer-events-none"
         style={{
@@ -33,19 +40,26 @@ export default function HackathonPage() {
         aria-hidden
       />
 
-      <div className="absolute top-[120px] right-15 w-[80%] h-[600px] z-0 pointer-events-none hidden lg:block opacity-60">
-        <div className="relative w-full h-full">
+      {/* Decorative art: aligned to right guide, width capped so it stays in the lane */}
+      <div
+        className="pointer-events-none absolute top-[120px] right-[5%] z-0 hidden h-[600px] w-[min(40vw,26rem)] min-w-0 max-w-[calc(100%-11rem)] opacity-60 sm:right-[4%] md:right-[3%] lg:block lg:right-[2.5%] xl:right-[2.25%]"
+        aria-hidden
+      >
+        <div className="relative h-full w-full min-w-0">
           <Image
             src="/images/fellowship-schematic.png"
-            alt="Circuit Schematic"
+            alt=""
             fill
             className="object-contain object-right-top"
           />
         </div>
       </div>
 
-      <div className="relative z-10 pt-[150px] pb-20 px-6 md:px-16 max-w-[1400px] mx-auto flex flex-col">
-        <div className="max-w-4xl mb-20 relative">
+      <div
+        className={`relative z-10 w-full min-w-0 max-w-full box-border pt-[150px] pb-20 ${guidePadding}`}
+      >
+        <div className="mx-auto flex w-full min-w-0 max-w-full flex-col [overflow-wrap:anywhere] lg:max-w-[1400px]">
+          <div className="relative mb-20 min-w-0 max-w-4xl">
           <div className="mb-6">
             <p className="text-sm md:text-base font-semibold text-[#6aaff1] uppercase tracking-wider mb-2">
               ITC India 2026 Presents
@@ -58,7 +72,7 @@ export default function HackathonPage() {
             </h2>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex min-w-0 flex-col sm:flex-row gap-4 mb-12">
             <Link href="/hackathon/register">
               <button className="bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] text-lg md:text-xl font-bold py-4 px-10 rounded-lg shadow-[0_0_20px_rgba(106,175,241,0.3)] transition-all duration-300 uppercase tracking-wider">
                 Register Now
@@ -71,8 +85,8 @@ export default function HackathonPage() {
             </Link>
           </div>
 
-          <div className="bg-white/10 backdrop-blur-md p-6 pr-4 rounded-lg border border-white/20 shadow-xl">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="min-w-0 bg-white/10 backdrop-blur-md p-6 pr-4 rounded-lg border border-white/20 shadow-xl">
+            <div className="grid min-w-0 grid-cols-1 md:grid-cols-3 gap-6">
               <div>
                 <p className="text-xs text-gray-300 uppercase mb-1">Date</p>
                 <p className="text-xl md:text-2xl font-bold text-[#6aaff1]">
@@ -98,13 +112,13 @@ export default function HackathonPage() {
           {/*<div className="absolute right-[30%] top-0 w-20 h-20 border-t border-r border-dashed border-white/30 transform skew-x-45 origin-top-left"></div>*/}
         </div>
 
-        <div id="details" className="mb-16 scroll-mt-32">
+        <div id="details" className="mb-16 min-w-0 scroll-mt-32">
           <h2 className="text-4xl md:text-5xl font-bold uppercase leading-none mb-8">
             About the Hackathon
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-[#6aaff1] to-transparent mb-8"></div>
 
-          <div className="bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-white/10 shadow-xl">
+          <div className="min-w-0 bg-white/5 backdrop-blur-sm p-8 md:p-12 rounded-lg border border-white/10 shadow-xl">
             <p className="text-lg md:text-xl leading-relaxed text-gray-200 mb-6">
               Join us for an electrifying 48-hour innovation marathon where
               brilliant minds converge to solve real-world challenges in
@@ -122,14 +136,14 @@ export default function HackathonPage() {
           </div>
         </div>
 
-        <div className="mb-16">
+        <div className="mb-16 min-w-0">
           <h2 className="text-4xl md:text-5xl font-bold uppercase leading-none mb-8">
             Hackathon Themes
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-[#6aaff1] to-transparent mb-8"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
+          <div className="grid min-w-0 grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="min-w-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
               <div className="text-3xl mb-4">🔬</div>
               <h3 className="text-xl md:text-2xl font-bold mb-3">
                 AI/ML in Testing
@@ -140,7 +154,7 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
+            <div className="min-w-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
               <div className="text-3xl mb-4">🛡️</div>
               <h3 className="text-xl md:text-2xl font-bold mb-3">
                 Hardware Security
@@ -151,7 +165,7 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
+            <div className="min-w-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
               <div className="text-3xl mb-4">⚡</div>
               <h3 className="text-xl md:text-2xl font-bold mb-3">
                 Low-Power Design
@@ -163,7 +177,7 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
+            <div className="min-w-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
               <div className="text-3xl mb-4">🔧</div>
               <h3 className="text-xl md:text-2xl font-bold mb-3">
                 DFT Innovation
@@ -174,7 +188,7 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
+            <div className="min-w-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
               <div className="text-3xl mb-4">📊</div>
               <h3 className="text-xl md:text-2xl font-bold mb-3">
                 Test Data Analytics
@@ -185,7 +199,7 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
+            <div className="min-w-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/20 hover:border-[#6aaff1]/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(106,175,241,0.2)]">
               <div className="text-3xl mb-4">🎯</div>
               <h3 className="text-xl md:text-2xl font-bold mb-3">
                 Open Innovation
@@ -198,13 +212,13 @@ export default function HackathonPage() {
           </div>
         </div>
 
-        <div className="mb-16">
+        <div className="mb-16 min-w-0">
           {/*<h2 className="text-4xl md:text-5xl font-bold uppercase leading-none mb-8">
             Prizes & Recognition
           </h2>*/}
           <div className="w-32 h-1 bg-gradient-to-r from-[#6aaff1] to-transparent mb-8"></div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid min-w-0 grid-cols-1 md:grid-cols-3 gap-6">
             {/* First Prize */}
             {/*<div className="bg-gradient-to-br from-yellow-500/20 to-yellow-600/10 backdrop-blur-sm p-8 rounded-lg border-2 border-yellow-400 shadow-[0_0_30px_rgba(234,179,8,0.3)] text-center">
               <div className="text-5xl mb-4">🥇</div>
@@ -245,8 +259,8 @@ export default function HackathonPage() {
           </div>*/}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 mb-16">
-          <div className="relative">
+        <div className="grid min-w-0 grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 mb-16">
+          <div className="relative min-w-0">
             <div className="mb-6 pb-2 border-b border-white/30 w-fit">
               <h3 className="text-3xl md:text-4xl font-bold uppercase">
                 Who Can Participate?
@@ -254,40 +268,40 @@ export default function HackathonPage() {
             </div>
 
             <div className="space-y-4 text-base md:text-lg text-gray-200 leading-relaxed">
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Students:</strong>{" "}
                   Undergraduate and graduate students from any discipline with
                   an interest in electronics, computer science, or
                   semiconductors.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Professionals:</strong>{" "}
                   Industry professionals, researchers, and engineers working in
                   semiconductor, VLSI, or related fields.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Enthusiasts:</strong> Anyone
                   passionate about hardware innovation and problem-solving.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Teams:</strong> Form teams of
                   2-4 members. Solo participation is also welcome!
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Open to All:</strong> No prior
                   hackathon experience required. Beginners are encouraged to
                   participate!
@@ -296,7 +310,7 @@ export default function HackathonPage() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative min-w-0">
             <div className="mb-6 pb-2 border-b border-white/30 w-fit">
               <h3 className="text-3xl md:text-4xl font-bold uppercase">
                 What You Get
@@ -304,47 +318,47 @@ export default function HackathonPage() {
             </div>
 
             <div className="space-y-4 text-base md:text-lg text-gray-200 leading-relaxed">
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Expert Mentorship:</strong>{" "}
                   Guidance from industry leaders and academic experts throughout
                   the event.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Tools & Resources:</strong>{" "}
                   Access to premium EDA tools, cloud computing resources, and
                   development boards.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Networking:</strong> Connect
                   with peers, professionals, and potential employers from
                   leading semiconductor companies.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Food & Refreshments:</strong>{" "}
                   Meals, snacks, and beverages provided throughout the event.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Swag & Goodies:</strong> Event
                   merchandise, t-shirts, and sponsor swag for all participants.
                 </p>
               </div>
-              <div className="flex items-start gap-3">
-                <span className="text-[#6aaff1] font-bold text-xl">•</span>
-                <p>
+              <div className="flex min-w-0 items-start gap-3">
+                <span className="shrink-0 text-[#6aaff1] font-bold text-xl">•</span>
+                <p className="min-w-0">
                   <strong className="text-white">Certificates:</strong>{" "}
                   Participation certificates for all attendees and special
                   recognition for winners.
@@ -354,193 +368,193 @@ export default function HackathonPage() {
           </div>
         </div>
 
-        <div className="mb-16">
+        <div className="mb-16 min-w-0">
           <h2 className="text-4xl md:text-5xl font-bold uppercase leading-none mb-8">
             Event Schedule
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-[#6aaff1] to-transparent mb-8"></div>
 
-          <div className="space-y-4">
-            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
+          <div className="space-y-4 min-w-0">
+            <div className="min-w-0 bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
               <h3 className="text-2xl font-bold mb-4 text-[#6aaff1]">
                 Day 1 - July 19, 2026
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">09:00 AM</span>
-                  <span>Registration & Welcome</span>
+              <div className="grid min-w-0 grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">09:00 AM</span>
+                  <span className="min-w-0">Registration & Welcome</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">10:00 AM</span>
-                  <span>Opening Ceremony & Problem Statements</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">10:00 AM</span>
+                  <span className="min-w-0">Opening Ceremony & Problem Statements</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">11:00 AM</span>
-                  <span>Hacking Begins!</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">11:00 AM</span>
+                  <span className="min-w-0">Hacking Begins!</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">01:00 PM</span>
-                  <span>Lunch Break</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">01:00 PM</span>
+                  <span className="min-w-0">Lunch Break</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">06:00 PM</span>
-                  <span>Mentor Check-in #1</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">06:00 PM</span>
+                  <span className="min-w-0">Mentor Check-in #1</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">08:00 PM</span>
-                  <span>Dinner & Networking</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">08:00 PM</span>
+                  <span className="min-w-0">Dinner & Networking</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
+            <div className="min-w-0 bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
               <h3 className="text-2xl font-bold mb-4 text-[#6aaff1]">
                 Day 2 - July 20, 2026
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">08:00 AM</span>
-                  <span>Breakfast</span>
+              <div className="grid min-w-0 grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">08:00 AM</span>
+                  <span className="min-w-0">Breakfast</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">12:00 PM</span>
-                  <span>Mentor Check-in #2</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">12:00 PM</span>
+                  <span className="min-w-0">Mentor Check-in #2</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">01:00 PM</span>
-                  <span>Lunch Break</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">01:00 PM</span>
+                  <span className="min-w-0">Lunch Break</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">04:00 PM</span>
-                  <span>Workshop: Advanced EDA Tools</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">04:00 PM</span>
+                  <span className="min-w-0">Workshop: Advanced EDA Tools</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">08:00 PM</span>
-                  <span>Dinner & Entertainment</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">08:00 PM</span>
+                  <span className="min-w-0">Dinner & Entertainment</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">11:00 PM</span>
-                  <span>Midnight Check-in</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">11:00 PM</span>
+                  <span className="min-w-0">Midnight Check-in</span>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
+            <div className="min-w-0 bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
               <h3 className="text-2xl font-bold mb-4 text-[#6aaff1]">
                 Day 3 - July 21, 2026
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">08:00 AM</span>
-                  <span>Breakfast</span>
+              <div className="grid min-w-0 grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">08:00 AM</span>
+                  <span className="min-w-0">Breakfast</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">11:00 AM</span>
-                  <span>Code Freeze - Submissions Due</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">11:00 AM</span>
+                  <span className="min-w-0">Code Freeze - Submissions Due</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">12:00 PM</span>
-                  <span>Lunch Break</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">12:00 PM</span>
+                  <span className="min-w-0">Lunch Break</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">02:00 PM</span>
-                  <span>Project Presentations</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">02:00 PM</span>
+                  <span className="min-w-0">Project Presentations</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">05:00 PM</span>
-                  <span>Judging & Deliberation</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">05:00 PM</span>
+                  <span className="min-w-0">Judging & Deliberation</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-gray-400 font-mono">06:30 PM</span>
-                  <span>Award Ceremony & Closing</span>
+                <div className="flex min-w-0 gap-4">
+                  <span className="shrink-0 text-gray-400 font-mono">06:30 PM</span>
+                  <span className="min-w-0">Award Ceremony & Closing</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
-          <div className="lg:col-span-2">
-            <div className="bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-white/10">
+        <div className="grid min-w-0 grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          <div className="min-w-0 lg:col-span-2">
+            <div className="min-w-0 bg-white/5 backdrop-blur-sm p-8 rounded-lg border border-white/10">
               <h3 className="text-3xl font-bold mb-6 border-b border-white/20 pb-3">
                 Rules & Guidelines
               </h3>
               <ul className="space-y-3 text-gray-200">
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     All team members must be registered participants of ITC
                     India 2026.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     Teams can consist of 1-4 members. Cross-institution teams
                     are allowed.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     All code and designs must be original work created during
                     the hackathon period.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     Use of existing libraries, frameworks, and APIs is
                     permitted, but must be documented.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     Projects will be judged on innovation, technical complexity,
                     practicality, and presentation.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     All submissions must include source code, documentation, and
                     a demo/presentation.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     Participants must follow the IEEE Code of Ethics and
                     maintain professional conduct.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     Organizers reserve the right to disqualify teams violating
                     rules or exhibiting misconduct.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">
                     The initial project proposal submission is limited to
                     2-pages and must be submitted by the due date. Feedback will
                     be provided to all the teams by the ART committee to help
                     complete the proposed research.
                   </span>
                 </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-[#6aaff1] mt-1">▸</span>
-                  <span>Submission to be made through EasyChair.</span>
+                <li className="flex min-w-0 items-start gap-3">
+                  <span className="shrink-0 text-[#6aaff1] mt-1">▸</span>
+                  <span className="min-w-0">Submission to be made through EasyChair.</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-gradient-to-br from-[#6aaff1]/20 to-[#6aaff1]/10 backdrop-blur-sm p-6 rounded-lg border-2 border-[#6aaff1]/50 shadow-[0_0_25px_rgba(106,175,241,0.2)]">
+          <div className="min-w-0 space-y-6">
+            <div className="min-w-0 bg-gradient-to-br from-[#6aaff1]/20 to-[#6aaff1]/10 backdrop-blur-sm p-6 rounded-lg border-2 border-[#6aaff1]/50 shadow-[0_0_25px_rgba(106,175,241,0.2)]">
               <h3 className="text-2xl font-bold mb-6 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-3">
                 Important Dates
               </h3>
@@ -574,10 +588,10 @@ export default function HackathonPage() {
               </div>
             </div>
 
-            <div className="bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
+            <div className="min-w-0 bg-white/5 backdrop-blur-sm p-6 rounded-lg border border-white/10">
               <h4 className="font-bold text-lg mb-4 text-white">Contact Us</h4>
               <div className="space-y-3 text-sm">
-                <p>
+                <p className="min-w-0">
                   <span className="block text-xs uppercase text-gray-400 mb-1">
                     Email:
                   </span>
@@ -588,13 +602,13 @@ export default function HackathonPage() {
                     hackathon@itctestweekindia.org
                   </a>
                 </p>
-                <p>
+                <p className="min-w-0">
                   <span className="block text-xs uppercase text-gray-400 mb-1">
                     Website:
                   </span>
                   <a
                     href="http://www.itctestweekindia.org"
-                    className="text-[#6aaff1] hover:underline"
+                    className="break-all text-[#6aaff1] hover:underline"
                   >
                     www.itctestweekindia.org
                   </a>
@@ -604,7 +618,7 @@ export default function HackathonPage() {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-[#6aaff1]/20 via-[#6aaff1]/10 to-transparent backdrop-blur-sm p-12 rounded-lg border border-[#6aaff1]/30 text-center">
+        <div className="min-w-0 bg-gradient-to-r from-[#6aaff1]/20 via-[#6aaff1]/10 to-transparent backdrop-blur-sm p-12 rounded-lg border border-[#6aaff1]/30 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-4 uppercase">
             Ready to Innovate?
           </h2>
@@ -613,10 +627,11 @@ export default function HackathonPage() {
             testing. Register now and be part of this extraordinary event!
           </p>
           <Link href="/hackathon/register">
-            <button className="bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] text-xl md:text-2xl font-bold py-5 px-14 rounded-lg shadow-[0_0_30px_rgba(106,175,241,0.4)] transition-all duration-300 uppercase tracking-wider hover:scale-105">
+            <button className="bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] text-xl md:text-2xl font-bold py-5 px-14 rounded-lg shadow-[0_0_30px_rgba(106,175,241,0.4)] transition-all duration-300 uppercase tracking-wider">
               Register for Hackathon
             </button>
           </Link>
+        </div>
         </div>
       </div>
     </main>
