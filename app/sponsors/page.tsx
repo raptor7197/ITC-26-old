@@ -57,7 +57,6 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-        {/*<section className="mb-24 opacity-60 hover:opacity-100 transition-opacity duration-300"> looks weird*/}
         <section className="mb-24">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-[1px] bg-gradient-to-r from-transparent to-gray-400 w-16 md:w-32"></div>
@@ -96,7 +95,6 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-        {/*<section className="mb-24 opacity-60 hover:opacity-100 transition-opacity duration-300">*/}
         <section className="mb-24">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-[1px] bg-gradient-to-r from-transparent to-[#6aaff1] w-12 md:w-24"></div>
@@ -143,7 +141,6 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-        {/*<section className="mb-24 opacity-60 hover:opacity-100 transition-opacity duration-300">*/}
         <section className="mb-24">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-[1px] bg-gradient-to-r from-transparent to-gray-400 w-16 md:w-32"></div>
@@ -182,7 +179,6 @@ export default function SponsorsPage() {
           </div>
         </section>
 
-        {/*<section className="mb-24 opacity-60 hover:opacity-100 transition-opacity duration-300">*/}
         <section className="mb-24">
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-[1px] bg-gradient-to-r from-transparent to-[#6aaff1] w-12 md:w-24"></div>
@@ -203,6 +199,52 @@ export default function SponsorsPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
 
                 <div className="relative p-4 flex items-center justify-center min-h-[150px]">
+                  <img
+                    src={sponsor.src}
+                    alt={sponsor.name}
+                    className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
+                    <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
+                      Visit Website
+                    </span>
+                  </div>
+                </div>
+
+                <a
+                  href={sponsor.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-20"
+                  aria-label={`Visit ${sponsor.name}`}
+                ></a>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="mb-24">
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="h-[1px] bg-gradient-to-r from-transparent to-[#6aaff1] w-12 md:w-24"></div>
+            <h2 className="text-xl md:text-2xl font-bold text-center text-[#6aaff1] font-space-grotesk tracking-wide uppercase px-4">
+              Technical Sponsors
+            </h2>
+            <div className="h-[1px] bg-gradient-to-l from-transparent to-[#6aaff1] w-12 md:w-24"></div>
+          </div>
+          <div className="flex flex-wrap justify-center gap-8">
+            {[
+              { name: "IEEE Bangalore Section", src: "/images/ieeeblr.png", url: "https://ieeebangalore.org/" },
+              { name: "IESA", src: "/images/IESA.jpg", url: "https://www.iesaonline.org/" },
+              { name: "TTTC", src: "/images/TTTC.png", url: "https://www.ieee-tttc.org/" },
+              { name: "VLSI Society of India", src: "/images/VLSI.jpg", url: "https://vsi.org.in/" },
+            ].map((sponsor) => (
+              <div
+                key={sponsor.name}
+                className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+
+                <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                   <img
                     src={sponsor.src}
                     alt={sponsor.name}
