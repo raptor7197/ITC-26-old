@@ -31,7 +31,7 @@ const securityHeaders = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://*.firebaseio.com https://*.googleapis.com https://auth.itctestweekindia.org",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "img-src 'self' data: blob: https://*.googleusercontent.com https://*.googleapis.com https://*.gstatic.com",
+      "img-src 'self' data: blob: https://*.googleusercontent.com https://*.googleapis.com https://*.gstatic.com https://media.licdn.com",
       "font-src 'self' https://fonts.gstatic.com",
       "connect-src 'self' https://*.googleapis.com https://*.firebaseio.com https://*.firebaseapp.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://easychair.org https://auth.itctestweekindia.org",
       "frame-src 'self' https://accounts.google.com https://*.firebaseapp.com https://*.firebaseio.com https://auth.itctestweekindia.org",
@@ -44,6 +44,15 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "media.licdn.com",
+        pathname: "/dms/image/**",
+      },
+    ],
+  },
   async headers() {
     return [
       {

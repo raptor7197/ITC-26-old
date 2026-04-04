@@ -10,7 +10,7 @@ const testimonials = [
     company: "Synopsys",
     quote:
       "ITC was fantastic. It was a huge conference as the one in the States, which I've been to for, you know, 30 something years, but this one was really great.",
-    img: "/images/ellipse13.svg",
+    img: "https://media.licdn.com/dms/image/v2/C4D03AQG4y_6qtMBuyw/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1631805653078?e=1776902400&v=beta&t=Ekg2FWCMuSHr09pKlqyeTDgIeFuW39d0SX7vRqMkccg",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const testimonials = [
     company: "NXP Semiconductor",
     quote:
       "It was really exciting to see the energy and the combination of the young and experienced engineers.",
-    img: "/images/ellipse13.svg",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQG6ODB5AsuGpg/profile-displayphoto-scale_400_400/B56ZnLIxk2KEAk-/0/1760049700586?e=1776902400&v=beta&t=Mq9PTLpiXy0MBFpKtgDUO_Klxwleb5LnzVLrJzoJQos",
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const testimonials = [
     company: "Associate Dean, School of Electronics Engineering, VIT Vellore",
     quote:
       "This is one of the beautiful workshops as this conference aims for promoting testing all over India.",
-    img: "/images/ellipse13.svg",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQFi2QhuCTLLeA/profile-displayphoto-scale_400_400/B56Zwsgk6JHQAg-/0/1770273265209?e=1776902400&v=beta&t=BM3OsHn5wi7zBvvBPcyKYB0ACiw4LWql5YoJVgzUEgo",
   },
   {
     id: 4,
@@ -34,14 +34,14 @@ const testimonials = [
     company: "Synopsys",
     quote:
       "I really enjoyed the ambience around it, the energy that the different tech guys were having here, it was quite the enjoyable ambience for me.",
-    img: "/images/ellipse13.svg",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQGmesUfhw76Cg/profile-displayphoto-shrink_400_400/B56ZRE8V2vH0Ag-/0/1736323456867?e=1776902400&v=beta&t=gldZMq-agJAZhpr4cKxpvk1Bdzl87Gbu1nEtfw2nz24",
   },
   {
     id: 5,
     name: "Suresh Babu",
     company: "Caliber Interconnect",
     quote: "I appreciate the IEEE organising committee.",
-    img: "/images/ellipse13.svg",
+    img: "https://media.licdn.com/dms/image/v2/D5603AQFa4uV5hBXVtA/profile-displayphoto-scale_400_400/B56ZkwtnhSHkAk-/0/1757458891009?e=1776902400&v=beta&t=ip85HoG0MinAwoXsLJeztZTOVDdxqbmz9jC17AM0Sjo",
   },
 ];
 
