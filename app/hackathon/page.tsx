@@ -15,6 +15,24 @@ export default function HackathonPage() {
         }}
       />
 
+      {/* Match home layout.tsx vertical dashed guide lines (opaque main hides global z-0 lines) */}
+      <div
+        className="absolute top-0 bottom-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] z-[1] w-px opacity-60 sm:opacity-70 md:opacity-80 pointer-events-none"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.7) 6px, transparent 3px, transparent 12px)",
+        }}
+        aria-hidden
+      />
+      <div
+        className="absolute top-0 bottom-0 right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] z-[1] w-px opacity-60 sm:opacity-70 md:opacity-80 pointer-events-none"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.7) 6px, transparent 3px, transparent 12px)",
+        }}
+        aria-hidden
+      />
+
       <div className="absolute top-[120px] right-15 w-[80%] h-[600px] z-0 pointer-events-none hidden lg:block opacity-60">
         <div className="relative w-full h-full">
           <Image
