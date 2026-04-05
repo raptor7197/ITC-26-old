@@ -159,8 +159,21 @@ export default function FellowshipApplication() {
   }
 
   return (
-    <main className="min-h-screen bg-[#03396c] flex items-center justify-center px-4 py-16">
-      <div className="w-full max-w-4xl">
+    <main className="min-h-screen bg-[#03396c] flex items-center justify-center px-4 py-16 relative overflow-hidden">
+      {/* Global Background Elements */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div
+          className="absolute inset-0 opacity-10 bg-repeat"
+          style={{
+            backgroundImage: `url('/images/homepage-bg.png')`,
+            backgroundSize: "80px 80px",
+          }}
+        />
+        <div className="absolute top-0 right-10 h-full w-[1px] border-r border-white/10 hidden xl:block"></div>
+        <div className="absolute top-0 left-10 h-full w-[1px] border-r border-white/10 hidden xl:block"></div>
+      </div>
+
+      <div className="w-full max-w-4xl relative z-10">
         {registration && !isEditing ? (
           <div className="bg-white rounded-2xl shadow-2xl p-8">
             <div className="flex items-center gap-3 mb-5">
@@ -326,7 +339,7 @@ export default function FellowshipApplication() {
                     onChange={handleChange}
                     required
                     maxLength={20}
-                    pattern="[\d\s\-+()]{7,20}"
+                    pattern="[\d\s+()-]{7,20}"
                     title="Enter a valid phone number (7–20 characters, digits/spaces/dashes)"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
                     placeholder="+91 98765 43210"

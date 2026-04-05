@@ -19,7 +19,7 @@ export default function Login() {
 
       if (result.success) {
         // Redirect to fellowship page after successful login
-        router.push("/fellowship/application");
+        router.push("/dashboard");
       } else {
         setError(result.error || "Failed to sign in");
       }

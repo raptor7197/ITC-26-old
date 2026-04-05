@@ -28,7 +28,6 @@ export default function FellowshipPage() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1360px] mx-auto flex flex-col">
-        {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase">
             IEEE ITC India 2026

@@ -380,7 +380,7 @@ export default function RegistrationForm({
             onChange={handleChange}
             required
             maxLength={20}
-            pattern="[\d\s\-+()]{7,20}"
+            pattern="[\d\s+()-]{7,20}"
             title="Enter a valid phone number (7–20 characters, digits/spaces/dashes)"
             className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
             placeholder="+91-9876543210"

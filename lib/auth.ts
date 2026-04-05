@@ -23,9 +23,7 @@ export interface AuthResponse {
   error?: string;
 }
 
-/**
- * Sign in with Google using Firebase Auth
- */
+
 export async function signInWithGoogle(): Promise<AuthResponse> {
   if (!auth) {
     return {
@@ -45,14 +43,21 @@ export async function signInWithGoogle(): Promise<AuthResponse> {
 
     const idToken = await user.getIdToken();
 
-    // Save user to Firestore
-    await UserDB.upsert({
-      uid: user.uid,
-      email: user.email || "",
-      displayName: user.displayName || "",
-      photoURL: user.photoURL || "",
-      provider: "google",
-    });
+    try {
+      await UserDB.upsert({
+        uid: user.uid,
+        email: user.email || "",
+        displayName: user.displayName || "",
+        photoURL: user.photoURL || "",
+        provider: "google",
+      });
+    } catch (firestoreError) {
+      console.error(
+        "Failed to save user to Firestore (might be offline):",
+        firestoreError,
+      );
+      // Continue anyway, as the user is authenticated via Firebase Auth
+    }
 
     return {
       success: true,

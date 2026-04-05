@@ -116,8 +116,21 @@ export default function DashboardPage() {
     : [];
 
   return (
-    <main className="min-h-screen bg-[#03396c] px-4 py-16 flex flex-col items-center">
-      <div className="w-full max-w-4xl space-y-6 mt-16">
+    <main className="min-h-screen bg-[#03396c] px-4 py-16 flex flex-col items-center relative overflow-hidden">
+      {/* Global Background Elements */}
+      <div className="absolute inset-0 pointer-events-none z-0">
+        <div
+          className="absolute inset-0 opacity-10 bg-repeat"
+          style={{
+            backgroundImage: `url('/images/homepage-bg.png')`,
+            backgroundSize: "80px 80px",
+          }}
+        />
+        <div className="absolute top-0 right-10 h-full w-[1px] border-r border-white/10 hidden xl:block"></div>
+        <div className="absolute top-0 left-10 h-full w-[1px] border-r border-white/10 hidden xl:block"></div>
+      </div>
+
+      <div className="w-full max-w-4xl space-y-6 mt-16 relative z-10">
         {/* Profile card */}
         <div className="bg-white rounded-2xl shadow-2xl p-8">
           <div className="flex items-center gap-4 mb-6">
