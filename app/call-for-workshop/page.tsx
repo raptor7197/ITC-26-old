@@ -4,22 +4,28 @@ import Image from "next/image";
 export default function CallForWorkshop() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
-      <div className="relative z-10 pt-[100px] sm:pt-[130px] md:pt-[150px] pb-20 w-4/5 max-w-[1360px] mx-auto flex flex-col items-center">
-        <div className="text-center mb-12 md:mb-16 w-full max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-5 mb-5">
+      <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1360px] mx-auto flex flex-col">
+        <div className="text-center mb-16 w-full max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-3 md:gap-5 mb-4">
             <Image
               src="/itc-logo.svg"
               alt="ITC Logo"
               width={60}
               height={60}
-              className="w-17 h-17 md:w-25 md:h-25 object-contain flex-shrink-0 mb-9"
+              className="w-3/12 h-3/12 md:w-25 md:h-25 object-contain mb-9"
             />
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center leading-tight">
-              CALL FOR WORKSHOP PROPOSAL (CWP)
+            <h1 className="text-3xl md:text-5xl font-bold">
+              10th IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
             </h1>
           </div>
+          <p className="text-xl md:text-2xl font-semibold text-[#6aaff1]">
+            JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
+          </p>
+          <h2 className="text-xl md:text-[32px] font-bold mt-8 tracking-tight text-white">
+            CALL FOR WORKSHOP PROPOSAL (CWP)
+          </h2>
 
-          <h2 className="text-base sm:text-xl md:text-3xl font-semibold text-[#6aaff1] px-2 leading-snug">
+          <h2 className="text-base sm:text-xl md:text-3xl font-semibold text-[#6aaff1] px-2 leading-snug mt-6">
             TTTC India Workshops on VLSI Test & Design-for-Testability (DFT)
           </h2>
 
@@ -94,7 +100,7 @@ export default function CallForWorkshop() {
 
           {/* Right Sidebar */}
           <div className="lg:col-span-1 space-y-6 flex flex-col items-center lg:items-stretch">
-            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg lg:sticky lg:top-24 w-full">
+            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg  lg:top-24 w-full">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Important Dates
               </h3>

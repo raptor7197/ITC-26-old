@@ -95,11 +95,6 @@ export default function CallForPapers() {
                   conference, symposium or journal, will be summarily rejected
                 </li>
                 <li>
-                  Accepted papers will be submitted for inclusion into IEEE
-                  Xplore subject to meeting IEEE Xplore&apos;s scope and quality
-                  requirements
-                </li>
-                <li>
                   For detailed information about the submission process,
                   requirements and deadlines, the selection process and any
                   other questions regarding the program itself or contact
@@ -149,9 +144,13 @@ export default function CallForPapers() {
                   or affiliations should be made in the third person
                 </li>
                 <li>
-                  A submission of 1-3 pages will be reviewed as a poster
-                  submission. A submission of 4-6 pages may be accepted as a
-                  paper or poster depending on the reviewer feedback
+                  A submission of 4-6 pages may be accepted as a paper or poster
+                  depending on the reviewer feedback
+                </li>
+                <li>
+                  Accepted and presented papers will be submitted for inclusion
+                  into IEEE Xplore subject to meeting IEEE Xplore&apos;s scope
+                  and quality requirements
                 </li>
               </ul>
             </section>

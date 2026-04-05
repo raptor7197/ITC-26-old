@@ -63,7 +63,7 @@ const footerContentWidth =
           aria-label="Footer"
         >
           <div
-            className={`grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 md:gap-x-12 ${footerContentWidth}`}
+            className={`grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 md:gap-x-12 ${footerContentWidth}`}
           >
             <div className="min-w-0 pr-1 sm:pr-2">
               <h4 className={footerColTitle}>Email ID</h4>
@@ -91,6 +91,16 @@ const footerContentWidth =
                 <li>
                   <Link href="/art" className={footerLink}>
                     Academia Research Track
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/call-for-posters" className={footerLink}>
+                    Call for Posters
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/call-for-workshop" className={footerLink}>
+                    Call for Workshops
                   </Link>
                 </li>
               </ul>
@@ -145,6 +155,37 @@ const footerContentWidth =
               <p className="mt-3 max-w-[16rem] font-poppins text-[12px] leading-relaxed text-white/45 sm:text-[13px]">
                 In-person conference · Open the link for directions on Google Maps
               </p>
+            </div>
+
+            <div className="min-w-0 pl-1 sm:pr-2">
+              <h4 className={footerColTitle}>Authors</h4>
+              <ul className="flex flex-col gap-2.5">
+                <li>
+                  <Link href="/cfp" className={footerLink}>
+                    Submission Guidelines
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cfp" className={footerLink}>
+                    Important Dates
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cfp" className={footerLink}>
+                    Review Process
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/commitee" className={footerLink}>
+                    Program Committee
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/fellowship" className={footerLink}>
+                    Fellowship
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>

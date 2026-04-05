@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 const aboutPoints = [
@@ -25,199 +24,132 @@ const selectionPoints = [
   "Statement of purpose for attending ITC India 2026.",
 ];
 
-function BulletList({ items }: { items: string[] }) {
-  return (
-    <ul className="flex flex-col gap-6">
-      {items.map((item, idx) => (
-        <li key={idx} className="flex items-start gap-4">
-          <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-[#6aaff1]" />
-          <span className="text-base md:text-lg text-gray-200 font-light leading-relaxed">
-            {item}
-          </span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function SectionRow({
-  heading,
-  children,
-}: {
-  heading: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section className="flex flex-col lg:flex-row gap-8 lg:gap-16 py-12 md:py-16">
-      <div className="lg:w-[30%] xl:w-[28%] shrink-0">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wide text-white leading-tight">
-          {heading}
-        </h2>
-        <div className="mt-4 h-px w-16 bg-[#6aaff1]" />
-      </div>
-
-      <div className="flex-1 min-w-0">{children}</div>
-    </section>
-  );
-}
-
-function ZigzagSeparator() {
-  return (
-    <div className="w-full h-[30px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[70px] relative -my-2 sm:-my-4 md:-my-6 pointer-events-none overflow-hidden">
-      <div className="absolute inset-0 w-full h-full opacity-50 sm:opacity-60 md:opacity-70">
-        <Image
-          src="/images/vector11.svg"
-          alt="Separator"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </div>
-  );
-}
-
-function ZigzagSeparatorAlt() {
-  return (
-    <div className="w-full h-[30px] sm:h-[40px] md:h-[50px] lg:h-[60px] xl:h-[70px] relative -my-2 sm:-my-4 md:-my-6 pointer-events-none overflow-hidden">
-      <div className="absolute inset-0 w-full h-full opacity-50 sm:opacity-60 md:opacity-70 scale-x-[-1]">
-        <Image
-          src="/images/vector11.svg"
-          alt="Separator"
-          fill
-          className="object-contain"
-        />
-      </div>
-    </div>
-  );
-}
-
 export default function FellowshipPage() {
   return (
-    <main className="min-h-screen relative bg-[#03396c] text-white font-poppins overflow-hidden selection:bg-white/20">
-      <div
-        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #ffffff 1px, transparent 1px),
-            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-
-      {/* Decorative schematic */}
-      <div className="absolute top-[120px] right-0 w-[50%] h-[680px] z-0 pointer-events-none hidden lg:block opacity-50">
-        <div className="relative w-full h-full">
-          <Image
-            src="/images/fellowship-schematic.png"
-            alt="Circuit Schematic"
-            fill
-            className="object-contain object-right-top"
-          />
-        </div>
-      </div>
-
-      <div className="relative z-10 pt-40 pb-28 px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]">
-        {/*<ZigzagSeparatorAlt />*/}
-
-        <div className="pt-10 pb-16 md:pb-24">
-          <p className="text-xs md:text-sm font-semibold tracking-[0.25em] text-[#6aaff1] uppercase mb-5">
+    <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
+      <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1360px] mx-auto flex flex-col">
+        {/* Header Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase">
             IEEE ITC India 2026
-          </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight uppercase leading-none">
-            ITC Fellowship
-            <br />
-            Proposal
           </h1>
-          <p className="text-base md:text-xl text-gray-300 font-light max-w-2xl mb-10 leading-relaxed">
+          <p className="text-xl md:text-2xl font-semibold text-[#6aaff1] uppercase">
             REIMAGINING TEST IN THE ERA OF INTELLIGENT SILICON
           </p>
-          <Link href="/fellowship/register">
-            <button className="bg-[#03396c] hover:bg-[#1a4b7c] text-white text-base md:text-lg font-bold py-4 px-12 border border-white/50 shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300 uppercase tracking-wider backdrop-blur-sm">
-              REGISTER NOW
-            </button>
-          </Link>
+          <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white uppercase">
+            ITC Fellowship Proposal
+          </h2>
         </div>
 
-        {/*<ZigzagSeparatorAlt />*/}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div className="lg:col-span-2 space-y-12">
+            <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                About the Fellowship
+              </h3>
+              <ul className="list-disc list-outside ml-5 space-y-3 text-gray-200">
+                {aboutPoints.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-        <SectionRow heading="About the Fellowship">
-          <BulletList items={aboutPoints} />
-        </SectionRow>
+            <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                Fellowship Guidelines
+              </h3>
+              <ul className="list-disc list-outside ml-5 space-y-3 text-gray-200">
+                {guidelinePoints.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-        <ZigzagSeparator />
+            <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                Selection Criteria
+              </h3>
+              <ul className="list-disc list-outside ml-5 space-y-3 text-gray-200">
+                {selectionPoints.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-        <SectionRow heading="Fellowship Guidelines">
-          <BulletList items={guidelinePoints} />
-        </SectionRow>
+            <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                Support Details
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+                <div>
+                  <h4 className="text-xl font-bold mb-4 text-[#6aaff1]">
+                    Support for Local Fellows
+                  </h4>
+                  <div className="space-y-3 text-sm text-gray-200">
+                    {[1, 2, 3, 4, 5, 6].map((n) => (
+                      <p key={n}>
+                        <span className="font-semibold text-white mr-2">
+                          {n}.
+                        </span>
+                        Lorem ipsum dolor sit amet consectetur. Felis quis in
+                        molestie curabitur bibendum. Amet in arcu laoreet arcu
+                        risus hendrerit odio senectus sapien. Blandit sit at
+                        sagittis auctor est.
+                      </p>
+                    ))}
+                  </div>
+                </div>
 
-        <ZigzagSeparatorAlt />
-
-        <SectionRow heading="Selection Criteria">
-          <BulletList items={selectionPoints} />
-        </SectionRow>
-
-        {/*<ZigzagSeparatorAlt />*/}
-
-        <section className="py-12 md:py-16 border-t border-white/10">
-          <div className="mb-12">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold uppercase leading-none mb-4">
-              Support Details
-            </h2>
-            <div className="h-px w-24 bg-[#6aaff1]" />
+                <div>
+                  <h4 className="text-xl font-bold mb-4 text-[#6aaff1]">
+                    Support for Outstation Fellows
+                  </h4>
+                  <div className="space-y-3 text-sm text-gray-200">
+                    {[1, 2, 3, 4, 5, 6].map((n) => (
+                      <p key={n}>
+                        <span className="font-semibold text-white mr-2">
+                          {n}.
+                        </span>
+                        Lorem ipsum dolor sit amet consectetur. Felis quis in
+                        molestie curabitur bibendum. Amet in arcu laoreet arcu
+                        risus hendrerit odio senectus sapien. Blandit sit at
+                        sagittis auctor est.
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-20 gap-y-16">
-            <div>
-              <div className="mb-8 pb-3 border-b border-white/30">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">
-                  Support for Local Fellows
-                </h3>
+          <div className="lg:col-span-1 space-y-8">
+            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg">
+              <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
+                Application Status
+              </h3>
+              <div className="space-y-4">
+                <p className="text-sm text-gray-200 italic">
+                  Applications are reviewed on a rolling basis. Early
+                  submissions are encouraged.
+                </p>
               </div>
-              <div className="flex flex-col gap-6 text-base md:text-lg text-gray-200 font-light leading-relaxed">
-                {[1, 2, 3, 4, 5, 6].map((n) => (
-                  <p key={n}>
-                    <span className="font-semibold text-white mr-2">{n}.</span>
-                    Lorem ipsum dolor sit amet consectetur. Felis quis in
-                    molestie curabitur bibendum. Amet in arcu laoreet arcu risus
-                    hendrerit odio senectus sapien. Blandit sit at sagittis
-                    auctor est.
-                  </p>
-                ))}
-              </div>
-            </div>
 
-            <div>
-              <div className="mb-8 pb-3 border-b border-white/30">
-                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold">
-                  Support for Outstation Fellows
-                </h3>
-              </div>
-              <div className="flex flex-col gap-6 text-base md:text-lg text-gray-200 font-light leading-relaxed">
-                {[1, 2, 3, 4, 5, 6].map((n) => (
-                  <p key={n}>
-                    <span className="font-semibold text-white mr-2">{n}.</span>
-                    Lorem ipsum dolor sit amet consectetur. Felis quis in
-                    molestie curabitur bibendum. Amet in arcu laoreet arcu risus
-                    hendrerit odio senectus sapien. Blandit sit at sagittis
-                    auctor est.
-                  </p>
-                ))}
+              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
+                <Link
+                  href="/fellowship/register"
+                  className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
+                >
+                  APPLY NOW
+                </Link>
+                <Link
+                  href="/fellowship/register"
+                  className="block w-full bg-transparent border-2 border-[#6aaff1] hover:bg-[#6aaff1]/20 text-white font-bold text-center py-3 rounded transition-colors"
+                >
+                  REGISTER NOW
+                </Link>
               </div>
             </div>
           </div>
-        </section>
-
-        <div className="pt-16 md:pt-24 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-6 mx-auto">
-          <Link href="/fellowship/register">
-            <button className="bg-[#6aaff1] hover:bg-[#4d9de0] text-[#03396c] text-base md:text-lg font-bold py-4 px-12 transition-all duration-300 uppercase tracking-wider">
-              APPLY NOW
-            </button>
-          </Link>
-          <p className="text-sm md:text-base text-gray-400 font-light max-w-sm leading-relaxed">
-            Applications are reviewed on a rolling basis. Early submissions are
-            encouraged.
-          </p>
         </div>
       </div>
     </main>

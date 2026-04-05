@@ -2,7 +2,6 @@ import Image from "next/image";
 import CountdownTimer from "./CountdownTimer";
 
 export default function HeroWithTimer() {
-  /* Match layout.tsx vertical guide lines: left-/right-[5%]…xl:[2.25%] */
   const px =
     "px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]";
 
@@ -76,7 +75,7 @@ export default function HeroWithTimer() {
                              lg:text-[50px]
                              xl:text-[60px]"
                 >
-                  <p className="whitespace-normal">10th IEEE International</p>
+                  <p className="whitespace-normal">10<sup>  th</sup> IEEE International</p>
                   <p>Test Conference</p>
                   <p>INDIA</p>
                 </div>

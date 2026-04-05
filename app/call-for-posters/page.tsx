@@ -12,7 +12,7 @@ export default function CallForPosters() {
               alt="ITC Logo"
               width={60}
               height={60}
-              className="w-10 h-10 md:w-14 md:h-14 object-contain"
+              className="w-20 h-20 md:w-25 md:h-25 "
             />
             <h1 className="text-3xl md:text-5xl font-bold">
               10th IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
