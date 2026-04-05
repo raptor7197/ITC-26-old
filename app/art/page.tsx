@@ -13,14 +13,12 @@ export default function AcademiaResearchTrack() {
             JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
           </p>
           <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white">
-            Academia Research Track
+            ACADEMIA RESEARCH TRACK
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Main Content Column */}
           <div className="lg:col-span-2 space-y-12">
-            {/* Introduction */}
             <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <div className="space-y-4 text-gray-200 text-justify">
                 <p>
@@ -50,7 +48,6 @@ export default function AcademiaResearchTrack() {
               </div>
             </section>
 
-            {/* Submission Guidelines */}
             <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Submission Guidelines
@@ -77,7 +74,6 @@ export default function AcademiaResearchTrack() {
               </ul>
             </section>
 
-            {/* Selection Criteria */}
             <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Selection Criteria
@@ -102,7 +98,6 @@ export default function AcademiaResearchTrack() {
               </ul>
             </section>
 
-            {/* Additional Benefits */}
             <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Additional Benefits
@@ -123,7 +118,6 @@ export default function AcademiaResearchTrack() {
               </ul>
             </section>
 
-            {/* Topics of Interest */}
             <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Topics of Interest
@@ -179,9 +173,7 @@ export default function AcademiaResearchTrack() {
             </section>
           </div>
 
-          {/* Sidebar Information */}
           <div className="lg:col-span-1 space-y-8">
-            {/* Submit Button Box */}
             <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg sticky top-24">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Submit Research
@@ -199,7 +191,6 @@ export default function AcademiaResearchTrack() {
               </div>
             </div>
 
-            {/* Contact Info */}
             <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300">
               <h4 className="font-bold text-white mb-2">Need Help?</h4>
               <p className="mb-4">

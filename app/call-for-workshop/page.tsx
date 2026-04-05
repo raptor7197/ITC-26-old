@@ -5,18 +5,17 @@ export default function CallForWorkshop() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[100px] sm:pt-[130px] md:pt-[150px] pb-20 w-4/5 max-w-[1360px] mx-auto flex flex-col items-center">
-        {/* Header */}
         <div className="text-center mb-12 md:mb-16 w-full max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-5 mb-4">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-5 mb-5">
             <Image
               src="/itc-logo.svg"
               alt="ITC Logo"
               width={60}
               height={60}
-              className="w-12 h-12 md:w-20 md:h-20 object-contain flex-shrink-0"
+              className="w-17 h-17 md:w-25 md:h-25 object-contain flex-shrink-0 mb-9"
             />
             <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center leading-tight">
-              Call for Workshop Proposal (CWP)
+              CALL FOR WORKSHOP PROPOSAL (CWP)
             </h1>
           </div>
 
@@ -29,9 +28,7 @@ export default function CallForWorkshop() {
           </p>
         </div>
 
-        {/* Main Grid */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-7">
-          {/* Left / Main Content */}
           <div className="lg:col-span-2 space-y-6 flex flex-col items-center lg:items-stretch">
             <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm w-full">
               <p className="text-gray-200 text-justify text-sm sm:text-base">

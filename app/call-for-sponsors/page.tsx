@@ -4,13 +4,13 @@ export default function CallForSponsors() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1400px] mx-auto flex flex-col">
-        {/* Header Section */}
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
             10th IEEE International Test Conference India 2026
           </h1>
-          <p className="text-xl md:text-2xl font-semibold text-yellow-400 mb-2">
+          <p className="text-xl md:text-2xl font-semibold text-[#6aaff1] mb-2">
             JULY 19-21, 2026
+          
           </p>
           <p className="text-lg md:text-xl text-gray-300">
             RADISSON BLU, MARATHAHALLI, BENGALURU
@@ -54,11 +54,11 @@ export default function CallForSponsors() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm md:text-base">
               <thead>
-                <tr className="border-b-2 border-yellow-400/50">
-                  <th className="text-left py-3 px-2 md:px-4 font-bold text-yellow-400">SPONSORSHIP PACKAGES</th>
-                  <th className="text-center py-3 px-2 md:px-4 font-bold text-yellow-400">SLOTS</th>
-                  <th className="text-center py-3 px-2 md:px-4 font-bold text-yellow-400">COST (in INR)</th>
-                  <th className="text-left py-3 px-2 md:px-4 font-bold text-yellow-400">BENEFITS AND OFFERINGS</th>
+                <tr className="border-b-2 border-blue-400/50">
+                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">SPONSORSHIP PACKAGES</th>
+                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">SLOTS</th>
+                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">COST (in INR)</th>
+                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">BENEFITS AND OFFERINGS</th>
                 </tr>
               </thead>
               <tbody className="text-gray-200">
@@ -182,11 +182,11 @@ export default function CallForSponsors() {
           <div className="overflow-x-auto">
             <table className="w-full text-sm md:text-base">
               <thead>
-                <tr className="border-b-2 border-yellow-400/50">
-                  <th className="text-left py-3 px-2 md:px-4 font-bold text-yellow-400">Sl. No</th>
-                  <th className="text-left py-3 px-2 md:px-4 font-bold text-yellow-400">Item</th>
-                  <th className="text-center py-3 px-2 md:px-4 font-bold text-yellow-400">Slots</th>
-                  <th className="text-right py-3 px-2 md:px-4 font-bold text-yellow-400">Price (INR)</th>
+                <tr className="border-b-2 border-blue-400/50">
+                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">Sl. No</th>
+                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">Item</th>
+                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">Slots</th>
+                  <th className="text-right py-3 px-2 md:px-4 font-bold text-[#6aaff1]">Price (INR)</th>
                 </tr>
               </thead>
               <tbody className="text-gray-200">
@@ -224,7 +224,7 @@ export default function CallForSponsors() {
         <div className="mt-10 text-center">
           <a
             href="mailto:info@itctestweekindia.org"
-            className="inline-block bg-yellow-500 hover:bg-yellow-400 text-[#03396c] font-bold text-lg px-8 py-4 rounded transition-colors"
+            className="inline-block bg-blue-300 hover:bg-blue-400 text-[#03396c] font-bold text-lg px-8 py-4 rounded transition-colors"
           >
             BECOME A SPONSOR
           </a>
@@ -255,7 +255,7 @@ function SponsorRow({
 }) {
   return (
     <tr className={`border-b border-white/10 ${isHighlighted ? 'bg-yellow-400/5' : ''}`}>
-      <td className={`py-4 px-2 md:px-4 font-bold ${isHighlighted ? 'text-yellow-400' : 'text-white'}`}>
+      <td className={`py-4 px-2 md:px-4 font-bold ${isHighlighted ? 'text-[#6aaff1]' : 'text-white'}`}>
         {tier}
       </td>
       <td className="py-4 px-2 md:px-4 text-center">{slots}</td>

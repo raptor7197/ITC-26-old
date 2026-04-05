@@ -22,8 +22,7 @@ export default function CallForPapers() {
             JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
           </p>
           <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white">
-            Call for Papers
-          </h2>
+            CALL FOR PAPERS          </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -241,7 +240,7 @@ export default function CallForPapers() {
           </div>
 
           <div className="lg:col-span-1 space-y-8">
-            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg sticky top-24">
+            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg  top-24">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Important Dates
               </h3>

@@ -23,7 +23,7 @@ const testimonials = [
   {
     id: 3,
     name: "Dr. Sakthivel Ramachandran",
-    company: "Associate Dean, School of Electronics Engineering, VIT Vellore",
+    company: "VIT Vellore",
     quote:
       "This is one of the beautiful workshops as this conference aims for promoting testing all over India.",
     img: "https://media.licdn.com/dms/image/v2/D5603AQFi2QhuCTLLeA/profile-displayphoto-scale_400_400/B56Zwsgk6JHQAg-/0/1770273265209?e=1776902400&v=beta&t=BM3OsHn5wi7zBvvBPcyKYB0ACiw4LWql5YoJVgzUEgo",

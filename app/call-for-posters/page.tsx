@@ -5,7 +5,6 @@ export default function CallForPosters() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1360px] mx-auto flex flex-col">
-        {/* Header Section */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-3 md:gap-5 mb-4">
             <Image
@@ -23,7 +22,7 @@ export default function CallForPosters() {
             JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
           </p>
           <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white">
-            Call for Posters
+            CALL FOR POSTERS
           </h2>
         </div>
 

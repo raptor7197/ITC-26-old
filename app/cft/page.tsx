@@ -13,7 +13,7 @@ export default function CallForTutorials() {
             JUL 19-21, 2026 | BENGALURU, INDIA
           </p>
           <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white">
-            Call for Tutorials
+            CALL FOR TUTORIALS
           </h2>
         </div>
 

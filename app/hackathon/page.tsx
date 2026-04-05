@@ -1,10 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-/**
- * Horizontal inset: guide line position plus a fixed gutter so content does not sit on the dashes.
- * Guide lines remain at 5% / 4% / …; padding is that value + rem for breathing room.
- */
+
 const guidePadding =
   "px-[calc(5%+1rem)] sm:px-[calc(4%+1.25rem)] md:px-[calc(3%+1.5rem)] lg:px-[calc(2.5%+1.75rem)] xl:px-[calc(2.25%+2rem)]";
 
@@ -22,7 +19,6 @@ export default function HackathonPage() {
         }}
       />
 
-      {/* Match home layout.tsx vertical dashed guide lines (opaque main hides global z-0 lines) */}
       <div
         className="absolute top-0 bottom-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] z-[1] w-px opacity-60 sm:opacity-70 md:opacity-80 pointer-events-none"
         style={{

@@ -7,14 +7,13 @@ import { members1 } from "../commitee/data";
 export default function ContactUs() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20 pt-[120px] pb-20">
-      {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none opacity-20">
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-600/30 rounded-full blur-[100px]" />
         <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 font-angkor text-[#90cbfb]">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-[#90cbfb]">
           CONTACT US
         </h1>
         <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">

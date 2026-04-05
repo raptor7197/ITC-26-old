@@ -26,7 +26,6 @@ export default function SponsorsPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
-            {/* Caliber Interconnect Card */}
             <div className="group relative w-full max-w-lg bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200 opacity-100 transition-opacity duration-300"></div>
 
@@ -67,7 +66,6 @@ export default function SponsorsPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             <div className="group relative w-full max-w-md bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              
               <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
 
               <div className="relative p-4 flex items-center justify-center min-h-[200px]">
@@ -105,10 +103,26 @@ export default function SponsorsPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             {[
-              { name: "Qualcomm", src: "/images/qualcomm.png", url: "https://www.qualcomm.com/" },
-              { name: "Cadence", src: "/images/cadence.png", url: "https://www.cadence.com/" },
-              { name: "Synopsys", src: "/images/synopsys.png", url: "https://www.synopsys.com/" },
-              { name: "Teradyne", src: "/images/teradyne.png", url: "https://www.teradyne.com/" },
+              {
+                name: "Qualcomm",
+                src: "/images/qualcomm.png",
+                url: "https://www.qualcomm.com/",
+              },
+              {
+                name: "Cadence",
+                src: "/images/cadence.png",
+                url: "https://www.cadence.com/",
+              },
+              {
+                name: "Synopsys",
+                src: "/images/synopsys.png",
+                url: "https://www.synopsys.com/",
+              },
+              {
+                name: "Teradyne",
+                src: "/images/teradyne.png",
+                url: "https://www.teradyne.com/",
+              },
             ].map((sponsor) => (
               <div
                 key={sponsor.name}
@@ -151,7 +165,6 @@ export default function SponsorsPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             <div className="group relative w-4/5 max-w-md bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-
               <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
 
               <div className="relative p-0 flex items-center justify-center min-h-[200px]">
@@ -189,8 +202,16 @@ export default function SponsorsPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             {[
-              { name: "Marvel", src: "/images/marvell-logo.svg", url: "https://www.marvell.com/" },
-              { name: "Texas Instruments", src: "/images/texasinstruments.png", url: "https://www.ti.com/" },
+              {
+                name: "Marvel",
+                src: "/images/marvell-logo.svg",
+                url: "https://www.marvell.com/",
+              },
+              {
+                name: "Texas Instruments",
+                src: "/images/texasinstruments.png",
+                url: "https://www.ti.com/",
+              },
             ].map((sponsor) => (
               <div
                 key={sponsor.name}
@@ -232,53 +253,118 @@ export default function SponsorsPage() {
             <div className="h-[1px] bg-gradient-to-l from-transparent to-[#6aaff1] w-12 md:w-24"></div>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-            {[
-              { name: "IEEE Bangalore Section", src: "/images/ieeeblr.png", url: "https://ieeebangalore.org/" },
-              { name: "IESA", src: "/images/IESA.jpg", url: "https://www.iesaonline.org/" },
-              { name: "TTTC", src: "/images/TTTC.png", url: "https://www.ieee-tttc.org/" },
-              { name: "VLSI Society of India", src: "/images/VLSI.jpg", url: "https://vsi.org.in/" },
-            ].map((sponsor) => (
-              <div
-                key={sponsor.name}
-                className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+            <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
 
-                <div className="relative p-6 flex items-center justify-center min-h-[150px]">
-                  <img
-                    src={sponsor.src}
-                    alt={sponsor.name}
-                    className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
-                    <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
-                      Visit Website
-                    </span>
-                  </div>
+              <div className="relative p-6 flex items-center justify-center min-h-[150px]">
+                <img
+                  src="/images/ieeeblr.png"
+                  alt="IEEE Bangalore Section"
+                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
+                  <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
+                    Visit Website
+                  </span>
                 </div>
-
-                <a
-                  href={sponsor.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute inset-0 z-20"
-                  aria-label={`Visit ${sponsor.name}`}
-                ></a>
               </div>
-            ))}
+
+              <a
+                href="https://ieeebangalore.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-20"
+                aria-label="Visit IEEE Bangalore Section"
+              ></a>
+            </div>
+
+            <div className="group relative w-4/5 max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+
+              <div className="relative p-6 flex items-center justify-center min-h-[110px]">
+                <img
+                  src="/images/IESA.jpg"
+                  alt="IESA"
+                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
+                  <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
+                    Visit Website
+                  </span>
+                </div>
+              </div>
+
+              <a
+                href="https://www.iesaonline.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-20"
+                aria-label="Visit IESA"
+              ></a>
+            </div>
+
+            <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+
+              <div className="relative p-6 flex items-center justify-center min-h-[150px]">
+                <img
+                  src="/images/TTTC.png"
+                  alt="TTTC"
+                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
+                  <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
+                    Visit Website
+                  </span>
+                </div>
+              </div>
+
+              <a
+                href="https://www.ieee-tttc.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-20"
+                aria-label="Visit TTTC"
+              ></a>
+            </div>
+
+            <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+
+              <div className="relative p-6 flex items-center justify-center min-h-[150px]">
+                <img
+                  src="/images/VLSI.jpg"
+                  alt="VLSI Society of India"
+                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
+                  <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
+                    Visit Website
+                  </span>
+                </div>
+              </div>
+
+              <a
+                href="https://vsi.org.in/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-20"
+                aria-label="Visit VLSI Society of India"
+              ></a>
+            </div>
           </div>
         </section>
 
-        <div className="mt-10 text-center bg-gradient-to-b from-white/5 to-white/[0.02] p-10 md:p-16 rounded-3xl border border-white/10 backdrop-blur-md relative overflow-hidden">
+        <div className="mt-10 text-center bg-gradient-to-b from-white/5 to-white/[0.02] p-10 md:p-16 rounded-3xl border border-white/10 backdrop-blur-md relative overflow-hidden w-11/12 max-w-3xl mx-auto flex flex-col items-center justify-center">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#6aaff1] to-transparent opacity-50"></div>
 
           <h3 className="text-2xl md:text-3xl font-bold mb-4 font-space-grotesk text-white">
             Become a Sponsor
           </h3>
           <p className="text-gray-300 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-            Join <strong>Us </strong> and other industry
-            leaders in shaping the future of semiconductor testing. Showcase
-            your brand to a global audience of experts and innovators.
+            Join <strong>Us </strong> and other industry leaders in shaping the
+            future of semiconductor testing. Showcase your brand to a global
+            audience of experts and innovators.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
