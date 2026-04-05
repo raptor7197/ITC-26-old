@@ -22,7 +22,8 @@ export default function CallForPapers() {
             JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
           </p>
           <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white">
-            CALL FOR PAPERS          </h2>
+            CALL FOR PAPERS{" "}
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
@@ -239,81 +240,83 @@ export default function CallForPapers() {
             </section>
           </div>
 
-          <div className="lg:col-span-1 space-y-8">
-            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg  top-24">
-              <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
-                Important Dates
-              </h3>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-xs text-gray-300 uppercase">
-                    Abstract Submission Deadline
-                  </p>
-                  <p className="text-lg font-semibold">CLOSED</p>
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 space-y-8">
+              <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg">
+                <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
+                  Important Dates
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <p className="text-xs text-gray-300 uppercase">
+                      Abstract Submission Deadline
+                    </p>
+                    <p className="text-lg font-semibold">CLOSED</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-300 uppercase">
+                      Paper Submission Deadline
+                    </p>
+                    <p className="text-lg font-semibold">CLOSED</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-300 uppercase">
+                      Author Notification
+                    </p>
+                    <p className="text-lg font-semibold">10th May, 2026</p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-gray-300 uppercase">
+                      Camera-ready Paper and IEEE Copyright Transfer Due
+                    </p>
+                    <p className="text-lg font-semibold">31st May 2026</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs text-gray-300 uppercase">
-                    Paper Submission Deadline
-                  </p>
-                  <p className="text-lg font-semibold">CLOSED</p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-300 uppercase">
-                    Author Notification
-                  </p>
-                  <p className="text-lg font-semibold">10th May, 2026</p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-300 uppercase">
-                    Camera-ready Paper and IEEE Copyright Transfer Due
-                  </p>
-                  <p className="text-lg font-semibold">31st May 2026</p>
-                </div>
-              </div>
 
-              <div className="mt-6 pt-4 border-t border-white/10">
-                <a
-                  href="https://easychair.org/conferences/?conf=itcindia2026"
-                  className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
-                >
-                  SUBMIT PAPER
-                </a>
-              </div>
-            </div>
-
-            <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300 lg:!mt-49">
-              <h4 className="font-bold text-white mb-2">Need Help?</h4>
-              <p className="mb-4">
-                For detailed information about the submission process,
-                requirements and deadlines, the selection process and any other
-                questions regarding the program itself or contact information,
-                please consult the ITC India web site or email us.
-              </p>
-              <div className="space-y-2">
-                <p>
-                  <span className="block text-xs uppercase text-gray-400">
-                    Website:
-                  </span>
+                <div className="mt-6 pt-4 border-t border-white/10">
                   <a
-                    href="https://itctestweekindia.org"
-                    className="text-blue-300 hover:underline"
+                    href="https://easychair.org/conferences/?conf=itcindia2026"
+                    className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
                   >
-                    itctestweekindia.org
+                    SUBMIT PAPER
                   </a>
-                </p>
-                <p>
-                  <span className="block text-xs uppercase text-gray-400">
-                    Program Chair Email:
-                  </span>
-                  <a
-                    href="mailto:ITC-India-2026-TPC@easychair.org"
-                    className="text-blue-300 hover:underline break-all"
-                  >
-                    ITC-India-2026-TPC@easychair.org
-                  </a>
-                </p>
+                </div>
               </div>
 
+              <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300">
+                <h4 className="font-bold text-white mb-2">Need Help?</h4>
+                <p className="mb-4">
+                  For detailed information about the submission process,
+                  requirements and deadlines, the selection process and any
+                  other questions regarding the program itself or contact
+                  information, please consult the ITC India web site or email
+                  us.
+                </p>
+                <div className="space-y-2">
+                  <p>
+                    <span className="block text-xs uppercase text-gray-400">
+                      Website:
+                    </span>
+                    <a
+                      href="https://itctestweekindia.org"
+                      className="text-blue-300 hover:underline"
+                    >
+                      itctestweekindia.org
+                    </a>
+                  </p>
+                  <p>
+                    <span className="block text-xs uppercase text-gray-400">
+                      Program Chair Email:
+                    </span>
+                    <a
+                      href="mailto:ITC-India-2026-TPC@easychair.org"
+                      className="text-blue-300 hover:underline break-all"
+                    >
+                      ITC-India-2026-TPC@easychair.org
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
