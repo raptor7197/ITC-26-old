@@ -5,38 +5,38 @@ export default function CallForWorkshop() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1360px] mx-auto flex flex-col">
-        <div className="text-center mb-16 w-full max-w-4xl mx-auto">
-          <div className="flex items-center justify-center gap-3 md:gap-5 mb-4">
+        <div className="text-center mb-16 w-4/5 max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-3 md:gap-5 mb-5">
             <Image
               src="/itc-logo.svg"
               alt="ITC Logo"
               width={60}
               height={60}
-              className="w-3/12 h-3/12 md:w-25 md:h-25 object-contain mb-9"
+              className="w-12 h-12 md:w-16 md:h-16 object-contain"
             />
-            <h1 className="text-3xl md:text-5xl font-bold">
-              10th IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
+            <h1 className="text-2xl md:text-4xl font-bold">
+              10<sup>th</sup> IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
             </h1>
           </div>
-          <p className="text-xl md:text-2xl font-semibold text-[#6aaff1]">
+          <p className="text-lg md:text-xl font-semibold text-[#6aaff1]">
             JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
           </p>
-          <h2 className="text-xl md:text-[32px] font-bold mt-8 tracking-tight text-white">
+          <h2 className="text-2xl md:text-4xl font-bold mt-6 tracking-tight text-white leading-tight">
             CALL FOR WORKSHOP PROPOSAL (CWP)
           </h2>
 
-          <h2 className="text-base sm:text-xl md:text-3xl font-semibold text-[#6aaff1] px-2 leading-snug mt-6">
+          <h2 className="text-lg md:text-2xl font-semibold text-[#6aaff1] mt-6">
             TTTC India Workshops on VLSI Test & Design-for-Testability (DFT)
           </h2>
 
-          <p className="mt-4 text-base md:text-xl text-gray-300">
+          <p className="mt-4 text-lg md:text-xl text-gray-300 font-medium">
             Cycle: 2026–2027
           </p>
         </div>
 
-        <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-7">
-          <div className="lg:col-span-2 space-y-6 flex flex-col items-center lg:items-stretch">
-            <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm w-full">
+        <div className="w-4/5 max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10">
+          <div className="lg:col-span-2 space-y-6">
+            <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
               <p className="text-gray-200 text-justify text-sm sm:text-base">
                 The Test Technology Technical Community (TTTC) India, in
                 collaboration with IEEE International Test Conference India,
@@ -46,7 +46,7 @@ export default function CallForWorkshop() {
               <p className="text-gray-200 mt-4 text-justify text-sm sm:text-base">
                 These 3-day workshops (2 days theory + 1 day lab) strengthen
                 semiconductor test education, foster industry-academia
-                collaboration, and build skilled talent for India's growing
+                collaboration, and build skilled talent for India&apos;s growing
                 semiconductor ecosystem.
               </p>
             </section>
@@ -85,7 +85,7 @@ export default function CallForWorkshop() {
               <li>Preferred workshop dates</li>
             </Section>
 
-            <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm w-full">
+            <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 border-b border-white/20 pb-2">
                 Selection Process
               </h3>
@@ -99,8 +99,8 @@ export default function CallForWorkshop() {
           </div>
 
           {/* Right Sidebar */}
-          <div className="lg:col-span-1 space-y-6 flex flex-col items-center lg:items-stretch">
-            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg  lg:top-24 w-full">
+          <div className="lg:col-span-1 space-y-8">
+            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Important Dates
               </h3>
@@ -119,7 +119,7 @@ export default function CallForWorkshop() {
               </a>
             </div>
 
-            <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300 w-full">
+            <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300">
               <h4 className="font-bold text-white mb-2">Need Help?</h4>
               <p className="mb-4">
                 For questions regarding submissions or process, contact:
@@ -147,7 +147,7 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm w-full">
+    <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
       <h3 className="text-xl sm:text-2xl font-bold mb-4 border-b border-white/20 pb-2">
         {title}
       </h3>

@@ -1,4 +1,5 @@
   import Link from "next/link";
+import Image from "next/image";
   
   const footerPx =
     "px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]";
@@ -24,7 +25,7 @@ const footerContentWidth =
       >
         <div className={footerMainMargin}>
         <div
-          className={`relative box-border my-[clamp(16px,4vw,32px)] mb-10 max-w-full overflow-hidden sm:mb-12 md:mb-16
+          className={`relative box-border my-[clamp(16px,4vw,32px)] mb-10 max-w-4/5 overflow-hidden sm:mb-12 md:mb-16
                     px-4 py-[clamp(18px,4vw,28px)] sm:px-6 sm:py-5 md:px-8 md:py-6
                     bg-[#fcfcfc]
                     flex min-w-0 flex-col gap-5 sm:gap-6 md:flex-row md:items-center md:justify-between
@@ -65,7 +66,7 @@ const footerContentWidth =
           <div
             className={`grid grid-cols-2 md:grid-cols-5 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 md:gap-x-12 ${footerContentWidth}`}
           >
-            <div className="min-w-0 pr-1 sm:pr-2">
+            <div className="min-w-0 pr-8 sm:pr-5">
               <h4 className={footerColTitle}>Email ID</h4>
               <a
                 href="mailto:info@itctestweekindia.org"
@@ -73,6 +74,15 @@ const footerContentWidth =
               >
                 info@itctestweekindia.org
               </a>
+              <div className="mt-4">
+                <Image
+                  src="/itc-logo.svg"
+                  alt="ITC Logo"
+                  width={60}
+                  height={60}
+                  className="w-16 h-16 md:w-25 md:h-25"
+                />
+              </div>
             </div>
   
             <div className="min-w-0 pl-1 sm:pl-2">
