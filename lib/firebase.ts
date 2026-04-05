@@ -25,8 +25,9 @@
 // export default app;
 
 // src/lib/firebase.ts (or wherever you prefer to put it)
-import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth'; // Import GoogleAuthProvider
+import { initializeApp, getApps, getApp } from "firebase/app";
+import { getAuth, GoogleAuthProvider } from "firebase/auth"; // Import GoogleAuthProvider
+import { getStorage } from "firebase/storage";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -47,4 +48,7 @@ const auth = getAuth(app);
 // Create a Google Auth Provider instance
 const googleProvider = new GoogleAuthProvider();
 
-export { app, auth, googleProvider };
+// Get the storage instance
+const storage = getStorage(app);
+
+export { app, auth, googleProvider, storage };

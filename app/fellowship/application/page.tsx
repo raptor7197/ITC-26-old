@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { useProtectedRoute } from "@/lib/useProtectedRoute";
 import { RegistrationDB, Registration } from "@/lib/firestore";
 import { validateRegistration, sanitizeFields } from "@/lib/validation";
+import { storage } from "@/lib/firebase";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function FellowshipApplication() {
   const { user, loading: authLoading } = useProtectedRoute({
@@ -17,16 +19,26 @@ export default function FellowshipApplication() {
   const [registration, setRegistration] = useState<Registration | null>(null);
   const [isEditing, setIsEditing] = useState(false);
 
+  const [writeUpFile, setWriteUpFile] = useState<File | null>(null);
+  const [idCardFile, setIdCardFile] = useState<File | null>(null);
+
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    gender: "",
+    institutionalEmail: "",
     phone: "",
+    designation: "",
+    highestQualification: "",
     institution: "",
+    institutionAddress: "",
     city: "",
     state: "",
-    department: "",
-    year: "",
-    additionalInfo: "",
+    pinCode: "",
+    pastFellowship: "",
+    publications: "",
+    ieeePaperId: "",
+    writeUpFileUrl: "",
+    idCardFileUrl: "",
   });
 
   useEffect(() => {
@@ -35,7 +47,6 @@ export default function FellowshipApplication() {
 
       try {
         setLoading(true);
-        // Use Firestore directly instead of API
         const result = await RegistrationDB.findByUidAndType(
           user.uid,
           "fellowship",
@@ -45,29 +56,28 @@ export default function FellowshipApplication() {
           const data = result as Registration;
           setRegistration(data);
           setFormData({
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            institution: data.institution,
+            name: data.name || "",
+            gender: data.gender || "",
+            institutionalEmail: data.institutionalEmail || "",
+            phone: data.phone || "",
+            designation: data.designation || "",
+            highestQualification: data.highestQualification || "",
+            institution: data.institution || "",
+            institutionAddress: data.institutionAddress || "",
             city: data.city || "",
             state: data.state || "",
-            department: data.department,
-            year: data.year,
-            additionalInfo: data.additionalInfo || "",
+            pinCode: data.pinCode || "",
+            pastFellowship: data.pastFellowship || "",
+            publications: data.publications || "",
+            ieeePaperId: data.ieeePaperId || "",
+            writeUpFileUrl: data.writeUpFileUrl || "",
+            idCardFileUrl: data.idCardFileUrl || "",
           });
         } else {
-          // No registration found, prefill with user data
-          setFormData({
+          setFormData((prev) => ({
+            ...prev,
             name: user.displayName || "",
-            email: user.email || "",
-            phone: "",
-            institution: "",
-            city: "",
-            state: "",
-            department: "",
-            year: "",
-            additionalInfo: "",
-          });
+          }));
           setIsEditing(true);
         }
       } catch (err) {
@@ -95,6 +105,45 @@ export default function FellowshipApplication() {
     }));
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, files } = e.target;
+    if (files && files[0]) {
+      const file = files[0];
+      setError(null);
+
+      if (file.size > 10 * 1024 * 1024) {
+        setError("File size should not exceed 10 MB.");
+        e.target.value = "";
+        return;
+      }
+
+      if (name === "writeUpFile" && file.type !== "application/pdf") {
+        setError("The write up must be a PDF file.");
+        e.target.value = "";
+        return;
+      }
+
+      if (
+        name === "idCardFile" &&
+        !file.type.startsWith("image/") &&
+        file.type !== "application/pdf"
+      ) {
+        setError("The institution ID card must be an image or a PDF file.");
+        e.target.value = "";
+        return;
+      }
+
+      if (name === "writeUpFile") setWriteUpFile(file);
+      if (name === "idCardFile") setIdCardFile(file);
+    }
+  };
+
+  const uploadFile = async (file: File, path: string) => {
+    const storageRef = ref(storage, path);
+    await uploadBytes(storageRef, file);
+    return await getDownloadURL(storageRef);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user) return;
@@ -102,11 +151,13 @@ export default function FellowshipApplication() {
     setError(null);
     setSubmitting(true);
 
-    // Sanitize all string fields
     const cleaned = sanitizeFields(formData);
 
-    // Validate all fields
-    const validation = validateRegistration(cleaned);
+    // Form basic validation is handled by validateRegistration (mostly checking string bounds & institutional email)
+    const validation = validateRegistration({
+      ...cleaned,
+      email: user.email || "",
+    });
     if (!validation.valid) {
       setError(validation.error);
       setSubmitting(false);
@@ -114,19 +165,50 @@ export default function FellowshipApplication() {
     }
 
     try {
+      let finalWriteUpUrl = cleaned.writeUpFileUrl;
+      let finalIdCardUrl = cleaned.idCardFileUrl;
+
+      // Upload files if newly selected
+      if (writeUpFile) {
+        finalWriteUpUrl = await uploadFile(
+          writeUpFile,
+          `fellowships/${user.uid}/writeup_${Date.now()}_${writeUpFile.name}`,
+        );
+      } else if (!finalWriteUpUrl) {
+        setError("Please upload the research write up.");
+        setSubmitting(false);
+        return;
+      }
+
+      if (idCardFile) {
+        finalIdCardUrl = await uploadFile(
+          idCardFile,
+          `fellowships/${user.uid}/idcard_${Date.now()}_${idCardFile.name}`,
+        );
+      } else if (!finalIdCardUrl) {
+        setError("Please upload your institution ID card.");
+        setSubmitting(false);
+        return;
+      }
+
+      const finalData = {
+        ...cleaned,
+        email: user.email || "", // Always record from Google Auth
+        writeUpFileUrl: finalWriteUpUrl,
+        idCardFileUrl: finalIdCardUrl,
+      };
+
       let result;
       if (registration && registration.id) {
-        // Update existing registration
         result = await RegistrationDB.update(
           registration.id,
           user.uid,
-          cleaned,
+          finalData,
         );
       } else {
-        // Create new registration
         result = await RegistrationDB.create({
           uid: user.uid,
-          ...cleaned,
+          ...finalData,
           registrationType: "fellowship",
         });
       }
@@ -194,12 +276,10 @@ export default function FellowshipApplication() {
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-gray-900">
-                  Already Registered
+                  Application Submitted
                 </h2>
                 <p className="text-gray-500 text-sm mt-0.5">
-                  You have already submitted a{" "}
-                  <span className="font-semibold capitalize">Fellowship</span>{" "}
-                  registration.
+                  You have successfully submitted your Fellowship registration.
                 </p>
               </div>
             </div>
@@ -225,26 +305,36 @@ export default function FellowshipApplication() {
 
             <div className="divide-y divide-gray-100 border border-gray-100 rounded-xl overflow-hidden mb-6">
               {[
-                { label: "Full Name", value: registration.name },
-                { label: "Email", value: registration.email },
-                { label: "Phone", value: registration.phone },
+                { label: "Name (Aadhar)", value: registration.name },
+                { label: "Gender", value: registration.gender },
+                { label: "Email (Google)", value: registration.email },
+                {
+                  label: "Institutional Email",
+                  value: registration.institutionalEmail,
+                },
+                { label: "Mobile (WhatsApp)", value: registration.phone },
+                { label: "Designation", value: registration.designation },
+                {
+                  label: "Highest Qual.",
+                  value: registration.highestQualification,
+                },
                 { label: "Institution", value: registration.institution },
-                { label: "Department", value: registration.department },
-                { label: "Year of Study", value: registration.year },
-                ...(registration.additionalInfo
-                  ? [
-                      {
-                        label: "Additional Info",
-                        value: registration.additionalInfo,
-                      },
-                    ]
-                  : []),
+                {
+                  label: "City / State",
+                  value: `${registration.city || "-"} / ${registration.state || "-"}`,
+                },
+                { label: "PIN Code", value: registration.pinCode },
+                {
+                  label: "Past Fellowship",
+                  value: registration.pastFellowship,
+                },
+                { label: "IEEE Paper ID", value: registration.ieeePaperId },
               ].map(({ label, value }) => (
                 <div
                   key={label}
                   className="flex flex-col sm:flex-row sm:items-center px-5 py-3 odd:bg-gray-50 even:bg-white"
                 >
-                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider w-40 shrink-0 mb-1 sm:mb-0">
+                  <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider w-48 shrink-0 mb-1 sm:mb-0">
                     {label}
                   </span>
                   <span className="text-gray-800 text-sm">{value || "—"}</span>
@@ -274,7 +364,14 @@ export default function FellowshipApplication() {
                 {registration ? "Edit Application" : "Fellowship Application"}
               </h2>
               <p className="text-gray-500 text-sm">
-                Please fill out the details below to apply for the fellowship.
+                The name, email, and photo associated with your Google account
+                will be recorded when you upload files and submit this form.
+              </p>
+              <p className="text-gray-500 text-sm mt-1">
+                Email: <strong>{user?.email}</strong>
+              </p>
+              <p className="text-xs text-red-500 mt-2">
+                * Indicates required question
               </p>
             </div>
 
@@ -290,11 +387,12 @@ export default function FellowshipApplication() {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Full Name *
+                    Name (As per your Aadhar){" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="text"
@@ -304,33 +402,49 @@ export default function FellowshipApplication() {
                     required
                     maxLength={200}
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
-                    placeholder="John Doe"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Email Address *
+                    Gender <span className="text-red-500">*</span>
                   </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                  <select
+                    name="gender"
+                    value={formData.gender}
                     onChange={handleChange}
                     required
-                    maxLength={254}
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
-                    placeholder="john@university.edu"
-                  />
-                  <p className="mt-1 text-xs text-gray-400">
-                    Use your institutional email (.edu or .ac.*)
-                  </p>
+                  >
+                    <option value="" disabled>
+                      Select Gender
+                    </option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Prefer not to say">Prefer not to say</option>
+                  </select>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Phone Number *
+                    Institutional Email ID{" "}
+                    <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    name="institutionalEmail"
+                    value={formData.institutionalEmail}
+                    onChange={handleChange}
+                    required
+                    maxLength={254}
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    Mobile Number (Whatsapp){" "}
+                    <span className="text-red-500">*</span>
                   </label>
                   <input
                     type="tel"
@@ -342,22 +456,6 @@ export default function FellowshipApplication() {
                     pattern="[\d\s+()-]{7,20}"
                     title="Enter a valid phone number (7–20 characters, digits/spaces/dashes)"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
-                    placeholder="+91 98765 43210"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Institution / University *
-                  </label>
-                  <input
-                    type="text"
-                    name="institution"
-                    value={formData.institution}
-                    onChange={handleChange}
-                    required
-                    maxLength={300}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
-                    placeholder="University Name"
                   />
                 </div>
               </div>
@@ -365,103 +463,219 @@ export default function FellowshipApplication() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    City
-                  </label>
-                  <input
-                    type="text"
-                    name="city"
-                    value={formData.city}
-                    onChange={handleChange}
-                    maxLength={100}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
-                    placeholder="City"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    State / Province
-                  </label>
-                  <input
-                    type="text"
-                    name="state"
-                    value={formData.state}
-                    onChange={handleChange}
-                    maxLength={100}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
-                    placeholder="State"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Department / Major *
-                  </label>
-                  <input
-                    type="text"
-                    name="department"
-                    value={formData.department}
-                    onChange={handleChange}
-                    required
-                    maxLength={200}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
-                    placeholder="Computer Science"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Year of Study *
+                    Designation <span className="text-red-500">*</span>
                   </label>
                   <select
-                    name="year"
-                    value={formData.year}
+                    name="designation"
+                    value={formData.designation}
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
                   >
                     <option value="" disabled>
-                      Select Year
+                      Select Designation
                     </option>
-                    <option value="Undergraduate - 1st Year">
-                      Undergraduate - 1st Year
-                    </option>
-                    <option value="Undergraduate - 2nd Year">
-                      Undergraduate - 2nd Year
-                    </option>
-                    <option value="Undergraduate - 3rd Year">
-                      Undergraduate - 3rd Year
-                    </option>
-                    <option value="Undergraduate - 4th Year">
-                      Undergraduate - 4th Year
-                    </option>
-                    <option value="Master's Student">
-                      Master&apos;s Student
-                    </option>
-                    <option value="PhD Student">PhD Student</option>
-                    <option value="Postdoc">Postdoc</option>
                     <option value="Faculty">Faculty</option>
-                    <option value="Other">Other</option>
+                    <option value="Research Scholar">Research Scholar</option>
+                    <option value="PG Student">PG Student</option>
+                    <option value="UG Student">UG Student</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    Highest Qualification{" "}
+                    <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    name="highestQualification"
+                    value={formData.highestQualification}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                  >
+                    <option value="" disabled>
+                      Select Qualification
+                    </option>
+                    <option value="Ph.D">Ph.D</option>
+                    <option value="M.E./M.Tech">M.E./M.Tech</option>
+                    <option value="B.E/B.Tech">B.E/B.Tech</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Why are you interested in this fellowship? (Optional)
+                  Institution Name <span className="text-red-500">*</span>
                 </label>
-                <textarea
-                  name="additionalInfo"
-                  value={formData.additionalInfo}
+                <input
+                  type="text"
+                  name="institution"
+                  value={formData.institution}
                   onChange={handleChange}
-                  rows={4}
-                  maxLength={2000}
-                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm resize-none"
-                  placeholder="Tell us about your research interests..."
+                  required
+                  maxLength={300}
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
                 />
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Complete Postal Address of Institution{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  name="institutionAddress"
+                  value={formData.institutionAddress}
+                  onChange={handleChange}
+                  required
+                  rows={2}
+                  maxLength={500}
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm resize-none"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    City <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    value={formData.city}
+                    onChange={handleChange}
+                    required
+                    maxLength={100}
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    State <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="state"
+                    value={formData.state}
+                    onChange={handleChange}
+                    required
+                    maxLength={100}
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    PIN Code <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    name="pinCode"
+                    value={formData.pinCode}
+                    onChange={handleChange}
+                    required
+                    maxLength={20}
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Have you received ITC fellowship in the past? (If yes, mention
+                  the years) <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="pastFellowship"
+                  value={formData.pastFellowship}
+                  onChange={handleChange}
+                  required
+                  maxLength={200}
+                  placeholder="e.g., No / Yes (2022, 2023)"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Enter the titles of your latest VLSI Testing related
+                  publications (Max 3) <span className="text-red-500">*</span>
+                </label>
+                <textarea
+                  name="publications"
+                  value={formData.publications}
+                  onChange={handleChange}
+                  required
+                  rows={3}
+                  maxLength={1000}
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm resize-none"
+                  placeholder="1. Title 1&#10;2. Title 2&#10;3. Title 3"
+                />
+              </div>
+
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Provide a short write up on your current area of research and
+                  the purpose of attending ITC 2026 (max 1 page PDF){" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <p className="text-xs text-gray-500 mb-3">
+                  Upload 1 supported file: PDF. Max 10 MB.
+                </p>
+                <input
+                  type="file"
+                  name="writeUpFile"
+                  accept="application/pdf"
+                  onChange={handleFileChange}
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                />
+                {formData.writeUpFileUrl && !writeUpFile && (
+                  <p className="text-xs text-green-600 mt-2">
+                    ✓ Previously uploaded file exists
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Mention the ID of your paper selected in IEEE ITC 2026, if any{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  name="ieeePaperId"
+                  value={formData.ieeePaperId}
+                  onChange={handleChange}
+                  required
+                  maxLength={100}
+                  placeholder="e.g., None / 1234"
+                  className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                />
+              </div>
+
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Upload your institution ID card{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <p className="text-xs text-gray-500 mb-3">
+                  Upload 1 supported file. Max 10 MB.
+                </p>
+                <input
+                  type="file"
+                  name="idCardFile"
+                  accept="image/*,application/pdf"
+                  onChange={handleFileChange}
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                />
+                {formData.idCardFileUrl && !idCardFile && (
+                  <p className="text-xs text-green-600 mt-2">
+                    ✓ Previously uploaded file exists
+                  </p>
+                )}
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
                 <button
                   type="submit"
                   disabled={submitting}
