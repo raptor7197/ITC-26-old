@@ -246,17 +246,17 @@ export default function CallForPapers() {
                   Important Dates
                 </h3>
                 <div className="space-y-4">
-                  <div>
+                  {/*<div>
                     <p className="text-xs text-gray-300 uppercase">
                       Abstract Submission Deadline
                     </p>
-                    <p className="text-lg font-semibold">CLOSED</p>
-                  </div>
+                    <p className="text-lg font-semibold m-2"> 31<sup>st</sup> MARCH [CLOSED]</p>
+                  </div>*/}
                   <div>
                     <p className="text-xs text-gray-300 uppercase">
                       Paper Submission Deadline
                     </p>
-                    <p className="text-lg font-semibold">CLOSED</p>
+                    <p className="text-lg font-semibold m-2"> 31<sup>st</sup> MARCH [CLOSED]</p>
                   </div>
                   <div>
                     <p className="text-xs text-gray-300 uppercase">

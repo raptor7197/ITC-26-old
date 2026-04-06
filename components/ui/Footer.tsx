@@ -57,6 +57,8 @@ export default function Footer() {
           </div>
         </div>
 
+        <div className="border-t border-dotted border-white/30" />
+
         <nav
           className="relative mt-8 min-w-0 pt-10 sm:mt-10 sm:pt-12 md:mt-12 md:pt-16 pb-8"
           aria-label="Footer"
