@@ -7,7 +7,7 @@ export default function CallForTutorials() {
         {/* Header Section */}
         <div className="text-center mb-16">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">
-            10th IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
+            10<sup>th</sup> IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
           </h1>
           <p className="text-xl md:text-2xl font-semibold text-[#6aaff1]">
             JUL 19-21, 2026 | BENGALURU, INDIA

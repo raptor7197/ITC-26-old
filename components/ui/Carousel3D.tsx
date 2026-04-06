@@ -131,7 +131,13 @@ export default function Carousel3D() {
                     </div>
 
                     <span className="font-space-grotesk text-[28px] font-bold leading-none tracking-tight text-[#022241] sm:text-[32px] md:text-[36px] lg:text-[40px]">
-                      {item.stat}
+                      {item.stat === "10th" ? (
+                        <>
+                          10<sup>th</sup>
+                        </>
+                      ) : (
+                        item.stat
+                      )}
                     </span>
 
                     <span className="mt-1 font-space-grotesk text-[13px] font-bold tracking-[0.08em] text-[#03396c] sm:text-[14px] md:text-[15px] lg:text-[16px]">

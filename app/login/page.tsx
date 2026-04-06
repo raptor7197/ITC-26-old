@@ -53,7 +53,7 @@ export default function Login() {
           <div className="relative w-full max-w-[300px] aspect-square">
             <Image
               src="/itc-logo.svg"
-              alt="ITC India 10th Edition"
+              alt="ITC India 10<sup>th</sup> Edition"
               fill
               className="object-contain"
               priority

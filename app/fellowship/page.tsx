@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const aboutPoints = [
-  "IEEE ITC India 2026 invites students, researchers, and faculty members working in the area of VLSI Testing to apply for the Fellowship Program. IEEE ITC India has a longstanding tradition of offering generous fellowships to students, researchers, and faculty from academic institutions across India, and we are pleased to continue this initiative for our 10th Edition of IEEE ITC India 2026.",
+  "IEEE ITC India 2026 invites students, researchers, and faculty members working in the area of VLSI Testing to apply for the Fellowship Program. IEEE ITC India has a longstanding tradition of offering generous fellowships to students, researchers, and faculty from academic institutions across India, and we are pleased to continue this initiative for our 10<sup>th</sup> Edition of IEEE ITC India 2026.",
   "The fellowship includes complimentary conference registration and reimbursement (fixed amount) towards travel and accommodation for attending the conference. Fellowships are open to Indian students, researchers, and faculty actively engaged in VLSI test–related domains.",
   "Fellowship recipients are required to attend the entire three-day conference, and attendance will be formally recorded. The fellowship is intended as a facilitative support mechanism for participants who may otherwise lack adequate institutional funding, and should not be viewed as an honor or award.",
   "Applicants must be full-time students or regular faculty members at the time of the conference. College identity cards and Aadhaar cards will be verified during registration.",

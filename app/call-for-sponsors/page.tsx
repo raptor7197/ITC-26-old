@@ -6,7 +6,7 @@ export default function CallForSponsors() {
       <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1400px] mx-auto flex flex-col">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-            10th IEEE International Test Conference India 2026
+10<sup>th</sup> IEEE International Test Conference India 2026
           </h1>
           <p className="text-xl md:text-2xl font-semibold text-[#6aaff1] mb-2">
             JULY 19-21, 2026
@@ -23,10 +23,10 @@ export default function CallForSponsors() {
         <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm mb-10">
           <div className="space-y-4 text-gray-200 text-justify">
             <p>
-              We are excited to announce the 10th IEEE International Test Conference India 2026, taking place at Radisson Blu, Marathalli ORR, Bengaluru, from July 19-21, 2026.
+              We are excited to announce the 10<sup>th</sup> IEEE International Test Conference India 2026, taking place at Radisson Blu, Marathalli ORR, Bengaluru, from July 19-21, 2026.
             </p>
             <p>
-              Celebrating a decade of excellence, ITC India 2026 marks our 10th annual gathering. This premier forum brings together leading experts, innovators, and practitioners in design, test, manufacturing, and reliability of electronic systems and integrated circuits. For this landmark edition, we are thrilled to host in Bengaluru, India – the heart of India's technology and innovation landscape.
+              Celebrating a decade of excellence, ITC India 2026 marks our 10<sup>th</sup> annual gathering. This premier forum brings together leading experts, innovators, and practitioners in design, test, manufacturing, and reliability of electronic systems and integrated circuits. For this landmark edition, we are thrilled to host in Bengaluru, India – the heart of India's technology and innovation landscape.
             </p>
             <p>
               The organizing committee is committed to ensuring robust participation, both in terms of quality and quantity, through a comprehensive and impactful technical program that features:

@@ -58,7 +58,7 @@ const sarpanch = Sarpanch({
 export const metadata: Metadata = {
   title: "ITC India 2026 - IEEE International Test Conference",
   description:
-    "10th IEEE International Test Conference INDIA - An initiative towards India's semiconductor ecosystem",
+    "10<sup>th</sup> IEEE International Test Conference INDIA - An initiative towards India's semiconductor ecosystem",
   icons: {
     icon: "/itc-logo.svg",
   },

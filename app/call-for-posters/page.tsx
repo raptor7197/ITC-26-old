@@ -15,7 +15,7 @@ export default function CallForPosters() {
               className="w-20 h-20 md:w-25 md:h-25 "
             />
             <h1 className="text-3xl md:text-5xl font-bold">
-              10th IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
+              10<sup>th</sup> IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
             </h1>
           </div>
           <p className="text-xl md:text-2xl font-semibold text-[#6aaff1]">
@@ -31,7 +31,7 @@ export default function CallForPosters() {
             <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
               <div className="space-y-4 text-gray-200 text-justify">
                 <p>
-                  Celebrating its 10th edition, the IEEE International Test
+                  Celebrating its 10<sup>th</sup> edition, the IEEE International Test
                   Conference India (ITC India) is the premier conference
                   dedicated to testing of electronic devices, circuits, and
                   systems. ITC India 2026 invites researchers, developers, and
@@ -230,10 +230,8 @@ export default function CallForPosters() {
             </section>
           </div>
 
-          {/* Sidebar Information */}
           <div className="lg:col-span-1 space-y-8">
-            {/* Important Dates Box */}
-            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg sticky top-24">
+            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg top-24">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Important Dates
               </h3>
