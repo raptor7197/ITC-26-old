@@ -121,52 +121,52 @@ export default function CallForTutorials() {
               <p className="mb-4 text-gray-300 italic">
                 Include (not limited to):
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-200">
-                <div>3D/2.5D IC and Chiplet Testing</div>
-                <div>Adaptive Test in Practice</div>
-                <div>ATE/Probe Card Design</div>
-                <div>Automotive Reliability and Testing</div>
-                <div>Advances in Boundary Scan</div>
-                <div>Silicon Bring Up</div>
-                <div>Defect-Oriented Testing</div>
-                <div>DFM and Test Diagnosis</div>
-                <div>Economics of Test</div>
-                <div>Embedded BIST & DFT</div>
-                <div>Emerging Defect Mechanisms</div>
-                <div>Hardware Security and Trust</div>
-                <div>High-Speed Interface Testing</div>
-                <div>IoT Testing</div>
-                <div>Known-Good-Die testing</div>
-                <div>Low-Power Testing Techniques</div>
-                <div>Machine learning applications in DFT</div>
-                <div>Memory Test and Repair</div>
-                <div>MEMS Testing</div>
-                <div>Mixed-Signal and Analog Test</div>
-                <div>New Technologies and Test</div>
-                <div>On-Chip Test Compression</div>
-                <div>Online Test</div>
-                <div>Pre- and Post- Silicon Validation</div>
-                <div>Quantum Computing Hardware Testing</div>
-                <div>Reliability and Resilience</div>
-                <div>Scan Based Test</div>
-                <div>Security and trust in DFT</div>
-                <div>SoC/SiP/NoC Test</div>
-                <div>Silicon Debug and diagnosis</div>
-                <div>Jitter, RF Test</div>
-                <div>Simulation and Test</div>
-                <div>System Test</div>
-                <div>Test-to-Design Feedback</div>
-                <div>Test Data Analytics, Big Data in Testing</div>
-                <div>Test Escape Analysis</div>
-                <div>Test Flow Optimizations</div>
-                <div>Test Generation and Validation</div>
-                <div>Test Resource Partitioning</div>
-                <div>Test Standards and best practices in DFT</div>
-                <div>Test Time Analysis and Reduction</div>
-                <div>Testing and Validation of AI Hardware</div>
-                <div>Testing High Speed Optics/Photonics</div>
-                <div>Yield Analysis and Optimization</div>
-              </div>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-200 list-disc list-inside md:list-outside md:ml-4 text-center md:text-left">
+                <li>3D/2.5D IC and Chiplet Testing</li>
+                <li>Adaptive Test in Practice</li>
+                <li>ATE/Probe Card Design</li>
+                <li>Automotive Reliability and Testing</li>
+                <li>Advances in Boundary Scan</li>
+                <li>Silicon Bring Up</li>
+                <li>Defect-Oriented Testing</li>
+                <li>DFM and Test Diagnosis</li>
+                <li>Economics of Test</li>
+                <li>Embedded BIST & DFT</li>
+                <li>Emerging Defect Mechanisms</li>
+                <li>Hardware Security and Trust</li>
+                <li>High-Speed Interface Testing</li>
+                <li>IoT Testing</li>
+                <li>Known-Good-Die testing</li>
+                <li>Low-Power Testing Techniques</li>
+                <li>Machine learning applications in DFT</li>
+                <li>Memory Test and Repair</li>
+                <li>MEMS Testing</li>
+                <li>Mixed-Signal and Analog Test</li>
+                <li>New Technologies and Test</li>
+                <li>On-Chip Test Compression</li>
+                <li>Online Test</li>
+                <li>Pre- and Post- Silicon Validation</li>
+                <li>Quantum Computing Hardware Testing</li>
+                <li>Reliability and Resilience</li>
+                <li>Scan Based Test</li>
+                <li>Security and trust in DFT</li>
+                <li>SoC/SiP/NoC Test</li>
+                <li>Silicon Debug and diagnosis</li>
+                <li>Jitter, RF Test</li>
+                <li>Simulation and Test</li>
+                <li>System Test</li>
+                <li>Test-to-Design Feedback</li>
+                <li>Test Data Analytics, Big Data in Testing</li>
+                <li>Test Escape Analysis</li>
+                <li>Test Flow Optimizations</li>
+                <li>Test Generation and Validation</li>
+                <li>Test Resource Partitioning</li>
+                <li>Test Standards and best practices in DFT</li>
+                <li>Test Time Analysis and Reduction</li>
+                <li>Testing and Validation of AI Hardware</li>
+                <li>Testing High Speed Optics/Photonics</li>
+                <li>Yield Analysis and Optimization</li>
+              </ul>
             </section>
           </div>
 

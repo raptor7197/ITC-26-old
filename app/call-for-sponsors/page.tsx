@@ -5,31 +5,49 @@ export default function CallForSponsors() {
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         <div className="text-center mb-12">
+          <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6">
+            <Image
+              src="/itc-logo.svg"
+              alt="ITC Logo"
+              width={80}
+              height={80}
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-25 md:h-25 object-contain "
+            />
+          </div>
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
-10<sup>th</sup> IEEE International Test Conference India 2026
+            10<sup>th</sup> IEEE International Test Conference India 2026
           </h1>
           <p className="text-xl md:text-2xl font-semibold text-[#6aaff1] mb-2">
             JULY 19-21, 2026
-          
           </p>
           <p className="text-lg md:text-xl text-gray-300">
             RADISSON BLU, MARATHAHALLI, BENGALURU
           </p>
           <h2 className="text-4xl md:text-[56px] font-bold mt-8 tracking-tight text-white">
-            Call For Sponsorships
+            CALL FOR SPONSORSHIPS
           </h2>
         </div>
 
         <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm mb-10">
           <div className="space-y-4 text-gray-200 text-justify">
             <p>
-              We are excited to announce the 10<sup>th</sup> IEEE International Test Conference India 2026, taking place at Radisson Blu, Marathalli ORR, Bengaluru, from July 19-21, 2026.
+              We are excited to announce the 10<sup>th</sup> IEEE International
+              Test Conference India 2026, taking place at Radisson Blu,
+              Marathalli ORR, Bengaluru, from July 19-21, 2026.
             </p>
             <p>
-              Celebrating a decade of excellence, ITC India 2026 marks our 10<sup>th</sup> annual gathering. This premier forum brings together leading experts, innovators, and practitioners in design, test, manufacturing, and reliability of electronic systems and integrated circuits. For this landmark edition, we are thrilled to host in Bengaluru, India – the heart of India's technology and innovation landscape.
+              Celebrating a decade of excellence, ITC India 2026 marks our 10
+              <sup>th</sup> annual gathering. This premier forum brings together
+              leading experts, innovators, and practitioners in design, test,
+              manufacturing, and reliability of electronic systems and
+              integrated circuits. For this landmark edition, we are thrilled to
+              host in Bengaluru, India – the heart of India's technology and
+              innovation landscape.
             </p>
             <p>
-              The organizing committee is committed to ensuring robust participation, both in terms of quality and quantity, through a comprehensive and impactful technical program that features:
+              The organizing committee is committed to ensuring robust
+              participation, both in terms of quality and quantity, through a
+              comprehensive and impactful technical program that features:
             </p>
             <ul className="list-disc list-inside ml-4 space-y-1 text-gray-200">
               <li>Keynote Speeches</li>
@@ -42,7 +60,16 @@ export default function CallForSponsors() {
               <li>Posters</li>
             </ul>
             <p className="mt-4">
-              As an industry leader, you understand the importance of establishing your company's technical leadership and effectively highlighting your expertise to the broader technical community. ITC India is the perfect stage for you to achieve significant business value and elevate your organization's profile. Enclosed are the details of several sponsorship opportunities for your serious consideration. The attached sponsorship packages, enrollment forms, and detailed information about various sponsorship options are designed to deliver outstanding Return on Investment (ROI) for your company.
+              As an industry leader, you understand the importance of
+              establishing your company's technical leadership and effectively
+              highlighting your expertise to the broader technical community.
+              ITC India is the perfect stage for you to achieve significant
+              business value and elevate your organization's profile. Enclosed
+              are the details of several sponsorship opportunities for your
+              serious consideration. The attached sponsorship packages,
+              enrollment forms, and detailed information about various
+              sponsorship options are designed to deliver outstanding Return on
+              Investment (ROI) for your company.
             </p>
           </div>
         </section>
@@ -55,10 +82,18 @@ export default function CallForSponsors() {
             <table className="w-full text-sm md:text-base">
               <thead>
                 <tr className="border-b-2 border-blue-400/50">
-                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">SPONSORSHIP PACKAGES</th>
-                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">SLOTS</th>
-                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">COST (in INR)</th>
-                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">BENEFITS AND OFFERINGS</th>
+                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">
+                    SPONSORSHIP PACKAGES
+                  </th>
+                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">
+                    SLOTS
+                  </th>
+                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">
+                    COST (in INR)
+                  </th>
+                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">
+                    BENEFITS AND OFFERINGS
+                  </th>
                 </tr>
               </thead>
               <tbody className="text-gray-200">
@@ -75,7 +110,7 @@ export default function CallForSponsors() {
                     "Exhibit booth – 2 Nos (2x3 sqm each)",
                     "25 Free Conference Registrations",
                     "25 Tutorial invitations",
-                    "20 Evening Hi-Tea VIP Invitations"
+                    "20 Evening Hi-Tea VIP Invitations",
                   ]}
                   isHighlighted
                 />
@@ -92,7 +127,7 @@ export default function CallForSponsors() {
                     "Exhibit booth – 2 Nos (2x3sqm each)",
                     "20 Free Conference Registrations",
                     "20 Tutorial invitations",
-                    "15 Evening Hi-Tea VIP Invitations"
+                    "15 Evening Hi-Tea VIP Invitations",
                   ]}
                   isHighlighted
                 />
@@ -108,7 +143,7 @@ export default function CallForSponsors() {
                     "Exhibit booth – 2x3sqm x 1 stall",
                     "15 Free Conference Registrations",
                     "15 Tutorial invitations",
-                    "10 Evening Hi-Tea VIP Invitations"
+                    "10 Evening Hi-Tea VIP Invitations",
                   ]}
                 />
                 <SponsorRow
@@ -124,7 +159,7 @@ export default function CallForSponsors() {
                     "50% discount on Exhibit booth price",
                     "10 Free Conference Registrations",
                     "10 Tutorial invitations",
-                    "10 Evening Hi-Tea VIP Invitations"
+                    "10 Evening Hi-Tea VIP Invitations",
                   ]}
                 />
                 <SponsorRow
@@ -136,7 +171,7 @@ export default function CallForSponsors() {
                     "30 seconds video during Coffee/Tea breaks",
                     "5 Free Conference Registrations",
                     "5 Tutorial Invitations",
-                    "50% discount on Exhibit booth price"
+                    "50% discount on Exhibit booth price",
                   ]}
                 />
                 <SponsorRow
@@ -149,7 +184,7 @@ export default function CallForSponsors() {
                     "4 Free Conference Registration",
                     "4 Tutorial Invitations",
                     "4 Evening Hi-Tea VIP Invitations",
-                    "25% discount on Exhibit booth price"
+                    "25% discount on Exhibit booth price",
                   ]}
                 />
                 <SponsorRow
@@ -161,7 +196,7 @@ export default function CallForSponsors() {
                     "4 Free Conference Registration",
                     "4 Tutorial Invitations",
                     "4 Evening Hi-Tea VIP Invitations",
-                    "25% discount on Exhibit booth price"
+                    "25% discount on Exhibit booth price",
                   ]}
                 />
                 <SponsorRow
@@ -183,33 +218,141 @@ export default function CallForSponsors() {
             <table className="w-full text-sm md:text-base">
               <thead>
                 <tr className="border-b-2 border-blue-400/50">
-                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">Sl. No</th>
-                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">Item</th>
-                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">Slots</th>
-                  <th className="text-right py-3 px-2 md:px-4 font-bold text-[#6aaff1]">Price (INR)</th>
+                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">
+                    Sl. No
+                  </th>
+                  <th className="text-left py-3 px-2 md:px-4 font-bold text-[#6aaff1]">
+                    Item
+                  </th>
+                  <th className="text-center py-3 px-2 md:px-4 font-bold text-[#6aaff1]">
+                    Slots
+                  </th>
+                  <th className="text-right py-3 px-2 md:px-4 font-bold text-[#6aaff1]">
+                    Price (INR)
+                  </th>
                 </tr>
               </thead>
               <tbody className="text-gray-200">
-                <AdditionalItemRow slNo="1" item="Panel Discussions" slots="8" price="3,00,000" />
-                <AdditionalItemRow slNo="2" item="Keynote Speeches (Based on Technical Steering committee selection)" slots="4" price="7,00,000" />
-                <AdditionalItemRow slNo="3" item="Inaugural Ceremony/Cultural Event" slots="1" price="6,00,000" />
-                <AdditionalItemRow slNo="4" item="Evening Hi-Tea" slots="1" price="5,00,000" />
-                <AdditionalItemRow slNo="5" item="Awards Ceremony" slots="1" price="5,00,000" />
-                <AdditionalItemRow slNo="6" item="Conference Kit Material" slots="1" price="1,00,000" />
-                <AdditionalItemRow slNo="7" item="Conference Mugs" slots="2" price="2,50,000" />
-                <AdditionalItemRow slNo="8" item="Student Program" slots="4" price="1,50,000" />
-                <AdditionalItemRow slNo="9" item="Polo shirts" slots="1" price="4,00,000" />
-                <AdditionalItemRow slNo="10" item="Registration Area" slots="2" price="5,00,000" />
-                <AdditionalItemRow slNo="11" item="Delegate Badges" slots="1" price="5,00,000" />
-                <AdditionalItemRow slNo="12" item="Delegate Bag Branding" slots="2" price="6,00,000" />
-                <AdditionalItemRow slNo="13" item="Event Stationery/conference booklet" slots="3" price="5,00,000" />
-                <AdditionalItemRow slNo="14" item="Speaker Mementoes" slots="2" price="2,50,000" />
-                <AdditionalItemRow slNo="15" item="Memento (for bag inserts)" slots="10" price="1,50,000" />
-                <AdditionalItemRow slNo="16" item="Delegate bag inserts" slots="10" price="1,00,000" />
-                <AdditionalItemRow slNo="17" item="Delegate caps" slots="2" price="2,00,000" />
-                <AdditionalItemRow slNo="18" item="Delegate folders" slots="4" price="2,00,000" />
-                <AdditionalItemRow slNo="19" item="Delegate pens" slots="1" price="2,00,000" />
-                <AdditionalItemRow slNo="20" item="Event Pen Drives" slots="1" price="2,00,000" />
+                <AdditionalItemRow
+                  slNo="1"
+                  item="Panel Discussions"
+                  slots="8"
+                  price="3,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="2"
+                  item="Keynote Speeches (Based on Technical Steering committee selection)"
+                  slots="4"
+                  price="7,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="3"
+                  item="Inaugural Ceremony/Cultural Event"
+                  slots="1"
+                  price="6,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="4"
+                  item="Evening Hi-Tea"
+                  slots="1"
+                  price="5,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="5"
+                  item="Awards Ceremony"
+                  slots="1"
+                  price="5,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="6"
+                  item="Conference Kit Material"
+                  slots="1"
+                  price="1,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="7"
+                  item="Conference Mugs"
+                  slots="2"
+                  price="2,50,000"
+                />
+                <AdditionalItemRow
+                  slNo="8"
+                  item="Student Program"
+                  slots="4"
+                  price="1,50,000"
+                />
+                <AdditionalItemRow
+                  slNo="9"
+                  item="Polo shirts"
+                  slots="1"
+                  price="4,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="10"
+                  item="Registration Area"
+                  slots="2"
+                  price="5,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="11"
+                  item="Delegate Badges"
+                  slots="1"
+                  price="5,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="12"
+                  item="Delegate Bag Branding"
+                  slots="2"
+                  price="6,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="13"
+                  item="Event Stationery/conference booklet"
+                  slots="3"
+                  price="5,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="14"
+                  item="Speaker Mementoes"
+                  slots="2"
+                  price="2,50,000"
+                />
+                <AdditionalItemRow
+                  slNo="15"
+                  item="Memento (for bag inserts)"
+                  slots="10"
+                  price="1,50,000"
+                />
+                <AdditionalItemRow
+                  slNo="16"
+                  item="Delegate bag inserts"
+                  slots="10"
+                  price="1,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="17"
+                  item="Delegate caps"
+                  slots="2"
+                  price="2,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="18"
+                  item="Delegate folders"
+                  slots="4"
+                  price="2,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="19"
+                  item="Delegate pens"
+                  slots="1"
+                  price="2,00,000"
+                />
+                <AdditionalItemRow
+                  slNo="20"
+                  item="Event Pen Drives"
+                  slots="1"
+                  price="2,00,000"
+                />
               </tbody>
             </table>
           </div>
@@ -217,7 +360,10 @@ export default function CallForSponsors() {
 
         <section className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-center">
           <p className="text-gray-200">
-            Your prompt decision to participate will enable us to better serve you and enhance the ROI you experience, ensuring that the conference meets and exceeds your expectations. We would be happy to provide further details and look forward to connecting with you soon.
+            Your prompt decision to participate will enable us to better serve
+            you and enhance the ROI you experience, ensuring that the conference
+            meets and exceeds your expectations. We would be happy to provide
+            further details and look forward to connecting with you soon.
           </p>
         </section>
 
@@ -230,7 +376,10 @@ export default function CallForSponsors() {
           </a>
           <p className="mt-4 text-gray-400">
             Contact us at:{" "}
-            <a href="mailto:info@itctestweekindia.org" className="text-blue-300 hover:underline">
+            <a
+              href="mailto:info@itctestweekindia.org"
+              className="text-blue-300 hover:underline"
+            >
               info@itctestweekindia.org
             </a>
           </p>
@@ -254,8 +403,12 @@ function SponsorRow({
   isHighlighted?: boolean;
 }) {
   return (
-    <tr className={`border-b border-white/10 ${isHighlighted ? 'bg-yellow-400/5' : ''}`}>
-      <td className={`py-4 px-2 md:px-4 font-bold ${isHighlighted ? 'text-[#6aaff1]' : 'text-white'}`}>
+    <tr
+      className={`border-b border-white/10 ${isHighlighted ? "bg-yellow-400/5" : ""}`}
+    >
+      <td
+        className={`py-4 px-2 md:px-4 font-bold ${isHighlighted ? "text-[#6aaff1]" : "text-white"}`}
+      >
         {tier}
       </td>
       <td className="py-4 px-2 md:px-4 text-center">{slots}</td>

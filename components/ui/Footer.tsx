@@ -113,7 +113,7 @@ export default function Footer() {
               <h4 className={footerColTitle}>Conference</h4>
               <ul className="flex flex-col gap-2.5">
                 <li>
-                  <Link href="/#about" className={footerLink}>
+                  <Link href="/" className={footerLink}>
                     About Us
                   </Link>
                 </li>
