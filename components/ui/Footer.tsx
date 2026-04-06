@@ -66,19 +66,19 @@ export default function Footer() {
           aria-label="Footer"
         >
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 sm:gap-x-10 sm:gap-y-12 lg:gap-x-16 items-start ${footerContentWidth}`}
+            className={`grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-10 sm:gap-y-12 lg:gap-x-16 items-start ${footerContentWidth}`}
           >
-            <div className="min-w-0 flex items-center justify-center sm:justify-start">
+            <div className="min-w-0 col-span-2 flex items-center justify-center sm:justify-start sm:col-span-1">
               <Image
                 src="/itc-logo.svg"
                 alt="ITC Logo"
                 width={120}
                 height={120}
-                className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                className="w-24 h-24 md:w-48 md:h-48 object-contain"
               />
             </div>
 
-            <div className="min-w-0">
+            <div className="min-w-0 ml-5">
               <h4 className={footerColTitle}>Submissions</h4>
               <ul className="flex flex-col gap-2.5">
                 <li>
@@ -109,7 +109,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="min-w-0">
+            <div className="min-w-0 ml-10">
               <h4 className={footerColTitle}>Conference</h4>
               <ul className="flex flex-col gap-2.5">
                 <li>
@@ -140,7 +140,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="min-w-0">
+            <div className="min-w-0 ml-5">
               <h4 className={footerColTitle}>Conference Location</h4>
               <Link
                 href="https://maps.app.goo.gl/Su9eU1hLBaaRZcKEA"

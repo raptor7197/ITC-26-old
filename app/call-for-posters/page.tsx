@@ -4,17 +4,17 @@ import Image from "next/image";
 export default function CallForPosters() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
-      <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1360px] mx-auto flex flex-col">
+      <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-3 md:gap-5 mb-4">
+          <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6">
             <Image
               src="/itc-logo.svg"
               alt="ITC Logo"
-              width={60}
-              height={60}
-              className="w-20 h-20 md:w-25 md:h-25 "
+              width={80}
+              height={80}
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
             />
-            <h1 className="text-3xl md:text-5xl font-bold">
+            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center">
               10<sup>th</sup> IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
             </h1>
           </div>

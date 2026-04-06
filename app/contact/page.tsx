@@ -12,7 +12,7 @@ export default function ContactUs() {
         <div className="absolute bottom-[-10%] left-[-5%] w-[500px] h-[500px] bg-purple-600/20 rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-[#90cbfb]">
           CONTACT US
         </h1>

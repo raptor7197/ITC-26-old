@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function SponsorsPage() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
-      <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1400px] mx-auto flex flex-col">
+      <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-[56px] font-bold tracking-tight text-white mb-6 font-space-grotesk">
             OUR SPONSORS

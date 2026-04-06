@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function CallForSponsors() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
-      <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1400px] mx-auto flex flex-col">
+      <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         <div className="text-center mb-12">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">
 10<sup>th</sup> IEEE International Test Conference India 2026
