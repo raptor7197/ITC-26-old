@@ -122,7 +122,7 @@ export default function FellowshipPage() {
           </div>
 
           <div className="lg:col-span-1">
-            <div className="bg-[#1a4b7c] p-5 md:p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg sticky top-24">
+            <div className="bg-[#1a4b7c] p-5 md:p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg top-24">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Application Status
               </h3>

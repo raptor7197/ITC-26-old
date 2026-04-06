@@ -69,7 +69,7 @@ export default function HackathonPage() {
           </div>
 
           <div className="flex min-w-0 flex-col sm:flex-row gap-4 mb-12">
-            <Link href="/hackathon/register">
+            <Link href="https://forms.gle/Jsti3rgKSj5TLkgt7">
               <button className="bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] text-lg md:text-xl font-bold py-4 px-10 rounded-lg shadow-[0_0_20px_rgba(106,175,241,0.3)] transition-all duration-300 uppercase tracking-wider">
                 Register Now
               </button>
