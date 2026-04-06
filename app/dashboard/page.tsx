@@ -251,7 +251,7 @@ export default function DashboardPage() {
             {/* Actions */}
             <div className="flex flex-col sm:flex-row gap-3">
               <button
-                onClick={() => router.push("/fellowship/application")}
+                onClick={() => router.push("/fellowship/register")}
                 className="flex-1 bg-black text-white py-3 px-6 rounded-full font-medium hover:bg-gray-800 transition-colors text-sm text-center"
               >
                 Edit Registration

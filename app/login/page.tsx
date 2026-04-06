@@ -33,9 +33,7 @@ export default function Login() {
 
   return (
     <main className="min-h-screen bg-[#03396c] overflow-hidden relative flex items-center justify-center p-4">
-      {/* Global Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Background Pattern */}
         <div
           className="absolute inset-0 opacity-10 bg-repeat"
           style={{

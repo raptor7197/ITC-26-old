@@ -111,24 +111,22 @@ export default function Navbar() {
           ))}
         </div>
         {user &&
-          (pathname === "/fellowship/application" ||
-            pathname === "/fellowship" ||
+          (pathname === "/fellowship" ||
             pathname === "/fellowship/register" ||
             pathname === "/dashboard") && (
             <div className="ml-5 flex shrink-0 gap-2 border-l border-white/35 pl-5 xl:ml-8 xl:gap-3 xl:pl-8">
-              {(pathname === "/fellowship/application" ||
-                pathname === "/fellowship" ||
+              {(pathname === "/fellowship" ||
                 pathname === "/fellowship/register") && (
                 <button
                   onClick={() => router.push("/dashboard")}
-                  className="px-4 py-2 bg-white/20 backdrop-blur-md border border-white/30 text-black rounded-full hover:bg-white/30 transition-colors text-sm font-poppins font-semibold whitespace-nowrap"
+                  className="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors text-sm font-poppins font-semibold whitespace-nowrap"
                 >
                   Dashboard
                 </button>
               )}
               <button
                 onClick={handleSignOut}
-                className="px-4 py-2 bg-white/20 backdrop-blur-md border border-white/30 text-black rounded-full hover:bg-white/30 transition-colors text-sm font-poppins font-semibold whitespace-nowrap"
+                className="px-4 py-2 bg-white text-black rounded-full hover:bg-gray-100 transition-colors text-sm font-poppins font-semibold whitespace-nowrap"
               >
                 Sign Out
               </button>

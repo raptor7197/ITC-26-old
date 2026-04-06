@@ -262,7 +262,7 @@ export default function RegistrationForm({
             Go to Dashboard
           </button>
           <button
-            onClick={() => router.push("/fellowship/application")}
+            onClick={() => router.push("/fellowship/register")}
             className="flex-1 bg-white text-black border border-gray-300 py-3 px-6 rounded-full font-medium hover:bg-gray-50 transition-colors text-sm"
           >
             View Application

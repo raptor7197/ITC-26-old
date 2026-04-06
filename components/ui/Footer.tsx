@@ -56,9 +56,11 @@ export default function Footer() {
             </button>
           </div>
         </div>
+      </div>
 
-        <div className="border-t border-dotted border-white/30" />
+      <div className="w-full border-t border-dashed border-white/40 mt-8 sm:mt-10 relative z-10" />
 
+      <div className={`relative z-10 ${footerMainMargin}`}>
         <nav
           className="relative mt-8 min-w-0 pt-10 sm:mt-10 sm:pt-12 md:mt-12 md:pt-16 pb-8"
           aria-label="Footer"
@@ -111,42 +113,27 @@ export default function Footer() {
               <h4 className={footerColTitle}>Conference</h4>
               <ul className="flex flex-col gap-2.5">
                 <li>
-                  <Link
-                    href="https://itctestweekindia.org/"
-                    className={footerLink}
-                  >
+                  <Link href="/#about" className={footerLink}>
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="https://itctestweekindia.org/"
-                    className={footerLink}
-                  >
+                  <Link href="/" className={footerLink}>
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="https://itctestweekindia.org/"
-                    className={footerLink}
-                  >
+                  <Link href="/" className={footerLink}>
                     Refund Policy
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="https://itctestweekindia.org/"
-                    className={footerLink}
-                  >
+                  <Link href="/" className={footerLink}>
                     Terms &amp; Conditions
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="https://itctestweekindia.org/contactus"
-                    className={footerLink}
-                  >
+                  <Link href="/contact" className={footerLink}>
                     Contact Us
                   </Link>
                 </li>

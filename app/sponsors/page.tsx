@@ -60,7 +60,7 @@ export default function SponsorsPage() {
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-[1px] bg-gradient-to-r from-transparent to-gray-400 w-16 md:w-32"></div>
             <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-300 font-space-grotesk tracking-wide uppercase px-4">
-              Platinum Sponsor
+              Platinum Sponsors
             </h2>
             <div className="h-[1px] bg-gradient-to-l from-transparent to-gray-400 w-16 md:w-32"></div>
           </div>
@@ -88,6 +88,32 @@ export default function SponsorsPage() {
                 rel="noopener noreferrer"
                 className="absolute inset-0 z-20"
                 aria-label="Visit Siemens"
+              ></a>
+            </div>
+
+            <div className="group relative w-full max-w-md bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+
+              <div className="relative p-4 flex items-center justify-center min-h-[200px]">
+                <img
+                  src="/images/google.png"
+                  alt="Google"
+                  className="h-16 md:h-20 object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+
+              <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-6 left-1/2 -translate-x-1/2">
+                <span className="text-[#03396c] font-semibold text-sm tracking-widest uppercase border-b-2 border-[#03396c]">
+                  Visit Website
+                </span>
+              </div>
+
+              <a
+                href="https://about.google/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute inset-0 z-20"
+                aria-label="Visit Google"
               ></a>
             </div>
           </div>

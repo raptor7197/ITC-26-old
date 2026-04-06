@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const aboutPoints = [
-  "IEEE ITC India 2026 invites students, researchers, and faculty members working in the area of VLSI Testing to apply for the Fellowship Program. IEEE ITC India has a longstanding tradition of offering generous fellowships to students, researchers, and faculty from academic institutions across India, and we are pleased to continue this initiative for our 10<sup>th</sup> Edition of IEEE ITC India 2026.",
+  "IEEE ITC India 2026 invites students, researchers, and faculty members working in the area of VLSI Testing to apply for the Fellowship Program. IEEE ITC India has a longstanding tradition of offering generous fellowships to students, researchers, and faculty from academic institutions across India, and we are pleased to continue this initiative for our 10th Edition of IEEE ITC India 2026.",
   "The fellowship includes complimentary conference registration and reimbursement (fixed amount) towards travel and accommodation for attending the conference. Fellowships are open to Indian students, researchers, and faculty actively engaged in VLSI test–related domains.",
   "Fellowship recipients are required to attend the entire three-day conference, and attendance will be formally recorded. The fellowship is intended as a facilitative support mechanism for participants who may otherwise lack adequate institutional funding, and should not be viewed as an honor or award.",
   "Applicants must be full-time students or regular faculty members at the time of the conference. College identity cards and Aadhaar cards will be verified during registration.",
@@ -27,55 +27,55 @@ const selectionPoints = [
 export default function FellowshipPage() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
-      <div className="relative z-10 pt-[150px] pb-20 px-4 md:px-10 max-w-[1360px] mx-auto flex flex-col">
+      <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-[92%] max-w-[1360px] mx-auto flex flex-col">
         <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase">
-            IEEE ITC India 2026
-          </h1>
-          <p className="text-xl md:text-2xl font-semibold text-[#6aaff1] uppercase">
-            REIMAGINING TEST IN THE ERA OF INTELLIGENT SILICON
-          </p>
-          <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white uppercase">
+          {/*<h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase">
+             ITC TEST WEEK India 2026
+          </h1>*/}
+          <h2 className="text-3xl sm:text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white uppercase leading-tight md:leading-tight">
             ITC Fellowship Proposal
           </h2>
+          <p className="text-lg sm:text-xl md:text-2xl font-semibold text-[#6aaff1] uppercase mt-4 px-2">
+            REIMAGINING TEST IN THE ERA OF INTELLIGENT SILICON
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-12">
-            <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 About the Fellowship
               </h3>
-              <ul className="list-disc list-outside ml-5 space-y-3 text-gray-200">
+              <ul className="list-disc list-outside ml-4 md:ml-5 space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
                 {aboutPoints.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
             </section>
 
-            <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Fellowship Guidelines
               </h3>
-              <ul className="list-disc list-outside ml-5 space-y-3 text-gray-200">
+              <ul className="list-disc list-outside ml-4 md:ml-5 space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
                 {guidelinePoints.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
             </section>
 
-            <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Selection Criteria
               </h3>
-              <ul className="list-disc list-outside ml-5 space-y-3 text-gray-200">
+              <ul className="list-disc list-outside ml-4 md:ml-5 space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
                 {selectionPoints.map((item, idx) => (
                   <li key={idx}>{item}</li>
                 ))}
               </ul>
             </section>
 
-            <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Support Details
               </h3>
@@ -84,7 +84,7 @@ export default function FellowshipPage() {
                   <h4 className="text-xl font-bold mb-4 text-[#6aaff1]">
                     Support for Local Fellows
                   </h4>
-                  <div className="space-y-3 text-sm text-gray-200">
+                  <div className="space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
                     {[1, 2, 3, 4, 5, 6].map((n) => (
                       <p key={n}>
                         <span className="font-semibold text-white mr-2">
@@ -103,7 +103,7 @@ export default function FellowshipPage() {
                   <h4 className="text-xl font-bold mb-4 text-[#6aaff1]">
                     Support for Outstation Fellows
                   </h4>
-                  <div className="space-y-3 text-sm text-gray-200">
+                  <div className="space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
                     {[1, 2, 3, 4, 5, 6].map((n) => (
                       <p key={n}>
                         <span className="font-semibold text-white mr-2">
@@ -121,8 +121,8 @@ export default function FellowshipPage() {
             </section>
           </div>
 
-          <div className="lg:col-span-1 space-y-8">
-            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg">
+          <div className="lg:col-span-1">
+            <div className="bg-[#1a4b7c] p-5 md:p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg sticky top-24">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Application Status
               </h3>
