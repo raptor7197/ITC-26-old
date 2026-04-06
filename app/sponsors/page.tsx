@@ -109,7 +109,7 @@ export default function SponsorsPage() {
               </div>
 
               <a
-                href="https://about.google/"
+                href="https://about.google"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute inset-0 z-20"

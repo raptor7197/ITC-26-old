@@ -1,4 +1,9 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { useAuth } from "@/lib/AuthContext";
+import { RegistrationDB, Registration } from "@/lib/firestore";
 
 const aboutPoints = [
   "IEEE ITC India 2026 invites students, researchers, and faculty members working in the area of VLSI Testing to apply for the Fellowship Program. IEEE ITC India has a longstanding tradition of offering generous fellowships to students, researchers, and faculty from academic institutions across India, and we are pleased to continue this initiative for our 10th Edition of IEEE ITC India 2026.",
@@ -25,6 +30,31 @@ const selectionPoints = [
 ];
 
 export default function FellowshipPage() {
+  const { user } = useAuth();
+  const [registration, setRegistration] = useState<Registration | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function checkRegistration() {
+      if (!user) {
+        setLoading(false);
+        return;
+      }
+      try {
+        const result = await RegistrationDB.findByUidAndType(
+          user.uid,
+          "fellowship",
+        );
+        setRegistration((result as Registration) || null);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    checkRegistration();
+  }, [user]);
+
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-[92%] max-w-[1360px] mx-auto flex flex-col">
@@ -127,25 +157,66 @@ export default function FellowshipPage() {
                 Application Status
               </h3>
               <div className="space-y-4">
-                <p className="text-sm text-gray-200 italic">
-                  Applications are reviewed on a rolling basis. Early
-                  submissions are encouraged.
-                </p>
+                {loading ? (
+                  <p className="text-sm text-gray-200 italic">
+                    Checking status...
+                  </p>
+                ) : registration ? (
+                  <div className="bg-white/10 p-4 rounded-md border border-white/20">
+                    <p className="text-sm text-white mb-2">
+                      You have already applied.
+                    </p>
+                    <p className="text-xs text-gray-300 uppercase tracking-wider mb-1">
+                      Status:
+                    </p>
+                    <span
+                      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${
+                        registration.status === "approved"
+                          ? "bg-green-100 text-green-800"
+                          : registration.status === "rejected"
+                            ? "bg-red-100 text-red-800"
+                            : "bg-yellow-100 text-yellow-800"
+                      }`}
+                    >
+                      {registration.status === "approved"
+                        ? "Approved"
+                        : registration.status === "rejected"
+                          ? "Rejected"
+                          : "Pending Review"}
+                    </span>
+                  </div>
+                ) : (
+                  <p className="text-sm text-gray-200 italic">
+                    Applications are reviewed on a rolling basis. Early
+                    submissions are encouraged.
+                  </p>
+                )}
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
-                <Link
-                  href="/fellowship/register"
-                  className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
-                >
-                  APPLY NOW
-                </Link>
-                <Link
-                  href="/fellowship/register"
-                  className="block w-full bg-transparent border-2 border-[#6aaff1] hover:bg-[#6aaff1]/20 text-white font-bold text-center py-3 rounded transition-colors"
-                >
-                  REGISTER NOW
-                </Link>
+                {registration ? (
+                  <Link
+                    href="/dashboard"
+                    className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
+                  >
+                    GO TO DASHBOARD
+                  </Link>
+                ) : (
+                  <>
+                    <Link
+                      href="/fellowship/register"
+                      className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
+                    >
+                      APPLY NOW
+                    </Link>
+                    {/*<Link
+                      href="/fellowship/register"
+                      className="block w-full bg-transparent border-2 border-[#6aaff1] hover:bg-[#6aaff1]/20 text-white font-bold text-center py-3 rounded transition-colors"
+                    >
+                      REGISTER NOW
+                    </Link>*/}
+                  </>
+                )}
               </div>
             </div>
           </div>
