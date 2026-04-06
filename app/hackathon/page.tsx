@@ -57,7 +57,18 @@ export default function HackathonPage() {
         <div className="mx-auto flex w-full min-w-0 max-w-full flex-col [overflow-wrap:anywhere] lg:max-w-[1400px]">
           <div className="relative mb-20 min-w-0 max-w-4xl">
           <div className="mb-6">
+            
+            <div className="flex flex-col items-center sm:items-start justify-center sm:justify-start gap-4 md:gap-6 mb-6">
+              <Image
+                src="/itc-logo.svg"
+                alt="ITC Logo"
+                width={80}
+                height={80}
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain md:hidden"
+              />
+            </div>
             <p className="text-sm md:text-base font-semibold text-[#6aaff1] uppercase tracking-wider mb-2">
+
               ITC India 2026 Presents
             </p>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase leading-tight">
@@ -68,7 +79,7 @@ export default function HackathonPage() {
             </h2>
           </div>
 
-          <div className="flex min-w-0 flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex min-w-0 flex-col sm:flex-row gap-4 mb-12 items-center sm:items-start w-full">
             <Link href="https://forms.gle/Jsti3rgKSj5TLkgt7">
               <button className="bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] text-lg md:text-xl font-bold py-4 px-10 rounded-lg shadow-[0_0_20px_rgba(106,175,241,0.3)] transition-all duration-300 uppercase tracking-wider">
                 Register Now

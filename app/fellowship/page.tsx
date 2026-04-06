@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/lib/AuthContext";
 import { RegistrationDB, Registration } from "@/lib/firestore";
@@ -62,7 +63,18 @@ export default function FellowshipPage() {
           {/*<h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase">
              ITC TEST WEEK India 2026
           </h1>*/}
+          
+          <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6">
+            <Image
+              src="/itc-logo.svg"
+              alt="ITC Logo"
+              width={80}
+              height={80}
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain md:hidden"
+            />
+          </div>
           <h2 className="text-3xl sm:text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white uppercase leading-tight md:leading-tight">
+
             ITC Fellowship Proposal
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl font-semibold text-[#6aaff1] uppercase mt-4 px-2">
