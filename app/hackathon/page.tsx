@@ -64,7 +64,7 @@ export default function HackathonPage() {
                 alt="ITC Logo"
                 width={80}
                 height={80}
-                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain md:hidden"
+                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
               />
             </div>
             <p className="text-sm md:text-base font-semibold text-[#6aaff1] uppercase tracking-wider mb-2">

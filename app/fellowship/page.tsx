@@ -70,7 +70,7 @@ export default function FellowshipPage() {
               alt="ITC Logo"
               width={80}
               height={80}
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain md:hidden"
+              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
             />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white uppercase leading-tight md:leading-tight">

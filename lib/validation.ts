@@ -1,7 +1,4 @@
-/**
- * Strip leading/trailing whitespace and collapse internal runs of whitespace.
- * Also removes common XSS characters: < > " ' ` ; ( ) { }
- */
+
 export function sanitize(value: string): string {
   return value
     .trim()

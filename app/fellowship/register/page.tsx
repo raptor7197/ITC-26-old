@@ -231,7 +231,7 @@ export default function FellowshipApplication() {
 
   if (authLoading || loading) {
     return (
-      <main className="min-h-screen bg-[#03396c] flex items-center justify-center">
+      <main className="min-h-screen bg-[#03396c] flex items-center justify-center ">
         <div className="text-center text-white">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
           <p>Loading your application...</p>
@@ -242,7 +242,6 @@ export default function FellowshipApplication() {
 
   return (
     <main className="min-h-screen bg-[#03396c] flex items-center justify-center px-4 py-16 relative overflow-hidden">
-      {/* Global Background Elements */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
           className="absolute inset-0 opacity-10 bg-repeat"
@@ -358,7 +357,7 @@ export default function FellowshipApplication() {
             </div>
           </div>
         ) : (
-          <div className="bg-white rounded-2xl shadow-2xl p-8">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 mt-25">
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-1">
                 {registration ? "Edit Application" : "Fellowship Application"}

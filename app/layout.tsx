@@ -12,6 +12,7 @@ import "./globals.css";
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
 import { AuthProvider } from "@/lib/AuthContext";
+import { Analytics } from "@vercel/analytics/next";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -63,7 +64,6 @@ export const metadata: Metadata = {
     icon: "/itc-logo.svg",
   },
 };
-
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -123,6 +123,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </AuthProvider>
+        <Analytics />
       </body>
     </html>
   );

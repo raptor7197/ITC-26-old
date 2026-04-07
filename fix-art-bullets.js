@@ -2,7 +2,6 @@ const fs = require('fs');
 
 let content = fs.readFileSync('app/art/page.tsx', 'utf8');
 
-// Replace the div grid with ul grid, and inner divs with lis
 content = content.replace(
   /<div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 text-sm text-gray-200">([\s\S]*?)<\/div>\s*<\/section>/,
   (match, p1) => {
