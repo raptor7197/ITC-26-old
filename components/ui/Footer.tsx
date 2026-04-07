@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import NewsletterForm from "@/components/ui/NewsletterForm";
 
 const footerPx = "px-3 sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]";
 
@@ -36,25 +37,7 @@ export default function Footer() {
             Subscribe to our <br className="hidden sm:block" /> Newsletter
           </h3>
 
-          <div className="flex w-full min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-stretch sm:justify-end">
-            <input
-              type="email"
-              placeholder="Email Address"
-              className="min-h-[44px] w-full min-w-0 flex-1 bg-[#011f4b] px-4 text-white
-                        placeholder:text-white/50 outline-none ring-0 border-0
-                        text-[clamp(13px,2.5vw,1.125rem)] sm:min-h-[40px]"
-            />
-            <button
-              type="button"
-              className="min-h-[44px] w-full shrink-0 bg-white px-6 font-poppins font-medium text-black shadow-sm
-                        flex items-center justify-center whitespace-nowrap
-                        text-[clamp(0.875rem,2.2vw,1.125rem)]
-                        sm:w-auto sm:min-w-[7.5rem] md:min-w-[8.5rem] sm:min-h-[40px]
-                        hover:bg-white/95 active:scale-[0.99] transition-transform"
-            >
-              Subscribe
-            </button>
-          </div>
+          <NewsletterForm />
         </div>
       </div>
 
