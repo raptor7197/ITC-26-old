@@ -88,7 +88,7 @@ export const members4: Member[] = [
     link: "https://www.linkedin.com/in/anujgupta27",
     img: "p21.png",
     name: "Anuj Gupta",
-    comp: "Cadence Design Systems",
+    comp: "Cadence Design Systems, India",
   },
   {
     id: 9,
@@ -135,7 +135,7 @@ export const members6: Member[] = [
     id: 58,
     link: "https://www.linkedin.com/in/hafizur-rahaman-352208164/",
     img: "Hafizur-Rahaman.png",
-    name: "Prof Hafizur Rahaman",
+    name: "Prof. Hafizur Rahaman",
     comp: "IIEST Shibpur",
   },
   {
@@ -320,7 +320,7 @@ export const members15: Member[] = [
 export const members16: Member[] = [
   {
     id: 42,
-    link: "https://www.google.com",
+    link: "#",
     img: "p22.png",
     name: "Prof. Adit Singh",
     comp: "Auburn University, USA",
@@ -348,7 +348,7 @@ export const members16: Member[] = [
                },
                {
                  id: 45,
-                 link: "https://www.google.com",
+                 link: "#",
                  img: "p47.png",
                  name: "Scott Davidson",
                  comp: "Retired Computer Scientist, USA",
@@ -361,7 +361,7 @@ export const members16: Member[] = [
                  comp: "Siemens EDA, USA",
                },{
                  id: 46,
-                 link: "https://www.google.com",
+                 link: "#",
                  img: "p38.png",
                  name: "Dr. Rubin Parekhji",
                  comp: "Texas Instruments, India",

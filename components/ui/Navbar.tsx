@@ -26,8 +26,8 @@ const navLinks = [
     name: "SPONSORSHIP",
     href: "#",
     dropdown: [
-      { name: "Call for Sponsors", href: "/call-for-sponsors" },
       { name: "Our Sponsors ", href: "/sponsors" },
+      { name: "Call for Sponsors", href: "/call-for-sponsors" },
     ],
   },
   { name: "CONTACT US", href: "/contact" },

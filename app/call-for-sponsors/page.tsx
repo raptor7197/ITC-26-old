@@ -384,6 +384,108 @@ export default function CallForSponsors() {
             </a>
           </p>
         </div>
+
+        <div className="mt-20 w-full max-w-5xl mx-auto flex flex-col gap-14 pb-10">
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xl md:text-2xl font-bold text-white text-left pl-2">
+              General Chairs
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              <div className="bg-[#011f4b] rounded-2xl p-4 md:p-5 flex items-center gap-4 md:gap-5 shadow-lg border border-white/10">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-green-500 overflow-hidden shrink-0 bg-gray-800 relative">
+                  <Image
+                    src="/images/committee/p53.png"
+                    alt="Sivanantham S"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-[#b066ff] font-bold text-lg md:text-xl leading-tight mb-1">
+                    Sivanantham S, VIT Vellore
+                  </h4>
+                  <a
+                    href="mailto:ssivanantham@vit.ac.in"
+                    className="text-gray-300 text-sm md:text-base hover:underline"
+                  >
+                    ssivanantham@vit.ac.in
+                  </a>
+                </div>
+              </div>
+              <div className="bg-[#011f4b] rounded-2xl p-4 md:p-5 flex items-center gap-4 md:gap-5 shadow-lg border border-white/10">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-green-500 overflow-hidden shrink-0 bg-gray-800 relative">
+                  <Image
+                    src="/images/committee/p16.png"
+                    alt="Gaurav Bhargava"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-[#b066ff] font-bold text-lg md:text-xl leading-tight mb-1">
+                    Gaurav Bhargava, Qualcomm, India
+                  </h4>
+                  <a
+                    href="mailto:gauravb@qti.qualcomm.com"
+                    className="text-gray-300 text-sm md:text-base hover:underline"
+                  >
+                    gauravb@qti.qualcomm.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xl md:text-2xl font-bold text-white text-right pr-2">
+              Marketing & Publicity Chairs
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              <div className="bg-[#011f4b] rounded-2xl p-4 md:p-5 flex items-center gap-4 md:gap-5 shadow-lg border border-white/10">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-green-500 overflow-hidden shrink-0 bg-gray-800 relative">
+                  <Image
+                    src="/images/committee/p6.png"
+                    alt="Veeresh Shetty"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-[#b066ff] font-bold text-lg md:text-xl leading-tight mb-1">
+                    Veeresh Shetty, Siemens EDA, India
+                  </h4>
+                  <a
+                    href="mailto:veeresh.shetty@siemens.com"
+                    className="text-gray-300 text-sm md:text-base hover:underline"
+                  >
+                    veeresh.shetty@siemens.com
+                  </a>
+                </div>
+              </div>
+              <div className="bg-[#011f4b] rounded-2xl p-4 md:p-5 flex items-center gap-4 md:gap-5 shadow-lg border border-white/10">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-green-500 overflow-hidden shrink-0 bg-gray-800 relative">
+                  <Image
+                    src="/images/committee/p51.png"
+                    alt="Samuel V Dorairaj"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-[#b066ff] font-bold text-lg md:text-xl leading-tight mb-1">
+                    Samuel V Dorairaj, Intel, India
+                  </h4>
+                  <a
+                    href="mailto:samuel.v.dorairaj@intel.com"
+                    className="text-gray-300 text-sm md:text-base hover:underline"
+                  >
+                    samuel.v.dorairaj@intel.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

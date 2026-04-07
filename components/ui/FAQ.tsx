@@ -1,5 +1,50 @@
 import Image from "next/image";
 
+const faqs = [
+  {
+    q: "WHO SHOULD ATTEND?",
+    a: [
+      "Students, researchers, faculty, and industry professionals in VLSI, semiconductor testing, and electronics are encouraged to attend.",
+      "It is ideal for anyone interested in chip design, validation, and emerging test technologies.",
+    ],
+  },
+  {
+    q: "Is the conference fully offline, virtual, or hybrid?",
+    a: [
+      "ITC India 2026 is primarily an in-person (offline) conference to enable better networking and collaboration.",
+      "Some sessions may be accessible in hybrid or virtual mode based on final arrangements.",
+    ],
+  },
+  {
+    q: "What are the key focus areas?",
+    a: [
+      "The conference covers VLSI testing, DFT, silicon debug, reliability, and hardware security.",
+      "It also includes emerging areas like AI in testing and next-gen technologies such as IoT and 5G/6G.",
+    ],
+  },
+  {
+    q: "Is there a student research forum or competition?",
+    a: [
+      "Yes, ITC India features a Student Research Forum and the ART (Academia Research Track) for showcasing student research.",
+      "These platforms offer feedback, recognition, and interaction with leading industry experts.",
+    ],
+  },
+  {
+    q: "What is the ITC India Hackathon?",
+    a: [
+      "The hackathon is a team-based challenge focused on solving real-world problems in semiconductor testing.",
+      "Participants work on industry-relevant topics with mentorship, competing for prizes and recognition.",
+    ],
+  },
+  {
+    q: "What is the ITC India Fellowship Program?",
+    a: [
+      "The fellowship supports students and researchers with financial aid to attend the conference.",
+      "It also offers access to sessions, networking opportunities, and exposure to industry leaders.",
+    ],
+  },
+];
+
 export default function FAQ() {
   return (
     <section
@@ -29,7 +74,9 @@ export default function FAQ() {
             <span className="text-[#6aaff1]">s</span>
           </span>
           <span className="hidden w-full min-w-0 max-w-full text-center sm:block sm:text-left angkor-section-title faq-zigzag-title">
-            <span className="block whitespace-nowrap text-white">FREQUENTLY</span>
+            <span className="block whitespace-nowrap text-white">
+              FREQUENTLY
+            </span>
             <span className="block whitespace-nowrap text-[#6aaff1]">
               ASKED QUESTIONS
             </span>
@@ -88,18 +135,19 @@ export default function FAQ() {
           </div>
         </div>
 
-        <div className="flex-1 flex flex-col gap-3 sm:gap-4 md:gap-5 min-w-0">
-          {[1, 2, 3].map((i) => (
+        <div className="flex-1 flex flex-col gap-3 sm:gap-4 md:gap-5 min-w-0 h-full max-h-[600px] overflow-y-auto pr-2 custom-scrollbar">
+          {faqs.map((faq, idx) => (
             <div
-              key={i}
-              className="bg-[#d9d9d9] rounded-[5px] px-3 py-3 sm:px-5 sm:py-4 md:px-5 md:py-4 text-black min-h-[120px] sm:min-h-[150px] xl:min-h-[165px] w-full min-w-0 box-border overflow-hidden"
+              key={idx}
+              className="bg-[#d9d9d9] shrink-0 rounded-[5px] px-3 py-3 sm:px-5 sm:py-4 md:px-5 md:py-4 text-black min-h-[120px] sm:min-h-[150px] xl:min-h-[165px] w-full min-w-0 box-border overflow-hidden"
             >
-              <h3 className="font-poppins font-semibold text-[16px] sm:text-[20px] xl:text-[24px] mb-1 text-center md:text-left">
-                How to join?
+              <h3 className="font-poppins font-semibold text-[16px] sm:text-[20px] xl:text-[24px] mb-2 text-center md:text-left">
+                {faq.q}
               </h3>
-              <div className="font-poppins text-[13px] sm:text-[15px] md:text-[17px] xl:text-[19px] text-center md:text-left break-words [overflow-wrap:break-word] [word-break:break-word]">
-                <p>loremjhebgjhdsbkjdvkjdkvhbjdhj</p>
-                <p>hesbdjcsudyub</p>
+              <div className="font-poppins text-[13px] sm:text-[15px] md:text-[17px] xl:text-[19px] text-center md:text-left break-words [overflow-wrap:break-word] [word-break:break-word] space-y-1">
+                {faq.a.map((paragraph, pIdx) => (
+                  <p key={pIdx}>{paragraph}</p>
+                ))}
               </div>
             </div>
           ))}

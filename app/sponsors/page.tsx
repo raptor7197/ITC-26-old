@@ -311,9 +311,9 @@ export default function SponsorsPage() {
                 <img
                   src="/images/IESA.jpg"
                   alt="IESA"
-                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="h-16 md:h-20 object-contain transition-transform duration-500 group-hover:scale-110 mb-10"
                 />
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-6 left-1/2 -translate-x-1/2">
                   <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
                     Visit Website
                   </span>

@@ -96,7 +96,6 @@ export default function Committee() {
           MEET THE COMMITTEE
         </h1>
 
-        {/* Dynamic Sections */}
         {sections.map((section, index) => (
           <div
             key={index}
@@ -112,7 +111,6 @@ export default function Committee() {
               ))}
             </div>
 
-            {/* Dashed Line Separator (Decorative) between sections */}
             {index !== sections.length - 1 && (
               <div className="w-full h-[1px] mt-24 opacity-20 pointer-events-none flex justify-center">
                 <div className="w-3/4 h-full border-b border-dashed border-white"></div>

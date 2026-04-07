@@ -21,14 +21,12 @@ export default function ContactUs() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
-          {/* Contact Info Column */}
           <div className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm h-full">
             <h2 className="text-2xl font-bold mb-8 text-yellow-400 border-b border-white/10 pb-4 ">
               <span className="text-[#90cbfb]">Get in Touch</span>
             </h2>
 
             <div className="space-y-10">
-              {/* Email */}
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 bg-blue-600/20 rounded-full flex items-center justify-center shrink-0 border border-blue-500/30">
                   <svg
@@ -64,7 +62,6 @@ export default function ContactUs() {
                 </div>
               </div>
 
-              {/* LinkedIn */}
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 bg-blue-700/20 rounded-full flex items-center justify-center shrink-0 border border-blue-600/30">
                   <svg
@@ -80,7 +77,7 @@ export default function ContactUs() {
                   <h3 className="text-lg font-semibold mb-1">LinkedIn</h3>
                   <p className="text-sm text-gray-400 mb-2">Follow us for professional updates</p>
                   <a
-                    href="https://www.linkedin.com/company/ieee-international-test-conference-india/"
+                    href="https://www.linkedin.com/company/international-test-conference-india/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-blue-300 transition-colors block font-medium"
@@ -90,7 +87,6 @@ export default function ContactUs() {
                 </div>
               </div>
 
-              {/* Instagram */}
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 bg-pink-600/20 rounded-full flex items-center justify-center shrink-0 border border-pink-500/30">
                   <svg
@@ -106,12 +102,12 @@ export default function ContactUs() {
                   <h3 className="text-lg font-semibold mb-1">Instagram</h3>
                   <p className="text-sm text-gray-400 mb-2">Check out our latest highlights</p>
                   <a
-                    href="https://www.instagram.com/itctestweekindia/"
+                    href="https://www.instagram.com/itctestweek2026/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:text-pink-300 transition-colors block font-medium"
                   >
-                    @itctestweekindia
+                    @itctestweek2026
                   </a>
                 </div>
               </div>

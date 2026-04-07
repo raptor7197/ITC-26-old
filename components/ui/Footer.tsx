@@ -4,10 +4,10 @@ import Image from "next/image";
 const footerPx = "px-3 sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]";
 
 const footerColTitle =
-  "font-poppins font-semibold text-[15px] sm:text-[17px] md:text-[18px] text-white tracking-tight mb-3 sm:mb-4";
+  "font-poppins font-semibold text-[15px] sm:text-[17px] md:text-[18px] text-white tracking-tight mb-3 sm:mb-4 underline decoration-white/40 underline-offset-4";
 
 const footerLink =
-  "font-poppins text-[14px] sm:text-[15px] md:text-[16px] text-white/90 underline decoration-white/40 underline-offset-4 transition-colors duration-200 hover:text-white hover:decoration-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 rounded-sm";
+  "font-poppins text-[14px] sm:text-[15px] md:text-[16px] text-white/90 transition-colors duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/50 rounded-sm";
 
 const footerContentWidth = "mx-auto min-w-0 w-full max-w-[min(100%,72rem)]";
 
