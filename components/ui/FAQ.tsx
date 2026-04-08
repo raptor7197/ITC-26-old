@@ -141,10 +141,10 @@ export default function FAQ() {
               key={idx}
               className="bg-[#d9d9d9] shrink-0 rounded-[5px] px-3 py-3 sm:px-5 sm:py-4 md:px-5 md:py-4 text-black min-h-[120px] sm:min-h-[150px] xl:min-h-[165px] w-full min-w-0 box-border overflow-hidden"
             >
-              <h3 className="font-poppins font-semibold text-[16px] sm:text-[20px] xl:text-[24px] mb-2 text-center md:text-left">
+              <h3 className="font-poppins font-semibold text-[16px] sm:text-[18px] md:text-[18px] xl:text-[22px] mb-2 text-center md:text-left">
                 {faq.q}
               </h3>
-              <div className="font-poppins text-[13px] sm:text-[15px] md:text-[17px] xl:text-[19px] text-center md:text-left break-words [overflow-wrap:break-word] [word-break:break-word] space-y-1">
+              <div className="font-poppins text-[13px] sm:text-[14px] md:text-[15px] xl:text-[16px] text-center md:text-left break-words [overflow-wrap:break-word] [word-break:break-word] space-y-1">
                 {faq.a.map((paragraph, pIdx) => (
                   <p key={pIdx}>{paragraph}</p>
                 ))}

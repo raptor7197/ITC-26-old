@@ -153,7 +153,6 @@ export default function FellowshipApplication() {
 
     const cleaned = sanitizeFields(formData);
 
-    // Form basic validation is handled by validateRegistration (mostly checking string bounds & institutional email)
     const validation = validateRegistration({
       ...cleaned,
       email: user.email || "",
@@ -168,7 +167,6 @@ export default function FellowshipApplication() {
       let finalWriteUpUrl = cleaned.writeUpFileUrl;
       let finalIdCardUrl = cleaned.idCardFileUrl;
 
-      // Upload files if newly selected
       if (writeUpFile) {
         finalWriteUpUrl = await uploadFile(
           writeUpFile,
@@ -193,7 +191,7 @@ export default function FellowshipApplication() {
 
       const finalData = {
         ...cleaned,
-        email: user.email || "", // Always record from Google Auth
+        email: user.email || "", 
         writeUpFileUrl: finalWriteUpUrl,
         idCardFileUrl: finalIdCardUrl,
       };
@@ -231,7 +229,7 @@ export default function FellowshipApplication() {
 
   if (authLoading || loading) {
     return (
-      <main className="min-h-screen bg-[#03396c] flex items-center justify-center ">
+      <main className="min-h-screen bg-transparent flex items-center justify-center ">
         <div className="text-center text-white">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-white mx-auto mb-4"></div>
           <p>Loading your application...</p>
@@ -241,7 +239,7 @@ export default function FellowshipApplication() {
   }
 
   return (
-    <main className="min-h-screen bg-[#03396c] flex items-center justify-center px-4 py-16 relative overflow-hidden">
+    <main className="min-h-screen bg-transparent flex items-center justify-center px-4 py-16 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
           className="absolute inset-0 opacity-10 bg-repeat"
@@ -250,8 +248,20 @@ export default function FellowshipApplication() {
             backgroundSize: "80px 80px",
           }}
         />
-        <div className="absolute top-0 right-10 h-full w-[1px] border-r border-white/10 hidden xl:block"></div>
-        <div className="absolute top-0 left-10 h-full w-[1px] border-r border-white/10 hidden xl:block"></div>
+        <div
+          className="absolute top-0 bottom-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] w-[1px] opacity-60 sm:opacity-70 md:opacity-80"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.7) 6px, transparent 3px, transparent 12px)",
+          }}
+        ></div>
+        <div
+          className="absolute top-0 bottom-0 right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] w-[1px] opacity-60 sm:opacity-70 md:opacity-80"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.7) 6px, transparent 3px, transparent 12px)",
+          }}
+        ></div>
       </div>
 
       <div className="w-full max-w-4xl relative z-10">
