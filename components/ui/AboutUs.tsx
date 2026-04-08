@@ -2,11 +2,7 @@
 
 import Carousel3D from "./Carousel3D";
 
-/**
- * AboutUs Section - Main content only (header with zig-zag + timer is in HeroWithTimer)
- */
 export default function AboutUs() {
-  /* Same horizontal inset as layout guide lines (dotted borders) */
   const contentPadding =
     "px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]";
 
@@ -15,11 +11,9 @@ export default function AboutUs() {
       id="about"
       className={`about-us-section relative w-full pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12 pb-1 sm:pb-2 md:pb-3 ${contentPadding} text-white`}
     >
-      {/* ========== MAIN CONTENT ========== */}
       <div
         className="flex w-full min-w-0 max-w-full flex-col gap-6 sm:gap-8 md:gap-10 xl:flex-row xl:items-center xl:gap-16"
       >
-        {/* Same inset as hero text column + vertically centered with carousel (xl+) */}
         <div
           className="flex min-h-0 min-w-0 flex-1 flex-col justify-center overflow-hidden break-words
                      max-sm:px-3 sm:pl-5 md:pl-6 lg:pl-7 xl:pl-8 sm:pr-0"

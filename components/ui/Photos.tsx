@@ -3,7 +3,28 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-const photos = [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }];
+const photos = [
+  {
+    id: 1,
+    url: "/images/day01.png",
+  },
+  {
+    id: 2,
+    url: "/images/day02.png",
+  },
+  // {
+  //   id: 3,
+  //   url: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2000&auto=format&fit=crop",
+  // },
+  // {
+  //   id: 4,
+  //   url: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2000&auto=format&fit=crop",
+  // },
+  // {
+  //   id: 5,
+  //   url: "https://images.unsplash.com/photo-1558008258-3256797b43f3?q=80&w=2000&auto=format&fit=crop",
+  // },
+];
 
 export default function Photos() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -45,9 +66,7 @@ export default function Photos() {
 
       <h2 className="font-angkor z-30 text-center text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:mt-10 max-[639px]:mb-4 max-[639px]:pt-2 sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mt-0 sm:mb-0 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:translate-y-2.5 sm:items-center sm:justify-center sm:pl-[49.2%] sm:pr-2 md:h-[100px] lg:h-[110px] xl:h-[123px]">
         <span className="angkor-title-pocket angkor-title-pocket--photos flex min-h-0 w-full min-w-0 max-w-full flex-1 items-center justify-center">
-          <span className="angkor-section-title whitespace-nowrap">
-            PHOTOS
-          </span>
+          <span className="angkor-section-title whitespace-nowrap">PHOTOS</span>
         </span>
       </h2>
 
@@ -84,7 +103,17 @@ export default function Photos() {
                   key={`${photo.id}-${index}`}
                   className="relative flex w-full shrink-0 justify-center px-0.5 sm:px-1"
                 >
-                  <div className="relative w-full min-h-[200px] rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:my-0 sm:mt-4 sm:min-h-[240px] sm:p-4 md:min-h-[270px] md:p-6 md:px-6 xl:min-h-[310px] xl:p-10" />
+                  <div className="relative w-full min-h-[200px] flex flex-col rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:my-0 sm:mt-4 sm:min-h-[240px] sm:p-4 md:min-h-[270px] md:p-6 md:px-6 xl:min-h-[310px] xl:p-10">
+                    <div className="relative w-full flex-1 overflow-hidden rounded-sm bg-black/10">
+                      <Image
+                        src={photo.url}
+                        alt={`Conference Photo ${photo.id}`}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                      />
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

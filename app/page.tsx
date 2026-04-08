@@ -13,7 +13,7 @@ export default function Home() {
       <div className="relative z-10 flex w-full min-w-0 flex-col gap-0">
         <HeroWithTimer />
         <AboutUs />
-        {/*<Timeline />*/}
+        {/*<Timeline />*/} has to be decided by the commitee 
         <Testimonials />
         <FAQ />
         <Photos />

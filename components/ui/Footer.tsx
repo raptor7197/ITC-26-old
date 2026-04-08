@@ -24,10 +24,10 @@ export default function Footer() {
     >
       <div className={`relative z-10 ${footerMainMargin}`}>
         <div
-          className={`relative box-border my-[clamp(16px,4vw,32px)] mb-10 max-w-4/5 overflow-hidden sm:mb-12 md:mb-16
-                    px-4 py-[clamp(18px,4vw,28px)] sm:px-6 sm:py-5 md:px-8 md:py-6
+          className={`relative box-border my-[clamp(8px,2vw,16px)] mb-5 max-w-4/5 overflow-hidden sm:mb-6 md:mb-8
+                    px-4 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4
                     bg-[#fcfcfc]
-                    flex min-w-0 flex-col gap-5 sm:gap-6 md:flex-row md:items-center md:justify-between
+                    flex min-w-0 flex-col gap-3 sm:gap-4 md:flex-row md:items-center md:justify-between
                     ${footerNewsletterWidth}`}
         >
           <h3

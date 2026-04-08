@@ -30,6 +30,16 @@ const navLinks = [
       { name: "Call for Sponsors", href: "/call-for-sponsors" },
     ],
   },
+  {
+    name: "ARCHIVES",
+    href: "#",
+    dropdown: [
+      { name: "ITC 2025", href: "https://itc-2025.vercel.app/" },
+      { name: "ITC 2024", href: "#" },
+      { name: "ITC 2023", href: "#" },
+      { name: "ITC 2022", href: "#" },
+    ],
+  },
   { name: "CONTACT US", href: "/contact" },
 ];
 

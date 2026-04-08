@@ -22,7 +22,7 @@ export default function ContactUs() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
           <div className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm h-full">
-            <h2 className="text-2xl font-bold mb-8 text-yellow-400 border-b border-white/10 pb-4 ">
+            <h2 className="text-2xl font-bold mb-8 text-blue-400 border-b border-white/10 pb-4 ">
               <span className="text-[#90cbfb]">Get in Touch</span>
             </h2>
 
@@ -114,7 +114,6 @@ export default function ContactUs() {
             </div>
           </div>
 
-          {/* General Chairs Column */}
           <div className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm h-full flex flex-col">
             <h2 className="text-2xl font-bold mb-8 text-[#90cbfb] border-b border-white/10 pb-4">
               General Chairs
@@ -134,7 +133,7 @@ export default function ContactUs() {
                     />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold group-hover:text-yellow-400 transition-colors">
+                    <h3 className="text-xl font-bold group-hover:text-blue-400 transition-colors">
                       {member.name}
                     </h3>
                     <p className="text-gray-300 mb-3">{member.comp}</p>
@@ -160,7 +159,7 @@ export default function ContactUs() {
 
             <div className="mt-8 pt-6 border-t border-white/10 text-center">
                 <p className="text-gray-400 text-sm">
-                    For other committee members, please visit our <a href="/commitee" className="text-yellow-400 hover:underline">Committee Page</a>.
+                    For other committee members, please visit our <a href="/commitee" className="text-blue-400 hover:underline">Committee Page</a>.
                 </p>
             </div>
           </div>
