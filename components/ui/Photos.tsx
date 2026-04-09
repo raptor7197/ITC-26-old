@@ -103,13 +103,14 @@ export default function Photos() {
                   key={`${photo.id}-${index}`}
                   className="relative flex w-full shrink-0 justify-center px-0.5 sm:px-1"
                 >
-                  <div className="relative w-full min-h-[200px] flex flex-col rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:my-0 sm:mt-4 sm:min-h-[240px] sm:p-4 md:min-h-[270px] md:p-6 md:px-6 xl:min-h-[310px] xl:p-10">
-                    <div className="relative w-full flex-1 overflow-hidden rounded-sm bg-black/10">
+                  <div className="relative w-full flex flex-col rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:my-0 sm:mt-4 sm:p-4 md:p-6 md:px-6 xl:p-10">
+                    <div className="relative w-full flex-1 rounded-sm">
                       <Image
                         src={photo.url}
                         alt={`Conference Photo ${photo.id}`}
-                        fill
-                        className="object-cover"
+                        width={1200}
+                        height={800}
+                        className="w-full h-auto object-contain rounded-sm"
                         unoptimized
                       />
                     </div>

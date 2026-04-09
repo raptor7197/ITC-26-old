@@ -11,15 +11,12 @@ export default function HeroWithTimer() {
         id="hero"
         className={`hero-section relative w-full flex flex-col ${px} pt-[88px] sm:pt-[90px] md:pt-[100px] lg:pt-[110px] xl:pt-[120px] pb-0`}
       >
-        {/* ── Outer wrapper that gives the SVG something to fill ── */}
         <div className="relative w-full flex flex-col">
-          {/* arduino SVG: absolute, spans the full height of this wrapper
-              (content row + timer bar), pinned to the right half */}
+        
           <div
             className="hidden sm:block absolute inset-0 pointer-events-none z-0 overflow-hidden"
             aria-hidden
           >
-            {/* Inner div pushes the SVG into the right ~48 % and clips it */}
             <div
               className="absolute top-0 bottom-0 sm:bottom-[70px] md:bottom-[90px] lg:bottom-[100px] xl:bottom-[115px]
                             left-[52%] sm:left-[54%] md:left-[53%] lg:left-[51%] xl:left-[49%]

@@ -116,7 +116,6 @@ export default function RegistrationForm({
     }
   };
 
-  // ── Not logged in ──────────────────────────────────────────────────────────
   if (!user) {
     return (
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
@@ -138,7 +137,6 @@ export default function RegistrationForm({
     );
   }
 
-  // ── Checking Firestore ─────────────────────────────────────────────────────
   if (checkingRegistration) {
     return (
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
@@ -169,7 +167,6 @@ export default function RegistrationForm({
     );
   }
 
-  // ── Already registered ─────────────────────────────────────────────────────
   if (existingRegistration) {
     const reg = existingRegistration;
     const statusColor =
@@ -272,7 +269,6 @@ export default function RegistrationForm({
     );
   }
 
-  // ── Just submitted successfully ────────────────────────────────────────────
   if (success) {
     return (
       <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
@@ -304,7 +300,6 @@ export default function RegistrationForm({
     );
   }
 
-  // ── Registration form ──────────────────────────────────────────────────────
   return (
     <div className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
       <div className="mb-6">
@@ -319,7 +314,6 @@ export default function RegistrationForm({
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Name */}
         <div>
           <label
             htmlFor="name"
@@ -340,7 +334,6 @@ export default function RegistrationForm({
           />
         </div>
 
-        {/* Email */}
         <div>
           <label
             htmlFor="email"

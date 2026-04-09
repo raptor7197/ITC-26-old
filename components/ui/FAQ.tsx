@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const faqs = [
   {
@@ -95,43 +96,20 @@ export default function FAQ() {
 
       <div className="mt-4 flex w-full min-w-0 max-w-full flex-col-reverse gap-4 max-[639px]:mx-auto max-[639px]:w-[calc(100%-1.5rem)] sm:mt-6 sm:w-full sm:gap-8 md:mt-8 md:gap-10 xl:flex-row xl:gap-14">
         <div className="flex-1 flex flex-col gap-4 sm:gap-6 md:gap-7 min-w-0 items-stretch">
-          <div className="bg-white rounded-[5px] px-3 py-3 sm:px-5 sm:py-4 md:px-6 md:py-5 text-black min-h-[260px] sm:min-h-[320px] xl:min-h-[380px] relative w-full min-w-0 box-border">
-            <h3 className="font-poppins font-semibold text-[18px] sm:text-[22px] xl:text-[26px] mt-1 sm:mt-2 mb-1 text-center md:text-left">
+          <div className="bg-white rounded-[5px] px-3 py-3 sm:px-5 sm:py-4 md:px-6 md:py-5 text-black min-h-[260px] sm:min-h-[320px] xl:min-h-[380px] relative w-full min-w-0 box-border flex flex-col items-center justify-center">
+            <h3 className="font-poppins font-semibold text-[18px] sm:text-[22px] xl:text-[26px] mt-1 sm:mt-2 mb-2 text-center">
               Still have Questions?
             </h3>
-            <p className="font-poppins text-[13px] sm:text-[15px] md:text-[17px] xl:text-[19px] mb-4 sm:mb-6 text-center md:text-left">
-              Contact Us.
+            <p className="font-poppins text-[13px] sm:text-[15px] md:text-[17px] xl:text-[19px] mb-6 sm:mb-8 text-center text-gray-700">
+              We're here to help! Reach out to us for any further inquiries.
             </p>
 
-            <form className="flex flex-col gap-2 sm:gap-3 mt-4 sm:mt-6">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Name*"
-                  className="w-full h-[44px] sm:h-[40px] bg-[#e0e0e0] rounded-[40px] px-4 sm:px-5 text-[13px] sm:text-[15px] md:text-[16px] xl:text-[18px] font-poppins placeholder-black"
-                />
-              </div>
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="Email ID*"
-                  className="w-full h-[44px] sm:h-[40px] bg-[#e0e0e0] rounded-[40px] px-4 sm:px-5 text-[13px] sm:text-[15px] md:text-[16px] xl:text-[18px] font-poppins placeholder-black"
-                />
-              </div>
-              <div className="relative flex flex-col sm:flex-row gap-2 sm:gap-3">
-                <input
-                  type="text"
-                  placeholder="Querie*"
-                  className="flex-1 h-[44px] sm:h-[40px] bg-[#e0e0e0] rounded-[40px] px-4 sm:px-5 text-[13px] sm:text-[15px] md:text-[16px] xl:text-[18px] font-poppins placeholder-black"
-                />
-                <button
-                  type="submit"
-                  className="w-full sm:w-[160px] h-[44px] sm:h-[40px] bg-[#444] text-white rounded-[40px] text-[13px] sm:text-[15px] md:text-[16px] xl:text-[18px] font-poppins"
-                >
-                  Submit
-                </button>
-              </div>
-            </form>
+            <Link
+              href="/contact"
+              className="w-full sm:w-auto min-w-[200px] h-[44px] sm:h-[48px] bg-[#444] hover:bg-[#222] text-white rounded-[40px] text-[14px] sm:text-[16px] xl:text-[18px] font-poppins font-medium flex items-center justify-center transition-colors"
+            >
+              Contact Us
+            </Link>
           </div>
         </div>
 

@@ -8,14 +8,14 @@ import { useRouter, usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "HOME", href: "/" },
-  { name: "COMMITTEE", href: "/commitee" },
+  { name: "COMMITTEE", href: "/committee" },
   {
     name: "AUTHORS",
     href: "#",
     dropdown: [
       { name: "Call For Papers", href: "/cfp" },
       { name: "Call For Tutorials", href: "/cft" },
-      { name: "Academic Research Track", href: "/art" },
+      { name: "Academia Research Track", href: "/art" },
       { name: "Call For Posters", href: "/call-for-posters" },
       { name: "Call For Workshop", href: "/call-for-workshop" },
       { name: "ITC Hackathon", href: "/hackathon" },
@@ -35,9 +35,10 @@ const navLinks = [
     href: "#",
     dropdown: [
       { name: "ITC 2025", href: "https://itc-2025.vercel.app/" },
-      { name: "ITC 2024", href: "#" },
-      { name: "ITC 2023", href: "#" },
-      { name: "ITC 2022", href: "#" },
+      { name: "ITC 2024", href: "/archives/itc_2024_archive/itc_2024.html" },
+      { name: "ITC 2023", href: "/archives/itcindia2023/index.html" },
+      { name: "ITC 2022", href: "/archives/itc_2022/itctestweekindia.org/index.html" },
+      { name: "ITC 2021", href: "/archives/itc_2021/index.html" },
     ],
   },
   { name: "CONTACT US", href: "/contact" },
