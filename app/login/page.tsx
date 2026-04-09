@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signInWithGoogle } from "@/lib/auth";
+import { signInWithPopup } from "firebase/auth";
+import { auth, googleProvider } from "@/lib/firebase";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
@@ -15,14 +16,8 @@ export default function Login() {
       setLoading(true);
       setError(null);
 
-      const result = await signInWithGoogle();
-
-      if (result.success) {
-        // Redirect to fellowship page after successful login
-        router.push("/dashboard");
-      } else {
-        setError(result.error || "Failed to sign in");
-      }
+      await signInWithPopup(auth, googleProvider);
+      router.push("/fellowship/register");
     } catch (err) {
       console.error("Sign in error:", err);
       setError("An unexpected error occurred");
