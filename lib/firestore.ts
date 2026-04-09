@@ -164,29 +164,20 @@ export const RegistrationDB = {
   },
 
   async findByUidAndType(uid: string, registrationType?: string) {
-    let q;
-
-    if (registrationType) {
-      q = query(
-        collection(db, "submissions"),
-        where("uid", "==", uid),
-        where("registrationType", "==", registrationType),
-      );
-    } else {
-      q = query(collection(db, "submissions"), where("uid", "==", uid));
-    }
-
+    const q = query(collection(db, "submissions"), where("uid", "==", uid));
     const querySnapshot = await getDocs(q);
 
-    if (registrationType) {
-      if (querySnapshot.empty) return null;
-      const doc = querySnapshot.docs[0];
-      return { id: doc.id, ...doc.data() } as Registration;
-    }
-
-    return querySnapshot.docs.map(
+    const docs = querySnapshot.docs.map(
       (doc) => ({ id: doc.id, ...doc.data() }) as Registration,
     );
+
+    if (registrationType) {
+      return (
+        docs.find((doc) => doc.registrationType === registrationType) || null
+      );
+    }
+
+    return docs;
   },
 
   async findById(id: string) {
