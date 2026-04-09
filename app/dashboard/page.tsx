@@ -116,7 +116,7 @@ export default function DashboardPage() {
     : [];
 
   return (
-    <main className="min-h-screen bg-transparent px-4 py-16 flex flex-col items-center relative overflow-hidden">
+    <main className="min-h-screen bg-transparent px-[8%] sm:px-[6%] md:px-[5%] lg:px-[4%] py-16 flex flex-col items-center relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
           className="absolute inset-0 opacity-10 bg-repeat"

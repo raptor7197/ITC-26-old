@@ -150,7 +150,7 @@ export const RegistrationDB = {
       "id" | "createdAt" | "updatedAt" | "status"
     >,
   ) {
-    const registrationRef = doc(collection(db, "registrations"));
+    const registrationRef = doc(collection(db, "submissions"));
 
     const data = {
       ...registrationData,
@@ -168,12 +168,12 @@ export const RegistrationDB = {
 
     if (registrationType) {
       q = query(
-        collection(db, "registrations"),
+        collection(db, "submissions"),
         where("uid", "==", uid),
         where("registrationType", "==", registrationType),
       );
     } else {
-      q = query(collection(db, "registrations"), where("uid", "==", uid));
+      q = query(collection(db, "submissions"), where("uid", "==", uid));
     }
 
     const querySnapshot = await getDocs(q);
@@ -190,7 +190,7 @@ export const RegistrationDB = {
   },
 
   async findById(id: string) {
-    const registrationRef = doc(db, "registrations", id);
+    const registrationRef = doc(db, "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;
@@ -201,7 +201,7 @@ export const RegistrationDB = {
   },
 
   async update(id: string, uid: string, updateData: Partial<Registration>) {
-    const registrationRef = doc(db, "registrations", id);
+    const registrationRef = doc(db, "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;
@@ -219,7 +219,7 @@ export const RegistrationDB = {
   },
 
   async delete(id: string, uid: string) {
-    const registrationRef = doc(db, "registrations", id);
+    const registrationRef = doc(db, "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;
@@ -232,7 +232,7 @@ export const RegistrationDB = {
   },
 
   async getAll(filters?: { registrationType?: string; status?: string }) {
-    let q = query(collection(db, "registrations"));
+    let q = query(collection(db, "submissions"));
 
     if (filters?.registrationType) {
       q = query(q, where("registrationType", "==", filters.registrationType));
@@ -332,7 +332,7 @@ export const PaperSubmissionDB = {
     paperId: string,
     paperStatus: string = "pending",
   ) {
-    const registrationRef = doc(db, "registrations", registrationId);
+    const registrationRef = doc(db, "submissions", registrationId);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;

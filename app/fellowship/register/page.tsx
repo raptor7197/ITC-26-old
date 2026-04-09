@@ -236,7 +236,7 @@ export default function FellowshipApplication() {
   }
 
   return (
-    <main className="min-h-screen bg-transparent flex items-center justify-center px-4 py-16 relative overflow-hidden">
+    <main className="min-h-screen bg-transparent flex items-center justify-center px-[8%] sm:px-[6%] md:px-[5%] lg:px-[4%] py-16 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
           className="absolute inset-0 opacity-10 bg-repeat"
@@ -261,7 +261,7 @@ export default function FellowshipApplication() {
         ></div>
       </div>
 
-      <div className="w-full max-w-4xl relative z-10">
+      <div className="max-w-4xl relative z-10 mx-auto">
         {registration && !isEditing ? (
           <div className="bg-white rounded-2xl shadow-2xl p-8">
             <div className="flex items-center gap-3 mb-5">
