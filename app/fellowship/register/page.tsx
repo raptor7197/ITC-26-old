@@ -111,8 +111,8 @@ export default function FellowshipApplication() {
       const file = files[0];
       setError(null);
 
-      if (file.size > 10 * 1024 * 1024) {
-        setError("File size should not exceed 10 MB.");
+      if (file.size > 5 * 1024 * 1024) {
+        setError("File size should not exceed 5 MB.");
         e.target.value = "";
         return;
       }
@@ -123,12 +123,8 @@ export default function FellowshipApplication() {
         return;
       }
 
-      if (
-        name === "idCardFile" &&
-        !file.type.startsWith("image/") &&
-        file.type !== "application/pdf"
-      ) {
-        setError("The institution ID card must be an image or a PDF file.");
+      if (name === "idCardFile" && file.type !== "application/pdf") {
+        setError("The institution ID card must be a PDF file.");
         e.target.value = "";
         return;
       }
@@ -140,7 +136,8 @@ export default function FellowshipApplication() {
 
   const uploadFile = async (file: File, path: string) => {
     const storageRef = ref(storage, path);
-    await uploadBytes(storageRef, file);
+    const metadata = { contentType: "application/pdf" };
+    await uploadBytes(storageRef, file, metadata);
     return await getDownloadURL(storageRef);
   };
 
@@ -170,7 +167,7 @@ export default function FellowshipApplication() {
       if (writeUpFile) {
         finalWriteUpUrl = await uploadFile(
           writeUpFile,
-          `fellowships/${user.uid}/writeup_${Date.now()}_${writeUpFile.name}`,
+          `fellowships/${user.uid}/${Date.now()}_${writeUpFile.name}`,
         );
       } else if (!finalWriteUpUrl) {
         setError("Please upload the research write up.");
@@ -181,7 +178,7 @@ export default function FellowshipApplication() {
       if (idCardFile) {
         finalIdCardUrl = await uploadFile(
           idCardFile,
-          `fellowships/${user.uid}/idcard_${Date.now()}_${idCardFile.name}`,
+          `fellowships/${user.uid}/${Date.now()}_${idCardFile.name}`,
         );
       } else if (!finalIdCardUrl) {
         setError("Please upload your institution ID card.");
@@ -191,7 +188,7 @@ export default function FellowshipApplication() {
 
       const finalData = {
         ...cleaned,
-        email: user.email || "", 
+        email: user.email || "",
         writeUpFileUrl: finalWriteUpUrl,
         idCardFileUrl: finalIdCardUrl,
       };
@@ -629,7 +626,7 @@ export default function FellowshipApplication() {
                   <span className="text-red-500">*</span>
                 </label>
                 <p className="text-xs text-gray-500 mb-3">
-                  Upload 1 supported file: PDF. Max 10 MB.
+                  Upload 1 supported file: PDF. Max 5 MB.
                 </p>
                 <input
                   type="file"
@@ -668,7 +665,7 @@ export default function FellowshipApplication() {
                   <span className="text-red-500">*</span>
                 </label>
                 <p className="text-xs text-gray-500 mb-3">
-                  Upload 1 supported file. Max 10 MB.
+                  Upload 1 supported file. Max 5 MB.
                 </p>
                 <input
                   type="file"
