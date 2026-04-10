@@ -265,17 +265,14 @@ export default function DashboardPage() {
           </button>
         </div>
 
-        {/* Error */}
         {error && (
           <div className="bg-white rounded-2xl shadow-2xl p-5 border-l-4 border-red-500">
             <p className="text-red-600 text-sm">{error}</p>
           </div>
         )}
 
-        {/* Registration card */}
         {registration ? (
           <div className="bg-white rounded-2xl shadow-2xl p-8">
-            {/* Header */}
             <div className="flex items-center gap-3 mb-5">
               <div className="flex-shrink-0 bg-green-50 rounded-full p-2">
                 <svg
@@ -306,7 +303,6 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            {/* Status badge */}
             <div className="mb-5">
               <span
                 className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${statusColor}`}
@@ -336,7 +332,7 @@ export default function DashboardPage() {
                 rel="noopener noreferrer"
                 className="flex-1 bg-white text-black border border-gray-300 py-3 px-6 rounded-full font-medium hover:bg-gray-50 transition-colors text-sm text-center"
               >
-                📄 Submit Paper
+              Submit Paper
               </a>
               <button
                 onClick={handleDelete}
