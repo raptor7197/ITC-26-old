@@ -37,7 +37,7 @@ const sections = [
   { title: "Registration Chair", data: members12 },
   { title: "Marketing and Conference Management Co-Chairs", data: members13 },
   // { title: "New Volunteers", data: members14 },
-  // { title: "TPC Advisory Committee", data: members15 }, this is for the TPC advisoty commitee
+  // { title: "TPC Advisory Committee", data: members15 }, this is for the TPC advisory committee
   { title: "Advisory Committee", data: members16 },
 ];
 

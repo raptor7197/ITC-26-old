@@ -103,7 +103,7 @@ export default function Photos() {
                   key={`${photo.id}-${index}`}
                   className="relative flex w-full shrink-0 justify-center px-0.5 sm:px-1"
                 >
-                  <div className="relative w-full flex flex-col rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:my-0 sm:mt-4 sm:p-4 md:p-6 md:px-6 xl:p-10">
+                  <div className="relative w-full flex flex-col rounded-sm bg-[#d9d9d9] p-1.5 shadow-lg sm:my-0 sm:mt-4 sm:p-2 md:p-2.5 md:px-2.5 xl:p-3">
                     <div className="relative w-full flex-1 rounded-sm">
                       <Image
                         src={photo.url}
