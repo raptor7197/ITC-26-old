@@ -52,6 +52,7 @@ export default function RegistrationForm({
         const existing = await RegistrationDB.findByUidAndType(
           user.uid,
           registrationType,
+          user.email
         );
         if (!cancelled) {
           setExistingRegistration((existing as Registration) ?? null);

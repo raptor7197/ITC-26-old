@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "@/lib/firebase";
+import { signInWithGoogle } from "@/lib/auth";
+import { RegistrationDB } from "@/lib/firestore";
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
@@ -13,11 +13,23 @@ export default function Login() {
 
   const handleGoogleSignIn = async () => {
     try {
-      setLoading(true);
       setError(null);
+      setLoading(true);
 
-      await signInWithPopup(auth, googleProvider);
-      router.push("/fellowship/register");
+      const result = await signInWithGoogle();
+      
+      if (!result.success || !result.user) {
+        throw new Error(result.error || "Failed to sign in");
+      }
+
+      document.cookie = `firebase-auth-token=${result.user.idToken}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
+
+      const registrations = await RegistrationDB.findByUidAndType(result.user.uid, undefined, result.user.email);
+      if (Array.isArray(registrations) && registrations.length > 0) {
+        router.push("/dashboard");
+      } else {
+        router.push("/fellowship/register");
+      }
     } catch (err) {
       console.error("Sign in error:", err);
       setError("An unexpected error occurred");

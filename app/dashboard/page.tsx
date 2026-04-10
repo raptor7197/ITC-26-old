@@ -23,7 +23,11 @@ export default function DashboardPage() {
   const fetchRegistration = async () => {
     try {
       setLoading(true);
-      const result = await RegistrationDB.findByUidAndType(user!.uid);
+      const result = await RegistrationDB.findByUidAndType(
+        user!.uid,
+        undefined,
+        user!.email,
+      );
       if (Array.isArray(result)) {
         setRegistration(result.length > 0 ? result[0] : null);
       } else if (result) {
@@ -97,20 +101,90 @@ export default function DashboardPage() {
   const registrationRows = registration
     ? [
         { label: "Type", value: registration.registrationType },
-        { label: "Full Name", value: registration.name },
-        { label: "Email", value: registration.email },
-        { label: "Phone", value: registration.phone },
+        { label: "Full Name (Aadhar)", value: registration.name },
+        { label: "Gender", value: registration.gender },
+        {
+          label: "Institutional Email",
+          value: registration.institutionalEmail,
+        },
+        { label: "Mobile (WhatsApp)", value: registration.phone },
+        { label: "Designation", value: registration.designation },
+        {
+          label: "Highest Qualification",
+          value: registration.highestQualification,
+        },
         { label: "Institution", value: registration.institution },
-        { label: "Department", value: registration.department },
-        { label: "Year of Study", value: registration.year },
-        ...(registration.city
-          ? [{ label: "City", value: registration.city }]
+        {
+          label: "Institution Address",
+          value: registration.institutionAddress,
+        },
+        { label: "City", value: registration.city },
+        { label: "State", value: registration.state },
+        { label: "PIN Code", value: registration.pinCode },
+        { label: "Past Fellowship", value: registration.pastFellowship },
+        { label: "Publications", value: registration.publications },
+        ...(registration.ieeePaperId
+          ? [{ label: "IEEE Paper ID", value: registration.ieeePaperId }]
           : []),
-        ...(registration.state
-          ? [{ label: "State", value: registration.state }]
+        ...(registration.writeUpFileUrl
+          ? [
+              {
+                label: "Research Write-up",
+                value: (
+                  <a
+                    href={registration.writeUpFileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline inline-flex items-center gap-1"
+                  >
+                    View PDF
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </a>
+                ),
+              },
+            ]
           : []),
-        ...(registration.additionalInfo
-          ? [{ label: "Additional Info", value: registration.additionalInfo }]
+        ...(registration.idCardFileUrl
+          ? [
+              {
+                label: "ID Card",
+                value: (
+                  <a
+                    href={registration.idCardFileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline inline-flex items-center gap-1"
+                  >
+                    View File
+                    <svg
+                      className="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </a>
+                ),
+              },
+            ]
           : []),
       ]
     : [];
@@ -250,20 +324,12 @@ export default function DashboardPage() {
                   <span className="text-xs font-semibold text-gray-400 uppercase tracking-wider w-40 shrink-0 mb-1 sm:mb-0">
                     {label}
                   </span>
-                  <span className="text-gray-800 text-sm capitalize">
-                    {value || "—"}
-                  </span>
+                  <span className="text-gray-800 text-sm">{value || "—"}</span>
                 </div>
               ))}
             </div>
 
             <div className="flex flex-col sm:flex-row gap-3">
-              <button
-                onClick={() => router.push("/fellowship/register")}
-                className="flex-1 bg-black text-white py-3 px-6 rounded-full font-medium hover:bg-gray-800 transition-colors text-sm text-center"
-              >
-                Edit Registration
-              </button>
               <a
                 href="https://easychair.org/my/conference?conf=itcindia2026"
                 target="_blank"

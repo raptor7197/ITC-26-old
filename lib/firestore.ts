@@ -163,11 +163,50 @@ export const RegistrationDB = {
     return { id: registrationRef.id, ...data };
   },
 
-  async findByUidAndType(uid: string, registrationType?: string) {
-    const q = query(collection(db, "submissions"), where("uid", "==", uid));
-    const querySnapshot = await getDocs(q);
+  async findByUidAndType(
+    uid: string,
+    registrationType?: string,
+    emailStr?: string | null,
+  ) {
+    let emailToUse = emailStr;
 
-    const docs = querySnapshot.docs.map(
+    if (!emailToUse) {
+      const userDoc = await UserDB.findByUid(uid);
+      emailToUse = userDoc?.email;
+    }
+
+    const q1 = query(collection(db, "submissions"), where("uid", "==", uid));
+    const q2 = query(collection(db, "submissions"), where("userId", "==", uid));
+    const q3 = query(collection(db, "registrations"), where("uid", "==", uid));
+    const q4 = query(
+      collection(db, "registrations"),
+      where("userId", "==", uid),
+    );
+
+    const promises = [getDocs(q1), getDocs(q2), getDocs(q3), getDocs(q4)];
+    if (emailToUse) {
+      promises.push(
+        getDocs(
+          query(collection(db, "submissions"), where("email", "==", emailToUse)),
+        ),
+        getDocs(
+          query(collection(db, "registrations"), where("email", "==", emailToUse)),
+        ),
+      );
+    }
+
+    const settledPromises = await Promise.allSettled(promises);
+    
+    // Only process successful queries to avoid failing entire request if one index or rule is missing
+    const snapshots = settledPromises
+      .filter((result): result is PromiseFulfilledResult<any> => result.status === 'fulfilled')
+      .map((result) => result.value);
+
+    const allDocs = snapshots.flatMap((snap) => snap.docs);
+    const uniqueDocsMap = new Map();
+    allDocs.forEach((doc) => uniqueDocsMap.set(doc.id, doc));
+
+    const docs = Array.from(uniqueDocsMap.values()).map(
       (doc) => ({ id: doc.id, ...doc.data() }) as Registration,
     );
 

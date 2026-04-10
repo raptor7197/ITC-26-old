@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { useProtectedRoute } from "@/lib/useProtectedRoute";
 import { RegistrationDB, Registration } from "@/lib/firestore";
 import { validateRegistration, sanitizeFields } from "@/lib/validation";
@@ -8,6 +9,7 @@ import { storage } from "@/lib/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function FellowshipApplication() {
+  const router = useRouter();
   const { user, loading: authLoading } = useProtectedRoute({
     redirectTo: "/login",
   });
@@ -50,29 +52,12 @@ export default function FellowshipApplication() {
         const result = await RegistrationDB.findByUidAndType(
           user.uid,
           "fellowship",
+          user.email
         );
 
         if (result) {
-          const data = result as Registration;
-          setRegistration(data);
-          setFormData({
-            name: data.name || "",
-            gender: data.gender || "",
-            institutionalEmail: data.institutionalEmail || "",
-            phone: data.phone || "",
-            designation: data.designation || "",
-            highestQualification: data.highestQualification || "",
-            institution: data.institution || "",
-            institutionAddress: data.institutionAddress || "",
-            city: data.city || "",
-            state: data.state || "",
-            pinCode: data.pinCode || "",
-            pastFellowship: data.pastFellowship || "",
-            publications: data.publications || "",
-            ieeePaperId: data.ieeePaperId || "",
-            writeUpFileUrl: data.writeUpFileUrl || "",
-            idCardFileUrl: data.idCardFileUrl || "",
-          });
+          router.push("/dashboard");
+          return;
         } else {
           setFormData((prev) => ({
             ...prev,
@@ -82,7 +67,6 @@ export default function FellowshipApplication() {
         }
       } catch (err) {
         console.error("Error loading registration:", err);
-        setError("Failed to load your application. Please try refreshing.");
       } finally {
         setLoading(false);
       }
