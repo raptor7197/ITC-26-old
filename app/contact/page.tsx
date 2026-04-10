@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { members1 } from "../commitee/data";
+import { members1 } from "../committee/data";
 
 export default function ContactUs() {
   return (
@@ -159,7 +159,7 @@ export default function ContactUs() {
 
             <div className="mt-8 pt-6 border-t border-white/10 text-center">
                 <p className="text-gray-400 text-sm">
-                    For other committee members, please visit our <a href="/commitee" className="text-blue-400 hover:underline">Committee Page</a>.
+                    For other committee members, please visit our <a href="/committee" className="text-blue-400 hover:underline">Committee Page</a>.
                 </p>
             </div>
           </div>
