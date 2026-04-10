@@ -103,7 +103,7 @@ export default function Photos() {
                   key={`${photo.id}-${index}`}
                   className="relative flex w-full shrink-0 justify-center px-0.5 sm:px-1"
                 >
-                  <div className="relative w-full flex flex-col rounded-sm bg-[#d9d9d9] p-1.5 shadow-lg sm:my-0 sm:mt-4 sm:p-2 md:p-2.5 md:px-2.5 xl:p-3">
+                  <div className="relative w-full flex flex-col sm:my-0 sm:mt-4">
                     <div className="relative w-full flex-1 rounded-sm">
                       <Image
                         src={photo.url}
@@ -142,11 +142,10 @@ export default function Photos() {
             key={index}
             type="button"
             onClick={() => setCurrentIndex(index)}
-            className={`h-[12px] w-[12px] min-h-[12px] min-w-[12px] max-h-[12px] max-w-[12px] flex-shrink-0 rounded-full border-0 p-0 transition-all duration-300 ${
-              currentIndex === index
+            className={`h-[12px] w-[12px] min-h-[12px] min-w-[12px] max-h-[12px] max-w-[12px] flex-shrink-0 rounded-full border-0 p-0 transition-all duration-300 ${currentIndex === index
                 ? "bg-white opacity-100"
                 : "bg-white opacity-30 hover:opacity-50"
-            }`}
+              }`}
             aria-label={`Go to photo ${index + 1}`}
           />
         ))}
