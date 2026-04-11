@@ -30,6 +30,29 @@ const selectionPoints = [
   "Statement of purpose for attending ITC India 2026.",
 ];
 
+const applicationProcessPoints = [
+  "Candidates are required to submit their fellowship applications through the designated portal, ensuring that all relevant details are duly completed.",
+  "Faculty applicants must upload a recommendation letter from their Head of the Department/Principal/Director (or equivalent authority) on official institutional letterhead.",
+  "Student applicants are required to submit a recommendation letter from their Supervisor or Head of the Department on official institute/department letterhead.",
+  "Applications submitted after the stipulated deadline will not be considered.",
+  "Shortlisted candidates will be informed via email regarding the subsequent stages of the selection process.",
+  "Upon selection, candidates must remit a confirmation fee of INR 3,000 within one week, failing which their candidature will be deemed withdrawn. (The UPI payment link will be shared separately)",
+  "The deposited amount will be refunded to the respective account upon successful attendance of all three days of the conference.",
+];
+
+const importantDates = [
+  { event: "Call for Fellowship Applications", date: "01 May 2026" },
+  { event: "Last date for submitting application", date: "31 May 2026" },
+  {
+    event: "Round 1 Notification for award of fellowship",
+    date: "07 June 2026",
+  },
+  {
+    event: "Round 2 Notification for award of fellowship",
+    date: "18 June 2026",
+  },
+];
+
 export default function FellowshipPage() {
   const { user } = useAuth();
   const [registration, setRegistration] = useState<Registration | null>(null);
@@ -60,10 +83,6 @@ export default function FellowshipPage() {
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         <div className="text-center mb-16">
-          {/*<h1 className="text-3xl md:text-5xl font-bold mb-4 uppercase">
-             ITC TEST WEEK India 2026
-          </h1>*/}
-          
           <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6">
             <Image
               src="/itc-logo.svg"
@@ -74,7 +93,6 @@ export default function FellowshipPage() {
             />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white uppercase leading-tight md:leading-tight">
-
             ITC Fellowship Proposal
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl font-semibold text-[#6aaff1] uppercase mt-4 px-2">
@@ -119,52 +137,264 @@ export default function FellowshipPage() {
 
             <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
-                Support Details
+                Application Process
               </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+              <ul className="list-disc list-outside ml-4 md:ml-5 space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
+                {applicationProcessPoints.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                Fellowship Support Details for Local Participants
+              </h3>
+              <div className="space-y-4 text-sm md:text-base text-gray-200">
+                <p>
+                  <strong>TRAVEL SUPPORT:</strong> NIL
+                </p>
+                <p>
+                  <strong>ACCOMODATION SUPPORT:</strong> NIL
+                </p>
+                <p>
+                  <strong>CONFERENCE REGISTRATION SUPPORT:</strong> Each
+                  selected fellow will be provided with complimentary
+                  registration, which includes the conference kit, lunch for all
+                  three days, comprehensive access to all technical sessions,
+                  and opportunities for professional interaction with conference
+                  delegates.
+                </p>
+              </div>
+            </section>
+
+            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                Fellowship Support Details for Outstation Participants
+              </h3>
+              <div className="space-y-6 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
+                <p>
+                  ITC India 2026 offers competency-based fellowships to faculty
+                  and student participants from outstation locations working in
+                  the domains of VLSI Test and allied fields. As part of the
+                  fellowship support, travel reimbursements will be provided in
+                  accordance with predefined distance-based slabs. The
+                  reimbursable amount shall be the lower of the actual
+                  expenditure incurred or the applicable slab limit, ensuring
+                  equitable and transparent disbursal. All reimbursements will
+                  be processed via direct bank transfer within 30 days following
+                  the conclusion of the conference.
+                </p>
+
                 <div>
-                  <h4 className="text-xl font-bold mb-4 text-[#6aaff1]">
-                    Support for Local Fellows
+                  <h4 className="text-lg font-bold text-[#6aaff1] mb-2">
+                    A. TRAVEL SUPPORT
                   </h4>
-                  <div className="space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
-                    {[1, 2, 3, 4, 5, 6].map((n) => (
-                      <p key={n}>
-                        <span className="font-semibold text-white mr-2">
-                          {n}.
-                        </span>
-                        Lorem ipsum dolor sit amet consectetur. Felis quis in
-                        molestie curabitur bibendum. Amet in arcu laoreet arcu
-                        risus hendrerit odio senectus sapien. Blandit sit at
-                        sagittis auctor est.
-                      </p>
-                    ))}
-                  </div>
+                  <p className="mb-2">
+                    Travel assistance for faculty members and students will be
+                    provided in accordance with the predefined slabs specified
+                    in Table 1. Reimbursement will be made based on the actual
+                    expenditure incurred or the applicable slab limit, whichever
+                    is lower.
+                  </p>
+                  <p>
+                    Applicants availing travel support must undertake their
+                    journey to and from the conference from their official place
+                    of work to qualify for reimbursement. In cases where travel
+                    originates from the applicant’s residence, valid proof of
+                    residence must be submitted for consideration.
+                  </p>
                 </div>
 
                 <div>
-                  <h4 className="text-xl font-bold mb-4 text-[#6aaff1]">
-                    Support for Outstation Fellows
+                  <h4 className="text-lg font-bold text-[#6aaff1] mb-2">
+                    B. ACCOMMODATION SUPPORT
                   </h4>
-                  <div className="space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
-                    {[1, 2, 3, 4, 5, 6].map((n) => (
-                      <p key={n}>
-                        <span className="font-semibold text-white mr-2">
-                          {n}.
-                        </span>
-                        Lorem ipsum dolor sit amet consectetur. Felis quis in
-                        molestie curabitur bibendum. Amet in arcu laoreet arcu
-                        risus hendrerit odio senectus sapien. Blandit sit at
-                        sagittis auctor est.
-                      </p>
-                    ))}
-                  </div>
+                  <p className="font-semibold text-white mt-4 mb-1">
+                    Outstation Student Fellows:
+                  </p>
+                  <p className="mb-4">
+                    Complimentary accommodation will be arranged for student
+                    fellows traveling from outside Bengaluru on a double/triple
+                    sharing or dormitory basis at locations in close proximity
+                    to the conference venue. Further details pertaining to the
+                    place of stay and associated logistics will be communicated
+                    to the fellows in due course. Additionally, complimentary
+                    breakfast will be provided at the place of stay on all three
+                    days of the conference.
+                  </p>
+
+                  <p className="font-semibold text-white mt-4 mb-1">
+                    Outstation Faculty Fellows:
+                  </p>
+                  <p>
+                    Faculty fellows are required to arrange their own
+                    accommodation, ensuring that their place of stay affords
+                    them timely access to the conference venue on all days of
+                    the event. ITC India 2026 will not facilitate accommodation
+                    arrangements for faculty fellows under any circumstances.
+                    However, an accommodation allowance of ₹1,000 per day or the
+                    actual amount incurred — whichever is lower — will be
+                    reimbursed for a maximum of 3 nights, subject to the
+                    submission of original hotel bills as documentary proof of
+                    stay. Faculty fellows are encouraged to opt for shared
+                    accommodation in order to optimise costs and adhere to
+                    budget constraints.
+                  </p>
                 </div>
+
+                <div>
+                  <h4 className="text-lg font-bold text-[#6aaff1] mb-2">
+                    C. CONFERENCE REGISTRATION SUPPORT
+                  </h4>
+                  <p>
+                    Each selected fellow will be provided with complimentary
+                    registration, which includes the conference kit, lunch for
+                    all three days, comprehensive access to all technical
+                    sessions, and opportunities for professional interaction
+                    with conference delegates.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                Table 1 : ITC India Fellowship Support Structure for Outstation
+                Participants
+              </h3>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-sm md:text-base border-collapse">
+                  <thead>
+                    <tr className="bg-white/10 border-b border-white/20">
+                      <th className="p-3 font-bold">Category</th>
+                      <th className="p-3 font-bold">States / UT</th>
+                      <th className="p-3 font-bold">Cap for Faculty (₹)</th>
+                      <th className="p-3 font-bold">Cap for Students (₹)</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-white/10">
+                      <td className="p-3 align-top font-semibold">Tier I</td>
+                      <td className="p-3 align-top">
+                        Karnataka
+                        <br />
+                        Tamil Nadu
+                        <br />
+                        Kerala
+                        <br />
+                        Andhra Pradesh
+                        <br />
+                        Telangana
+                        <br />
+                        Goa
+                        <br />
+                        Puducherry
+                      </td>
+                      <td className="p-3 align-top">3000</td>
+                      <td className="p-3 align-top">2000</td>
+                    </tr>
+                    <tr className="border-b border-white/10 bg-white/5">
+                      <td className="p-3 align-top font-semibold">Tier II</td>
+                      <td className="p-3 align-top">
+                        Maharashtra
+                        <br />
+                        Odisha
+                        <br />
+                        Chhattisgarh
+                        <br />
+                        Madhya Pradesh
+                        <br />
+                        Gujarat
+                        <br />
+                        West Bengal
+                        <br />
+                        Rajasthan
+                        <br />
+                        Jharkhand
+                        <br />
+                        Uttar Pradesh
+                        <br />
+                        Bihar
+                      </td>
+                      <td className="p-3 align-top">7000</td>
+                      <td className="p-3 align-top">4000</td>
+                    </tr>
+                    <tr className="border-b border-white/10">
+                      <td className="p-3 align-top font-semibold">Tier III</td>
+                      <td className="p-3 align-top">
+                        Haryana
+                        <br />
+                        Punjab
+                        <br />
+                        Himachal Pradesh
+                        <br />
+                        Uttarakhand
+                        <br />
+                        Sikkim
+                        <br />
+                        Assam
+                        <br />
+                        Arunachal Pradesh
+                        <br />
+                        Nagaland
+                        <br />
+                        Manipur
+                        <br />
+                        Mizoram
+                        <br />
+                        Tripura
+                        <br />
+                        Meghalaya
+                        <br />
+                        Delhi
+                        <br />
+                        Chandigarh
+                        <br />
+                        Jammu and Kashmir
+                      </td>
+                      <td className="p-3 align-top">10000</td>
+                      <td className="p-3 align-top">5000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                Important Dates
+              </h3>
+              <ul className="space-y-3 text-sm md:text-base text-gray-200">
+                {importantDates.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="flex flex-col sm:flex-row sm:items-center"
+                  >
+                    <span className="font-semibold text-white sm:w-1/2">
+                      {item.event}:
+                    </span>
+                    <span className="text-[#6aaff1]">{item.date}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 pt-6 border-t border-white/20 text-sm md:text-base">
+                <p>
+                  For any concerns/queries, please send an email to:{" "}
+                  <a
+                    href="mailto:itc.fellowships@gmail.com"
+                    className="text-[#6aaff1] hover:underline font-semibold"
+                  >
+                    itc.fellowships@gmail.com
+                  </a>
+                </p>
               </div>
             </section>
           </div>
 
-          <div className="lg:col-span-1">
-            <div className="bg-[#1a4b7c] p-5 md:p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg top-24">
+          <div className="lg:col-span-1 relative">
+            <div className="bg-[#1a4b7c] p-5 md:p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg  top-24">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Application Status
               </h3>
@@ -221,12 +451,6 @@ export default function FellowshipPage() {
                     >
                       APPLY NOW
                     </Link>
-                    {/*<Link
-                      href="/fellowship/register"
-                      className="block w-full bg-transparent border-2 border-[#6aaff1] hover:bg-[#6aaff1]/20 text-white font-bold text-center py-3 rounded transition-colors"
-                    >
-                      REGISTER NOW
-                    </Link>*/}
                   </>
                 )}
               </div>
