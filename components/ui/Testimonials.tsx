@@ -114,7 +114,7 @@ export default function Testimonials() {
             />
           </button>
 
-          <div className="min-w-0 w-full max-w-[min(100%,26rem)] overflow-hidden max-[639px]:mx-auto max-[639px]:w-[calc(100%-1.5rem)] sm:max-w-[28rem] md:max-w-[30rem] lg:max-w-[32rem] xl:max-w-[36rem]">
+          <div className="min-w-0 w-full max-w-[min(100%,29rem)] overflow-hidden max-[639px]:mx-auto max-[639px]:w-[calc(100%-1.5rem)] sm:max-w-[33rem] md:max-w-[37rem] lg:max-w-[41rem] xl:max-w-[45rem]">
             <div
               className="flex transition-transform duration-500 ease-in-out"
               style={{
@@ -126,7 +126,7 @@ export default function Testimonials() {
                   key={`${testimonial.id}-${index}`}
                   className="relative flex w-full shrink-0 justify-center px-0.5 sm:px-1"
                 >
-                  <div className="relative flex w-full min-h-[200px] flex-col rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:min-h-[240px] sm:mt-4 sm:my-0 sm:p-4 md:min-h-[270px] md:p-6 md:px-6 xl:min-h-[310px] xl:p-10">
+                  <div className="relative flex w-full min-h-[160px] flex-col rounded-sm bg-[#d9d9d9] p-3 shadow-lg sm:min-h-[200px] sm:mt-4 sm:my-0 sm:p-4 md:min-h-[220px] md:p-6 md:px-6 xl:min-h-[250px] xl:p-10">
                     <div className="flex shrink-0 items-start gap-2 self-start sm:gap-3 md:gap-4">
                       <div className="relative h-[30px] w-[30px] shrink-0 overflow-hidden rounded-full sm:h-[40px] sm:w-[40px] md:h-[50px] md:w-[50px] xl:h-[66px] xl:w-[66px]">
                         <Image
@@ -146,29 +146,37 @@ export default function Testimonials() {
                       </div>
                     </div>
 
-                    <div className="mt-8 flex w-full justify-center sm:mt-10 md:mt-12">
-                      <div className="relative w-full max-w-[92%] overflow-hidden break-words pl-5 text-left font-poppins text-[11px] text-black sm:max-w-[88%] sm:pl-6 sm:text-[13px] md:max-w-[85%] md:pl-9 md:text-[16px] md:pr-6 xl:max-w-[82%] xl:text-[18px] 2xl:text-[24px] xl:pr-10">
-                        <div className="absolute left-0 top-0 h-[8px] w-[10px] sm:h-[11px] sm:w-[14px] md:h-[14px] md:w-[18px] xl:h-[18px] xl:w-[24px]">
-                          <Image
-                            src="/images/vector.svg"
-                            alt=""
-                            fill
-                            className="object-contain object-top"
+                    <div className="mt-8 flex w-full flex-col items-center sm:mt-10 md:mt-12">
+                      <div className="relative mx-auto w-full max-w-[92%] overflow-visible break-words text-left font-poppins text-[11px] text-black sm:max-w-[88%] sm:text-[13px] md:max-w-[85%] md:text-[16px] xl:max-w-[82%] xl:text-[18px] 2xl:text-[24px]">
+                        <div className="relative text-left">
+                          <div
+                            className="pointer-events-none absolute left-0 top-2.5 z-0 h-[8px] w-[10px] sm:top-3 sm:h-[11px] sm:w-[14px] md:top-3.5 md:h-[14px] md:w-[18px] xl:top-4 xl:h-[18px] xl:w-[24px]"
                             aria-hidden
-                          />
-                        </div>
-                        <p className="flex items-baseline gap-4">
-                          <span>{testimonial.quote}</span>
-                          <span className="relative inline-flex h-[8px] w-[10px] shrink-0 sm:h-[11px] sm:w-[14px] md:h-[14px] md:w-[18px] xl:h-[18px] xl:w-[24px]">
+                          >
+                            <Image
+                              src="/images/vector.svg"
+                              alt=""
+                              fill
+                              className="object-contain object-left-top"
+                              aria-hidden
+                            />
+                          </div>
+                          <div
+                            className="pointer-events-none absolute bottom-2.5 right-0 z-0 h-[8px] w-[10px] sm:bottom-3 sm:h-[11px] sm:w-[14px] md:bottom-3.5 md:h-[14px] md:w-[18px] xl:bottom-4 xl:h-[18px] xl:w-[24px]"
+                            aria-hidden
+                          >
                             <Image
                               src="/images/vector-open.svg"
                               alt=""
                               fill
-                              className="object-contain object-bottom"
+                              className="object-contain object-right-bottom"
                               aria-hidden
                             />
-                          </span>
-                        </p>
+                          </div>
+                          <p className="relative z-[1] pl-[50px] pt-[28px] pr-[50px] pb-[28px] text-left sm:pl-[54px] sm:pt-[31px] sm:pr-[54px] sm:pb-[31px] md:pl-[58px] md:pt-[34px] md:pr-[58px] md:pb-[34px] xl:pl-[64px] xl:pt-[38px] xl:pr-[64px] xl:pb-[38px]">
+                            {testimonial.quote}
+                          </p>
+                        </div>
                       </div>
                     </div>
                   </div>
