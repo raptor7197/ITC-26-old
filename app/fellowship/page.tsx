@@ -137,8 +137,46 @@ export default function FellowshipPage() {
 
             <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
-                Application Process
+                Application Process & Required Details
               </h3>
+              <p className="mb-4 text-sm md:text-base text-gray-200">
+                To complete the fellowship application, you will need to provide the following details and documents:
+              </p>
+              <ul className="list-disc list-outside ml-4 md:ml-5 mb-6 space-y-2 text-sm md:text-base text-gray-200">
+                <li>Personal details (Name as per Aadhaar, Gender, Mobile Number)</li>
+                <li>Institutional details (Institutional Email ID, Designation, Highest Qualification, Institution Name & Address)</li>
+                <li>Past ITC fellowship details (if applicable)</li>
+                <li>Titles of your latest VLSI Testing related publications (Max 3)</li>
+                <li>A short write-up on your current area of research and the purpose of attending ITC 2026 (Max 1 page PDF)</li>
+                <li>IEEE ITC 2026 Paper ID or Poster/Hackathon ID (if applicable)</li>
+                <li>Institution ID card (PDF format)</li>
+              </ul>
+              
+              <div className="bg-blue-900/30 p-4 rounded-lg border border-blue-500/30 mb-6">
+                <h4 className="text-lg font-bold text-[#6aaff1] mb-2">Required Recommendation / Bonafide Formats</h4>
+                <p className="text-sm md:text-base text-gray-200 mb-3">
+                  Please download the appropriate template below, have it filled and signed by the respective authority on official letterhead, and keep it ready for submission:
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a 
+                    href="/Student_Bonafide_Template.docx" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] py-2 px-4 rounded transition-colors text-sm font-medium"
+                  >
+                    Download Student Bonafide Template
+                  </a>
+                  <a 
+                    href="/Faculty_NOC_Template.docx" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] py-2 px-4 rounded transition-colors text-sm font-medium"
+                  >
+                    Download Faculty NOC Template
+                  </a>
+                </div>
+              </div>
+
               <ul className="list-disc list-outside ml-4 md:ml-5 space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
                 {applicationProcessPoints.map((item, idx) => (
                   <li key={idx}>{item}</li>

@@ -86,10 +86,11 @@ export default function HeroWithTimer() {
                              xl:text-[21px] xl:mt-5
                              max-w-full"
                 >
-                  REIMAGINING TEST IN THE ERA OF
-                  <br className="hidden sm:block" />
-                  <span className="sm:hidden"> </span>INTELLIGENT SILICON
+                  Theme: REIMAGINING TEST IN THE ERA OF INTELLIGENT SILICON
                 </h3>
+                <p className="mt-3 sm:mt-4 text-[#6aaff1] font-semibold text-sm sm:text-base md:text-lg">
+                  JULY 19-21, 2026 | RADISSON BLU, BENGALURU
+                </p>
 
                 {/* Below sm (640px): skew paints past layout box — clip + narrow so bar stays inside dashed guides */}
                 <div className="mt-5 flex w-full min-w-0 max-w-full flex-col items-stretch overflow-x-clip sm:hidden">

@@ -100,21 +100,7 @@ export default function Footer() {
                     About Us
                   </Link>
                 </li>
-                <li>
-                  <Link href="/" className={footerLink}>
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className={footerLink}>
-                    Refund Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" className={footerLink}>
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
+                
                 <li>
                   <Link href="/contact" className={footerLink}>
                     Contact Us

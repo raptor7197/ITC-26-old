@@ -34,6 +34,8 @@ const MAX_PINCODE = 20;
 const MAX_PAST_FELLOWSHIP = 200;
 const MAX_PUBLICATIONS = 1000;
 const MAX_PAPER_ID = 100;
+const MAX_SCOPUS_ID = 100;
+const MAX_SCHOLAR_ID = 100;
 
 /**
  * Validates an institutional email address.
@@ -80,6 +82,8 @@ export interface RegistrationFields {
   pinCode?: string;
   pastFellowship?: string;
   publications?: string;
+  scopusId?: string;
+  googleScholarId?: string;
   writeUpFileUrl?: string;
   ieeePaperId?: string;
   idCardFileUrl?: string;
@@ -95,6 +99,7 @@ const VALID_YEARS = [
   "2",
   "3",
   "4",
+  "4+",
   "masters",
   "phd",
   "postdoc",
@@ -225,6 +230,16 @@ export function validateRegistration(
     return {
       valid: false,
       error: `IEEE Paper ID must be under ${MAX_PAPER_ID} characters.`,
+    };
+  if (fields.scopusId && fields.scopusId.trim().length > MAX_SCOPUS_ID)
+    return {
+      valid: false,
+      error: `Scopus ID must be under ${MAX_SCOPUS_ID} characters.`,
+    };
+  if (fields.googleScholarId && fields.googleScholarId.trim().length > MAX_SCHOLAR_ID)
+    return {
+      valid: false,
+      error: `Google Scholar ID must be under ${MAX_SCHOLAR_ID} characters.`,
     };
 
   const emailToCheck = fields.institutionalEmail || email;

@@ -16,21 +16,21 @@ const carouselItems = [
     bg: "from-[#f8f9fa] to-[#e9ecef]",
   },
   {
-    stat: "1000+",
+    stat: "850+",
     label: "ATTENDEES",
     detail: "Global Reach",
     bg: "from-[#f8f9fa] to-[#e9ecef]",
   },
   {
     stat: "20+",
-    label: "WORKSHOPS",
-    detail: "Hands-on Sessions",
+    label: "TUTORIALS",
+    detail: "Sessions",
     bg: "from-[#f8f9fa] to-[#e9ecef]",
   },
   {
-    stat: "10th",
-    label: "EDITION",
-    detail: "IEEE ITC India",
+    stat: "2025",
+    label: "STATS",
+    detail: "IEEE ITC India 2026",
     bg: "from-[#f8f9fa] to-[#e9ecef]",
   },
 ];
@@ -86,9 +86,7 @@ export default function Carousel3D() {
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
     >
-      {/* No viewport scale — scale was overflowing/clipping and triggered scrollbars in some browsers */}
       <div className="origin-[50%_50%] scale-100">
-        {/* Fixed heights (shorter at 2xl+) so 3D scene fits; overflow-hidden clips 3D paint */}
         <div
           className="relative mx-auto flex w-full max-w-full items-center justify-center overflow-hidden
                      h-[188px] sm:h-[205px] md:h-[222px] lg:h-[238px] xl:h-[252px] 2xl:h-[232px] min-[2200px]:h-[248px] min-[2800px]:h-[260px]"
@@ -131,13 +129,7 @@ export default function Carousel3D() {
                     </div>
 
                     <span className="font-space-grotesk text-[28px] font-bold leading-none tracking-tight text-[#022241] sm:text-[32px] md:text-[36px] lg:text-[40px]">
-                      {item.stat === "10th" ? (
-                        <>
-                          10<sup>th</sup>
-                        </>
-                      ) : (
-                        item.stat
-                      )}
+                      {item.stat}
                     </span>
 
                     <span className="mt-1 font-space-grotesk text-[13px] font-bold tracking-[0.08em] text-[#03396c] sm:text-[14px] md:text-[15px] lg:text-[16px]">

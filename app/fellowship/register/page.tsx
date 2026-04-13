@@ -31,6 +31,7 @@ export default function FellowshipApplication() {
     phone: "",
     designation: "",
     highestQualification: "",
+    year: "",
     institution: "",
     institutionAddress: "",
     city: "",
@@ -38,6 +39,8 @@ export default function FellowshipApplication() {
     pinCode: "",
     pastFellowship: "",
     publications: "",
+    scopusId: "",
+    googleScholarId: "",
     ieeePaperId: "",
     writeUpFileUrl: "",
     idCardFileUrl: "",
@@ -52,7 +55,7 @@ export default function FellowshipApplication() {
         const result = await RegistrationDB.findByUidAndType(
           user.uid,
           "fellowship",
-          user.email
+          user.email,
         );
 
         if (result) {
@@ -274,6 +277,23 @@ export default function FellowshipApplication() {
               </div>
             </div>
 
+            <div className="mb-6 p-4 bg-blue-50 border border-blue-100 rounded-xl">
+              <h3 className="text-sm font-bold text-blue-900 mb-2">Important Notice</h3>
+              <p className="text-sm text-blue-800 mb-2">
+                Please ensure you have the following documents ready for verification/reimbursement:
+              </p>
+              <ul className="list-disc list-outside ml-4 space-y-1 text-sm text-blue-800">
+                <li>Valid Institutional ID Card</li>
+                <li>Aadhaar Card</li>
+                <li>
+                  <strong>For Students:</strong> A Bonafide certificate issued by the Head of the Department on official letterhead.
+                </li>
+                <li>
+                  <strong>For Faculty:</strong> A recommendation letter/NOC from the Head of the Department/Principal/Director on official letterhead.
+                </li>
+              </ul>
+            </div>
+
             <div className="mb-5">
               <span
                 className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border ${
@@ -308,6 +328,7 @@ export default function FellowshipApplication() {
                   label: "Highest Qual.",
                   value: registration.highestQualification,
                 },
+                { label: "Year", value: registration.year || "-" },
                 { label: "Institution", value: registration.institution },
                 {
                   label: "City / State",
@@ -318,7 +339,7 @@ export default function FellowshipApplication() {
                   label: "Past Fellowship",
                   value: registration.pastFellowship,
                 },
-                { label: "IEEE Paper ID", value: registration.ieeePaperId },
+                { label: "Paper/Hackathon ID", value: registration.ieeePaperId },
               ].map(({ label, value }) => (
                 <div
                   key={label}
@@ -450,7 +471,7 @@ export default function FellowshipApplication() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
                     Designation <span className="text-red-500">*</span>
@@ -473,7 +494,7 @@ export default function FellowshipApplication() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Highest Qualification{" "}
+                    Fellowship  Category{" "}
                     <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -484,18 +505,41 @@ export default function FellowshipApplication() {
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
                   >
                     <option value="" disabled>
-                      Select Qualification
+                      Fellowship  Category
                     </option>
-                    <option value="Ph.D">Ph.D</option>
-                    <option value="M.E./M.Tech">M.E./M.Tech</option>
-                    <option value="B.E/B.Tech">B.E/B.Tech</option>
+                    <option value="Faculty">Tier I</option>
+                    <option value="Student (UG)">Tier II</option>
+                    <option value="Student (PG)">Tier III</option>
+                    <option value="Research Scholar"></option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    Which year are you in? <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    name="year"
+                    value={formData.year}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                  >
+                    <option value="" disabled>
+                      Select Year
+                    </option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="4+">4+</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Institution Name <span className="text-red-500">*</span>
+                  Current Institution Name (Working/Studying)
+                  <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -602,6 +646,34 @@ export default function FellowshipApplication() {
                   placeholder="1. Title 1&#10;2. Title 2&#10;3. Title 3"
                 />
               </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    Scopus ID (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    name="scopusId"
+                    value={formData.scopusId}
+                    onChange={handleChange}
+                    maxLength={100}
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                    Google Scholar ID (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    name="googleScholarId"
+                    value={formData.googleScholarId}
+                    onChange={handleChange}
+                    maxLength={100}
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                  />
+                </div>
+              </div>
 
               <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -628,7 +700,7 @@ export default function FellowshipApplication() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Mention the ID of your paper selected in IEEE ITC 2026, if any{" "}
+                  Mention the ID of paper selected/submitted for poster/hackathon, if any{" "}
                   <span className="text-red-500">*</span>
                 </label>
                 <input

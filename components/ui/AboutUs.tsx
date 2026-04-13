@@ -39,7 +39,10 @@ export default function AboutUs() {
           </div>
         </div>
 
-        <div className="about-3d-column relative hidden min-h-0 min-w-0 flex-1 overflow-hidden md:flex md:items-center md:justify-center">
+        <div className="about-3d-column relative hidden min-h-0 min-w-0 flex-1 flex-col overflow-hidden md:flex md:items-center md:justify-center">
+          <h4 className="text-center font-space-grotesk text-xl md:text-2xl lg:text-3xl font-bold tracking-wider text-[#6aaff1] mb-6 xl:mb-8">
+            ITC 2025 STATS
+          </h4>
           <div className="about-3d-carousel min-h-0 min-w-0 w-full max-w-full overflow-hidden">
             <Carousel3D />
           </div>

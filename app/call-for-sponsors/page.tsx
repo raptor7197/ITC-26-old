@@ -26,6 +26,15 @@ export default function CallForSponsors() {
           <h2 className="text-4xl md:text-[56px] font-bold mt-8 tracking-tight text-white">
             CALL FOR SPONSORSHIPS
           </h2>
+          <div className="mt-8 flex justify-center">
+            <a
+              href="/ITC_India_2026_Sponsorship_Opportunities.pdf"
+              download
+              className="inline-block bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_rgba(106,175,241,0.3)] transition-all duration-300 uppercase tracking-wider text-sm md:text-base"
+            >
+              Download Call for Sponsors
+            </a>
+          </div>
         </div>
 
         <section className="bg-white/5 p-8 rounded-lg border border-white/10 backdrop-blur-sm mb-10">

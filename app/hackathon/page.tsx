@@ -74,9 +74,9 @@ export default function HackathonPage() {
             </div>
 
             <div className="flex min-w-0 flex-col sm:flex-row gap-4 items-center sm:items-start w-full">
-              <Link href="https://forms.gle/Jsti3rgKSj5TLkgt7">
+              <Link href="https://easychair.org/conferences/?conf=itcindia2026">
                 <button className="w-full sm:w-auto bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] text-base md:text-lg font-bold py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(106,175,241,0.3)] transition-all duration-300 uppercase tracking-wider">
-                  Hackathon Registration Form
+                  Hackathon Submission 
                 </button>
               </Link>
               <Link href="https://www.ieee.org/conferences/publishing/templates.html">
@@ -87,7 +87,6 @@ export default function HackathonPage() {
             </div>
           </div>
 
-          {/* About Section */}
           <div className="mb-16 min-w-0">
             <h2 className="text-3xl md:text-4xl font-bold uppercase leading-none mb-6">
               About the Hackathon
