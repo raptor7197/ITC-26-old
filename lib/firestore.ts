@@ -56,7 +56,7 @@ export interface Registration {
   additionalInfo?: string;
   status?: "pending" | "approved" | "rejected";
   paperId?: string;
-  paperStatus?: "pending" | "approved" | "rejected";git add p 
+  paperStatus?: "pending" | "approved" | "rejected";
   createdAt?: unknown;
   updatedAt?: unknown;
 }
