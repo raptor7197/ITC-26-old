@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const faqs = [
   {
-    q: "WHO SHOULD ATTEND?",
+    q: "Who Should Attend?",
     a: [
       "Students, researchers, faculty, and industry professionals in VLSI, semiconductor testing, and electronics are encouraged to attend.",
       "It is ideal for anyone interested in chip design, validation, and emerging test technologies.",
