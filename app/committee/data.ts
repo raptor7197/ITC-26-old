@@ -414,7 +414,7 @@ export const members17: Member[] = [
   },
   {
   id: 35,
-  link: "https://www.google.com",
+  link: "#",
   img: "p47.png",
   name: "Scott Davidson",
   comp: "Retired Computer Scientist, USA",
@@ -432,7 +432,7 @@ export const members17: Member[] = [
 export const members18: Member[] = [
   {
   id: 37,
-  link: "https://www.google.com",
+  link: "#",
   img: "p38.png",
   name: "Dr. Rubin Parekhji",
   comp: "Texas Instruments, India",
