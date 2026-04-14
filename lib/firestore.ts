@@ -43,16 +43,20 @@ export interface Registration {
   pinCode?: string;
   pastFellowship?: string;
   publications?: string;
+  scopusId?: string;
+  googleScholarId?: string;
   writeUpFileUrl?: string;
   ieeePaperId?: string;
   idCardFileUrl?: string;
+  aadharFileUrl?: string;
+  bonafideFileUrl?: string;
   department?: string;
   year?: string;
-  registrationType: "fellowship" | "hackathon" | "cfp" | "cft" | "art";
+  registrationType: "Fellowship" | "hackathon" | "cfp" | "cft" | "art";
   additionalInfo?: string;
   status?: "pending" | "approved" | "rejected";
   paperId?: string;
-  paperStatus?: "pending" | "approved" | "rejected";
+  paperStatus?: "pending" | "approved" | "rejected";git add p 
   createdAt?: unknown;
   updatedAt?: unknown;
 }

@@ -23,6 +23,8 @@ export default function FellowshipApplication() {
 
   const [writeUpFile, setWriteUpFile] = useState<File | null>(null);
   const [idCardFile, setIdCardFile] = useState<File | null>(null);
+  const [aadharFile, setAadharFile] = useState<File | null>(null);
+  const [bonafideFile, setBonafideFile] = useState<File | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -44,6 +46,8 @@ export default function FellowshipApplication() {
     ieeePaperId: "",
     writeUpFileUrl: "",
     idCardFileUrl: "",
+    aadharFileUrl: "",
+    bonafideFileUrl: "",
   });
 
   useEffect(() => {
@@ -110,14 +114,28 @@ export default function FellowshipApplication() {
         return;
       }
 
-      if (name === "idCardFile" && file.type !== "application/pdf") {
-        setError("The institution ID card must be a PDF file.");
+      if (name === "idCardFile" && file.type !== "application/pdf" && !file.type.startsWith("image/")) {
+        setError("The institution ID card must be a PDF or image file.");
+        e.target.value = "";
+        return;
+      }
+      
+      if (name === "aadharFile" && file.type !== "application/pdf" && !file.type.startsWith("image/")) {
+        setError("The Aadhaar card must be a PDF or image file.");
+        e.target.value = "";
+        return;
+      }
+
+      if (name === "bonafideFile" && file.type !== "application/pdf" && !file.type.startsWith("image/")) {
+        setError("The Bonafide/NOC certificate must be a PDF or image file.");
         e.target.value = "";
         return;
       }
 
       if (name === "writeUpFile") setWriteUpFile(file);
       if (name === "idCardFile") setIdCardFile(file);
+      if (name === "aadharFile") setAadharFile(file);
+      if (name === "bonafideFile") setBonafideFile(file);
     }
   };
 
@@ -150,6 +168,8 @@ export default function FellowshipApplication() {
     try {
       let finalWriteUpUrl = cleaned.writeUpFileUrl;
       let finalIdCardUrl = cleaned.idCardFileUrl;
+      let finalAadharUrl = cleaned.aadharFileUrl;
+      let finalBonafideUrl = cleaned.bonafideFileUrl;
 
       if (writeUpFile) {
         finalWriteUpUrl = await uploadFile(
@@ -173,11 +193,35 @@ export default function FellowshipApplication() {
         return;
       }
 
+      if (aadharFile) {
+        finalAadharUrl = await uploadFile(
+          aadharFile,
+          `fellowships/${user.uid}/${Date.now()}_${aadharFile.name}`,
+        );
+      } else if (!finalAadharUrl) {
+        setError("Please upload your Aadhaar card.");
+        setSubmitting(false);
+        return;
+      }
+
+      if (bonafideFile) {
+        finalBonafideUrl = await uploadFile(
+          bonafideFile,
+          `fellowships/${user.uid}/${Date.now()}_${bonafideFile.name}`,
+        );
+      } else if (!finalBonafideUrl) {
+        setError("Please upload your Bonafide/NOC certificate.");
+        setSubmitting(false);
+        return;
+      }
+
       const finalData = {
         ...cleaned,
         email: user.email || "",
         writeUpFileUrl: finalWriteUpUrl,
         idCardFileUrl: finalIdCardUrl,
+        aadharFileUrl: finalAadharUrl,
+        bonafideFileUrl: finalBonafideUrl,
       };
 
       let result;
@@ -515,7 +559,7 @@ export default function FellowshipApplication() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Which year are you in? <span className="text-red-500">*</span>
+                    Current Academic Year for Student / Years of Experience for Faculty <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="year"
@@ -632,8 +676,7 @@ export default function FellowshipApplication() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Enter the titles of your latest VLSI Testing related
-                  publications (Max 3) <span className="text-red-500">*</span>
+                  Enter your latest VLSI Testing related Publications with Citation (Max 3) <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="publications"
@@ -700,7 +743,7 @@ export default function FellowshipApplication() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Mention the ID of paper selected/submitted for poster/hackathon, if any{" "}
+                  Mention your ID of Submitted / Selected - Paper / Poster / Hackathon, if any in ITC India 2026{" "}
                   <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -731,6 +774,50 @@ export default function FellowshipApplication() {
                   className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                 />
                 {formData.idCardFileUrl && !idCardFile && (
+                  <p className="text-xs text-green-600 mt-2">
+                    ✓ Previously uploaded file exists
+                  </p>
+                )}
+              </div>
+
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Upload your Aadhaar Card{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <p className="text-xs text-gray-500 mb-3">
+                  Upload 1 supported file. Max 5 MB.
+                </p>
+                <input
+                  type="file"
+                  name="aadharFile"
+                  accept="image/*,application/pdf"
+                  onChange={handleFileChange}
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                />
+                {formData.aadharFileUrl && !aadharFile && (
+                  <p className="text-xs text-green-600 mt-2">
+                    ✓ Previously uploaded file exists
+                  </p>
+                )}
+              </div>
+
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  Upload your Bonafide / NOC Certificate{" "}
+                  <span className="text-red-500">*</span>
+                </label>
+                <p className="text-xs text-gray-500 mb-3">
+                  Upload 1 supported file. Max 5 MB.
+                </p>
+                <input
+                  type="file"
+                  name="bonafideFile"
+                  accept="image/*,application/pdf"
+                  onChange={handleFileChange}
+                  className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                />
+                {formData.bonafideFileUrl && !bonafideFile && (
                   <p className="text-xs text-green-600 mt-2">
                     ✓ Previously uploaded file exists
                   </p>

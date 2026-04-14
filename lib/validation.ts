@@ -87,6 +87,8 @@ export interface RegistrationFields {
   writeUpFileUrl?: string;
   ieeePaperId?: string;
   idCardFileUrl?: string;
+  aadharFileUrl?: string;
+  bonafideFileUrl?: string;
 }
 
 export interface ValidationResult {

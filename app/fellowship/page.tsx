@@ -41,16 +41,22 @@ const applicationProcessPoints = [
 ];
 
 const importantDates = [
-  { event: "Call for Fellowship Applications", date: "01 May 2026" },
-  { event: "Last date for submitting application", date: "31 May 2026" },
+  { event: "Call for Fellowship Applications", date: "10 May 2026" },
   {
     event: "Round 1 Notification for award of fellowship",
-    date: "07 June 2026",
+    date: "10 May 2026",
+  }, {
+    event: "Round 1 Confirmation",
+    date: "17 May 2026",
   },
   {
     event: "Round 2 Notification for award of fellowship",
-    date: "18 June 2026",
+    date: "20 May 2026",
+  }, {
+    event: "Round 2 Confirmation",
+    date: "27 May 2026",
   },
+  { event: "Last date for submitting application", date: "1 May 2026" },
 ];
 
 export default function FellowshipPage() {
@@ -93,7 +99,7 @@ export default function FellowshipPage() {
             />
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white uppercase leading-tight md:leading-tight">
-            ITC Fellowship Proposal
+            Call For ITC India 2026 Fellowship
           </h2>
           <p className="text-lg sm:text-xl md:text-2xl font-semibold text-[#6aaff1] uppercase mt-4 px-2">
             REIMAGINING TEST IN THE ERA OF INTELLIGENT SILICON
@@ -152,13 +158,13 @@ export default function FellowshipPage() {
                 <li>Institution ID card (PDF format)</li>
               </ul>
               
-              <div className="bg-blue-900/30 p-4 rounded-lg border border-blue-500/30 mb-6">
-                <h4 className="text-lg font-bold text-[#6aaff1] mb-2">Required Recommendation / Bonafide Formats</h4>
-                <p className="text-sm md:text-base text-gray-200 mb-3">
+              {/*<div className="bg-blue-900/30 p-4 rounded-lg border border-blue-500/30 mb-6">*/}
+                {/*<h4 className="text-lg font-bold text-[#6aaff1] mb-2">Required Recommendation / Bonafide Formats</h4>*/}
+                {/*<p className="text-sm md:text-base text-gray-200 mb-3">
                   Please download the appropriate template below, have it filled and signed by the respective authority on official letterhead, and keep it ready for submission:
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
+                </p>*/}
+                {/*<div className="flex flex-col sm:flex-row gap-4">*/}
+                  {/*<a 
                     href="/Student_Bonafide_Template.docx" 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -173,9 +179,9 @@ export default function FellowshipPage() {
                     className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] py-2 px-4 rounded transition-colors text-sm font-medium"
                   >
                     Download Faculty NOC Template
-                  </a>
-                </div>
-              </div>
+                  </a>*/}
+                {/*</div>*/}
+              {/*</div>*/}
 
               <ul className="list-disc list-outside ml-4 md:ml-5 space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
                 {applicationProcessPoints.map((item, idx) => (
