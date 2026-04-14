@@ -7,7 +7,7 @@ import { useAuth } from "@/lib/AuthContext";
 import { validateRegistration, sanitizeFields } from "@/lib/validation";
 
 interface RegistrationFormProps {
-  registrationType: "fellowship" | "hackathon" | "cfp" | "cft" | "art";
+  registrationType: "Fellowship" | "hackathon" | "cfp" | "cft" | "art";
   title?: string;
   description?: string;
 }

@@ -63,7 +63,6 @@ export default function FAQ() {
         </div>
       </div>
 
-      {/* Phones: short label + globals media query caps size; sm+: full title in zig-zag pocket */}
       <h2
         className="faq-heading-mobile font-angkor z-30 text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:mx-auto max-[639px]:mt-10 max-[639px]:mb-8 max-[639px]:w-full max-[639px]:min-w-0 max-[639px]:pt-2 max-[639px]:text-center sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mb-0 sm:mt-5 sm:ml-8 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:flex-col sm:items-center sm:justify-center sm:pr-[49.2%] sm:pl-2 sm:translate-y-2.5 md:h-[100px] lg:h-[110px] xl:h-[123px]"
         aria-label="Frequently asked questions"

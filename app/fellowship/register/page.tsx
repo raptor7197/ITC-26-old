@@ -58,7 +58,7 @@ export default function FellowshipApplication() {
         setLoading(true);
         const result = await RegistrationDB.findByUidAndType(
           user.uid,
-          "fellowship",
+          "Fellowship",
           user.email,
         );
 
@@ -235,7 +235,7 @@ export default function FellowshipApplication() {
         result = await RegistrationDB.create({
           uid: user.uid,
           ...finalData,
-          registrationType: "fellowship",
+          registrationType: "Fellowship",
         });
       }
 

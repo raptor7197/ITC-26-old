@@ -73,7 +73,7 @@ export default function FellowshipPage() {
       try {
         const result = await RegistrationDB.findByUidAndType(
           user.uid,
-          "fellowship",
+          "Fellowship",
         );
         setRegistration((result as Registration) || null);
       } catch (err) {
@@ -405,36 +405,7 @@ export default function FellowshipPage() {
               </div>
             </section>
 
-            <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
-              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
-                Important Dates
-              </h3>
-              <ul className="space-y-3 text-sm md:text-base text-gray-200">
-                {importantDates.map((item, idx) => (
-                  <li
-                    key={idx}
-                    className="flex flex-col sm:flex-row sm:items-center"
-                  >
-                    <span className="font-semibold text-white sm:w-1/2">
-                      {item.event}:
-                    </span>
-                    <span className="text-[#6aaff1]">{item.date}</span>
-                  </li>
-                ))}
-              </ul>
 
-              <div className="mt-8 pt-6 border-t border-white/20 text-sm md:text-base">
-                <p>
-                  For any concerns/queries, please send an email to:{" "}
-                  <a
-                    href="mailto:itc.fellowships@gmail.com"
-                    className="text-[#6aaff1] hover:underline font-semibold"
-                  >
-                    itc.fellowships@gmail.com
-                  </a>
-                </p>
-              </div>
-            </section>
           </div>
 
           <div className="lg:col-span-1 relative">
@@ -499,6 +470,37 @@ export default function FellowshipPage() {
                 )}
               </div>
             </div>
+            
+            <section className="mt-10 bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+              <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
+                Important Dates
+              </h3>
+              <ul className="space-y-3 text-sm md:text-base text-gray-200">
+                {importantDates.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="flex flex-col sm:flex-row sm:items-center"
+                  >
+                    <span className="font-semibold text-white sm:w-1/2">
+                      {item.event}:
+                    </span>
+                    <span className="text-[#6aaff1]">{item.date}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-8 pt-6 border-t border-white/20 text-sm md:text-base">
+                <p>
+                  For any concerns/queries, please send an email to:{" "}
+                  <a
+                    href="mailto:itc.fellowships@gmail.com"
+                    className="text-[#6aaff1] hover:underline font-semibold"
+                  >
+                    itc.fellowships@gmail.com
+                  </a>
+                </p>
+              </div>
+            </section>
           </div>
         </div>
       </div>
