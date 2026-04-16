@@ -72,8 +72,8 @@ export default function HeroWithTimer() {
                              lg:text-[50px]
                              xl:text-[60px]"
                 >
-                  <p className="whitespace-normal">10<sup>  th</sup> IEEE International</p>
-                  <p>Test Conference</p>
+                  <p className="whitespace-normal">10<sup>th</sup> IEEE International</p>
+                  <p>Test Conference 2026</p>
                   <p>INDIA</p>
                 </div>
 

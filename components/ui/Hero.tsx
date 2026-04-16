@@ -24,7 +24,7 @@ export default function Hero() {
                 <p className="whitespace-normal sm:whitespace-nowrap">
                   10<sup>th</sup> IEEE International
                 </p>
-                <p>Test Conference</p>
+                <p>Test Conference 2026</p>
                 <p>INDIA</p>
               </div>
             </div>
