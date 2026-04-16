@@ -18,9 +18,15 @@ const sponsors = [
   { name: "Teradyne", src: "/images/teradyne.png", category: "Gold" },
   { name: "Anora labs", src: "/images/anoralabs.svg", category: "Silver" },
   { name: "Marvel", src: "/images/marvell-logo.svg", category: "Bronze" },
+  { name: "Sandisk", src: "/images/sandisk1.png", category: "Bronze" },
   {
     name: "Texas Instruments",
     src: "/images/texasinstruments.png",
+    category: "Bronze",
+  },
+  {
+    name: "SanDisk",
+    src: "/images/sandisk.png",
     category: "Bronze",
   },
   {
@@ -39,16 +45,16 @@ const sponsors = [
 
 const categoryGlow: Record<string, string> = {
   Silicon:
-    "shadow-[0_0_30px_rgba(59,130,246,0.4)] hover:shadow-[0_0_50px_rgba(59,130,246,0.7)]",
+    "shadow-[0_0_30px_rgba(106,175,241,0.4)] hover:shadow-[0_0_50px_rgba(106,175,241,0.7)]",
   Platinum:
-    "shadow-[0_0_30px_rgba(203,213,225,0.4)] hover:shadow-[0_0_50px_rgba(203,213,225,0.7)]",
-  Gold: "shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:shadow-[0_0_50px_rgba(234,179,8,0.7)]",
+    "shadow-[0_0_30px_rgba(106,175,241,0.4)] hover:shadow-[0_0_50px_rgba(106,175,241,0.7)]",
+  Gold: "shadow-[0_0_30px_rgba(106,175,241,0.4)] hover:shadow-[0_0_50px_rgba(106,175,241,0.7)]",
   Silver:
-    "shadow-[0_0_30px_rgba(156,163,175,0.4)] hover:shadow-[0_0_50px_rgba(156,163,175,0.7)]",
+    "shadow-[0_0_30px_rgba(106,175,241,0.4)] hover:shadow-[0_0_50px_rgba(106,175,241,0.7)]",
   Bronze:
-    "shadow-[0_0_30px_rgba(194,65,12,0.4)] hover:shadow-[0_0_50px_rgba(194,65,12,0.7)]",
+    "shadow-[0_0_30px_rgba(106,175,241,0.4)] hover:shadow-[0_0_50px_rgba(106,175,241,0.7)]",
   Technical:
-    "shadow-[0_0_30px_rgba(6,182,212,0.4)] hover:shadow-[0_0_50px_rgba(6,182,212,0.7)]",
+    "shadow-[0_0_30px_rgba(106,175,241,0.4)] hover:shadow-[0_0_50px_rgba(106,175,241,0.7)]",
 };
 
 export default function SponsorMarquee() {

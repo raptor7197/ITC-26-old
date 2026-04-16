@@ -269,6 +269,11 @@ export default function SponsorsPage() {
                 src: "/images/texasinstruments.png",
                 url: "https://www.ti.com/",
               },
+              {
+                name: "SanDisk",
+                src: "/images/sandisk1.png",
+                url: "https://www.sandisk.com/en-in",
+              },
             ].map((sponsor) => (
               <div
                 key={sponsor.name}
