@@ -51,13 +51,13 @@ export default function Footer() {
           <div
             className={`grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-2 lg:grid-cols-4 sm:gap-x-10 sm:gap-y-12 lg:gap-x-16 items-start ${footerContentWidth}`}
           >
-            <div className="min-w-0 col-span-2 flex items-center justify-center sm:justify-start sm:col-span-1">
+            <div className="min-w-0 col-span-1 flex items-center justify-start">
               <Image
                 src="/itc-logo.svg"
                 alt="ITC Logo"
                 width={120}
                 height={120}
-                className="w-24 h-24 md:w-48 md:h-48 object-contain"
+                className="w-36 h-36 md:w-48 md:h-48 object-contain"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default function Footer() {
                     About Us
                   </Link>
                 </li>
-                
+
                 <li>
                   <Link href="/contact" className={footerLink}>
                     Contact Us

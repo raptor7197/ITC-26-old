@@ -2,7 +2,7 @@ import React from "react";
 
 export default function NewsletterForm() {
   return (
-    <div className="flex w-full min-w-0 flex-1 flex-col sm:items-end justify-center">
+    <div className="flex w-full min-w-0 flex-1 flex-col sm:items-center  md:items-end justify-center">
       <a
         href="https://7eea98c8.sibforms.com/serve/MUIFAJSWVJTCmyWMTcDZYhJYjYnTEkOSyj7KbVNuNMoi48CL6IuIbW87w9jedHkqdj_OlicRRkJknu6Lfgg65mQgOaBB2ozPYVSEk9v52fRVSIizRtimKngb5wJmknC0v1KWHOfl6LbDthxC8lC8sb5j_kuRG3jAWJjH3iUubQErlJ25t649JWDdtyXQXK1zT_8M7R8cAeN2sC0v"
         target="_blank"
