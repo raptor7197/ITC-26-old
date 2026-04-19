@@ -1,4 +1,5 @@
 import HeroWithTimer from "@/components/ui/HeroWithTimer";
+import UpdatesMarquee from "@/components/ui/UpdatesMarquee";
 import AboutUs from "@/components/ui/AboutUs";
 import Timeline from "@/components/ui/Timeline";
 import Testimonials from "@/components/ui/Testimonials";
@@ -13,6 +14,7 @@ export default function Home() {
       <FloatingNav />
       <div className="relative z-10 flex w-full min-w-0 flex-col gap-0">
         <HeroWithTimer />
+        <UpdatesMarquee />
         <AboutUs />
         {/*<Timeline />*/}
         <Testimonials />

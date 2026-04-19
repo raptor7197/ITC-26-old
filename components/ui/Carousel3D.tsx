@@ -30,7 +30,7 @@ const carouselItems = [
   {
     stat: "2025",
     label: "STATS",
-    detail: "IEEE ITC India 2026",
+    detail: "IEEE ITC India 2025",
     bg: "from-[#f8f9fa] to-[#e9ecef]",
   },
 ];

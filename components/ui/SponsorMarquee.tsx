@@ -25,11 +25,6 @@ const sponsors = [
     category: "Bronze",
   },
   {
-    name: "SanDisk",
-    src: "/images/sandisk.png",
-    category: "Bronze",
-  },
-  {
     name: "IEEE Bangalore Section",
     src: "/images/ieeeblr.png",
     category: "Technical",
