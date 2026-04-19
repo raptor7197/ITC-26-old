@@ -12,10 +12,10 @@ const photos = [
     id: 2,
     url: "/images/day02.png",
   },
-  // {
-  //   id: 3,
-  //   url: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2000&auto=format&fit=crop",
-  // },
+  {
+    id: 3,
+    url: "/images/pic3.jpeg",
+  },
   // {
   //   id: 4,
   //   url: "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2000&auto=format&fit=crop",
