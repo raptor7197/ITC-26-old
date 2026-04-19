@@ -56,7 +56,7 @@ export default function SponsorMarquee() {
   return (
     <section className="w-full py-20 overflow-hidden relative bg-transparent">
       <div className="text-center mb-12 relative z-20">
-        <h2 className="text-3xl md:text-5xl font-bold font-space-grotesk text-white tracking-wide uppercase">
+        <h2 className="text-3xl md:text-5xl font-bold font-angkor text-white tracking-wide uppercase">
           Our Sponsors
         </h2>
         <div className="w-24 h-1 bg-[#6aaff1] mx-auto rounded-full mt-4"></div>
