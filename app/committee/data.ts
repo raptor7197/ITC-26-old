@@ -88,7 +88,7 @@ export const members4: Member[] = [
     link: "https://www.linkedin.com/in/anujgupta27",
     img: "p21.png",
     name: "Anuj Gupta",
-    comp: "Cadence Design Systems, India",
+    comp: "NextSilicon",
   },
   {
     id: 9,
