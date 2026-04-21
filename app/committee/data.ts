@@ -393,6 +393,13 @@ export const members16: Member[] = [
                                    name: "Kamlesh Pandey",
                                    comp: "Krivya Semicon, India",
                               
+                                  },
+                                  {
+                                    id: 51,
+                                    link: "https://www.linkedin.com/in/veerappanvv",
+                                    img: "vvv3.png",
+                                    name: "Veerappan VV",
+                                    comp: "Tessolve, India",
                                   }
   // {
   //   id: 32,
