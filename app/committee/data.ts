@@ -88,7 +88,7 @@ export const members4: Member[] = [
     link: "https://www.linkedin.com/in/anujgupta27",
     img: "p21.png",
     name: "Anuj Gupta",
-    comp: "Cadence Design Systems, India",
+    comp: "NextSilicon",
   },
   {
     id: 9,
@@ -393,6 +393,13 @@ export const members16: Member[] = [
                                    name: "Kamlesh Pandey",
                                    comp: "Krivya Semicon, India",
                               
+                                  },
+                                  {
+                                    id: 51,
+                                    link: "https://www.linkedin.com/in/veerappanvv",
+                                    img: "vvv3.png",
+                                    name: "Veerappan VV",
+                                    comp: "Tessolve, India",
                                   }
   // {
   //   id: 32,
