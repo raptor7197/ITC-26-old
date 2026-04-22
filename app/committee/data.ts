@@ -326,12 +326,13 @@ export const members16: Member[] = [
     comp: "Auburn University, USA",
   },
   {
-    id: 43,
-    link: "https://www.linkedin.com/in/virendrasingh/",
-    img: "p4.png",
-    name: "Prof. Virendra Singh",
-    comp: "IIT Bombay, India",
+    id: 51,
+    link: "https://www.linkedin.com/in/veerappanvv",
+    img: "vvv3.png",
+    name: "Veerappan VV",
+    comp: "Tessolve, India",
   },
+  
   {
                 id: 39,
                 link: "https://www.linkedin.com/in/navin-bishnoi-707a6b3/",
@@ -339,7 +340,15 @@ export const members16: Member[] = [
                 name: "Navin Bishnoi",
                 comp: "Marvell Semiconductors, India",
            
-               },{
+               },
+               {
+                id: 43,
+                link: "https://www.linkedin.com/in/virendrasingh/",
+                img: "p4.png",
+                name: "Prof. Virendra Singh",
+                comp: "IIT Bombay, India",
+              },
+              {
                  id: 41,
                  link: "https://www.linkedin.com/in/yervant-zorian-40522b1/",
                  img: "p43.png",
@@ -393,14 +402,7 @@ export const members16: Member[] = [
                                    name: "Kamlesh Pandey",
                                    comp: "Krivya Semicon, India",
                               
-                                  },
-                                  {
-                                    id: 51,
-                                    link: "https://www.linkedin.com/in/veerappanvv",
-                                    img: "vvv3.png",
-                                    name: "Veerappan VV",
-                                    comp: "Tessolve, India",
-                                  }
+                                  }, 
   // {
   //   id: 32,
   //   link: "https://www.linkedin.com/in/prasad-mantri-5742b156/",

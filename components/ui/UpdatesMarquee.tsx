@@ -11,7 +11,7 @@ export default function UpdatesMarquee() {
             <div key={i} className="flex items-center">
               <div className="mx-5 text-blue-300">
                 Key Timeline: Call for Posters - New Deadline: 15<sup>th</sup>{" "}
-                April, 2026
+                April, 2026 (Closed)
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
               <div className="mx-5 text-blue-300">Call For Papers - Closed</div>
