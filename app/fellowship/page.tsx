@@ -41,7 +41,7 @@ const applicationProcessPoints = [
 ];
 
 const importantDates = [
-  { event: "Call for Fellowship Applications", date: "10 May 2026" },
+  { event: "Call for Fellowship Applications", date: "20 April 2026" },
   {
     event: "Round 1 Notification for award of fellowship",
     date: "10 May 2026",
@@ -56,7 +56,7 @@ const importantDates = [
     event: "Round 2 Confirmation",
     date: "27 May 2026",
   },
-  { event: "Last date for submitting application", date: "1 May 2026" },
+  { event: "Last date for submitting application", date: "7 May 2026" },
 ];
 
 export default function FellowshipPage() {
