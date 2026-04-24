@@ -133,6 +133,7 @@ export default function Testimonials() {
                           src={testimonial.img}
                           alt="Avatar"
                           fill
+                          unoptimized
                           className="object-cover"
                         />
                       </div>

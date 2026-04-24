@@ -7,9 +7,12 @@ import {
   getDocs,
   query,
   where,
+  orderBy,
   updateDoc,
   deleteDoc,
   serverTimestamp,
+  limit,
+  startAfter,
 } from "firebase/firestore";
 import { app } from "./firebase";
 
@@ -61,10 +64,22 @@ export interface Registration {
   updatedAt?: unknown;
 }
 
+export interface FellowshipQueryResult {
+  items: Registration[];
+  nextCursorId: string | null;
+  hasMore: boolean;
+}
+
 export interface CoAuthor {
   name: string;
   email: string;
   institution: string;
+}
+
+export interface AdminWhitelistEntry {
+  uid: string;
+  email: string;
+  createdAt?: unknown;
 }
 
 export interface PaperSubmission {
@@ -191,20 +206,26 @@ export const RegistrationDB = {
     if (emailToUse) {
       promises.push(
         getDocs(
-          query(collection(db, "submissions"), where("email", "==", emailToUse)),
+          query(
+            collection(db, "submissions"),
+            where("email", "==", emailToUse),
+          ),
         ),
         getDocs(
-          query(collection(db, "registrations"), where("email", "==", emailToUse)),
+          query(
+            collection(db, "registrations"),
+            where("email", "==", emailToUse),
+          ),
         ),
       );
     }
 
     const settledPromises = await Promise.allSettled(promises);
-    
+
     // Only process successful queries to avoid failing entire request if one index or rule is missing
-    const snapshots = settledPromises
-      .filter((result): result is PromiseFulfilledResult<any> => result.status === 'fulfilled')
-      .map((result) => result.value);
+    const snapshots = settledPromises.flatMap((result) =>
+      result.status === "fulfilled" ? [result.value] : [],
+    );
 
     const allDocs = snapshots.flatMap((snap) => snap.docs);
     const uniqueDocsMap = new Map();
@@ -280,6 +301,71 @@ export const RegistrationDB = {
     return querySnapshot.docs.map(
       (doc) => ({ id: doc.id, ...doc.data() }) as Registration,
     );
+  },
+
+  async getAllFellowshipByStatus(
+    status?: Registration["status"],
+    options?: {
+      limitCount?: number;
+      cursorId?: string;
+    },
+  ): Promise<FellowshipQueryResult> {
+    const pageSize = options?.limitCount ?? 50;
+
+    let q = query(
+      collection(db, "submissions"),
+      where("registrationType", "==", "Fellowship"),
+    );
+
+    if (status) {
+      q = query(q, where("status", "==", status));
+    }
+
+    q = query(q, orderBy("createdAt", "desc"));
+
+    if (options?.cursorId) {
+      const cursorRef = doc(db, "submissions", options.cursorId);
+      const cursorSnap = await getDoc(cursorRef);
+      if (cursorSnap.exists()) {
+        q = query(q, startAfter(cursorSnap));
+      }
+    }
+
+    q = query(q, limit(pageSize + 1));
+
+    const querySnapshot = await getDocs(q);
+    const docs = querySnapshot.docs;
+    const hasMore = docs.length > pageSize;
+    const pageDocs = hasMore ? docs.slice(0, pageSize) : docs;
+
+    const items = pageDocs.map(
+      (doc) => ({ id: doc.id, ...doc.data() }) as Registration,
+    );
+
+    return {
+      items,
+      hasMore,
+      nextCursorId:
+        hasMore && items.length > 0 ? items[items.length - 1].id || null : null,
+    };
+  },
+
+  async updateStatusAsAdmin(
+    id: string,
+    status: NonNullable<Registration["status"]>,
+  ) {
+    const registrationRef = doc(db, "submissions", id);
+    const registrationDoc = await getDoc(registrationRef);
+
+    if (!registrationDoc.exists()) return null;
+
+    await updateDoc(registrationRef, {
+      status,
+      updatedAt: serverTimestamp(),
+    });
+
+    const updatedDoc = await getDoc(registrationRef);
+    return { id: updatedDoc.id, ...updatedDoc.data() } as Registration;
   },
 };
 
@@ -417,5 +503,14 @@ export const PaperSubmissionDB = {
 
     await deleteDoc(paperRef);
     return { id: paperDoc.id, ...paperDoc.data() };
+  },
+};
+
+export const AdminWhitelistDB = {
+  async isWhitelistedByUid(uid: string | null | undefined) {
+    if (!uid) return false;
+    const ref = doc(db, "adminWhitelist", uid);
+    const snap = await getDoc(ref);
+    return snap.exists();
   },
 };

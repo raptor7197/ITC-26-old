@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useProtectedRoute } from "@/lib/useProtectedRoute";
-import { RegistrationDB, Registration } from "@/lib/firestore";
+import { AdminWhitelistDB, RegistrationDB, Registration } from "@/lib/firestore";
 import { signOut } from "@/lib/auth";
 
 export default function DashboardPage() {
@@ -13,12 +13,24 @@ export default function DashboardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [deleting, setDeleting] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (!authLoading && user) {
       fetchRegistration();
+      checkAdminAccess();
     }
   }, [authLoading, user]);
+
+  const checkAdminAccess = async () => {
+    try {
+      const whitelisted = await AdminWhitelistDB.isWhitelistedByUid(user?.uid);
+      setIsAdmin(whitelisted);
+    } catch (err) {
+      console.error("Error checking admin access:", err);
+      setIsAdmin(false);
+    }
+  };
 
   const fetchRegistration = async () => {
     try {
@@ -257,12 +269,22 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <button
-            onClick={handleSignOut}
-            className="w-full sm:w-auto bg-white text-black border border-gray-300 py-2.5 px-6 rounded-full font-medium hover:bg-gray-50 transition-colors text-sm"
-          >
-            Sign Out
-          </button>
+          <div className="flex flex-col sm:flex-row gap-3">
+            {isAdmin && (
+              <button
+                onClick={() => router.push("/admin/fellowship")}
+                className="w-full sm:w-auto bg-blue-600 text-white border border-blue-600 py-2.5 px-6 rounded-full font-medium hover:bg-blue-700 transition-colors text-sm"
+              >
+                Admin Portal
+              </button>
+            )}
+            <button
+              onClick={handleSignOut}
+              className="w-full sm:w-auto bg-white text-black border border-gray-300 py-2.5 px-6 rounded-full font-medium hover:bg-gray-50 transition-colors text-sm"
+            >
+              Sign Out
+            </button>
+          </div>
         </div>
 
         {error && (

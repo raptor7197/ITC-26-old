@@ -229,7 +229,30 @@ The application uses Next.js API routes with Firestore:
 - `POST /api/registrations` - Create a new registration
 - `GET /api/registrations` - Get user's registrations
 
+### Admin Fellowship Portal
+- Admin page: `/admin/fellowship`
+- Data source: Firestore `submissions` collection
+- Access control: Firestore email whitelist (`adminWhitelist` collection) + Firestore rules
+
 All data is stored and retrieved from Cloud Firestore in real-time.
+
+## 👮 Admin Whitelist Setup
+
+Admin access for the fellowship portal is controlled by a Firestore whitelist.
+
+1. Ensure Firebase Admin env vars are configured in `.env.local`:
+   - `FIREBASE_PROJECT_ID`
+   - `FIREBASE_CLIENT_EMAIL`
+   - `FIREBASE_PRIVATE_KEY`
+2. Add an admin email to whitelist:
+   ```bash
+   node scripts/set-admin-claim.mjs admin-user@example.com true
+   ```
+3. Remove an admin email from whitelist:
+   ```bash
+   node scripts/set-admin-claim.mjs admin-user@example.com false
+   ```
+4. Ask the target user to refresh the page (or sign out/sign in once) and open `/admin/fellowship`.
 
 ## 🧪 Testing
 

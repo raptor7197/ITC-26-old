@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() &&
+        exists(
+          /databases/$(database)/documents/adminWhitelist/$(request.auth.uid)
+        );
+    }
+
+    function isOwnerByUid(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+
+    function isOwnerByEmail(email) {
+      return isSignedIn() && request.auth.token.email == email;
+    }
+
+    match /users/{userId} {
+      allow read, write: if isOwnerByUid(userId) || isAdmin();
+    }
+
+    match /submissions/{submissionId} {
+      allow create: if isSignedIn() && request.resource.data.uid == request.auth.uid;
+      allow read: if isAdmin() ||
+        isOwnerByUid(resource.data.uid) ||
+        isOwnerByEmail(resource.data.email);
+      allow update, delete: if isAdmin() || isOwnerByUid(resource.data.uid);
+    }
+
+    match /papers/{paperId} {
+      allow create: if isSignedIn() && request.resource.data.uid == request.auth.uid;
+      allow read: if isAdmin() ||
+        isOwnerByUid(resource.data.uid) ||
+        isOwnerByEmail(resource.data.authorEmail);
+      allow update, delete: if isAdmin() || isOwnerByUid(resource.data.uid);
+    }
+
+    match /adminWhitelist/{adminId} {
+      allow read: if isSignedIn() && request.auth.uid == adminId;
+      allow write: if false;
+    }
+  }
+}
