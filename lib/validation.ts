@@ -1,4 +1,3 @@
-
 export function sanitize(value: string): string {
   return value
     .trim()
@@ -38,13 +37,29 @@ const MAX_SCOPUS_ID = 100;
 const MAX_SCHOLAR_ID = 100;
 
 /**
- * Validates an institutional email address.
- * Must end with .edu or contain .ac. in the domain portion.
+ * Validates an institutional email for fellowship.
+ * Accepts any valid email domain except Gmail.
  */
 export function isValidInstitutionalEmail(email: string): boolean {
   const trimmed = email.trim().toLowerCase();
 
   // Basic email format check
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(trimmed)) return false;
+
+  const domain = trimmed.split("@")[1];
+  if (!domain) return false;
+
+  return domain !== "gmail.com" && !domain.endsWith(".gmail.com");
+}
+
+/**
+ * Strict institutional email validation used by other forms.
+ * Must end with .edu or contain .ac. in the domain portion.
+ */
+export function isStrictInstitutionalEmail(email: string): boolean {
+  const trimmed = email.trim().toLowerCase();
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(trimmed)) return false;
 
@@ -238,19 +253,29 @@ export function validateRegistration(
       valid: false,
       error: `Scopus ID must be under ${MAX_SCOPUS_ID} characters.`,
     };
-  if (fields.googleScholarId && fields.googleScholarId.trim().length > MAX_SCHOLAR_ID)
+  if (
+    fields.googleScholarId &&
+    fields.googleScholarId.trim().length > MAX_SCHOLAR_ID
+  )
     return {
       valid: false,
       error: `Google Scholar ID must be under ${MAX_SCHOLAR_ID} characters.`,
     };
 
-  const emailToCheck = fields.institutionalEmail || email;
-  if (!isValidInstitutionalEmail(emailToCheck))
+  if (fields.institutionalEmail) {
+    if (!isValidInstitutionalEmail(fields.institutionalEmail))
+      return {
+        valid: false,
+        error:
+          "Please use a valid institutional email address (Gmail addresses are not allowed).",
+      };
+  } else if (!isStrictInstitutionalEmail(email)) {
     return {
       valid: false,
       error:
         "Please use a valid institutional email address (ending in .edu or containing .ac.)",
     };
+  }
 
   if (!isValidPhone(phone))
     return {
