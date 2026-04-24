@@ -140,6 +140,17 @@ export default function AdminFellowshipPage() {
     [applications, selectedId],
   );
 
+  const indexHelpLink = useMemo(() => {
+    if (!error) return null;
+    const match = error.match(/https:\/\/console\.firebase\.google\.com\/\S+/);
+    return match ? match[0] : null;
+  }, [error]);
+
+  const isIndexError =
+    !!error &&
+    (error.toLowerCase().includes("requires an index") ||
+      error.toLowerCase().includes("failed-precondition"));
+
   async function updateStatus(status: RegistrationStatus) {
     if (!user || !selectedApplication?.id) return;
 
@@ -222,7 +233,31 @@ export default function AdminFellowshipPage() {
             ))}
           </div>
 
-          {error && <p className="mb-4 text-sm text-red-600">{error}</p>}
+          {error && (
+            <div className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3">
+              <p className="text-sm text-red-700 wrap-break-word">{error}</p>
+
+              {isIndexError && (
+                <div className="mt-2 text-xs text-red-700">
+                  <p>
+                    This is a one-time Firestore setup step. Create the
+                    composite index and wait until it shows as{" "}
+                    <strong>Enabled</strong>, then refresh this page.
+                  </p>
+                  {indexHelpLink && (
+                    <a
+                      href={indexHelpLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 inline-block text-red-800 underline"
+                    >
+                      Open Firebase index creation link
+                    </a>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
 
           <div className="overflow-x-auto border border-gray-200 rounded-xl">
             <table className="w-full text-sm">

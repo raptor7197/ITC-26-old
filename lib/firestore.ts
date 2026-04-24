@@ -12,7 +12,6 @@ import {
   deleteDoc,
   serverTimestamp,
   limit,
-  startAfter,
 } from "firebase/firestore";
 import { app } from "./firebase";
 
@@ -311,43 +310,151 @@ export const RegistrationDB = {
     },
   ): Promise<FellowshipQueryResult> {
     const pageSize = options?.limitCount ?? 50;
+    const cursorId = options?.cursorId;
 
-    let q = query(
-      collection(db, "submissions"),
-      where("registrationType", "==", "Fellowship"),
-    );
+    const toMillis = (value: unknown): number => {
+      if (!value) return 0;
+      if (value instanceof Date) return value.getTime();
 
-    if (status) {
-      q = query(q, where("status", "==", status));
-    }
-
-    q = query(q, orderBy("createdAt", "desc"));
-
-    if (options?.cursorId) {
-      const cursorRef = doc(db, "submissions", options.cursorId);
-      const cursorSnap = await getDoc(cursorRef);
-      if (cursorSnap.exists()) {
-        q = query(q, startAfter(cursorSnap));
+      if (typeof value === "number") return value;
+      if (typeof value === "string") {
+        const parsed = Date.parse(value);
+        return Number.isFinite(parsed) ? parsed : 0;
       }
-    }
 
-    q = query(q, limit(pageSize + 1));
+      if (typeof value === "object") {
+        const ts = value as {
+          toDate?: () => Date;
+          seconds?: number;
+          nanoseconds?: number;
+        };
 
-    const querySnapshot = await getDocs(q);
-    const docs = querySnapshot.docs;
-    const hasMore = docs.length > pageSize;
-    const pageDocs = hasMore ? docs.slice(0, pageSize) : docs;
+        if (typeof ts.toDate === "function") {
+          return ts.toDate().getTime();
+        }
 
-    const items = pageDocs.map(
-      (doc) => ({ id: doc.id, ...doc.data() }) as Registration,
-    );
+        if (typeof ts.seconds === "number") {
+          const nanos = typeof ts.nanoseconds === "number" ? ts.nanoseconds : 0;
+          return ts.seconds * 1000 + Math.floor(nanos / 1_000_000);
+        }
+      }
 
-    return {
-      items,
-      hasMore,
-      nextCursorId:
-        hasMore && items.length > 0 ? items[items.length - 1].id || null : null,
+      return 0;
     };
+
+    const normalizeStatus = (value?: string) =>
+      (value || "pending").toLowerCase() as NonNullable<Registration["status"]>;
+
+    const applyClientPagination = (items: Registration[]) => {
+      let startIndex = 0;
+
+      if (cursorId) {
+        const cursorIndex = items.findIndex((item) => item.id === cursorId);
+        startIndex = cursorIndex >= 0 ? cursorIndex + 1 : 0;
+      }
+
+      const window = items.slice(startIndex, startIndex + pageSize + 1);
+      const hasMore = window.length > pageSize;
+      const pageItems = hasMore ? window.slice(0, pageSize) : window;
+
+      return {
+        items: pageItems,
+        hasMore,
+        nextCursorId:
+          hasMore && pageItems.length > 0
+            ? pageItems[pageItems.length - 1].id || null
+            : null,
+      };
+    };
+
+    try {
+      const buildIndexedQuery = (
+        registrationType: "Fellowship" | "fellowship",
+      ) => {
+        let q = query(
+          collection(db, "submissions"),
+          where("registrationType", "==", registrationType),
+        );
+
+        if (status) {
+          q = query(q, where("status", "==", status));
+        }
+
+        q = query(q, orderBy("createdAt", "desc"));
+
+        return q;
+      };
+
+      const indexedQueries = [
+        buildIndexedQuery("Fellowship"),
+        buildIndexedQuery("fellowship"),
+      ];
+      const indexedSnapshots = await Promise.allSettled(
+        indexedQueries.map((q) => getDocs(query(q, limit(pageSize + 1)))),
+      );
+
+      const successfulSnapshots = indexedSnapshots.flatMap((result) =>
+        result.status === "fulfilled" ? [result.value] : [],
+      );
+
+      if (successfulSnapshots.length === 0) {
+        throw new Error("No indexed fellowship queries succeeded.");
+      }
+
+      const indexedItems = successfulSnapshots
+        .flatMap((snap) => snap.docs)
+        .map(
+          (itemDoc) => ({ id: itemDoc.id, ...itemDoc.data() }) as Registration,
+        )
+        .sort((a, b) => {
+          const byCreatedAt = toMillis(b.createdAt) - toMillis(a.createdAt);
+          if (byCreatedAt !== 0) return byCreatedAt;
+          return (b.id || "").localeCompare(a.id || "");
+        });
+
+      return applyClientPagination(indexedItems);
+    } catch {
+      // Fallback path when composite indexes are missing or legacy docs lack createdAt.
+      const fallbackSnapshots = await Promise.allSettled([
+        getDocs(
+          query(
+            collection(db, "submissions"),
+            where("registrationType", "==", "Fellowship"),
+          ),
+        ),
+        getDocs(
+          query(
+            collection(db, "submissions"),
+            where("registrationType", "==", "fellowship"),
+          ),
+        ),
+      ]);
+
+      const fallbackDocs = fallbackSnapshots.flatMap((result) =>
+        result.status === "fulfilled" ? result.value.docs : [],
+      );
+
+      const unique = new Map<string, Registration>();
+      for (const itemDoc of fallbackDocs) {
+        const row = { id: itemDoc.id, ...itemDoc.data() } as Registration;
+        unique.set(itemDoc.id, row);
+      }
+
+      let items = Array.from(unique.values());
+
+      if (status) {
+        const wanted = status.toLowerCase();
+        items = items.filter((item) => normalizeStatus(item.status) === wanted);
+      }
+
+      items.sort((a, b) => {
+        const byCreatedAt = toMillis(b.createdAt) - toMillis(a.createdAt);
+        if (byCreatedAt !== 0) return byCreatedAt;
+        return (b.id || "").localeCompare(a.id || "");
+      });
+
+      return applyClientPagination(items);
+    }
   },
 
   async updateStatusAsAdmin(
