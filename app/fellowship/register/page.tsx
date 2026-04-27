@@ -17,6 +17,9 @@ export default function FellowshipApplication() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [institutionalEmailError, setInstitutionalEmailError] = useState<
+    string | null
+  >(null);
   const [success, setSuccess] = useState(false);
   const [registration, setRegistration] = useState<Registration | null>(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -90,10 +93,41 @@ export default function FellowshipApplication() {
     >,
   ) => {
     const { name, value } = e.target;
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    if (name === "institutionalEmail") {
+      const trimmed = value.trim().toLowerCase();
+
+      if (!trimmed) {
+        setInstitutionalEmailError("Institutional email address is required.");
+        return;
+      }
+
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(trimmed)) {
+        setInstitutionalEmailError("Please enter a valid email address.");
+        return;
+      }
+
+      const domain = trimmed.split("@")[1];
+      if (!domain) {
+        setInstitutionalEmailError("Please enter a valid email address.");
+        return;
+      }
+
+      if (domain === "gmail.com" || domain.endsWith(".gmail.com")) {
+        setInstitutionalEmailError(
+          "Institutional mail address required. Gmail addresses are not allowed.",
+        );
+        return;
+      }
+
+      setInstitutionalEmailError(null);
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -114,19 +148,31 @@ export default function FellowshipApplication() {
         return;
       }
 
-      if (name === "idCardFile" && file.type !== "application/pdf" && !file.type.startsWith("image/")) {
+      if (
+        name === "idCardFile" &&
+        file.type !== "application/pdf" &&
+        !file.type.startsWith("image/")
+      ) {
         setError("The institution ID card must be a PDF or image file.");
         e.target.value = "";
         return;
       }
-      
-      if (name === "aadharFile" && file.type !== "application/pdf" && !file.type.startsWith("image/")) {
+
+      if (
+        name === "aadharFile" &&
+        file.type !== "application/pdf" &&
+        !file.type.startsWith("image/")
+      ) {
         setError("The Aadhaar card must be a PDF or image file.");
         e.target.value = "";
         return;
       }
 
-      if (name === "bonafideFile" && file.type !== "application/pdf" && !file.type.startsWith("image/")) {
+      if (
+        name === "bonafideFile" &&
+        file.type !== "application/pdf" &&
+        !file.type.startsWith("image/")
+      ) {
         setError("The Bonafide/NOC certificate must be a PDF or image file.");
         e.target.value = "";
         return;
@@ -146,6 +192,17 @@ export default function FellowshipApplication() {
     return await getDownloadURL(storageRef);
   };
 
+  const isNonGmailEmail = (email: string) => {
+    const trimmed = email.trim().toLowerCase();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmed)) return false;
+
+    const domain = trimmed.split("@")[1];
+    if (!domain) return false;
+
+    return domain !== "gmail.com" && !domain.endsWith(".gmail.com");
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!user) return;
@@ -154,6 +211,15 @@ export default function FellowshipApplication() {
     setSubmitting(true);
 
     const cleaned = sanitizeFields(formData);
+
+    if (!isNonGmailEmail(cleaned.institutionalEmail || "")) {
+      const message =
+        "Institutional mail address required. Gmail addresses are not allowed.";
+      setInstitutionalEmailError(message);
+      setError(message);
+      setSubmitting(false);
+      return;
+    }
 
     const validation = validateRegistration({
       ...cleaned,
@@ -267,7 +333,7 @@ export default function FellowshipApplication() {
   }
 
   return (
-    <main className="min-h-screen bg-transparent flex items-center justify-center px-[8%] sm:px-[6%] md:px-[5%] lg:px-[4%] py-16 relative overflow-hidden">
+    <main className="min-h-screen bg-transparent flex items-center justify-center px-[8%] sm:px-[6%] md:px-[5%] lg:px-[4%] pt-24 pb-16 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none z-0">
         <div
           className="absolute inset-0 opacity-10 bg-repeat"
@@ -322,18 +388,24 @@ export default function FellowshipApplication() {
             </div>
 
             <div className="mb-6 p-4 bg-blue-50 border border-blue-100 rounded-xl">
-              <h3 className="text-sm font-bold text-blue-900 mb-2">Important Notice</h3>
+              <h3 className="text-sm font-bold text-blue-900 mb-2">
+                Important Notice
+              </h3>
               <p className="text-sm text-blue-800 mb-2">
-                Please ensure you have the following documents ready for verification/reimbursement:
+                Please ensure you have the following documents ready for
+                verification/reimbursement:
               </p>
               <ul className="list-disc list-outside ml-4 space-y-1 text-sm text-blue-800">
                 <li>Valid Institutional ID Card</li>
                 <li>Aadhaar Card</li>
                 <li>
-                  <strong>For Students:</strong> A Bonafide certificate issued by the Head of the Department on official letterhead.
+                  <strong>For Students:</strong> A Bonafide certificate issued
+                  by the Head of the Department on official letterhead.
                 </li>
                 <li>
-                  <strong>For Faculty:</strong> A recommendation letter/NOC from the Head of the Department/Principal/Director on official letterhead.
+                  <strong>For Faculty:</strong> A recommendation letter/NOC from
+                  the Head of the Department/Principal/Director on official
+                  letterhead.
                 </li>
               </ul>
             </div>
@@ -383,7 +455,10 @@ export default function FellowshipApplication() {
                   label: "Past Fellowship",
                   value: registration.pastFellowship,
                 },
-                { label: "Paper/Hackathon ID", value: registration.ieeePaperId },
+                {
+                  label: "Paper/Hackathon ID",
+                  value: registration.ieeePaperId,
+                },
               ].map(({ label, value }) => (
                 <div
                   key={label}
@@ -413,7 +488,7 @@ export default function FellowshipApplication() {
             </div>
           </div>
         ) : (
-          <div className="bg-white rounded-2xl shadow-2xl p-8 mt-25">
+          <div className="bg-white rounded-2xl shadow-2xl p-8 mt-8">
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-1">
                 {registration ? "Edit Application" : "Fellowship Application"}
@@ -493,8 +568,23 @@ export default function FellowshipApplication() {
                     onChange={handleChange}
                     required
                     maxLength={254}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
+                    pattern="^(?!.*@(?:.*\\.)?gmail\\.com$)[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
+                    title="Institutional mail address required. Gmail addresses are not allowed."
+                    className={`w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 text-gray-900 text-sm ${
+                      institutionalEmailError
+                        ? "border-red-500 focus:ring-red-500"
+                        : "border-gray-300 focus:ring-blue-500"
+                    }`}
                   />
+                  {institutionalEmailError ? (
+                    <p className="text-xs text-red-600 mt-1">
+                      {institutionalEmailError}
+                    </p>
+                  ) : (
+                    <p className="text-xs text-gray-500 mt-1">
+                      Enter your institutional mail address only.
+                    </p>
+                  )}
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -538,8 +628,7 @@ export default function FellowshipApplication() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Fellowship  Category{" "}
-                    <span className="text-red-500">*</span>
+                    Fellowship Category <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="highestQualification"
@@ -549,7 +638,7 @@ export default function FellowshipApplication() {
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
                   >
                     <option value="" disabled>
-                      Fellowship  Category
+                      Fellowship Category
                     </option>
                     <option value="Faculty">Tier I</option>
                     <option value="Student (UG)">Tier II</option>
@@ -559,7 +648,8 @@ export default function FellowshipApplication() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Current Academic Year for Student / Years of Experience for Faculty <span className="text-red-500">*</span>
+                    Current Academic Year for Student / Years of Experience for
+                    Faculty <span className="text-red-500">*</span>
                   </label>
                   <select
                     name="year"
@@ -676,7 +766,8 @@ export default function FellowshipApplication() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Enter your latest VLSI Testing related Publications with Citation (Max 3) <span className="text-red-500">*</span>
+                  Enter your latest VLSI Testing related Publications with
+                  Citation (Max 3) <span className="text-red-500">*</span>
                 </label>
                 <textarea
                   name="publications"
@@ -743,7 +834,8 @@ export default function FellowshipApplication() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                  Mention your ID of Submitted / Selected - Paper / Poster / Hackathon, if any in ITC India 2026{" "}
+                  Mention your ID of Submitted / Selected - Paper / Poster /
+                  Hackathon, if any in ITC India 2026{" "}
                   <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -827,7 +919,7 @@ export default function FellowshipApplication() {
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting || !!institutionalEmailError}
                   className="flex-1 bg-black text-white py-3 px-6 rounded-full font-medium hover:bg-gray-800 transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {submitting ? (
