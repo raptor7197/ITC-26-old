@@ -17,14 +17,16 @@ export default function Login() {
       setLoading(true);
 
       const result = await signInWithGoogle();
-      
+
       if (!result.success || !result.user) {
         throw new Error(result.error || "Failed to sign in");
       }
 
-      document.cookie = `firebase-auth-token=${result.user.idToken}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
-
-      const registrations = await RegistrationDB.findByUidAndType(result.user.uid, undefined, result.user.email);
+      const registrations = await RegistrationDB.findByUidAndType(
+        result.user.uid,
+        undefined,
+        result.user.email,
+      );
       if (Array.isArray(registrations) && registrations.length > 0) {
         router.push("/dashboard");
       } else {

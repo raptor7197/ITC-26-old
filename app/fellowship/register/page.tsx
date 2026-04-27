@@ -212,15 +212,6 @@ export default function FellowshipApplication() {
 
     const cleaned = sanitizeFields(formData);
 
-    if (!isNonGmailEmail(cleaned.institutionalEmail || "")) {
-      const message =
-        "Institutional mail address required. Gmail addresses are not allowed.";
-      setInstitutionalEmailError(message);
-      setError(message);
-      setSubmitting(false);
-      return;
-    }
-
     const validation = validateRegistration({
       ...cleaned,
       email: user.email || "",

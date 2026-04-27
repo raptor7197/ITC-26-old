@@ -1,8 +1,8 @@
 [
   {
-    "origin": ["*"],
-    "method": ["GET", "PUT", "POST", "DELETE", "OPTIONS"],
+    "origin": ["https://itctestweekindia.org", "https://www.itctestweekindia.org","https://itc-new.vercel.app/", "https://blaspheme-proud-economy.ngrok-free.dev"],
+    "method": ["GET", "PUT", "POST", "OPTIONS"],
     "maxAgeSeconds": 3600,
-    "responseHeader": ["Content-Type", "Authorization", "Content-Length", "User-Agent", "x-goog-resumable"]
+    "responseHeader": ["Content-Type", "Content-Length", "User-Agent", "x-goog-resumable"]
   }
 ]

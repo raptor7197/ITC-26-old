@@ -27,9 +27,11 @@ const securityHeaders = [
   },
   {
     key: "Content-Security-Policy",
+    // NOTE: We intentionally keep unsafe-inline for Next.js runtime inline scripts.
+    // Moving to nonce-based CSP is preferred and should be implemented when all inline usage is nonce-aware.
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com https://*.firebaseio.com https://*.googleapis.com https://auth.itctestweekindia.org",
+      "script-src 'self' 'unsafe-inline' https://apis.google.com https://*.firebaseio.com https://*.googleapis.com https://auth.itctestweekindia.org",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "img-src 'self' data: blob: https://*.googleusercontent.com https://*.googleapis.com https://*.gstatic.com https://media.licdn.com",
       "font-src 'self' https://fonts.gstatic.com",

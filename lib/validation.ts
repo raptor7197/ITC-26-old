@@ -1,8 +1,9 @@
 export function sanitize(value: string): string {
   return value
+    .normalize("NFKC")
     .trim()
-    .replace(/[<>"'`;(){}]/g, "")
-    .replace(/\s+/g, " ");
+    .replace(/[<>"\x27`;(){}\\/\[\]]/g, "")
+    .replace(/\s+/g, " " );
 }
 
 export function sanitizeFields<T extends Record<string, unknown>>(obj: T): T {
@@ -15,6 +16,38 @@ export function sanitizeFields<T extends Record<string, unknown>>(obj: T): T {
     }
   }
   return cleaned;
+}
+
+function getExpectedStorageBucket(): string | null {
+  const bucket = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET;
+  return bucket && bucket.trim() ? bucket.trim() : null;
+}
+
+export function isExpectedStorageUrl(url: string): boolean {
+  const trimmed = url.trim();
+  if (!trimmed) return true;
+
+  let parsed: URL;
+  try {
+    parsed = new URL(trimmed);
+  } catch {
+    return false;
+  }
+
+  if (parsed.protocol !== "https:") return false;
+
+  const expectedBucket = getExpectedStorageBucket();
+  if (!expectedBucket) return true;
+
+  if (parsed.hostname === "firebasestorage.googleapis.com") {
+    return parsed.pathname.startsWith(`/v0/b/${expectedBucket}/`);
+  }
+
+  if (parsed.hostname === "storage.googleapis.com") {
+    return parsed.pathname.startsWith(`/${expectedBucket}/`);
+  }
+
+  return false;
 }
 
 const MAX_NAME = 200;
@@ -283,6 +316,23 @@ export function validateRegistration(
       error:
         "Please enter a valid phone number (7–15 digits, may include +, -, spaces).",
     };
+
+  const uploadUrls = [
+    fields.writeUpFileUrl,
+    fields.idCardFileUrl,
+    fields.aadharFileUrl,
+    fields.bonafideFileUrl,
+  ].filter((value): value is string => Boolean(value));
+
+  for (const url of uploadUrls) {
+    if (!isExpectedStorageUrl(url)) {
+      return {
+        valid: false,
+        error:
+          "One or more uploaded file URLs are invalid. Please re-upload your documents.",
+      };
+    }
+  }
 
   if (year && !VALID_YEARS.includes(year.trim()))
     return { valid: false, error: "Please select a valid year of study." };

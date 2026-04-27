@@ -1,6 +1,5 @@
 "use client";
 
-// Authentication context provider for managing global auth state
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { User } from "firebase/auth";
 import {
@@ -8,21 +7,6 @@ import {
   signInWithGoogle,
   signOut as firebaseSignOut,
 } from "./auth";
-
-/**
- * Set or clear a cookie that the Next.js middleware can read to gate
- * protected routes on the server side before any JS runs.
- */
-function setAuthCookie(user: User | null) {
-  if (user) {
-    user.getIdToken().then((token) => {
-      document.cookie = `firebase-auth-token=${token}; path=/; max-age=${60 * 60 * 24 * 7}; SameSite=Lax; Secure`;
-    });
-  } else {
-    document.cookie =
-      "firebase-auth-token=; path=/; max-age=0; SameSite=Lax; Secure";
-  }
-}
 
 interface AuthContextType {
   user: User | null;
@@ -48,23 +32,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Subscribe to auth state changes
     const unsubscribe = onAuthStateChange((firebaseUser) => {
       setUser(firebaseUser);
-      setAuthCookie(firebaseUser);
       setLoading(false);
     });
 
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
 
   const handleSignOut = async () => {
     await firebaseSignOut();
-    setAuthCookie(null);
   };
 
-  const value = {
+  const value: AuthContextType = {
     user,
     loading,
     signInWithGoogle,

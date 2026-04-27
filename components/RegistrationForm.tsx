@@ -12,6 +12,14 @@ interface RegistrationFormProps {
   description?: string;
 }
 
+const VALID_REGISTRATION_TYPES = [
+  "Fellowship",
+  "hackathon",
+  "cfp",
+  "cft",
+  "art",
+] as const;
+
 export default function RegistrationForm({
   registrationType,
   title = "Register Now",
@@ -70,12 +78,25 @@ export default function RegistrationForm({
     };
   }, [user, registrationType]);
 
+  useEffect(() => {
+    if (!user) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      name: prev.name || user.displayName || "",
+      email: user.email || "",
+    }));
+  }, [user]);
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
     >,
   ) => {
     const { name, value } = e.target;
+
+    if (name === "email") return;
+
     setFormData((prev) => ({
       ...prev,
       [name]: value,
@@ -94,6 +115,12 @@ export default function RegistrationForm({
     const validation = validateRegistration(cleaned);
     if (!validation.valid) {
       setError(validation.error);
+      setLoading(false);
+      return;
+    }
+
+    if (!VALID_REGISTRATION_TYPES.includes(registrationType)) {
+      setError("Invalid registration type. Please refresh and try again.");
       setLoading(false);
       return;
     }
@@ -347,14 +374,14 @@ export default function RegistrationForm({
             id="email"
             name="email"
             value={formData.email}
-            onChange={handleChange}
+            readOnly
             required
             maxLength={254}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-700 cursor-not-allowed"
             placeholder="your.name@university.edu"
           />
           <p className="mt-1 text-sm text-gray-500">
-            Please use your institutional email address
+            🔒 This email is locked to your authenticated account.
           </p>
         </div>
 

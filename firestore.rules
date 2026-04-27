@@ -5,11 +5,15 @@ service cloud.firestore {
       return request.auth != null;
     }
 
+    function isVerifiedEmail() {
+      return isSignedIn() &&
+        request.auth.token.email != null &&
+        request.auth.token.email_verified == true;
+    }
+
     function isAdmin() {
       return isSignedIn() &&
-        exists(
-          /databases/$(database)/documents/adminWhitelist/$(request.auth.uid)
-        );
+        exists(/databases/$(database)/documents/adminWhitelist/$(request.auth.uid));
     }
 
     function isOwnerByUid(uid) {
@@ -17,7 +21,120 @@ service cloud.firestore {
     }
 
     function isOwnerByEmail(email) {
-      return isSignedIn() && request.auth.token.email == email;
+      return isVerifiedEmail() && request.auth.token.email == email;
+    }
+
+    function submissionCreateRequiredFieldsPresent() {
+      return request.resource.data.keys().hasAll([
+        'uid',
+        'email',
+        'name',
+        'registrationType'
+      ]);
+    }
+
+    function submissionTypeIsAllowed() {
+      return request.resource.data.registrationType in [
+        'Fellowship',
+        'fellowship',
+        'conference',
+        'hackathon',
+        'cfp',
+        'cft',
+        'art'
+      ];
+    }
+
+    function submissionLengthsAreValid(data) {
+      return (!('name' in data) || (data.name is string && data.name.size() <= 200)) &&
+        (!('email' in data) || (data.email is string && data.email.size() <= 254)) &&
+        (!('phone' in data) || (data.phone is string && data.phone.size() <= 20)) &&
+        (!('institution' in data) || (data.institution is string && data.institution.size() <= 300)) &&
+        (!('department' in data) || (data.department is string && data.department.size() <= 200)) &&
+        (!('year' in data) || (data.year is string && data.year.size() <= 50)) &&
+        (!('city' in data) || (data.city is string && data.city.size() <= 100)) &&
+        (!('state' in data) || (data.state is string && data.state.size() <= 100)) &&
+        (!('additionalInfo' in data) || (data.additionalInfo is string && data.additionalInfo.size() <= 2000)) &&
+        (!('gender' in data) || (data.gender is string && data.gender.size() <= 50)) &&
+        (!('institutionalEmail' in data) || (data.institutionalEmail is string && data.institutionalEmail.size() <= 254)) &&
+        (!('designation' in data) || (data.designation is string && data.designation.size() <= 100)) &&
+        (!('highestQualification' in data) || (data.highestQualification is string && data.highestQualification.size() <= 100)) &&
+        (!('institutionAddress' in data) || (data.institutionAddress is string && data.institutionAddress.size() <= 500)) &&
+        (!('pinCode' in data) || (data.pinCode is string && data.pinCode.size() <= 20)) &&
+        (!('pastFellowship' in data) || (data.pastFellowship is string && data.pastFellowship.size() <= 200)) &&
+        (!('publications' in data) || (data.publications is string && data.publications.size() <= 1000)) &&
+        (!('scopusId' in data) || (data.scopusId is string && data.scopusId.size() <= 100)) &&
+        (!('googleScholarId' in data) || (data.googleScholarId is string && data.googleScholarId.size() <= 100)) &&
+        (!('ieeePaperId' in data) || (data.ieeePaperId is string && data.ieeePaperId.size() <= 100));
+    }
+
+    function submissionUserEditableFields() {
+      return [
+        'name',
+        'gender',
+        'institutionalEmail',
+        'phone',
+        'designation',
+        'highestQualification',
+        'institution',
+        'institutionAddress',
+        'city',
+        'state',
+        'pinCode',
+        'pastFellowship',
+        'publications',
+        'scopusId',
+        'googleScholarId',
+        'ieeePaperId',
+        'writeUpFileUrl',
+        'idCardFileUrl',
+        'aadharFileUrl',
+        'bonafideFileUrl',
+        'department',
+        'year',
+        'additionalInfo',
+        'updatedAt'
+      ];
+    }
+
+    function submissionAdminOnlyFields() {
+      return [
+        'status',
+        'adminNotes',
+        'reviewerComments',
+        'reviewedAt',
+        'reviewedBy'
+      ];
+    }
+
+    function submissionUidIsImmutable() {
+      return request.resource.data.uid == resource.data.uid;
+    }
+
+    function submissionOwnerUpdateIsValid() {
+      return isOwnerByUid(resource.data.uid) &&
+        submissionUidIsImmutable() &&
+        request.resource.data.email == resource.data.email &&
+        request.resource.data.registrationType == resource.data.registrationType &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(submissionUserEditableFields()) &&
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny(submissionAdminOnlyFields()) &&
+        submissionLengthsAreValid(request.resource.data);
+    }
+
+    function submissionAdminUpdateIsValid() {
+      return isAdmin() &&
+        submissionUidIsImmutable() &&
+        submissionLengthsAreValid(request.resource.data);
+    }
+
+    function submissionCreateIsValid() {
+      return isSignedIn() &&
+        isVerifiedEmail() &&
+        submissionCreateRequiredFieldsPresent() &&
+        request.resource.data.uid == request.auth.uid &&
+        request.resource.data.email == request.auth.token.email &&
+        submissionTypeIsAllowed() &&
+        submissionLengthsAreValid(request.resource.data);
     }
 
     match /users/{userId} {
@@ -25,15 +142,28 @@ service cloud.firestore {
     }
 
     match /submissions/{submissionId} {
-      allow create: if isSignedIn() && request.resource.data.uid == request.auth.uid;
+      allow create: if submissionCreateIsValid();
       allow read: if isAdmin() ||
         isOwnerByUid(resource.data.uid) ||
         isOwnerByEmail(resource.data.email);
-      allow update, delete: if isAdmin() || isOwnerByUid(resource.data.uid);
+      allow update: if submissionOwnerUpdateIsValid() || submissionAdminUpdateIsValid();
+      allow delete: if (isOwnerByUid(resource.data.uid) || isAdmin()) && submissionUidIsImmutable();
+    }
+
+    match /registrations/{docId} {
+      allow create: if submissionCreateIsValid();
+      allow read: if isAdmin() ||
+        isOwnerByUid(resource.data.uid) ||
+        isOwnerByEmail(resource.data.email);
+      allow update: if submissionOwnerUpdateIsValid() || submissionAdminUpdateIsValid();
+      allow delete: if (isOwnerByUid(resource.data.uid) || isAdmin()) && submissionUidIsImmutable();
     }
 
     match /papers/{paperId} {
-      allow create: if isSignedIn() && request.resource.data.uid == request.auth.uid;
+      allow create: if isSignedIn() &&
+        isVerifiedEmail() &&
+        request.resource.data.uid == request.auth.uid &&
+        request.resource.data.authorEmail == request.auth.token.email;
       allow read: if isAdmin() ||
         isOwnerByUid(resource.data.uid) ||
         isOwnerByEmail(resource.data.authorEmail);
