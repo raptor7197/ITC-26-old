@@ -2,7 +2,7 @@
 
 Official website for the 10th IEEE International Test Conference INDIA - An initiative towards India's semiconductor ecosystem.
 
-## 🚀 Features
+## Features
 
 - **Next.js 16** with App Router and React 19
 - **Firebase Authentication** with Google OAuth
@@ -14,13 +14,13 @@ Official website for the 10th IEEE International Test Conference INDIA - An init
 - **Responsive Design** with Tailwind CSS
 - **TypeScript** for type safety
 
-## 📋 Prerequisites
+## Prerequisites
 
 - Node.js 18+ and npm
 - Firebase project with Authentication, Firestore, and Storage enabled
 - Firebase Admin SDK credentials
 
-## 🔧 Quick Setup
+## Quick Setup
 
 ### 1. Install Dependencies
 
@@ -78,14 +78,14 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📚 Documentation
+## Documentation
 
 All data is stored in Cloud Firestore with the following collections:
 - `users` - User profiles and authentication data
 - `registrations` - Conference registrations
 - `papers` - Paper submissions with metadata
 
-## 🏗️ Project Structure
+## Project Structure
 
 ```
 itc-new/
@@ -114,7 +114,7 @@ itc-new/
 └── public/               # Static assets
 ```
 
-## 📄 Paper Submission System
+## Paper Submission System
 
 The platform includes a comprehensive paper submission system:
 
@@ -173,7 +173,7 @@ The system uses Cloud Firestore with the following collections:
 - `registrations` - Conference registrations with paper linking
 - `papers` - Complete paper submission data with file tracking
 
-## 🔐 Authentication
+## Authentication
 
 The app uses Firebase Authentication with Google OAuth:
 
@@ -199,7 +199,7 @@ export default function MyComponent() {
 }
 ```
 
-## 🛡️ Protected Routes
+## Protected Routes
 
 Use the `useProtectedRoute` hook to protect pages:
 
@@ -217,7 +217,7 @@ export default function ProtectedPage() {
 }
 ```
 
-## 🌐 API Routes
+## API Routes
 
 The application uses Next.js API routes with Firestore:
 
@@ -236,7 +236,7 @@ The application uses Next.js API routes with Firestore:
 
 All data is stored and retrieved from Cloud Firestore in real-time.
 
-## 👮 Admin Whitelist Setup
+## Admin Whitelist Setup
 
 Admin access for the fellowship portal is controlled by a Firestore whitelist.
 
@@ -254,7 +254,7 @@ Admin access for the fellowship portal is controlled by a Firestore whitelist.
    ```
 4. Ask the target user to refresh the page (or sign out/sign in once) and open `/admin/fellowship`.
 
-## 🧪 Testing
+## Testing
 
 ### 1. Test Authentication
 
@@ -278,21 +278,21 @@ Admin access for the fellowship portal is controlled by a Firestore whitelist.
 - Submit and verify Paper ID is generated
 - Go to "View My Papers" to see your submission
 
-## 📦 Build for Production
+## Build for Production
 
 ```bash
 npm run build
 npm start
 ```
 
-## 🎨 Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
 - `npm start` - Start production server
 - `npm run lint` - Check for code issues
 
-## 🔧 Tech Stack
+## Tech Stack
 
 - **Framework:** Next.js 16 (App Router)
 - **UI:** React 19, Tailwind CSS 4
@@ -302,7 +302,7 @@ npm start
 - **Database:** Cloud Firestore
 - **Admin SDK:** Firebase Admin for server-side operations
 
-## 🚨 Common Issues
+## Common Issues
 
 ### "Firebase: Error (auth/unauthorized-domain)"
 Add `localhost` to Firebase Console → Authentication → Settings → Authorized domains
@@ -322,34 +322,32 @@ Compress your PDF file or reduce its size before uploading
 ### "Not authenticated" errors
 Sign out and sign in again. Check Firebase credentials in `.env.local`
 
-## 📄 License
+## License
 
-This project is for the ITC India 2026 conference.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## 🤝 Contributing
+## Contributing
 
 This is a conference website project. For contributions, please contact the organizing committee.
 
-## 📧 Support
+## Support
 
 For questions or issues, please contact the ITC India 2026 organizing committee.
 
-## 🎯 Key Features Summary
+## Key Features Summary
 
-- ✅ User authentication with Firebase
-- ✅ Conference registration (Fellowship, Hackathon, CFP, CFT, ART)
-- ✅ Paper submission with PDF upload (max 10MB)
-- ✅ Unique Paper ID generation and tracking
-- ✅ Real-time submission status monitoring
-- ✅ Author and co-author management
-- ✅ Firebase Storage integration for files
-- ✅ Cloud Firestore (NoSQL database, serverless)
-- ✅ User dashboard for managing submissions
-- ✅ Mobile-responsive design
-- ✅ No database server setup required
+- User authentication with Firebase
+- Conference registration (Fellowship, Hackathon, CFP, CFT, ART)
+- Paper submission with PDF upload (max 10MB)
+- Unique Paper ID generation and tracking
+- Real-time submission status monitoring
+- Author and co-author management
+- Firebase Storage integration for files
+- Cloud Firestore (NoSQL database, serverless)
+- User dashboard for managing submissions
+- Mobile-responsive design
+- No database server setup required
 
 ---
 
-**Project Location:** `/home/krxsna/dev/itc-new`  
-**Database:** Cloud Firestore with Firebase Storage  
-**Status:** ✅ Production Ready
+**Database:** Cloud Firestore with Firebase Storage
