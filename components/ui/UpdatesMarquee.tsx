@@ -17,15 +17,15 @@ export default function UpdatesMarquee() {
               <div className="mx-5 text-blue-300">Call For Papers - Closed</div>
               <div className="mx-5 text-[#6aaff1]">•</div>
               <div className="mx-5 text-blue-300">
-                Tutorials Submission Deadline - 22<sup>nd</sup> April 2026
+                Tutorials Submission Deadline - 22<sup>nd</sup> April 2026 (Closed)
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
               <div className="mx-5 text-blue-300">
-                Posters Submission Deadline - 15<sup>th</sup> March 2026
+                Posters Submission Deadline - 15<sup>th</sup> March 2026 (Closed)
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
               <div className="mx-5 text-blue-300">
-                ART: Full Paper Submission Deadline - 15<sup>th</sup> April 2026
+                ART: Full Paper Submission Deadline - 15<sup>th</sup> April 2026 (Closed)
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
               <div className="mx-5 text-blue-300">
