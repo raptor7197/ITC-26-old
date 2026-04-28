@@ -122,7 +122,7 @@ export default function SponsorsPage() {
 
               <div className="relative p-4 flex items-center justify-center min-h-[200px]">
                 <img
-                  src="/images/tessolve.svg"
+                  src="/images/tessolve.png"
                   alt="Tessolve"
                   className="h-48 md:h-72 object-contain transition-transform duration-500 group-hover:scale-110"
                 />
