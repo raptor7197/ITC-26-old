@@ -37,8 +37,7 @@ const MAX_SCOPUS_ID = 100;
 const MAX_SCHOLAR_ID = 100;
 
 /**
- * Validates an institutional email for fellowship.
- * Accepts any valid email domain except Gmail.
+ * Validates an email address format.
  */
 export function isValidInstitutionalEmail(email: string): boolean {
   const trimmed = email.trim().toLowerCase();
@@ -47,26 +46,15 @@ export function isValidInstitutionalEmail(email: string): boolean {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(trimmed)) return false;
 
-  const domain = trimmed.split("@")[1];
-  if (!domain) return false;
-
-  return domain !== "gmail.com" && !domain.endsWith(".gmail.com");
+  return true;
 }
 
 /**
- * Strict institutional email validation used by other forms.
- * Must end with .edu or contain .ac. in the domain portion.
+ * Legacy helper retained for compatibility.
+ * Now accepts any valid email format.
  */
 export function isStrictInstitutionalEmail(email: string): boolean {
-  const trimmed = email.trim().toLowerCase();
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(trimmed)) return false;
-
-  const domain = trimmed.split("@")[1];
-  if (!domain) return false;
-
-  return domain.endsWith(".edu") || domain.includes(".ac.");
+  return isValidInstitutionalEmail(email);
 }
 
 /**
@@ -266,14 +254,12 @@ export function validateRegistration(
     if (!isValidInstitutionalEmail(fields.institutionalEmail))
       return {
         valid: false,
-        error:
-          "Please use a valid institutional email address (Gmail addresses are not allowed).",
+        error: "Please enter a valid email address.",
       };
   } else if (!isStrictInstitutionalEmail(email)) {
     return {
       valid: false,
-      error:
-        "Please use a valid institutional email address (ending in .edu or containing .ac.)",
+      error: "Please enter a valid email address.",
     };
   }
 
