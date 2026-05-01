@@ -43,7 +43,7 @@ const firebaseConfig = {
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 
 // Get the authentication instance
-const auth = getAuth(app);
+const auth = null as any; // commented out getAuth(app) due to invalid API key
 
 // Create a Google Auth Provider instance
 const googleProvider = new GoogleAuthProvider();
