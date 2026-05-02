@@ -16,7 +16,7 @@ const aboutPoints = [
 
 const guidelinePoints = [
   "The applicant must be a registered full-time student (UG/PG/Ph.D.) or a regular faculty member of a recognized institution, actively engaged in the area of VLSI Testing or allied domains.",
-  "A bonafide certificate issued by the Head of the Department confirming full-time status, along with a valid institutional identity card and Aadhaar card, must be produced at the time of claiming reimbursements.",
+  "A bonafide (Template Provided Below) certificate issued by the Head of the Department confirming full-time status, along with a valid institutional identity card and Aadhaar card, must be produced at the time of claiming reimbursements.",
   "All fellowship recipients are required to attend all tutorials and technical sessions for the entire duration of the conference.",
   "Attendance is mandatory on all days of the conference, and fellows are expected to report to the conference venue by 9:00 AM each day and remain until the conclusion of all scheduled technical sessions.",
   "Fellowship awardees who are authors of regular papers or participants in the Academia–Research Track are also required to strictly comply with these fellowship guidelines.",
@@ -46,14 +46,16 @@ const importantDates = [
   {
     event: "Round 1 Notification for award of fellowship",
     date: "10 May 2026",
-  }, {
+  },
+  {
     event: "Round 1 Confirmation",
     date: "17 May 2026",
   },
   {
     event: "Round 2 Notification for award of fellowship",
     date: "20 May 2026",
-  }, {
+  },
+  {
     event: "Round 2 Confirmation",
     date: "27 May 2026",
   },
@@ -146,41 +148,55 @@ export default function FellowshipPage() {
                 Application Process & Required Details
               </h3>
               <p className="mb-4 text-sm md:text-base text-gray-200">
-                To complete the fellowship application, you will need to provide the following details and documents:
+                To complete the fellowship application, you will need to provide
+                the following details and documents:
               </p>
               <ul className="list-disc list-outside ml-4 md:ml-5 mb-6 space-y-2 text-sm md:text-base text-gray-200">
-                <li>Personal details (Name as per Aadhaar, Gender, Mobile Number)</li>
-                <li>Institutional details (Institutional Email ID, Designation, Highest Qualification, Institution Name & Address)</li>
+                <li>
+                  Personal details (Name as per Aadhaar, Gender, Mobile Number)
+                </li>
+                <li>
+                  Institutional details (Institutional Email ID, Designation,
+                  Highest Qualification, Institution Name & Address)
+                </li>
                 <li>Past ITC fellowship details (if applicable)</li>
-                <li>Titles of your latest VLSI Testing related publications (Max 3)</li>
-                <li>A short write-up on your current area of research and the purpose of attending ITC 2026 (Max 1 page PDF)</li>
-                <li>IEEE ITC 2026 Paper ID or Poster/Hackathon ID (if applicable)</li>
+                <li>
+                  Titles of your latest VLSI Testing related publications (Max
+                  3)
+                </li>
+                <li>
+                  A short write-up on your current area of research and the
+                  purpose of attending ITC 2026 (Max 1 page PDF)
+                </li>
+                <li>
+                  IEEE ITC 2026 Paper ID or Poster/Hackathon ID (if applicable)
+                </li>
                 <li>Institution ID card (PDF format)</li>
               </ul>
-              
+
               {/*<div className="bg-blue-900/30 p-4 rounded-lg border border-blue-500/30 mb-6">*/}
-                {/*<h4 className="text-lg font-bold text-[#6aaff1] mb-2">Required Recommendation / Bonafide Formats</h4>*/}
-                {/*<p className="text-sm md:text-base text-gray-200 mb-3">
+              {/*<h4 className="text-lg font-bold text-[#6aaff1] mb-2">Required Recommendation / Bonafide Formats</h4>*/}
+              {/*<p className="text-sm md:text-base text-gray-200 mb-3">
                   Please download the appropriate template below, have it filled and signed by the respective authority on official letterhead, and keep it ready for submission:
                 </p>*/}
-                {/*<div className="flex flex-col sm:flex-row gap-4">*/}
-                  {/*<a 
-                    href="/Student_Bonafide_Template.docx" 
-                    target="_blank" 
+              {/*<div className="flex flex-col sm:flex-row gap-4">*/}
+              {/*<a
+                    href="/Student_Bonafide_Template.docx"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] py-2 px-4 rounded transition-colors text-sm font-medium"
                   >
                     Download Student Bonafide Template
                   </a>
-                  <a 
-                    href="/Faculty_NOC_Template.docx" 
-                    target="_blank" 
+                  <a
+                    href="/Faculty_NOC_Template.docx"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] py-2 px-4 rounded transition-colors text-sm font-medium"
                   >
                     Download Faculty NOC Template
                   </a>*/}
-                {/*</div>*/}
+              {/*</div>*/}
               {/*</div>*/}
 
               <ul className="list-disc list-outside ml-4 md:ml-5 space-y-3 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
@@ -404,8 +420,6 @@ export default function FellowshipPage() {
                 </table>
               </div>
             </section>
-
-
           </div>
 
           <div className="lg:col-span-1 relative">
@@ -470,7 +484,7 @@ export default function FellowshipPage() {
                 )}
               </div>
             </div>
-            
+
             <section className="mt-10 bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
                 Important Dates
@@ -493,16 +507,53 @@ export default function FellowshipPage() {
                 <p>
                   For any concerns/queries, please send an email to:{" "}
                   <a
-                    href="mailto:itc.fellowships@gmail.com"
+                    href="mailto:info@itctestweekindia.org"
                     className="text-[#6aaff1] hover:underline font-semibold"
                   >
-                    itc.fellowships@gmail.com
+                    info@itctestweekindia.org
                   </a>
+                   /
+                  <p>
+                 
+                    <a
+                      href="mailto:itc.fellowships@gmail.com"
+                      className="text-[#6aaff1] hover:underline font-semibold"
+                    >
+                      itc.fellowships@gmail.com
+                    </a>
+                  </p>
                 </p>
+                
               </div>
             </section>
           </div>
         </div>
+
+        <section className="mt-12 bg-white/5 p-6 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
+          <h3 className="text-2xl font-bold mb-4 text-white">
+            Bonafide / Recommendation Templates
+          </h3>
+          <p className="text-sm md:text-base text-gray-200 mb-6">
+            Download the appropriate template and get it signed on official
+            letterhead.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <a
+              href="/Faculty%20Template.docx"
+              download
+              className="flex-1 text-center bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold py-3 px-6 rounded-lg transition-colors"
+            >
+              Download Faculty Template
+            </a>
+            <a
+              href="/Student%20Template.docx"
+              download
+              className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] font-bold py-3 px-6 rounded-lg transition-colors"
+            >
+              Download Student Template
+            </a>
+          </div>
+        </section>
       </div>
     </main>
   );

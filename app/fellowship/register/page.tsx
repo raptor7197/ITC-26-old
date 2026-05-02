@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useProtectedRoute } from "@/lib/useProtectedRoute";
 import { RegistrationDB, Registration } from "@/lib/firestore";
 import { validateRegistration, sanitizeFields } from "@/lib/validation";
-import { storage } from "@/lib/firebase";
+import { getFirebaseStorage } from "@/lib/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function FellowshipApplication() {
@@ -17,9 +17,6 @@ export default function FellowshipApplication() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [institutionalEmailError, setInstitutionalEmailError] = useState<
-    string | null
-  >(null);
   const [success, setSuccess] = useState(false);
   const [registration, setRegistration] = useState<Registration | null>(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -99,35 +96,6 @@ export default function FellowshipApplication() {
       [name]: value,
     }));
 
-    if (name === "institutionalEmail") {
-      const trimmed = value.trim().toLowerCase();
-
-      if (!trimmed) {
-        setInstitutionalEmailError("Institutional email address is required.");
-        return;
-      }
-
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(trimmed)) {
-        setInstitutionalEmailError("Please enter a valid email address.");
-        return;
-      }
-
-      const domain = trimmed.split("@")[1];
-      if (!domain) {
-        setInstitutionalEmailError("Please enter a valid email address.");
-        return;
-      }
-
-      if (domain === "gmail.com" || domain.endsWith(".gmail.com")) {
-        setInstitutionalEmailError(
-          "Institutional mail address required. Gmail addresses are not allowed.",
-        );
-        return;
-      }
-
-      setInstitutionalEmailError(null);
-    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -186,21 +154,12 @@ export default function FellowshipApplication() {
   };
 
   const uploadFile = async (file: File, path: string) => {
-    const storageRef = ref(storage, path);
+    const storageInstance = getFirebaseStorage();
+    if (!storageInstance) throw new Error("Firebase Storage is not available.");
+    const storageRef = ref(storageInstance, path);
     const metadata = { contentType: "application/pdf" };
     await uploadBytes(storageRef, file, metadata);
     return await getDownloadURL(storageRef);
-  };
-
-  const isNonGmailEmail = (email: string) => {
-    const trimmed = email.trim().toLowerCase();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(trimmed)) return false;
-
-    const domain = trimmed.split("@")[1];
-    if (!domain) return false;
-
-    return domain !== "gmail.com" && !domain.endsWith(".gmail.com");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -559,23 +518,11 @@ export default function FellowshipApplication() {
                     onChange={handleChange}
                     required
                     maxLength={254}
-                    pattern="^(?!.*@(?:.*\\.)?gmail\\.com$)[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
-                    title="Institutional mail address required. Gmail addresses are not allowed."
-                    className={`w-full px-4 py-2.5 border rounded-lg focus:outline-none focus:ring-2 text-gray-900 text-sm ${
-                      institutionalEmailError
-                        ? "border-red-500 focus:ring-red-500"
-                        : "border-gray-300 focus:ring-blue-500"
-                    }`}
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 text-sm"
                   />
-                  {institutionalEmailError ? (
-                    <p className="text-xs text-red-600 mt-1">
-                      {institutionalEmailError}
-                    </p>
-                  ) : (
-                    <p className="text-xs text-gray-500 mt-1">
-                      Enter your institutional mail address only.
-                    </p>
-                  )}
+                  <p className="text-xs text-gray-500 mt-1">
+                    Enter a valid email address.
+                  </p>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
@@ -910,7 +857,7 @@ export default function FellowshipApplication() {
               <div className="flex flex-col sm:flex-row gap-3 pt-4">
                 <button
                   type="submit"
-                  disabled={submitting || !!institutionalEmailError}
+                  disabled={submitting}
                   className="flex-1 bg-black text-white py-3 px-6 rounded-full font-medium hover:bg-gray-800 transition-colors text-sm disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {submitting ? (

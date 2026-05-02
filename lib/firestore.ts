@@ -12,10 +12,26 @@ import {
   deleteDoc,
   serverTimestamp,
   limit,
+  type Firestore,
 } from "firebase/firestore";
-import { app } from "./firebase";
+import { getFirebaseApp } from "./firebase";
 
-export const db = getFirestore(app);
+let _db: Firestore | null = null;
+
+export function getFirebaseDb(): Firestore | null {
+  if (typeof window === "undefined") return null;
+  if (!_db) {
+    const app = getFirebaseApp();
+    _db = app ? getFirestore(app) : null;
+  }
+  return _db;
+}
+
+function requireDb(): Firestore {
+  const instance = getFirebaseDb();
+  if (!instance) throw new Error("Firestore is not available on the server.");
+  return instance;
+}
 
 export interface User {
   uid: string;
@@ -126,7 +142,7 @@ export interface PaperSubmission {
 
 export const UserDB = {
   async upsert(userData: Omit<User, "createdAt" | "updatedAt" | "lastLogin">) {
-    const userRef = doc(db, "users", userData.uid);
+    const userRef = doc(requireDb(), "users", userData.uid);
     const userDoc = await getDoc(userRef);
 
     const data: Record<string, unknown> = {
@@ -144,7 +160,7 @@ export const UserDB = {
   },
 
   async findByUid(uid: string) {
-    const userRef = doc(db, "users", uid);
+    const userRef = doc(requireDb(), "users", uid);
     const userDoc = await getDoc(userRef);
 
     if (!userDoc.exists()) return null;
@@ -152,7 +168,7 @@ export const UserDB = {
   },
 
   async findByEmail(email: string) {
-    const q = query(collection(db, "users"), where("email", "==", email));
+    const q = query(collection(requireDb(), "users"), where("email", "==", email));
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;
@@ -168,7 +184,7 @@ export const RegistrationDB = {
       "id" | "createdAt" | "updatedAt" | "status"
     >,
   ) {
-    const registrationRef = doc(collection(db, "submissions"));
+    const registrationRef = doc(collection(requireDb(), "submissions"));
 
     const data = {
       ...registrationData,
@@ -193,11 +209,11 @@ export const RegistrationDB = {
       emailToUse = userDoc?.email;
     }
 
-    const q1 = query(collection(db, "submissions"), where("uid", "==", uid));
-    const q2 = query(collection(db, "submissions"), where("userId", "==", uid));
-    const q3 = query(collection(db, "registrations"), where("uid", "==", uid));
+    const q1 = query(collection(requireDb(), "submissions"), where("uid", "==", uid));
+    const q2 = query(collection(requireDb(), "submissions"), where("userId", "==", uid));
+    const q3 = query(collection(requireDb(), "registrations"), where("uid", "==", uid));
     const q4 = query(
-      collection(db, "registrations"),
+      collection(requireDb(), "registrations"),
       where("userId", "==", uid),
     );
 
@@ -206,13 +222,13 @@ export const RegistrationDB = {
       promises.push(
         getDocs(
           query(
-            collection(db, "submissions"),
+            collection(requireDb(), "submissions"),
             where("email", "==", emailToUse),
           ),
         ),
         getDocs(
           query(
-            collection(db, "registrations"),
+            collection(requireDb(), "registrations"),
             where("email", "==", emailToUse),
           ),
         ),
@@ -244,7 +260,7 @@ export const RegistrationDB = {
   },
 
   async findById(id: string) {
-    const registrationRef = doc(db, "submissions", id);
+    const registrationRef = doc(requireDb(), "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;
@@ -255,7 +271,7 @@ export const RegistrationDB = {
   },
 
   async update(id: string, uid: string, updateData: Partial<Registration>) {
-    const registrationRef = doc(db, "submissions", id);
+    const registrationRef = doc(requireDb(), "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;
@@ -273,7 +289,7 @@ export const RegistrationDB = {
   },
 
   async delete(id: string, uid: string) {
-    const registrationRef = doc(db, "submissions", id);
+    const registrationRef = doc(requireDb(), "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;
@@ -286,7 +302,7 @@ export const RegistrationDB = {
   },
 
   async getAll(filters?: { registrationType?: string; status?: string }) {
-    let q = query(collection(db, "submissions"));
+    let q = query(collection(requireDb(), "submissions"));
 
     if (filters?.registrationType) {
       q = query(q, where("registrationType", "==", filters.registrationType));
@@ -372,7 +388,7 @@ export const RegistrationDB = {
         registrationType: "Fellowship" | "fellowship",
       ) => {
         let q = query(
-          collection(db, "submissions"),
+          collection(requireDb(), "submissions"),
           where("registrationType", "==", registrationType),
         );
 
@@ -418,13 +434,13 @@ export const RegistrationDB = {
       const fallbackSnapshots = await Promise.allSettled([
         getDocs(
           query(
-            collection(db, "submissions"),
+            collection(requireDb(), "submissions"),
             where("registrationType", "==", "Fellowship"),
           ),
         ),
         getDocs(
           query(
-            collection(db, "submissions"),
+            collection(requireDb(), "submissions"),
             where("registrationType", "==", "fellowship"),
           ),
         ),
@@ -461,7 +477,7 @@ export const RegistrationDB = {
     id: string,
     status: NonNullable<Registration["status"]>,
   ) {
-    const registrationRef = doc(db, "submissions", id);
+    const registrationRef = doc(requireDb(), "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;
@@ -483,7 +499,7 @@ export const PaperSubmissionDB = {
       "id" | "createdAt" | "updatedAt" | "status" | "submittedAt"
     >,
   ) {
-    const paperRef = doc(collection(db, "papers"));
+    const paperRef = doc(collection(requireDb(), "papers"));
 
     const data = {
       ...submissionData,
@@ -498,7 +514,7 @@ export const PaperSubmissionDB = {
   },
 
   async findByPaperId(paperId: string) {
-    const q = query(collection(db, "papers"), where("paperId", "==", paperId));
+    const q = query(collection(requireDb(), "papers"), where("paperId", "==", paperId));
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;
@@ -507,7 +523,7 @@ export const PaperSubmissionDB = {
   },
 
   async findByUid(uid: string) {
-    const q = query(collection(db, "papers"), where("uid", "==", uid));
+    const q = query(collection(requireDb(), "papers"), where("uid", "==", uid));
     const querySnapshot = await getDocs(q);
 
     return querySnapshot.docs.map(
@@ -517,7 +533,7 @@ export const PaperSubmissionDB = {
 
   async findByRegistrationId(registrationId: string) {
     const q = query(
-      collection(db, "papers"),
+      collection(requireDb(), "papers"),
       where("registrationId", "==", registrationId),
     );
     const querySnapshot = await getDocs(q);
@@ -533,13 +549,13 @@ export const PaperSubmissionDB = {
     reviewerComments?: string,
     adminNotes?: string,
   ) {
-    const q = query(collection(db, "papers"), where("paperId", "==", paperId));
+    const q = query(collection(requireDb(), "papers"), where("paperId", "==", paperId));
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;
 
     const paperDoc = querySnapshot.docs[0];
-    const paperRef = doc(db, "papers", paperDoc.id);
+    const paperRef = doc(requireDb(), "papers", paperDoc.id);
 
     const data: Record<string, unknown> = {
       status,
@@ -559,7 +575,7 @@ export const PaperSubmissionDB = {
     paperId: string,
     paperStatus: string = "pending",
   ) {
-    const registrationRef = doc(db, "submissions", registrationId);
+    const registrationRef = doc(requireDb(), "submissions", registrationId);
     const registrationDoc = await getDoc(registrationRef);
 
     if (!registrationDoc.exists()) return null;
@@ -579,7 +595,7 @@ export const PaperSubmissionDB = {
   },
 
   async getAll(filters?: { status?: string; trackType?: string }) {
-    let q = query(collection(db, "papers"));
+    let q = query(collection(requireDb(), "papers"));
 
     if (filters?.status) {
       q = query(q, where("status", "==", filters.status));
@@ -597,7 +613,7 @@ export const PaperSubmissionDB = {
 
   async delete(paperId: string, uid: string) {
     const q = query(
-      collection(db, "papers"),
+      collection(requireDb(), "papers"),
       where("paperId", "==", paperId),
       where("uid", "==", uid),
     );
@@ -606,7 +622,7 @@ export const PaperSubmissionDB = {
     if (querySnapshot.empty) return null;
 
     const paperDoc = querySnapshot.docs[0];
-    const paperRef = doc(db, "papers", paperDoc.id);
+    const paperRef = doc(requireDb(), "papers", paperDoc.id);
 
     await deleteDoc(paperRef);
     return { id: paperDoc.id, ...paperDoc.data() };
@@ -616,7 +632,7 @@ export const PaperSubmissionDB = {
 export const AdminWhitelistDB = {
   async isWhitelistedByUid(uid: string | null | undefined) {
     if (!uid) return false;
-    const ref = doc(db, "adminWhitelist", uid);
+    const ref = doc(requireDb(), "adminWhitelist", uid);
     const snap = await getDoc(ref);
     return snap.exists();
   },

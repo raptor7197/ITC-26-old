@@ -10,30 +10,15 @@ export default function UpdatesMarquee() {
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="flex items-center">
               <div className="mx-5 text-blue-300">
-                Key Timeline: Call for Posters - New Deadline: 15<sup>th</sup>{" "}
-                April, 2026 (Closed)
-              </div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
-              <div className="mx-5 text-blue-300">Call For Papers - Closed</div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
-              <div className="mx-5 text-blue-300">
-                Tutorials Submission Deadline - 22<sup>nd</sup> April 2026
-              </div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
-              <div className="mx-5 text-blue-300">
-                Posters Submission Deadline - 15<sup>th</sup> March 2026
-              </div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
-              <div className="mx-5 text-blue-300">
-                ART: Full Paper Submission Deadline - 15<sup>th</sup> April 2026
-              </div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
-              <div className="mx-5 text-blue-300">
                 ITC 2026 Hackathon is Live
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
               <div className="mx-5 text-blue-300">
-                Call For Workshop Deadline - May 31<sup>st</sup>
+                ITC 2026 Fellowship is Live
+              </div>
+              <div className="mx-5 text-[#6aaff1]">•</div>
+              <div className="mx-5 text-blue-300">
+                Call For Workshop Proposal Deadline - May 31<sup>st</sup>
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
             </div>
