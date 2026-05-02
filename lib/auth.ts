@@ -1,4 +1,3 @@
-// Authentication service for Google OAuth with Firestore
 import {
   signInWithPopup,
   GoogleAuthProvider,
@@ -6,7 +5,7 @@ import {
   onAuthStateChanged,
   User,
 } from "firebase/auth";
-import { auth } from "./firebase";
+import { getFirebaseAuth } from "./firebase";
 import { UserDB } from "./firestore";
 
 export interface AuthUser {
@@ -23,8 +22,8 @@ export interface AuthResponse {
   error?: string;
 }
 
-
 export async function signInWithGoogle(): Promise<AuthResponse> {
+  const auth = getFirebaseAuth();
   if (!auth) {
     return {
       success: false,
@@ -56,7 +55,6 @@ export async function signInWithGoogle(): Promise<AuthResponse> {
         "Failed to save user to Firestore (might be offline):",
         firestoreError,
       );
-      // Continue anyway, as the user is authenticated via Firebase Auth
     }
 
     return {
@@ -81,10 +79,8 @@ export async function signInWithGoogle(): Promise<AuthResponse> {
   }
 }
 
-/**
- * Sign out the current user
- */
 export async function signOut(): Promise<void> {
+  const auth = getFirebaseAuth();
   if (!auth) return;
 
   try {
@@ -95,10 +91,8 @@ export async function signOut(): Promise<void> {
   }
 }
 
-/**
- * Get the current user's ID token
- */
 export async function getIdToken(): Promise<string | null> {
+  const auth = getFirebaseAuth();
   if (!auth) return null;
 
   const user = auth.currentUser;
@@ -112,15 +106,15 @@ export async function getIdToken(): Promise<string | null> {
   }
 }
 
-/**
- * Verify the current user's token
- */
 export async function verifyToken(): Promise<boolean> {
+  const auth = getFirebaseAuth();
+  if (!auth) return false;
+
   const user = auth.currentUser;
   if (!user) return false;
 
   try {
-    await user.getIdToken(true); // Force refresh
+    await user.getIdToken(true);
     return true;
   } catch (error) {
     console.error("Error verifying token:", error);
@@ -128,12 +122,10 @@ export async function verifyToken(): Promise<boolean> {
   }
 }
 
-/**
- * Subscribe to authentication state changes
- */
 export function onAuthStateChange(
   callback: (user: User | null) => void,
 ): () => void {
+  const auth = getFirebaseAuth();
   if (!auth) {
     callback(null);
     return () => {};
@@ -141,20 +133,18 @@ export function onAuthStateChange(
   return onAuthStateChanged(auth, callback);
 }
 
-/**
- * Get the current authenticated user
- */
 export function getCurrentUser(): User | null {
+  const auth = getFirebaseAuth();
   if (!auth) return null;
   return auth.currentUser;
 }
 
-/**
- * Get current user profile from Firestore
- */
 export async function getCurrentUserProfile(): Promise<
   Record<string, unknown>
 > {
+  const auth = getFirebaseAuth();
+  if (!auth) throw new Error("Not authenticated");
+
   const user = auth.currentUser;
   if (!user) throw new Error("Not authenticated");
 
