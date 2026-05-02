@@ -74,9 +74,9 @@ function PriceCell({
         {currency}
         {price.regular.toLocaleString()}
       </div>
-      <div className="text-[#6aaff1] font-semibold text-sm sm:text-base">
+      <div className="text-white font-semibold text-sm sm:text-base">
         {currency}
-        {price.earlyBird.toLocaleString()}
+        {price.earlyBird.toLocaleString()}  
       </div>
     </td>
   );
