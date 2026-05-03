@@ -1,35 +1,12 @@
-// // Firebase configuration and initialization
-// import { initializeApp, getApps, FirebaseApp } from "firebase/app";
-// import { getAuth } from "firebase/auth";
-// import { getStorage } from "firebase/storage";
+import {
+  initializeApp,
+  getApps,
+  getApp,
+  type FirebaseApp,
+} from "firebase/app";
+import { getAuth, GoogleAuthProvider, type Auth } from "firebase/auth";
+import { getStorage, type FirebaseStorage } from "firebase/storage";
 
-// const firebaseConfig = {
-//   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-//   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-//   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-//   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-//   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-//   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
-// };
-
-// // Initialize Firebase only if it hasn't been initialized yet
-// let app: FirebaseApp;
-// if (!getApps().length) {
-//   app = initializeApp(firebaseConfig);
-// } else {
-//   app = getApps()[0];
-// }
-
-// export const auth = getAuth(app);
-// export const storage = getStorage(app);
-// export default app;
-
-// src/lib/firebase.ts (or wherever you prefer to put it)
-import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth"; // Import GoogleAuthProvider
-import { getStorage } from "firebase/storage";
-
-// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -39,16 +16,55 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+let _app: FirebaseApp | null = null;
+let _auth: Auth | null = null;
+let _storage: FirebaseStorage | null = null;
+let _googleProvider: GoogleAuthProvider | null = null;
 
-// Get the authentication instance
-const auth = getAuth(app);
+function initApp(): FirebaseApp | null {
+  if (typeof window === "undefined") return null;
 
-// Create a Google Auth Provider instance
-const googleProvider = new GoogleAuthProvider();
+  if (!firebaseConfig.apiKey || !firebaseConfig.projectId) {
+    if (process.env.NODE_ENV === "development") {
+      console.warn(
+        "Firebase environment variables are missing. Auth and Firestore will not work.",
+      );
+    }
+    return null;
+  }
 
-// Get the storage instance
-const storage = getStorage(app);
+  if (!_app) {
+    _app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+  }
+  return _app;
+}
 
-export { app, auth, googleProvider, storage };
+export function getFirebaseApp(): FirebaseApp | null {
+  return initApp();
+}
+
+export function getFirebaseAuth(): Auth | null {
+  if (typeof window === "undefined") return null;
+  if (!_auth) {
+    const a = initApp();
+    _auth = a ? getAuth(a) : null;
+  }
+  return _auth;
+}
+
+export function getFirebaseStorage(): FirebaseStorage | null {
+  if (typeof window === "undefined") return null;
+  if (!_storage) {
+    const a = initApp();
+    _storage = a ? getStorage(a) : null;
+  }
+  return _storage;
+}
+
+export function getGoogleProvider(): GoogleAuthProvider | null {
+  if (typeof window === "undefined") return null;
+  if (!_googleProvider) {
+    _googleProvider = initApp() ? new GoogleAuthProvider() : null;
+  }
+  return _googleProvider;
+}

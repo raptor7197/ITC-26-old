@@ -18,7 +18,40 @@ const statusFilters: FilterStatus[] = [
   "rejected",
 ];
 const PAGE_SIZE = 50;
-
+const CSV_BASE_COLUMNS: (keyof Registration | "id")[] = [
+  "id",
+  "uid",
+  "registrationType",
+  "status",
+  "name",
+  "gender",
+  "email",
+  "institutionalEmail",
+  "phone",
+  "designation",
+  "highestQualification",
+  "department",
+  "year",
+  "institution",
+  "institutionAddress",
+  "city",
+  "state",
+  "pinCode",
+  "pastFellowship",
+  "publications",
+  "scopusId",
+  "googleScholarId",
+  "ieeePaperId",
+  "paperId",
+  "paperStatus",
+  "additionalInfo",
+  "writeUpFileUrl",
+  "idCardFileUrl",
+  "aadharFileUrl",
+  "bonafideFileUrl",
+  "createdAt",
+  "updatedAt",
+];
 function statusBadgeClass(status?: string) {
   if (status === "approved")
     return "bg-green-100 text-green-700 border-green-200";
@@ -40,7 +73,125 @@ export default function AdminFellowshipPage() {
   const [nextCursorId, setNextCursorId] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
+  const [exporting, setExporting] = useState(false);
+   
+   function normalizeCsvValue(value: unknown): string {
+       if (value === null || value === undefined) return "";
+      if (typeof value === "string") return value;
+      if (typeof value === "number" || typeof value === "boolean") {
+    return String(value);
+     }
+     if (value instanceof Date) return value.toISOString();
 
+     if (typeof value === "object") {
+        const ts = value as {
+        toDate?: () => Date;
+        seconds?: number;
+        nanoseconds?: number;
+      };
+         
+               if (typeof ts.toDate === "function") {
+                 return ts.toDate().toISOString();
+               }
+         
+if (typeof ts.seconds === "number") {
+        const nanos = typeof ts.nanoseconds === "number" ? ts.nanoseconds : 0;
+        return new Date(ts.seconds * 1000 + Math.floor(nanos / 1_000_000)).toISOString();
+      }
+      try {
+        return JSON.stringify(value);
+      } catch {
+        return String(value);
+      }
+    }
+
+    return String(value);
+  }
+
+  function escapeCsvCell(value: string): string {
+        115 +    if (value.includes(",") || value.includes('"') || value.includes("\n")) {
+        116 +      return `"${value.replace(/"/g, '""')}"`;
+        117 +    }
+        118 +    return value;
+        119 +  }
+        120 +
+        121 +  async function exportApplicationsCsv() {
+        122 +    if (!user || !isAdmin || exporting) return;
+        123 +
+        124 +    try {
+        125 +      setExporting(true);
+        126 +      setError(null);
+        127 +
+        128 +      const allItems: Registration[] = [];
+        129 +      const seenIds = new Set<string>();
+        130 +      const seenCursors = new Set<string>();
+        131 +      let cursorId: string | undefined;
+        132 +      let hasMoreItems = true;
+        133 +
+        134 +      while (hasMoreItems) {
+        135 +        const result = await RegistrationDB.getAllFellowshipByStatus(undefined, {
+        136 +          limitCount: PAGE_SIZE,
+        137 +          cursorId,
+        138 +        });
+        139 +
+        140 +        for (const item of result.items) {
+        141 +          const itemId = item.id || `${item.uid}-${item.email}-${allItems.length}`;
+        142 +          if (seenIds.has(itemId)) continue;
+        143 +          seenIds.add(itemId);
+        144 +          allItems.push(item);
+        145 +        }
+        146 +
+        147 +        hasMoreItems = result.hasMore;
+        148 +        cursorId = result.nextCursorId || undefined;
+        149 +
+        150 +        if (!hasMoreItems || !cursorId) break;
+        151 +        if (seenCursors.has(cursorId)) break;
+        152 +        seenCursors.add(cursorId);
+        153 +      }
+        
+              const discoveredColumns = Array.from(
+                new Set(allItems.flatMap((item) => Object.keys(item))),
+              ).filter((key) => !CSV_BASE_COLUMNS.includes(key as keyof Registration | "id"));
+        
+              const headers = [...CSV_BASE_COLUMNS, ...discoveredColumns];
+        
+              const csvRows = [
+                headers.join(","),
+                ...allItems.map((item) =>
+                  headers
+                    .map((column) => {
+                      const value = normalizeCsvValue(
+                        item[column as keyof Registration | "id"],
+                      );
+                      return escapeCsvCell(value);
+                    })
+                    .join(","),
+                ),
+              ];
+        
+              const csvContent = `\uFEFF${csvRows.join("\n")}`;
+              const blob = new Blob([csvContent], {
+                type: "text/csv;charset=utf-8;",
+            });
+              const url = URL.createObjectURL(blob);
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = `fellowship-applications-${new Date().toISOString().slice(0, 10)}.csv`;
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+           } catch (exportError) {
+          console.error(exportError);
+        setError(
+           exportError instanceof Error
+               ? exportError.message
+                : "Failed to export applications",
+         );
+        } finally {
+        setExporting(false);
+      }
+      }
   useEffect(() => {
     async function checkAdminClaim() {
       if (!user) {

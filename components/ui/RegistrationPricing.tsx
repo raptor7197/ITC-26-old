@@ -74,9 +74,9 @@ function PriceCell({
         {currency}
         {price.regular.toLocaleString()}
       </div>
-      <div className="text-[#6aaff1] font-semibold text-sm sm:text-base">
+      <div className="text-white font-semibold text-sm sm:text-base">
         {currency}
-        {price.earlyBird.toLocaleString()}
+        {price.earlyBird.toLocaleString()}  
       </div>
     </td>
   );
@@ -178,9 +178,10 @@ export default function RegistrationPricing() {
               <span className="text-[#6aaff1] font-semibold">
                 Early Bird Price
               </span>{" "}
-              — available until 30th June 2026
+              - available until 30th June 2026
             </div>
           </div>
+              <span className="text-white/50 flex justify-center mr-2">Prices are NOT inclusive of GST</span>
         </div>
       </div>
     </section>

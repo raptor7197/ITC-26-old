@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useProtectedRoute } from "@/lib/useProtectedRoute";
 import { RegistrationDB, Registration } from "@/lib/firestore";
 import { validateRegistration, sanitizeFields } from "@/lib/validation";
-import { storage } from "@/lib/firebase";
+import { getFirebaseStorage } from "@/lib/firebase";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 export default function FellowshipApplication() {
@@ -154,7 +154,9 @@ export default function FellowshipApplication() {
   };
 
   const uploadFile = async (file: File, path: string) => {
-    const storageRef = ref(storage, path);
+    const storageInstance = getFirebaseStorage();
+    if (!storageInstance) throw new Error("Firebase Storage is not available.");
+    const storageRef = ref(storageInstance, path);
     const metadata = { contentType: "application/pdf" };
     await uploadBytes(storageRef, file, metadata);
     return await getDownloadURL(storageRef);

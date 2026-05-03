@@ -511,19 +511,15 @@ export default function FellowshipPage() {
                     className="text-[#6aaff1] hover:underline font-semibold"
                   >
                     info@itctestweekindia.org
+                  </a>{" "}
+                  /{" "}
+                  <a
+                    href="mailto:itc.fellowships@gmail.com"
+                    className="text-[#6aaff1] hover:underline font-semibold"
+                  >
+                    itc.fellowships@gmail.com
                   </a>
-                   /
-                  <p>
-                 
-                    <a
-                      href="mailto:itc.fellowships@gmail.com"
-                      className="text-[#6aaff1] hover:underline font-semibold"
-                    >
-                      itc.fellowships@gmail.com
-                    </a>
-                  </p>
                 </p>
-                
               </div>
             </section>
           </div>
