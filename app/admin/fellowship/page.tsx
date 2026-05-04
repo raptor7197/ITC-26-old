@@ -52,6 +52,7 @@ const CSV_BASE_COLUMNS: (keyof Registration | "id")[] = [
   "createdAt",
   "updatedAt",
 ];
+
 function statusBadgeClass(status?: string) {
   if (status === "approved")
     return "bg-green-100 text-green-700 border-green-200";
@@ -74,29 +75,31 @@ export default function AdminFellowshipPage() {
   const [hasMore, setHasMore] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
   const [exporting, setExporting] = useState(false);
-   
-   function normalizeCsvValue(value: unknown): string {
-       if (value === null || value === undefined) return "";
-      if (typeof value === "string") return value;
-      if (typeof value === "number" || typeof value === "boolean") {
-    return String(value);
-     }
-     if (value instanceof Date) return value.toISOString();
 
-     if (typeof value === "object") {
-        const ts = value as {
+  function normalizeCsvValue(value: unknown): string {
+    if (value === null || value === undefined) return "";
+    if (typeof value === "string") return value;
+    if (typeof value === "number" || typeof value === "boolean") {
+      return String(value);
+    }
+    if (value instanceof Date) return value.toISOString();
+
+    if (typeof value === "object") {
+      const ts = value as {
         toDate?: () => Date;
         seconds?: number;
         nanoseconds?: number;
       };
-         
-               if (typeof ts.toDate === "function") {
-                 return ts.toDate().toISOString();
-               }
-         
-if (typeof ts.seconds === "number") {
+
+      if (typeof ts.toDate === "function") {
+        return ts.toDate().toISOString();
+      }
+
+      if (typeof ts.seconds === "number") {
         const nanos = typeof ts.nanoseconds === "number" ? ts.nanoseconds : 0;
-        return new Date(ts.seconds * 1000 + Math.floor(nanos / 1_000_000)).toISOString();
+        return new Date(
+          ts.seconds * 1000 + Math.floor(nanos / 1_000_000),
+        ).toISOString();
       }
       try {
         return JSON.stringify(value);
@@ -109,89 +112,99 @@ if (typeof ts.seconds === "number") {
   }
 
   function escapeCsvCell(value: string): string {
-        115 +    if (value.includes(",") || value.includes('"') || value.includes("\n")) {
-        116 +      return `"${value.replace(/"/g, '""')}"`;
-        117 +    }
-        118 +    return value;
-        119 +  }
-        120 +
-        121 +  async function exportApplicationsCsv() {
-        122 +    if (!user || !isAdmin || exporting) return;
-        123 +
-        124 +    try {
-        125 +      setExporting(true);
-        126 +      setError(null);
-        127 +
-        128 +      const allItems: Registration[] = [];
-        129 +      const seenIds = new Set<string>();
-        130 +      const seenCursors = new Set<string>();
-        131 +      let cursorId: string | undefined;
-        132 +      let hasMoreItems = true;
-        133 +
-        134 +      while (hasMoreItems) {
-        135 +        const result = await RegistrationDB.getAllFellowshipByStatus(undefined, {
-        136 +          limitCount: PAGE_SIZE,
-        137 +          cursorId,
-        138 +        });
-        139 +
-        140 +        for (const item of result.items) {
-        141 +          const itemId = item.id || `${item.uid}-${item.email}-${allItems.length}`;
-        142 +          if (seenIds.has(itemId)) continue;
-        143 +          seenIds.add(itemId);
-        144 +          allItems.push(item);
-        145 +        }
-        146 +
-        147 +        hasMoreItems = result.hasMore;
-        148 +        cursorId = result.nextCursorId || undefined;
-        149 +
-        150 +        if (!hasMoreItems || !cursorId) break;
-        151 +        if (seenCursors.has(cursorId)) break;
-        152 +        seenCursors.add(cursorId);
-        153 +      }
-        
-              const discoveredColumns = Array.from(
-                new Set(allItems.flatMap((item) => Object.keys(item))),
-              ).filter((key) => !CSV_BASE_COLUMNS.includes(key as keyof Registration | "id"));
-        
-              const headers = [...CSV_BASE_COLUMNS, ...discoveredColumns];
-        
-              const csvRows = [
-                headers.join(","),
-                ...allItems.map((item) =>
-                  headers
-                    .map((column) => {
-                      const value = normalizeCsvValue(
-                        item[column as keyof Registration | "id"],
-                      );
-                      return escapeCsvCell(value);
-                    })
-                    .join(","),
-                ),
-              ];
-        
-              const csvContent = `\uFEFF${csvRows.join("\n")}`;
-              const blob = new Blob([csvContent], {
-                type: "text/csv;charset=utf-8;",
-            });
-              const url = URL.createObjectURL(blob);
-              const link = document.createElement("a");
-              link.href = url;
-              link.download = `fellowship-applications-${new Date().toISOString().slice(0, 10)}.csv`;
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-            URL.revokeObjectURL(url);
-           } catch (exportError) {
-          console.error(exportError);
-        setError(
-           exportError instanceof Error
-               ? exportError.message
-                : "Failed to export applications",
-         );
-        } finally {
-        setExporting(false);
+    if (value.includes(",") || value.includes('"') || value.includes("\n")) {
+      return `"${value.replace(/"/g, '""')}"`;
+    }
+    return value;
+  }
+
+  async function exportApplicationsCsv() {
+    if (!user || !isAdmin || exporting) return;
+
+    try {
+      setExporting(true);
+      setError(null);
+
+      const allItems: Registration[] = [];
+      const seenIds = new Set<string>();
+      const seenCursors = new Set<string>();
+      let cursorId: string | undefined;
+      let hasMoreItems = true;
+
+      // We fetch all records by iterating through pages
+      while (hasMoreItems) {
+        const result = await RegistrationDB.getAllFellowshipByStatus(undefined, {
+          limitCount: 100, // Larger page size for export
+          cursorId,
+        });
+
+        for (const item of result.items) {
+          const itemId =
+            item.id || `${item.uid}-${item.email}-${allItems.length}`;
+          if (seenIds.has(itemId)) continue;
+          seenIds.add(itemId);
+          allItems.push(item);
+        }
+
+        hasMoreItems = result.hasMore;
+        cursorId = result.nextCursorId || undefined;
+
+        if (!hasMoreItems || !cursorId) break;
+        if (seenCursors.has(cursorId)) break;
+        seenCursors.add(cursorId);
       }
+
+      if (allItems.length === 0) {
+        throw new Error("No applications found to export.");
       }
+
+      // Dynamically find any other columns not in CSV_BASE_COLUMNS
+      const discoveredColumns = Array.from(
+        new Set(allItems.flatMap((item) => Object.keys(item))),
+      ).filter(
+        (key) => !CSV_BASE_COLUMNS.includes(key as keyof Registration | "id"),
+      );
+
+      const headers = [...CSV_BASE_COLUMNS, ...discoveredColumns];
+
+      const csvRows = [
+        headers.join(","),
+        ...allItems.map((item) =>
+          headers
+            .map((column) => {
+              const value = normalizeCsvValue(
+                item[column as keyof Registration | "id"],
+              );
+              return escapeCsvCell(value);
+            })
+            .join(","),
+        ),
+      ];
+
+      const csvContent = `\uFEFF${csvRows.join("\n")}`;
+      const blob = new Blob([csvContent], {
+        type: "text/csv;charset=utf-8;",
+      });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `fellowship-applications-${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (exportError) {
+      console.error(exportError);
+      setError(
+        exportError instanceof Error
+          ? exportError.message
+          : "Failed to export applications",
+      );
+    } finally {
+      setExporting(false);
+    }
+  }
+
   useEffect(() => {
     async function checkAdminClaim() {
       if (!user) {
@@ -356,25 +369,49 @@ if (typeof ts.seconds === "number") {
   return (
     <main className="min-h-screen px-6 py-24">
       <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <section className="lg:col-span-2 rounded-xl bg-white p-5">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-xl font-bold text-gray-900">
-              Fellowship Applications
-            </h1>
-            <span className="text-sm text-gray-500">
-              {applications.length} records
-            </span>
+        <section className="lg:col-span-2 rounded-xl bg-white p-5 shadow-sm">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
+            <div>
+              <h1 className="text-xl font-bold text-gray-900">
+                Fellowship Applications
+              </h1>
+              <p className="text-sm text-gray-500 mt-1">
+                {applications.length} records shown
+              </p>
+            </div>
+            <button
+              onClick={() => void exportApplicationsCsv()}
+              disabled={exporting}
+              className="inline-flex items-center justify-center rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 disabled:opacity-50 transition-colors"
+            >
+              {exporting ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Exporting...
+                </>
+              ) : (
+                <>
+                  <svg className="-ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  </svg>
+                  Export CSV
+                </>
+              )}
+            </button>
           </div>
 
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-2 mb-6">
             {statusFilters.map((status) => (
               <button
                 key={status}
                 onClick={() => setStatusFilter(status)}
-                className={`px-3 py-1.5 rounded-full text-xs font-semibold border ${
+                className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
                   statusFilter === status
                     ? "bg-blue-600 text-white border-blue-600"
-                    : "bg-white text-gray-600 border-gray-300"
+                    : "bg-white text-gray-600 border-gray-300 hover:border-gray-400"
                 }`}
               >
                 {status === "all"
@@ -385,11 +422,20 @@ if (typeof ts.seconds === "number") {
           </div>
 
           {error && (
-            <div className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3">
-              <p className="text-sm text-red-700 wrap-break-word">{error}</p>
+            <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4">
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm text-red-700 break-words">{error}</p>
+                </div>
+              </div>
 
               {isIndexError && (
-                <div className="mt-2 text-xs text-red-700">
+                <div className="mt-2 ml-8 text-xs text-red-700">
                   <p>
                     This is a one-time Firestore setup step. Create the
                     composite index and wait until it shows as{" "}
@@ -400,7 +446,7 @@ if (typeof ts.seconds === "number") {
                       href={indexHelpLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-1 inline-block text-red-800 underline"
+                      className="mt-2 inline-block font-semibold text-red-800 underline hover:text-red-900"
                     >
                       Open Firebase index creation link
                     </a>
@@ -414,196 +460,129 @@ if (typeof ts.seconds === "number") {
             <table className="w-full text-sm">
               <thead className="bg-gray-50 text-gray-600">
                 <tr>
-                  <th className="text-left px-3 py-2">Name</th>
-                  <th className="text-left px-3 py-2">Email</th>
-                  <th className="text-left px-3 py-2">Institution</th>
-                  <th className="text-left px-3 py-2">Status</th>
+                  <th className="text-left px-4 py-3 font-semibold">Name</th>
+                  <th className="text-left px-4 py-3 font-semibold">Email</th>
+                  <th className="text-left px-4 py-3 font-semibold">Institution</th>
+                  <th className="text-left px-4 py-3 font-semibold">Status</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-gray-100">
                 {applications.map((item) => (
                   <tr
                     key={item.id}
                     onClick={() => setSelectedId(item.id || null)}
-                    className={`cursor-pointer border-t border-gray-100 ${
-                      selectedId === item.id ? "bg-blue-50" : "bg-white"
+                    className={`cursor-pointer transition-colors ${
+                      selectedId === item.id ? "bg-blue-50" : "bg-white hover:bg-gray-50"
                     }`}
                   >
-                    <td className="px-3 py-2 text-gray-800">
+                    <td className="px-4 py-3 text-gray-800 font-medium">
                       {item.name || "—"}
                     </td>
-                    <td className="px-3 py-2 text-gray-600">
+                    <td className="px-4 py-3 text-gray-600">
                       {item.email || "—"}
                     </td>
-                    <td className="px-3 py-2 text-gray-600">
+                    <td className="px-4 py-3 text-gray-600">
                       {item.institution || "—"}
                     </td>
-                    <td className="px-3 py-2">
+                    <td className="px-4 py-3">
                       <span
-                        className={`inline-flex rounded-full px-2 py-0.5 text-xs border ${statusBadgeClass(item.status)}`}
+                        className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusBadgeClass(item.status)}`}
                       >
                         {item.status || "pending"}
                       </span>
                     </td>
                   </tr>
                 ))}
+                {applications.length === 0 && !loading && (
+                  <tr>
+                    <td colSpan={4} className="px-4 py-8 text-center text-gray-500 italic">
+                      No applications found matching the filter.
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
 
           {hasMore && (
-            <div className="mt-4 flex justify-center">
+            <div className="mt-6 flex justify-center">
               <button
                 onClick={() => void loadApplications(false)}
                 disabled={loadingMore || !nextCursorId}
-                className="px-4 py-2 rounded-md bg-blue-600 text-white text-sm font-semibold disabled:opacity-50"
+                className="px-6 py-2 rounded-lg bg-blue-600 text-white text-sm font-semibold shadow-sm hover:bg-blue-700 disabled:opacity-50 transition-colors"
               >
-                {loadingMore ? "Loading..." : "Load More"}
+                {loadingMore ? (
+                  <span className="flex items-center">
+                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Loading...
+                  </span>
+                ) : "Load More Records"}
               </button>
             </div>
           )}
         </section>
 
-        <section className="rounded-xl bg-white p-5">
-          <h2 className="text-lg font-bold text-gray-900 mb-4">
+        <section className="rounded-xl bg-white p-5 shadow-sm h-fit sticky top-24">
+          <h2 className="text-lg font-bold text-gray-900 mb-6 border-b pb-2">
             Application Details
           </h2>
           {!selectedApplication ? (
-            <p className="text-sm text-gray-500">
-              Select an application to review details.
-            </p>
+            <div className="text-center py-10">
+              <svg className="mx-auto h-12 w-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <p className="mt-4 text-sm text-gray-500">
+                Select an application from the list to review details.
+              </p>
+            </div>
           ) : (
-            <div className="space-y-4 text-sm text-gray-700">
-              <div className="grid grid-cols-1 gap-2">
-                <p>
-                  <strong>Name:</strong> {selectedApplication.name || "—"}
-                </p>
-                <p>
-                  <strong>Gender:</strong> {selectedApplication.gender || "—"}
-                </p>
-                <p>
-                  <strong>Email (Google):</strong>{" "}
-                  {selectedApplication.email || "—"}
-                </p>
-                <p>
-                  <strong>Institutional Email:</strong>{" "}
-                  {selectedApplication.institutionalEmail || "—"}
-                </p>
-                <p>
-                  <strong>Phone:</strong> {selectedApplication.phone || "—"}
-                </p>
-                <p>
-                  <strong>Designation:</strong>{" "}
-                  {selectedApplication.designation || "—"}
-                </p>
-                <p>
-                  <strong>Highest Qualification:</strong>{" "}
-                  {selectedApplication.highestQualification || "—"}
-                </p>
-                <p>
-                  <strong>Year:</strong> {selectedApplication.year || "—"}
-                </p>
-                <p>
-                  <strong>Institution:</strong>{" "}
-                  {selectedApplication.institution || "—"}
-                </p>
-                <p>
-                  <strong>Institution Address:</strong>{" "}
-                  {selectedApplication.institutionAddress || "—"}
-                </p>
-                <p>
-                  <strong>City:</strong> {selectedApplication.city || "—"}
-                </p>
-                <p>
-                  <strong>State:</strong> {selectedApplication.state || "—"}
-                </p>
-                <p>
-                  <strong>Pin Code:</strong>{" "}
-                  {selectedApplication.pinCode || "—"}
-                </p>
-                <p>
-                  <strong>Past Fellowship:</strong>{" "}
-                  {selectedApplication.pastFellowship || "—"}
-                </p>
-                <p>
-                  <strong>Publications:</strong>{" "}
-                  {selectedApplication.publications || "—"}
-                </p>
-                <p>
-                  <strong>Scopus ID:</strong>{" "}
-                  {selectedApplication.scopusId || "—"}
-                </p>
-                <p>
-                  <strong>Google Scholar ID:</strong>{" "}
-                  {selectedApplication.googleScholarId || "—"}
-                </p>
-                <p>
-                  <strong>Paper/Hackathon ID:</strong>{" "}
-                  {selectedApplication.ieeePaperId || "—"}
-                </p>
-                <p>
-                  <strong>Status:</strong>{" "}
-                  <span className="capitalize">
-                    {selectedApplication.status || "pending"}
-                  </span>
-                </p>
+            <div className="space-y-6 text-sm text-gray-700">
+              <div className="grid grid-cols-1 gap-3">
+                <DetailRow label="Name" value={selectedApplication.name} />
+                <DetailRow label="Gender" value={selectedApplication.gender} />
+                <DetailRow label="Email (Google)" value={selectedApplication.email} />
+                <DetailRow label="Institutional Email" value={selectedApplication.institutionalEmail} />
+                <DetailRow label="Phone" value={selectedApplication.phone} />
+                <DetailRow label="Designation" value={selectedApplication.designation} />
+                <DetailRow label="Highest Qualification" value={selectedApplication.highestQualification} />
+                <DetailRow label="Department" value={selectedApplication.department} />
+                <DetailRow label="Year" value={selectedApplication.year} />
+                <DetailRow label="Institution" value={selectedApplication.institution} />
+                <DetailRow label="Institution Address" value={selectedApplication.institutionAddress} />
+                <DetailRow label="City" value={selectedApplication.city} />
+                <DetailRow label="State" value={selectedApplication.state} />
+                <DetailRow label="Pin Code" value={selectedApplication.pinCode} />
+                <DetailRow label="Past Fellowship" value={selectedApplication.pastFellowship} />
+                <DetailRow label="Publications" value={selectedApplication.publications} />
+                <DetailRow label="Scopus ID" value={selectedApplication.scopusId} />
+                <DetailRow label="Google Scholar ID" value={selectedApplication.googleScholarId} />
+                <DetailRow label="Paper/Hackathon ID" value={selectedApplication.ieeePaperId} />
+                <DetailRow label="Status" value={selectedApplication.status} className="capitalize font-semibold" />
               </div>
 
-              <div className="space-y-1">
-                {selectedApplication.writeUpFileUrl && (
-                  <a
-                    className="block text-blue-600 hover:underline"
-                    href={selectedApplication.writeUpFileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Research Write-up
-                  </a>
-                )}
-                {selectedApplication.idCardFileUrl && (
-                  <a
-                    className="block text-blue-600 hover:underline"
-                    href={selectedApplication.idCardFileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View ID Card
-                  </a>
-                )}
-                {selectedApplication.aadharFileUrl && (
-                  <a
-                    className="block text-blue-600 hover:underline"
-                    href={selectedApplication.aadharFileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Aadhaar Card
-                  </a>
-                )}
-                {selectedApplication.bonafideFileUrl && (
-                  <a
-                    className="block text-blue-600 hover:underline"
-                    href={selectedApplication.bonafideFileUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Bonafide/NOC
-                  </a>
-                )}
+              <div className="space-y-2 border-t pt-4">
+                <h3 className="font-semibold text-gray-900 mb-2">Documents</h3>
+                <DocumentLink url={selectedApplication.writeUpFileUrl} label="Research Write-up" />
+                <DocumentLink url={selectedApplication.idCardFileUrl} label="ID Card" />
+                <DocumentLink url={selectedApplication.aadharFileUrl} label="Aadhaar Card" />
+                <DocumentLink url={selectedApplication.bonafideFileUrl} label="Bonafide/NOC" />
               </div>
 
-              <div className="pt-2 flex gap-2">
+              <div className="pt-6 flex gap-3 border-t">
                 <button
                   disabled={updatingStatus !== null}
                   onClick={() => updateStatus("approved")}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white rounded px-3 py-2 text-xs font-semibold disabled:opacity-50"
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white rounded-lg px-4 py-2.5 text-xs font-bold shadow-sm disabled:opacity-50 transition-colors uppercase tracking-wider"
                 >
                   {updatingStatus === "approved" ? "Approving..." : "Approve"}
                 </button>
                 <button
                   disabled={updatingStatus !== null}
                   onClick={() => updateStatus("rejected")}
-                  className="flex-1 bg-red-600 hover:bg-red-700 text-white rounded px-3 py-2 text-xs font-semibold disabled:opacity-50"
+                  className="flex-1 bg-red-600 hover:bg-red-700 text-white rounded-lg px-4 py-2.5 text-xs font-bold shadow-sm disabled:opacity-50 transition-colors uppercase tracking-wider"
                 >
                   {updatingStatus === "rejected" ? "Rejecting..." : "Reject"}
                 </button>
@@ -613,5 +592,31 @@ if (typeof ts.seconds === "number") {
         </section>
       </div>
     </main>
+  );
+}
+
+function DetailRow({ label, value, className = "" }: { label: string; value?: string | null; className?: string }) {
+  return (
+    <div className="flex flex-col border-b border-gray-50 pb-1">
+      <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">{label}</span>
+      <span className={`text-gray-800 ${className}`}>{value || "—"}</span>
+    </div>
+  );
+}
+
+function DocumentLink({ url, label }: { url?: string; label: string }) {
+  if (!url) return null;
+  return (
+    <a
+      className="flex items-center text-blue-600 hover:text-blue-800 hover:underline group"
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <svg className="mr-2 h-4 w-4 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      </svg>
+      {label}
+    </a>
   );
 }
