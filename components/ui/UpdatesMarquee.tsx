@@ -21,6 +21,10 @@ export default function UpdatesMarquee() {
                 Call For Workshop Proposal Deadline - May 31<sup>st</sup>
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
+              <div className="mx-5 text-blue-300">
+                Call for Paper/Poster (Closed)
+              </div>
+              <div className="mx-5 text-[#6aaff1]">•</div>
             </div>
           ))}
         </div>
