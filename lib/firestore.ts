@@ -176,7 +176,10 @@ export const UserDB = {
   },
 
   async findByEmail(email: string) {
-    const q = query(collection(requireDb(), "users"), where("email", "==", email));
+    const q = query(
+      collection(requireDb(), "users"),
+      where("email", "==", email),
+    );
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;
@@ -217,9 +220,18 @@ export const RegistrationDB = {
       emailToUse = userDoc?.email;
     }
 
-    const q1 = query(collection(requireDb(), "submissions"), where("uid", "==", uid));
-    const q2 = query(collection(requireDb(), "submissions"), where("userId", "==", uid));
-    const q3 = query(collection(requireDb(), "registrations"), where("uid", "==", uid));
+    const q1 = query(
+      collection(requireDb(), "submissions"),
+      where("uid", "==", uid),
+    );
+    const q2 = query(
+      collection(requireDb(), "submissions"),
+      where("userId", "==", uid),
+    );
+    const q3 = query(
+      collection(requireDb(), "registrations"),
+      where("uid", "==", uid),
+    );
     const q4 = query(
       collection(requireDb(), "registrations"),
       where("userId", "==", uid),
@@ -414,7 +426,7 @@ export const RegistrationDB = {
         buildIndexedQuery("fellowship"),
       ];
       const indexedSnapshots = await Promise.allSettled(
-        indexedQueries.map((q) => getDocs(query(q, limit(pageSize + 1)))),
+        indexedQueries.map((q) => getDocs(q)),
       );
 
       const successfulSnapshots = indexedSnapshots.flatMap((result) =>
@@ -522,7 +534,10 @@ export const PaperSubmissionDB = {
   },
 
   async findByPaperId(paperId: string) {
-    const q = query(collection(requireDb(), "papers"), where("paperId", "==", paperId));
+    const q = query(
+      collection(requireDb(), "papers"),
+      where("paperId", "==", paperId),
+    );
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;
@@ -557,7 +572,10 @@ export const PaperSubmissionDB = {
     reviewerComments?: string,
     adminNotes?: string,
   ) {
-    const q = query(collection(requireDb(), "papers"), where("paperId", "==", paperId));
+    const q = query(
+      collection(requireDb(), "papers"),
+      where("paperId", "==", paperId),
+    );
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;

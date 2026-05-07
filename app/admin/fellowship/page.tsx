@@ -133,10 +133,13 @@ export default function AdminFellowshipPage() {
 
       // We fetch all records by iterating through pages
       while (hasMoreItems) {
-        const result = await RegistrationDB.getAllFellowshipByStatus(undefined, {
-          limitCount: 100, // Larger page size for export
-          cursorId,
-        });
+        const result = await RegistrationDB.getAllFellowshipByStatus(
+          undefined,
+          {
+            limitCount: 100, // Larger page size for export
+            cursorId,
+          },
+        );
 
         for (const item of result.items) {
           const itemId =
@@ -367,9 +370,9 @@ export default function AdminFellowshipPage() {
   }
 
   return (
-    <main className="min-h-screen px-6 py-24">
-      <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <section className="lg:col-span-2 rounded-xl bg-white p-5 shadow-sm">
+    <main className="min-h-screen px-4 sm:px-6 py-24">
+      <div className="mx-auto max-w-[96%] xl:max-w-[100rem] grid grid-cols-1 xl:grid-cols-5 gap-6">
+        <section className="xl:col-span-3 rounded-xl bg-white p-5 shadow-sm">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-4">
             <div>
               <h1 className="text-xl font-bold text-gray-900">
@@ -386,16 +389,41 @@ export default function AdminFellowshipPage() {
             >
               {exporting ? (
                 <>
-                  <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
                   Exporting...
                 </>
               ) : (
                 <>
-                  <svg className="-ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                  <svg
+                    className="-ml-1 mr-2 h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    />
                   </svg>
                   Export CSV
                 </>
@@ -425,8 +453,16 @@ export default function AdminFellowshipPage() {
             <div className="mb-6 rounded-lg border border-red-200 bg-red-50 p-4">
               <div className="flex">
                 <div className="flex-shrink-0">
-                  <svg className="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  <svg
+                    className="h-5 w-5 text-red-400"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
                 <div className="ml-3">
@@ -462,7 +498,9 @@ export default function AdminFellowshipPage() {
                 <tr>
                   <th className="text-left px-4 py-3 font-semibold">Name</th>
                   <th className="text-left px-4 py-3 font-semibold">Email</th>
-                  <th className="text-left px-4 py-3 font-semibold">Institution</th>
+                  <th className="text-left px-4 py-3 font-semibold">
+                    Institution
+                  </th>
                   <th className="text-left px-4 py-3 font-semibold">Status</th>
                 </tr>
               </thead>
@@ -472,7 +510,9 @@ export default function AdminFellowshipPage() {
                     key={item.id}
                     onClick={() => setSelectedId(item.id || null)}
                     className={`cursor-pointer transition-colors ${
-                      selectedId === item.id ? "bg-blue-50" : "bg-white hover:bg-gray-50"
+                      selectedId === item.id
+                        ? "bg-blue-50"
+                        : "bg-white hover:bg-gray-50"
                     }`}
                   >
                     <td className="px-4 py-3 text-gray-800 font-medium">
@@ -495,7 +535,10 @@ export default function AdminFellowshipPage() {
                 ))}
                 {applications.length === 0 && !loading && (
                   <tr>
-                    <td colSpan={4} className="px-4 py-8 text-center text-gray-500 italic">
+                    <td
+                      colSpan={4}
+                      className="px-4 py-8 text-center text-gray-500 italic"
+                    >
                       No applications found matching the filter.
                     </td>
                   </tr>
@@ -513,62 +556,146 @@ export default function AdminFellowshipPage() {
               >
                 {loadingMore ? (
                   <span className="flex items-center">
-                    <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <svg
+                      className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx="12"
+                        cy="12"
+                        r="10"
+                        stroke="currentColor"
+                        strokeWidth="4"
+                      ></circle>
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      ></path>
                     </svg>
                     Loading...
                   </span>
-                ) : "Load More Records"}
+                ) : (
+                  "Load More Records"
+                )}
               </button>
             </div>
           )}
         </section>
 
-        <section className="rounded-xl bg-white p-5 shadow-sm h-fit sticky top-24">
+        <section className="xl:col-span-2 rounded-xl bg-white p-5 shadow-sm h-fit top-24 max-h-[calc(100vh-6rem)] overflow-y-auto">
           <h2 className="text-lg font-bold text-gray-900 mb-6 border-b pb-2">
             Application Details
           </h2>
           {!selectedApplication ? (
-            <div className="text-center py-10">
-              <svg className="mx-auto h-12 w-12 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            <div className="text-center py-12">
+              <svg
+                className="mx-auto h-12 w-12 text-gray-300"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
               </svg>
               <p className="mt-4 text-sm text-gray-500">
                 Select an application from the list to review details.
               </p>
             </div>
           ) : (
-            <div className="space-y-6 text-sm text-gray-700">
-              <div className="grid grid-cols-1 gap-3">
+            <div className="space-y-7 text-sm text-gray-700">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <DetailRow label="Name" value={selectedApplication.name} />
                 <DetailRow label="Gender" value={selectedApplication.gender} />
-                <DetailRow label="Email (Google)" value={selectedApplication.email} />
-                <DetailRow label="Institutional Email" value={selectedApplication.institutionalEmail} />
+                <DetailRow
+                  label="Email (Google)"
+                  value={selectedApplication.email}
+                />
+                <DetailRow
+                  label="Institutional Email"
+                  value={selectedApplication.institutionalEmail}
+                />
                 <DetailRow label="Phone" value={selectedApplication.phone} />
-                <DetailRow label="Designation" value={selectedApplication.designation} />
-                <DetailRow label="Highest Qualification" value={selectedApplication.highestQualification} />
-                <DetailRow label="Department" value={selectedApplication.department} />
+                <DetailRow
+                  label="Designation"
+                  value={selectedApplication.designation}
+                />
+                <DetailRow
+                  label="Highest Qualification"
+                  value={selectedApplication.highestQualification}
+                />
+                <DetailRow
+                  label="Department"
+                  value={selectedApplication.department}
+                />
                 <DetailRow label="Year" value={selectedApplication.year} />
-                <DetailRow label="Institution" value={selectedApplication.institution} />
-                <DetailRow label="Institution Address" value={selectedApplication.institutionAddress} />
+                <DetailRow
+                  label="Institution"
+                  value={selectedApplication.institution}
+                />
+                <DetailRow
+                  label="Institution Address"
+                  value={selectedApplication.institutionAddress}
+                />
                 <DetailRow label="City" value={selectedApplication.city} />
                 <DetailRow label="State" value={selectedApplication.state} />
-                <DetailRow label="Pin Code" value={selectedApplication.pinCode} />
-                <DetailRow label="Past Fellowship" value={selectedApplication.pastFellowship} />
-                <DetailRow label="Publications" value={selectedApplication.publications} />
-                <DetailRow label="Scopus ID" value={selectedApplication.scopusId} />
-                <DetailRow label="Google Scholar ID" value={selectedApplication.googleScholarId} />
-                <DetailRow label="Paper/Hackathon ID" value={selectedApplication.ieeePaperId} />
-                <DetailRow label="Status" value={selectedApplication.status} className="capitalize font-semibold" />
+                <DetailRow
+                  label="Pin Code"
+                  value={selectedApplication.pinCode}
+                />
+                <DetailRow
+                  label="Past Fellowship"
+                  value={selectedApplication.pastFellowship}
+                />
+                <DetailRow
+                  label="Publications"
+                  value={selectedApplication.publications}
+                />
+                <DetailRow
+                  label="Scopus ID"
+                  value={selectedApplication.scopusId}
+                />
+                <DetailRow
+                  label="Google Scholar ID"
+                  value={selectedApplication.googleScholarId}
+                />
+                <DetailRow
+                  label="Paper/Hackathon ID"
+                  value={selectedApplication.ieeePaperId}
+                />
+                <DetailRow
+                  label="Status"
+                  value={selectedApplication.status}
+                  className="capitalize font-semibold"
+                />
               </div>
 
               <div className="space-y-2 border-t pt-4">
                 <h3 className="font-semibold text-gray-900 mb-2">Documents</h3>
-                <DocumentLink url={selectedApplication.writeUpFileUrl} label="Research Write-up" />
-                <DocumentLink url={selectedApplication.idCardFileUrl} label="ID Card" />
-                <DocumentLink url={selectedApplication.aadharFileUrl} label="Aadhaar Card" />
-                <DocumentLink url={selectedApplication.bonafideFileUrl} label="Bonafide/NOC" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <DocumentLink
+                    url={selectedApplication.writeUpFileUrl}
+                    label="Research Write-up"
+                  />
+                  <DocumentLink
+                    url={selectedApplication.idCardFileUrl}
+                    label="ID Card"
+                  />
+                  <DocumentLink
+                    url={selectedApplication.aadharFileUrl}
+                    label="Aadhaar Card"
+                  />
+                  <DocumentLink
+                    url={selectedApplication.bonafideFileUrl}
+                    label="Bonafide/NOC"
+                  />
+                </div>
               </div>
 
               <div className="pt-6 flex gap-3 border-t">
@@ -595,10 +722,20 @@ export default function AdminFellowshipPage() {
   );
 }
 
-function DetailRow({ label, value, className = "" }: { label: string; value?: string | null; className?: string }) {
+function DetailRow({
+  label,
+  value,
+  className = "",
+}: {
+  label: string;
+  value?: string | null;
+  className?: string;
+}) {
   return (
     <div className="flex flex-col border-b border-gray-50 pb-1">
-      <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">{label}</span>
+      <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold">
+        {label}
+      </span>
       <span className={`text-gray-800 ${className}`}>{value || "—"}</span>
     </div>
   );
@@ -613,8 +750,18 @@ function DocumentLink({ url, label }: { url?: string; label: string }) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <svg className="mr-2 h-4 w-4 text-blue-400 group-hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+      <svg
+        className="mr-2 h-4 w-4 text-blue-400 group-hover:text-blue-600"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+        />
       </svg>
       {label}
     </a>

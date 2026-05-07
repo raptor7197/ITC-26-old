@@ -10,11 +10,11 @@ export default function UpdatesMarquee() {
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="flex items-center">
               <div className="mx-5 text-blue-300">
-                ITC 2026 Hackathon is Live
+                ITC 2026 Fellowship is Live
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
               <div className="mx-5 text-blue-300">
-                ITC 2026 Fellowship is Live
+                ITC 2026 Hackathon is Live
               </div>
               <div className="mx-5 text-[#6aaff1]">•</div>
               <div className="mx-5 text-blue-300">
