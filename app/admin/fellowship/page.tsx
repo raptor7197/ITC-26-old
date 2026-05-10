@@ -71,6 +71,7 @@ export default function AdminFellowshipPage() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [updatingStatus, setUpdatingStatus] =
     useState<RegistrationStatus | null>(null);
+  const [publishing, setPublishing] = useState(false);
   const [nextCursorId, setNextCursorId] = useState<string | null>(null);
   const [hasMore, setHasMore] = useState(false);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -346,6 +347,33 @@ export default function AdminFellowshipPage() {
     }
   }
 
+  async function publishStatus() {
+    if (!user || !selectedApplication?.id) return;
+
+    try {
+      setPublishing(true);
+      const updated = await RegistrationDB.publishStatusAsAdmin(
+        selectedApplication.id,
+      );
+      if (!updated) {
+        throw new Error("Application not found or no admin status to publish");
+      }
+
+      setApplications((prev) =>
+        prev.map((item) => (item.id === updated.id ? updated : item)),
+      );
+    } catch (publishError) {
+      console.error(publishError);
+      setError(
+        publishError instanceof Error
+          ? publishError.message
+          : "Failed to publish status",
+      );
+    } finally {
+      setPublishing(false);
+    }
+  }
+
   if (authLoading || (isAdmin && loading)) {
     return (
       <main className="min-h-screen flex items-center justify-center text-white">
@@ -505,34 +533,38 @@ export default function AdminFellowshipPage() {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100">
-                {applications.map((item) => (
-                  <tr
-                    key={item.id}
-                    onClick={() => setSelectedId(item.id || null)}
-                    className={`cursor-pointer transition-colors ${
-                      selectedId === item.id
-                        ? "bg-blue-50"
-                        : "bg-white hover:bg-gray-50"
-                    }`}
-                  >
-                    <td className="px-4 py-3 text-gray-800 font-medium">
-                      {item.name || "—"}
-                    </td>
-                    <td className="px-4 py-3 text-gray-600">
-                      {item.email || "—"}
-                    </td>
-                    <td className="px-4 py-3 text-gray-600">
-                      {item.institution || "—"}
-                    </td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusBadgeClass(item.status)}`}
-                      >
-                        {item.status || "pending"}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
+                {applications.map((item) => {
+                  const displayStatus =
+                    item.adminStatus || item.status || "pending";
+                  return (
+                    <tr
+                      key={item.id}
+                      onClick={() => setSelectedId(item.id || null)}
+                      className={`cursor-pointer transition-colors ${
+                        selectedId === item.id
+                          ? "bg-blue-50"
+                          : "bg-white hover:bg-gray-50"
+                      }`}
+                    >
+                      <td className="px-4 py-3 text-gray-800 font-medium">
+                        {item.name || "—"}
+                      </td>
+                      <td className="px-4 py-3 text-gray-600">
+                        {item.email || "—"}
+                      </td>
+                      <td className="px-4 py-3 text-gray-600">
+                        {item.institution || "—"}
+                      </td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`inline-flex rounded-full px-2.5 py-0.5 text-xs font-semibold border ${statusBadgeClass(displayStatus)}`}
+                        >
+                          {displayStatus}
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
                 {applications.length === 0 && !loading && (
                   <tr>
                     <td
@@ -585,7 +617,7 @@ export default function AdminFellowshipPage() {
           )}
         </section>
 
-        <section className="xl:col-span-2 rounded-xl bg-white p-5 shadow-sm h-fit top-24 max-h-[calc(100vh-6rem)] overflow-y-auto">
+        <section className="xl:col-span-2 rounded-xl bg-white p-5 shadow-sm h-fit top-24 max-h-[calc(120vh-6rem)] overflow-y-auto">
           <h2 className="text-lg font-bold text-gray-900 mb-6 border-b pb-2">
             Application Details
           </h2>
@@ -670,8 +702,17 @@ export default function AdminFellowshipPage() {
                   value={selectedApplication.ieeePaperId}
                 />
                 <DetailRow
-                  label="Status"
-                  value={selectedApplication.status}
+                  label="Internal Status (Admin)"
+                  value={
+                    selectedApplication.adminStatus ||
+                    selectedApplication.status ||
+                    "pending"
+                  }
+                  className="capitalize font-semibold"
+                />
+                <DetailRow
+                  label="Published Status (User View)"
+                  value={selectedApplication.status || "pending"}
                   className="capitalize font-semibold"
                 />
               </div>
@@ -698,20 +739,47 @@ export default function AdminFellowshipPage() {
                 </div>
               </div>
 
-              <div className="pt-6 flex gap-3 border-t">
+              <div className="pt-6 flex flex-col gap-3 border-t">
+                <div className="flex gap-3">
+                  <button
+                    disabled={updatingStatus !== null}
+                    onClick={() => updateStatus("approved")}
+                    className="flex-1 bg-green-600 hover:bg-green-700 text-white rounded-lg px-4 py-2.5 text-xs font-bold shadow-sm disabled:opacity-50 transition-colors uppercase tracking-wider"
+                  >
+                    {updatingStatus === "approved"
+                      ? "Approving..."
+                      : "Approve Internally"}
+                  </button>
+                  <button
+                    disabled={updatingStatus !== null}
+                    onClick={() => updateStatus("rejected")}
+                    className="flex-1 bg-red-600 hover:bg-red-700 text-white rounded-lg px-4 py-2.5 text-xs font-bold shadow-sm disabled:opacity-50 transition-colors uppercase tracking-wider"
+                  >
+                    {updatingStatus === "rejected"
+                      ? "Rejecting..."
+                      : "Reject Internally"}
+                  </button>
+                </div>
+
                 <button
-                  disabled={updatingStatus !== null}
-                  onClick={() => updateStatus("approved")}
-                  className="flex-1 bg-green-600 hover:bg-green-700 text-white rounded-lg px-4 py-2.5 text-xs font-bold shadow-sm disabled:opacity-50 transition-colors uppercase tracking-wider"
+                  disabled={
+                    publishing ||
+                    !selectedApplication.adminStatus ||
+                    selectedApplication.adminStatus ===
+                      selectedApplication.status
+                  }
+                  onClick={() => publishStatus()}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2.5 text-xs font-bold shadow-sm disabled:opacity-50 transition-colors uppercase tracking-wider"
+                  title={
+                    !selectedApplication.adminStatus
+                      ? "Set an internal status first"
+                      : selectedApplication.adminStatus ===
+                          selectedApplication.status
+                        ? "Status is already published"
+                        : "Publish internal status to user"
+                  }
                 >
-                  {updatingStatus === "approved" ? "Approving..." : "Approve"}
-                </button>
-                <button
-                  disabled={updatingStatus !== null}
-                  onClick={() => updateStatus("rejected")}
-                  className="flex-1 bg-red-600 hover:bg-red-700 text-white rounded-lg px-4 py-2.5 text-xs font-bold shadow-sm disabled:opacity-50 transition-colors uppercase tracking-wider"
-                >
-                  {updatingStatus === "rejected" ? "Rejecting..." : "Reject"}
+                  {publishing ? "Publishing..." : "Publish Result To User"}
                 </button>
               </div>
             </div>

@@ -81,6 +81,7 @@ export interface Registration {
   registrationType: "Fellowship" | "hackathon" | "cfp" | "cft" | "art";
   additionalInfo?: string;
   status?: "pending" | "approved" | "rejected";
+  adminStatus?: "pending" | "approved" | "rejected";
   paperId?: string;
   paperStatus?: "pending" | "approved" | "rejected";
   createdAt?: unknown;
@@ -495,7 +496,7 @@ export const RegistrationDB = {
 
   async updateStatusAsAdmin(
     id: string,
-    status: NonNullable<Registration["status"]>,
+    adminStatus: NonNullable<Registration["adminStatus"]>,
   ) {
     const registrationRef = doc(requireDb(), "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
@@ -503,7 +504,25 @@ export const RegistrationDB = {
     if (!registrationDoc.exists()) return null;
 
     await updateDoc(registrationRef, {
-      status,
+      adminStatus,
+      updatedAt: serverTimestamp(),
+    });
+
+    const updatedDoc = await getDoc(registrationRef);
+    return { id: updatedDoc.id, ...updatedDoc.data() } as Registration;
+  },
+
+  async publishStatusAsAdmin(id: string) {
+    const registrationRef = doc(requireDb(), "submissions", id);
+    const registrationDoc = await getDoc(registrationRef);
+
+    if (!registrationDoc.exists()) return null;
+
+    const data = registrationDoc.data() as Registration;
+    if (!data.adminStatus) return null;
+
+    await updateDoc(registrationRef, {
+      status: data.adminStatus,
       updatedAt: serverTimestamp(),
     });
 
