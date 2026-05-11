@@ -81,6 +81,7 @@ export interface Registration {
   registrationType: "Fellowship" | "hackathon" | "cfp" | "cft" | "art";
   additionalInfo?: string;
   status?: "pending" | "approved" | "rejected";
+  adminStatus?: "pending" | "approved" | "rejected";
   paperId?: string;
   paperStatus?: "pending" | "approved" | "rejected";
   createdAt?: unknown;
@@ -176,7 +177,10 @@ export const UserDB = {
   },
 
   async findByEmail(email: string) {
-    const q = query(collection(requireDb(), "users"), where("email", "==", email));
+    const q = query(
+      collection(requireDb(), "users"),
+      where("email", "==", email),
+    );
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;
@@ -217,9 +221,18 @@ export const RegistrationDB = {
       emailToUse = userDoc?.email;
     }
 
-    const q1 = query(collection(requireDb(), "submissions"), where("uid", "==", uid));
-    const q2 = query(collection(requireDb(), "submissions"), where("userId", "==", uid));
-    const q3 = query(collection(requireDb(), "registrations"), where("uid", "==", uid));
+    const q1 = query(
+      collection(requireDb(), "submissions"),
+      where("uid", "==", uid),
+    );
+    const q2 = query(
+      collection(requireDb(), "submissions"),
+      where("userId", "==", uid),
+    );
+    const q3 = query(
+      collection(requireDb(), "registrations"),
+      where("uid", "==", uid),
+    );
     const q4 = query(
       collection(requireDb(), "registrations"),
       where("userId", "==", uid),
@@ -414,7 +427,7 @@ export const RegistrationDB = {
         buildIndexedQuery("fellowship"),
       ];
       const indexedSnapshots = await Promise.allSettled(
-        indexedQueries.map((q) => getDocs(query(q, limit(pageSize + 1)))),
+        indexedQueries.map((q) => getDocs(q)),
       );
 
       const successfulSnapshots = indexedSnapshots.flatMap((result) =>
@@ -483,7 +496,7 @@ export const RegistrationDB = {
 
   async updateStatusAsAdmin(
     id: string,
-    status: NonNullable<Registration["status"]>,
+    adminStatus: NonNullable<Registration["adminStatus"]>,
   ) {
     const registrationRef = doc(requireDb(), "submissions", id);
     const registrationDoc = await getDoc(registrationRef);
@@ -491,7 +504,25 @@ export const RegistrationDB = {
     if (!registrationDoc.exists()) return null;
 
     await updateDoc(registrationRef, {
-      status,
+      adminStatus,
+      updatedAt: serverTimestamp(),
+    });
+
+    const updatedDoc = await getDoc(registrationRef);
+    return { id: updatedDoc.id, ...updatedDoc.data() } as Registration;
+  },
+
+  async publishStatusAsAdmin(id: string) {
+    const registrationRef = doc(requireDb(), "submissions", id);
+    const registrationDoc = await getDoc(registrationRef);
+
+    if (!registrationDoc.exists()) return null;
+
+    const data = registrationDoc.data() as Registration;
+    if (!data.adminStatus) return null;
+
+    await updateDoc(registrationRef, {
+      status: data.adminStatus,
       updatedAt: serverTimestamp(),
     });
 
@@ -522,7 +553,10 @@ export const PaperSubmissionDB = {
   },
 
   async findByPaperId(paperId: string) {
-    const q = query(collection(requireDb(), "papers"), where("paperId", "==", paperId));
+    const q = query(
+      collection(requireDb(), "papers"),
+      where("paperId", "==", paperId),
+    );
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;
@@ -557,7 +591,10 @@ export const PaperSubmissionDB = {
     reviewerComments?: string,
     adminNotes?: string,
   ) {
-    const q = query(collection(requireDb(), "papers"), where("paperId", "==", paperId));
+    const q = query(
+      collection(requireDb(), "papers"),
+      where("paperId", "==", paperId),
+    );
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) return null;
