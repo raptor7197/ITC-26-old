@@ -10,7 +10,7 @@ const sponsors = [
   },
   { name: "Siemens", src: "/images/siemens.png", category: "Platinum" },
   { name: "Google", src: "/images/google.png", category: "Platinum" },
-  { name: "Tessolve", src: "/images/committee/tessolve.png", category: "Platinum" },
+  { name: "Tessolve", src: "/images/committee/tessolve.png", category: "Bronze" },
   { name: "Qualcomm", src: "/images/qualcomm.png", category: "Gold" },
   { name: "Cadence", src: "/images/cadence.png", category: "Gold" },
   { name: "Advantest", src: "/images/advantest.png", category: "Gold" },
