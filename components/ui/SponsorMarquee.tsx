@@ -25,6 +25,11 @@ const sponsors = [
     category: "Bronze",
   },
   {
+    name: "Tessolve",
+    src: "/images/committee/tessolve.png",
+    category: "Bronze",
+  },
+  {
     name: "IEEE Bangalore Section",
     src: "/images/ieeeblr.png",
     category: "Technical",
