@@ -246,7 +246,7 @@ export default function CallForPosters() {
                   <p className="text-xs text-gray-300 uppercase">
                     Author Notification
                   </p>
-                  <p className="text-lg font-semibold">10th May, 2026</p>
+                  <p className="text-lg font-semibold">27th May, 2026</p>
                 </div>
               </div>
 
