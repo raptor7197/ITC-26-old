@@ -45,19 +45,23 @@ const importantDates = [
   { event: "Last date for submitting application", date: "7 May 2026" },
   {
     event: "Round 1 Notification for award of fellowship",
-    date: "10 May 2026",
+    date: "20 May 2026",
+    oldDate: "10 May 2026",
   },
   {
     event: "Round 1 Confirmation",
-    date: "17 May 2026",
+    date: "27 May 2026",
+    oldDate: "17 May 2026",
   },
   {
     event: "Round 2 Notification for award of fellowship",
-    date: "20 May 2026",
+    date: "1 June 2026",
+    oldDate: "20 May 2026",
   },
   {
     event: "Round 2 Confirmation",
-    date: "27 May 2026",
+    date: "7 June 2026",
+    oldDate: "27 May 2026",
   },
 ];
 
@@ -498,7 +502,14 @@ export default function FellowshipPage() {
                     <span className="font-semibold text-white sm:w-1/2">
                       {item.event}:
                     </span>
-                    <span className="text-[#6aaff1]">{item.date}</span>
+                    <span className="text-[#6aaff1]">
+                      {item.oldDate ? (
+                        <span className="text-gray-300 line-through mr-2">
+                          {item.oldDate}
+                        </span>
+                      ) : null}
+                      {item.date}
+                    </span>
                   </li>
                 ))}
               </ul>

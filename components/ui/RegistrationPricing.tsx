@@ -21,12 +21,6 @@ const indianPricing = [
     confOnly: { regular: 10450, earlyBird: 8360 },
     tutorialConf: { regular: 13750, earlyBird: 11000 },
   },
-  {
-    category: "Alumni - Indian",
-    tutorialOnly: null,
-    confOnly: null,
-    tutorialConf: { regular: 13750, earlyBird: 7000 },
-  },
 ];
 
 const internationalPricing = [
@@ -47,12 +41,6 @@ const internationalPricing = [
     tutorialOnly: { regular: 110, earlyBird: 88 },
     confOnly: { regular: 220, earlyBird: 176 },
     tutorialConf: { regular: 265, earlyBird: 220 },
-  },
-  {
-    category: "Alumni - International",
-    tutorialOnly: null,
-    confOnly: null,
-    tutorialConf: { regular: 264, earlyBird: 120 },
   },
 ];
 
@@ -76,7 +64,7 @@ function PriceCell({
       </div>
       <div className="text-white font-semibold text-sm sm:text-base">
         {currency}
-        {price.earlyBird.toLocaleString()}  
+        {price.earlyBird.toLocaleString()}
       </div>
     </td>
   );
@@ -172,16 +160,36 @@ export default function RegistrationPricing() {
             <PricingTable data={internationalPricing} currency="$" />
           )}
 
-          <div className="mt-6 pt-4 flex items-center justify-center">
-            <div className="font-poppins text-xs sm:text-sm text-white/60">
-              <span className="text-white/50 line-through mr-2">Regular</span>
-              <span className="text-[#6aaff1] font-semibold">
-                Early Bird Price
-              </span>{" "}
-              - available until 30th June 2026
+          <div className="mt-6 pt-4 flex flex-col items-center justify-center gap-3">
+            <div className="font-poppins text-xs sm:text-sm text-white/60 text-center">
+              <div>
+                <span className="text-white/50 line-through mr-2">Regular</span>
+                <span className="text-[#6aaff1] font-semibold">
+                  Early Bird Price
+                </span>{" "}
+                - available until 30th June 2026
+              </div>
+              <div className="mt-2 text-white/70">
+                IEEE Members: Early Bird pricing applies until the day of the
+                event for Tutorial Only / Conference Only / Tutorial +
+                Conference.
+              </div>
+              <div className="mt-2 text-white/50">
+                Prices are NOT inclusive of GST
+              </div>
+            </div>
+            <a
+              href="https://itc.expoplato.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#6aaff1] text-xs sm:text-sm font-semibold hover:underline"
+            >
+              Registration Portal: https://itc.expoplato.com/
+            </a>
+            <div className="text-white/60 text-xs sm:text-sm">
+              For bulk registration queries: register.itcindia@gmail.com
             </div>
           </div>
-              <span className="text-white/50 flex justify-center mr-2">Prices are NOT inclusive of GST</span>
         </div>
       </div>
     </section>
