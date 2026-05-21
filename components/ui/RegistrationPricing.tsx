@@ -160,7 +160,39 @@ export default function RegistrationPricing() {
             <PricingTable data={internationalPricing} currency="$" />
           )}
 
-          <div className="mt-6 pt-4 flex flex-col items-center justify-center gap-3">
+          <div className="mt-6 pt-4 flex flex-col items-center justify-center gap-6">
+            <div className="w-full max-w-md border border-[#6aaff1]/30 rounded-lg bg-white/5 p-4">
+              <h3 className="text-base sm:text-lg font-semibold text-white text-center mb-3">
+                Bulk Registration
+              </h3>
+              <table className="w-full text-xs sm:text-sm border-collapse">
+                <thead>
+                  <tr className="border-b border-white/20 text-white/80">
+                    <th className="p-2 text-left">No. of Pax</th>
+                    <th className="p-2 text-right">Discount (%)</th>
+                  </tr>
+                </thead>
+                <tbody className="text-white">
+                  <tr className="border-b border-white/10">
+                    <td className="p-2">5 - 10</td>
+                    <td className="p-2 text-right">10</td>
+                  </tr>
+                  <tr className="border-b border-white/10">
+                    <td className="p-2">11 - 30</td>
+                    <td className="p-2 text-right">15</td>
+                  </tr>
+                  <tr className="border-b border-white/10">
+                    <td className="p-2">31 - 40</td>
+                    <td className="p-2 text-right">20</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">&gt; 40</td>
+                    <td className="p-2 text-right">25</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
             <div className="font-poppins text-xs sm:text-sm text-white/60 text-center">
               <div>
                 <span className="text-white/50 line-through mr-2">Regular</span>
