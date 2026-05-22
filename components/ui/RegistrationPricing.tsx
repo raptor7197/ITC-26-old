@@ -214,9 +214,9 @@ export default function RegistrationPricing() {
               href="https://itc.expoplato.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#6aaff1] text-xs sm:text-sm font-semibold hover:underline"
+              className="inline-block bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-poppins font-bold text-sm sm:text-base px-8 py-3 rounded-lg transition-colors"
             >
-              Registration Portal: https://itc.expoplato.com/
+              Register Now
             </a>
             <div className="text-white/60 text-xs sm:text-sm">
               For bulk registration queries: register.itcindia@gmail.com
