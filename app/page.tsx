@@ -6,7 +6,6 @@ import Testimonials from "@/components/ui/Testimonials";
 import FAQ from "@/components/ui/FAQ";
 import Photos from "@/components/ui/Photos";
 import SponsorMarquee from "@/components/ui/SponsorMarquee";
-import RegistrationPricing from "@/components/ui/RegistrationPricing";
 import FloatingNav from "@/components/ui/FloatingNav";
 
 export default function Home() {
@@ -22,7 +21,6 @@ export default function Home() {
         <FAQ />
         <Photos />
         <SponsorMarquee />
-        <RegistrationPricing />
       </div>
     </main>
   );

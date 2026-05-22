@@ -41,6 +41,7 @@ const navLinks = [
       { name: "ITC 2021", href: "/archives/itc_2021/index.html" },
     ],
   },
+  { name: "REGISTRATIONS", href: "/registrations" },
   { name: "CONTACT US", href: "/contact" },
 ];
 
