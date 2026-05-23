@@ -2,6 +2,14 @@
 
 import React from "react";
 
+const MARQUEE_ITEMS = [
+  "Registration going to start soon!!",
+  'Notification: "Paper - 24th May, 2026; Poster - 27th May, 2026; Tutorial- 22nd May, 2026"',
+  "Call For Workshop - 31st May, 2026",
+  "ITC 2026 Fellowship is Live",
+  "ITC 2026 Hackathon is Live",
+];
+
 export default function UpdatesMarquee() {
   return (
     <section className="relative w-full z-20 flex flex-col items-center justify-center overflow-hidden px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]">
@@ -9,22 +17,12 @@ export default function UpdatesMarquee() {
         <div className="flex w-fit animate-text-marquee whitespace-nowrap items-center font-poppins text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wide">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="flex items-center">
-              <div className="mx-5 text-blue-300">
-                ITC 2026 Fellowship is Live
-              </div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
-              <div className="mx-5 text-blue-300">
-                ITC 2026 Hackathon is Live
-              </div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
-              <div className="mx-5 text-blue-300">
-                Call For Workshop Proposal Deadline - May 31<sup>st</sup>
-              </div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
-              <div className="mx-5 text-blue-300">
-                Call for Paper/Poster (Closed)
-              </div>
-              <div className="mx-5 text-[#6aaff1]">•</div>
+              {MARQUEE_ITEMS.map((item, idx) => (
+                <React.Fragment key={idx}>
+                  <div className="mx-5 text-blue-300">{item}</div>
+                  <div className="mx-5 text-[#6aaff1]">•</div>
+                </React.Fragment>
+              ))}
             </div>
           ))}
         </div>
