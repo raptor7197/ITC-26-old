@@ -7,7 +7,7 @@ export default function CallForPosters() {
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         <div className="text-center mb-16">
           <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6">
-            <Image
+            <Image 
               src="/itc-logo.svg"
               alt="ITC Logo"
               width={80}
