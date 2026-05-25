@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import RegistrationHeroCTA from "@/components/ui/RegistrationHeroCTA";
 
 const REGISTER_PORTAL_URL = "https://itc.expoplato.com/";
 
@@ -14,46 +15,6 @@ function RegisterNowButton({ className = "" }: { className?: string }) {
     >
       Register Now
     </a>
-  );
-}
-
-function RegistrationHeroCTA() {
-  return (
-    <div className="text-center mb-10 sm:mb-14">
-      <a
-        href={REGISTER_PORTAL_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Open official registration portal"
-        className="group inline-flex flex-col items-center rounded-sm focus-visible:outline-2 focus-visible:outline-[#6aaff1] focus-visible:outline-offset-4"
-      >
-        <span className="sr-only">Opens official registration portal</span>
-        <h2 className="inline-flex items-center justify-center gap-2 sm:gap-2.5 text-3xl md:text-5xl font-bold font-angkor tracking-wide uppercase leading-none">
-          <span className="text-white transition-colors duration-200 group-hover:text-[#90cbfb]">
-            Registration
-          </span>
-          <span
-            className="flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 -translate-x-0.5 -translate-y-px sm:-translate-y-0.5 items-center justify-center rounded-full border border-[#6aaff1]/35 bg-white/5 transition-all duration-200 group-hover:border-[#6aaff1] group-hover:bg-[#6aaff1]/15"
-            aria-hidden
-          >
-            <svg
-              className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-[#6aaff1] transition-transform duration-200 group-hover:translate-x-px group-hover:-translate-y-px"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </span>
-        </h2>
-        <div className="w-24 h-1 bg-[#6aaff1] mx-auto rounded-full mt-4 transition-all duration-200 group-hover:w-28" />
-      </a>
-    </div>
   );
 }
 

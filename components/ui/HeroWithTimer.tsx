@@ -1,4 +1,5 @@
 import Image from "next/image";
+import RegistrationHeroCTA from "@/components/ui/RegistrationHeroCTA";
 
 export default function HeroWithTimer() {
   const px = "px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]";
@@ -30,10 +31,7 @@ export default function HeroWithTimer() {
             </div>
           </div>
 
-          <div
-            className="relative z-10 w-full flex flex-col sm:flex-row items-start gap-0
-                       min-h-[220px] sm:min-h-[300px] md:min-h-[380px] lg:min-h-[440px] xl:min-h-[500px]"
-          >
+          <div className="relative z-10 w-full flex flex-col sm:flex-row items-start gap-0">
             <div
               className="relative z-30 flex w-full min-w-0 max-w-full flex-col items-start max-sm:items-center
                          sm:w-[55%] md:w-[54%] lg:w-[52%] xl:w-[50%]
@@ -86,6 +84,7 @@ export default function HeroWithTimer() {
                 <p className="mt-3 sm:mt-4 text-[#6aaff1] font-semibold text-sm sm:text-base md:text-lg">
                   JULY 19-21, 2026 | RADISSON BLU, BENGALURU
                 </p>
+                <RegistrationHeroCTA compact variant="page" />
               </div>
             </div>
 
