@@ -64,23 +64,23 @@ export default function HeroWithTimer() {
                              xl:text-[60px]"
                 >
                   <p className="whitespace-normal">
-                    10<sup>th</sup> IEEE International
+                    10<sup>th</sup> Edition — IEEE International
                   </p>
-                  <p>Test Conference 2026</p>
-                  <p>INDIA</p>
+                  <p>Test Conference</p>
+                  <p>INDIA 2026</p>
                 </div>
 
-                <h3
-                  className="hero-subtitle font-space-grotesk font-bold uppercase
-                             text-[11px]  leading-[1.3]  mt-2
-                             sm:text-[15px] sm:mt-3
-                             md:text-[17px] md:mt-4
-                             lg:text-[19px]
-                             xl:text-[21px] xl:mt-5
-                             max-w-full"
+                <p
+                  className="hero-subtitle font-space-grotesk font-bold normal-case
+                             text-[11px] leading-[1.35] mt-2
+                             sm:text-[14px] sm:mt-3
+                             md:text-[16px] md:mt-4
+                             lg:text-[17px]
+                             xl:text-[18px] xl:mt-5
+                             max-w-full whitespace-normal"
                 >
-                  Theme: REIMAGINING TEST IN THE ERA OF INTELLIGENT SILICON
-                </h3>
+                  Theme: Reimagining Test in the Era of Intelligent Silicon
+                </p>
                 <p className="mt-3 sm:mt-4 text-[#6aaff1] font-semibold text-sm sm:text-base md:text-lg">
                   JULY 19-21, 2026 | RADISSON BLU, BENGALURU
                 </p>

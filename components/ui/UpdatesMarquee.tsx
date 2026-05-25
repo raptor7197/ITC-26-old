@@ -5,14 +5,14 @@ import React from "react";
 const MARQUEE_ITEMS = [
   "Registrations open",
   'Notification: "Paper - 24th May, 2026; Poster - 27th May, 2026; Tutorial- 22nd May, 2026"',
-  "Call For Workshop - 31st May, 2026",
+  "Call For Tutorials - 31st May, 2026",
   "ITC 2026 Fellowship is Live",
   "ITC 2026 Hackathon is Live",
 ];
 
 export default function UpdatesMarquee() {
   return (
-    <section className="relative w-full z-20 flex flex-col items-center justify-center overflow-hidden px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]">
+    <section className="relative z-20 mb-0 flex w-full flex-col items-center justify-center overflow-hidden px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]">
       <div className="relative flex w-full overflow-hidden group bg-[#022241]/40 border-y border-[#6aaff1]/20 backdrop-blur-sm py-4 sm:py-6 md:py-8 lg:py-10 items-center">
         <div className="flex w-fit animate-text-marquee whitespace-nowrap items-center font-poppins text-sm sm:text-base md:text-lg lg:text-xl font-medium tracking-wide">
           {[1, 2, 3, 4].map((i) => (

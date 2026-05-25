@@ -11,7 +11,7 @@ export default function AboutUs() {
   return (
     <section
       id="about"
-      className={`about-us-section relative w-full pt-4 sm:pt-6 md:pt-8 lg:pt-10 xl:pt-12 pb-1 sm:pb-2 md:pb-3 ${contentPadding} text-white`}
+      className={`about-us-section relative w-full pt-0 pb-1 sm:pb-2 md:pb-3 ${contentPadding} text-white`}
     >
       <div className="mb-8 flex w-full min-w-0 max-w-full flex-col items-stretch overflow-x-clip sm:hidden">
         <div className="mx-auto w-[calc(100%-2.5rem)] min-w-0 max-w-full">
@@ -42,7 +42,7 @@ export default function AboutUs() {
           />
         </div>
 
-        <div className="hero-zigzag-title-pocket absolute top-4 left-0 z-20 flex h-full w-[41%] min-w-0 items-center justify-center overflow-hidden px-1">
+        <div className="hero-zigzag-title-pocket absolute top-0 left-0 z-20 flex h-full w-[41%] min-w-0 items-center justify-center overflow-hidden px-1">
           <h2 className="font-angkor min-w-0 max-w-full text-center whitespace-nowrap text-white">
             <span className="angkor-section-title">ABOUT US</span>
           </h2>

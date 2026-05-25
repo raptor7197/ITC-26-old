@@ -509,9 +509,6 @@ export default function RegistrationForm({
         </div>
       </form>
 
-      <div className="mt-6 text-center text-sm text-gray-500">
-        <p>By submitting this form, you agree to our terms and conditions.</p>
-      </div>
     </div>
   );
 }

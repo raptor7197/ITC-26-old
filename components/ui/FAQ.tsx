@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const faqs = [
   {
-    q: "Who Should Attend?",
+    q: "Who should attend?",
     a: [
       "Students, researchers, faculty, and industry professionals in VLSI, semiconductor testing, and electronics are encouraged to attend.",
       "It is ideal for anyone interested in chip design, validation, and emerging test technologies.",
@@ -31,14 +31,14 @@ const faqs = [
     ],
   },
   {
-    q: "What is the ITC India Hackathon?",
+    q: "What is the ITC India hackathon?",
     a: [
       "The hackathon is a team-based challenge focused on solving real-world problems in semiconductor testing.",
       "Participants work on industry-relevant topics with mentorship, competing for prizes and recognition.",
     ],
   },
   {
-    q: "What is the ITC India Fellowship Program?",
+    q: "What is the ITC India fellowship program?",
     a: [
       "The fellowship supports students and researchers with financial aid to attend the conference.",
       "It also offers access to sessions, networking opportunities, and exposure to industry leaders.",
