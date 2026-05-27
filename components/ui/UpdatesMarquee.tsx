@@ -5,8 +5,6 @@ import React from "react";
 const MARQUEE_ITEMS = [
   'Notification: "Paper - 24th May, 2026; Poster - 27th May, 2026; Tutorial- 22nd May, 2026"',
   "Registrations open",
-  "ITC 2026 Fellowship is Live",
-  "ITC 2026 Hackathon is Live",
 ];
 
 export default function UpdatesMarquee() {
