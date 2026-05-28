@@ -1,5 +1,9 @@
 import React from "react";
 import Image from "next/image";
+import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
+import { authorDeadlines, isPastDeadline } from "@/lib/authorDeadlines";
+
+const posterSubmissionClosed = isPastDeadline(authorDeadlines.posters);
 
 export default function CallForPosters() {
   return (
@@ -251,18 +255,21 @@ export default function CallForPosters() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
-                <a
+                <AuthorActionButton
+                  closed={posterSubmissionClosed}
+                  deadline={authorDeadlines.posters}
                   href="https://easychair.org/conferences/?conf=itcindia2026"
-                  className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
                 >
                   SUBMIT POSTER
-                </a>
-                <a
+                </AuthorActionButton>
+                <AuthorActionButton
+                  closed={posterSubmissionClosed}
+                  deadline={authorDeadlines.posters}
+                  variant="secondary"
                   href="https://www.ieee.org/conferences/publishing/templates.html"
-                  className="block w-full bg-transparent border-2 border-[#6aaff1] hover:bg-[#6aaff1]/20 text-white font-bold text-center py-3 rounded transition-colors"
                 >
                   DOWNLOAD IEEE TEMPLATE
-                </a>
+                </AuthorActionButton>
               </div>
             </div>
 

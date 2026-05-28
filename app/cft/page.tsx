@@ -1,4 +1,8 @@
 import Image from "next/image";
+import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
+import { authorDeadlines, isPastDeadline } from "@/lib/authorDeadlines";
+
+const tutorialSubmissionClosed = isPastDeadline(authorDeadlines.cftTutorial);
 
 export default function CallForTutorials() {
   return (
@@ -197,19 +201,22 @@ export default function CallForTutorials() {
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
-                <a
+                <AuthorActionButton
+                  closed={tutorialSubmissionClosed}
+                  deadline={authorDeadlines.cftTutorial}
                   href="https://easychair.org/my/conference?conf=itcindia2026"
-                  className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
                 >
                   SUBMIT TUTORIAL
-                </a>
-                <a
+                </AuthorActionButton>
+                <AuthorActionButton
+                  closed={tutorialSubmissionClosed}
+                  deadline={authorDeadlines.cftTutorial}
+                  variant="secondary"
                   href="/ITC_India_2026_Tutorial_Proposal_Template.pdf"
                   download="ITC_India_2026_Tutorial_Proposal_Template.pdf"
-                  className="block w-full bg-transparent border-2 border-[#6aaff1] hover:bg-[#6aaff1]/20 text-white font-bold text-center py-3 rounded transition-colors"
                 >
                   DOWNLOAD IEEE TEMPLATE
-                </a>
+                </AuthorActionButton>
               </div>
             </div>
 

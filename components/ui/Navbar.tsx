@@ -8,6 +8,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "HOME", href: "/" },
+  { name: "REGISTRATION", href: "/registration" },
   { name: "COMMITTEE", href: "/committee" },
   {
     name: "AUTHORS",
@@ -22,7 +23,6 @@ const navLinks = [
       { name: "ITC Fellowship", href: "/fellowship" },
     ],
   },
-  { name: "REGISTRATION", href: "/registration" },
   {
     name: "SPONSORSHIP",
     href: "#",
