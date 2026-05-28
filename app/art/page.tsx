@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
 
 export default function AcademiaResearchTrack() {
   return (
@@ -191,12 +192,12 @@ export default function AcademiaResearchTrack() {
                 Share your innovative ideas and research with the community.
               </p>
               <div className="mt-4">
-                <a
+                <AuthorActionButton
+                  closed={false}
                   href="https://easychair.org/conferences/?conf=itcindia2026"
-                  className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
                 >
                   SUBMIT ACADEMIA RESEARCH TRACK
-                </a>
+                </AuthorActionButton>
               </div>
             </div>
 

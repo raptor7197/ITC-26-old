@@ -1,10 +1,11 @@
-"use client";
-
-import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
-import { useAuth } from "@/lib/AuthContext";
-import { RegistrationDB, Registration } from "@/lib/firestore";
+import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
+import { FellowshipApplicationSidebar } from "@/components/fellowship/FellowshipApplicationSidebar";
+import { authorDeadlines, isPastDeadline } from "@/lib/authorDeadlines";
+
+const fellowshipApplicationClosed = isPastDeadline(
+  authorDeadlines.fellowshipApplication,
+);
 
 const aboutPoints = [
   "IEEE ITC India 2026 invites students, researchers, and faculty members working in the area of VLSI Testing to apply for the Fellowship Program. IEEE ITC India has a longstanding tradition of offering generous fellowships to students, researchers, and faculty from academic institutions across India, and we are pleased to continue this initiative for our 10th Edition of IEEE ITC India 2026.",
@@ -66,31 +67,6 @@ const importantDates = [
 ];
 
 export default function FellowshipPage() {
-  const { user } = useAuth();
-  const [registration, setRegistration] = useState<Registration | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function checkRegistration() {
-      if (!user) {
-        setLoading(false);
-        return;
-      }
-      try {
-        const result = await RegistrationDB.findByUidAndType(
-          user.uid,
-          "Fellowship",
-        );
-        setRegistration((result as Registration) || null);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    }
-    checkRegistration();
-  }, [user]);
-
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
@@ -193,20 +169,24 @@ export default function FellowshipPage() {
                   on official letterhead, and upload it with your application:
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a
+                  <AuthorActionButton
+                    closed={fellowshipApplicationClosed}
+                    deadline={authorDeadlines.fellowshipApplication}
+                    variant="inline-secondary"
                     href="/Student%20Template.docx"
-                    download
-                    className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] py-2 px-4 rounded transition-colors text-sm font-medium"
+                    download="Student Template.docx"
                   >
                     Download student bonafide template
-                  </a>
-                  <a
+                  </AuthorActionButton>
+                  <AuthorActionButton
+                    closed={fellowshipApplicationClosed}
+                    deadline={authorDeadlines.fellowshipApplication}
+                    variant="inline-secondary"
                     href="/Faculty%20Template.docx"
-                    download
-                    className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] py-2 px-4 rounded transition-colors text-sm font-medium"
+                    download="Faculty Template.docx"
                   >
                     Download faculty recommendation template
-                  </a>
+                  </AuthorActionButton>
                 </div>
               </div>
 
@@ -434,67 +414,7 @@ export default function FellowshipPage() {
           </div>
 
           <div className="lg:col-span-1 relative">
-            <div className="bg-[#1a4b7c] p-5 md:p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg  top-24">
-              <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
-                Application Status
-              </h3>
-              <div className="space-y-4">
-                {loading ? (
-                  <p className="text-sm text-gray-200 italic">
-                    Checking status...
-                  </p>
-                ) : registration ? (
-                  <div className="bg-white/10 p-4 rounded-md border border-white/20">
-                    <p className="text-sm text-white mb-2">
-                      You have already applied.
-                    </p>
-                    <p className="text-xs text-gray-300 uppercase tracking-wider mb-1">
-                      Status:
-                    </p>
-                    <span
-                      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${
-                        registration.status === "approved"
-                          ? "bg-green-100 text-green-800"
-                          : registration.status === "rejected"
-                            ? "bg-red-100 text-red-800"
-                            : "bg-yellow-100 text-yellow-800"
-                      }`}
-                    >
-                      {registration.status === "approved"
-                        ? "Approved"
-                        : registration.status === "rejected"
-                          ? "Rejected"
-                          : "Pending Review"}
-                    </span>
-                  </div>
-                ) : (
-                  <p className="text-sm text-gray-200 italic">
-                    Applications are reviewed on a rolling basis. Early
-                    submissions are encouraged.
-                  </p>
-                )}
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
-                {registration ? (
-                  <Link
-                    href="/dashboard"
-                    className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
-                  >
-                    GO TO DASHBOARD
-                  </Link>
-                ) : (
-                  <>
-                    <Link
-                      href="/fellowship/register"
-                      className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
-                    >
-                      APPLY NOW
-                    </Link>
-                  </>
-                )}
-              </div>
-            </div>
+            <FellowshipApplicationSidebar />
 
             <section className="mt-10 bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
@@ -552,20 +472,24 @@ export default function FellowshipPage() {
             letterhead.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a
+            <AuthorActionButton
+              closed={fellowshipApplicationClosed}
+              deadline={authorDeadlines.fellowshipApplication}
+              variant="inline-primary"
               href="/Faculty%20Template.docx"
-              download
-              className="flex-1 text-center bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold py-3 px-6 rounded-lg transition-colors"
+              download="Faculty Template.docx"
             >
               Download Faculty Template
-            </a>
-            <a
+            </AuthorActionButton>
+            <AuthorActionButton
+              closed={fellowshipApplicationClosed}
+              deadline={authorDeadlines.fellowshipApplication}
+              variant="inline-secondary"
               href="/Student%20Template.docx"
-              download
-              className="flex-1 text-center bg-transparent border border-[#6aaff1] text-[#6aaff1] hover:bg-[#6aaff1] hover:text-[#03396c] font-bold py-3 px-6 rounded-lg transition-colors"
+              download="Student Template.docx"
             >
               Download Student Template
-            </a>
+            </AuthorActionButton>
           </div>
         </section>
       </div>

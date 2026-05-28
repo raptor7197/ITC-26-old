@@ -1,5 +1,10 @@
 import Image from "next/image";
-import Link from "next/link";
+import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
+import { authorDeadlines, isPastDeadline } from "@/lib/authorDeadlines";
+
+const hackathonSubmissionClosed = isPastDeadline(
+  authorDeadlines.hackathonRound1,
+);
 
 const guidePadding =
   "px-[calc(5%+1rem)] sm:px-[calc(4%+1.25rem)] md:px-[calc(3%+1.5rem)] lg:px-[calc(2.5%+1.75rem)] xl:px-[calc(2.25%+2rem)]";
@@ -74,16 +79,20 @@ export default function HackathonPage() {
             </div>
 
             <div className="flex min-w-0 flex-col sm:flex-row gap-4 items-center sm:items-start w-full">
-              <Link href="https://easychair.org/conferences/?conf=itcindia2026">
-                <button className="w-full sm:w-auto bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] text-base md:text-lg font-bold py-4 px-8 rounded-lg shadow-[0_0_20px_rgba(106,175,241,0.3)] transition-all duration-300 uppercase tracking-wider">
-                  Hackathon Submission 
-                </button>
-              </Link>
-              <Link href="https://www.ieee.org/conferences/publishing/templates.html">
-                <button className="w-full sm:w-auto bg-transparent hover:bg-white/10 text-white text-base md:text-lg font-bold py-4 px-8 border-2 border-white/50 rounded-lg shadow-[0_0_15px_rgba(255,255,255,0.1)] transition-all duration-300 uppercase tracking-wider">
-                  Download IEEE Template
-                </button>
-              </Link>
+              <AuthorActionButton
+                closed={hackathonSubmissionClosed}
+                variant="hero-primary"
+                href="https://easychair.org/conferences/?conf=itcindia2026"
+              >
+                Hackathon Submission
+              </AuthorActionButton>
+              <AuthorActionButton
+                closed={hackathonSubmissionClosed}
+                variant="hero-secondary"
+                href="https://www.ieee.org/conferences/publishing/templates.html"
+              >
+                Download IEEE Template
+              </AuthorActionButton>
             </div>
           </div>
 

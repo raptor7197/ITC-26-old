@@ -1,5 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
+import { authorDeadlines, isPastDeadline } from "@/lib/authorDeadlines";
+
+const workshopProposalClosed = isPastDeadline(
+  authorDeadlines.workshopProposal,
+);
 
 export default function CallForWorkshop() {
   return (
@@ -122,12 +128,12 @@ export default function CallForWorkshop() {
                 </div>
 
                 <div className="mt-6 pt-4 border-t border-white/10">
-                  <a
+                  <AuthorActionButton
+                    closed={workshopProposalClosed}
                     href="https://easychair.org/conferences/?conf=itcindia2026"
-                    className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
                   >
                     SUBMIT PROPOSAL
-                  </a>
+                  </AuthorActionButton>
                 </div>
               </div>
 
