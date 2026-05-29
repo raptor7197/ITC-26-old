@@ -196,7 +196,7 @@ export default function CallForTutorials() {
                   <p className="text-xs text-gray-300 uppercase">
                     Final manuscript due
                   </p>
-                  <p className="text-lg font-semibold">13th June, 2026</p>
+                  <p className="text-lg font-semibold">20th June, 2026</p>
                 </div>
               </div>
 
