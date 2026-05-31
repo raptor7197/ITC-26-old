@@ -39,3 +39,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .env.local
+
+# testimonial video originals (compressed versions are committed)
+public/videos/testimonials/_originals/
