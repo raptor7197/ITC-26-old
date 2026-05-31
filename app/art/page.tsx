@@ -186,6 +186,17 @@ export default function AcademiaResearchTrack() {
           <div className="lg:col-span-1 space-y-8">
             <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg top-24">
               <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
+                Important Dates
+              </h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs text-gray-300 uppercase">
+                    Research Submission Deadline
+                  </p>
+                  <p className="text-lg font-semibold">7th June, 2026</p>
+                </div>
+              </div>
+              <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
                 Submit Research
               </h3>
               <p className="text-sm text-gray-200 mb-6">
