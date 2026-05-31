@@ -201,6 +201,20 @@ export default function AcademiaResearchTrack() {
               </div>
             </div>
 
+            <div className="bg-[#1a4b7c] p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg top-24">
+              <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
+                Important Dates
+              </h3>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs text-gray-300 uppercase">
+                    Author Notification for Acceptance
+                  </p>
+                  <p className="text-lg font-semibold">7th June, 2026</p>
+                </div>
+              </div>
+            </div>
+            
             <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm text-sm text-gray-300">
               <h4 className="font-bold text-white mb-2">Need Help?</h4>
               <p className="mb-4">
