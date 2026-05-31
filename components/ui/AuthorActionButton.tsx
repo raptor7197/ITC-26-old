@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ClosedAuthorButton } from "@/components/ui/ClosedAuthorButton";
 import { closedDeadlineTooltip } from "@/lib/authorDeadlines";
-
+ 
 export type AuthorActionButtonVariant =
   | "primary"
   | "secondary"

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 
 const speakerIconClass = "h-3 w-3 shrink-0 sm:h-3.5 sm:w-3.5";
 
@@ -106,6 +106,7 @@ const slideClassName =
 const DOT_BASE_SIZE_PX = 12;
 const DOT_MIN_SCALE_PERCENT = 20;
 const DOT_SCALE_STEP_PERCENT = 20;
+const VIDEO_PRELOAD_AHEAD = 2;
 
 function getDotScalePercent(distanceFromActive: number): number {
   const scale = 100 - distanceFromActive * DOT_SCALE_STEP_PERCENT;
@@ -116,13 +117,51 @@ function getDotSizePx(distanceFromActive: number): number {
   return (DOT_BASE_SIZE_PX * getDotScalePercent(distanceFromActive)) / 100;
 }
 
+function getVideoIndicesToLoad(currentIndex: number, total: number): Set<number> {
+  const indices = new Set<number>();
+
+  for (let offset = 0; offset <= VIDEO_PRELOAD_AHEAD; offset++) {
+    const index = (currentIndex + offset) % total;
+    if (slides[index]?.type === "video") {
+      indices.add(index);
+    }
+  }
+
+  const previousIndex = (currentIndex - 1 + total) % total;
+  if (slides[previousIndex]?.type === "video") {
+    indices.add(previousIndex);
+  }
+
+  return indices;
+}
+
+function getVideoPreloadMode(
+  index: number,
+  currentIndex: number,
+): "auto" | "metadata" | "none" {
+  if (index === currentIndex) return "auto";
+  if (
+    index === (currentIndex + 1) % slides.length ||
+    index === (currentIndex + 2) % slides.length
+  ) {
+    return "auto";
+  }
+  return "metadata";
+}
+
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isUnmuted, setIsUnmuted] = useState(false);
+  const [sectionInView, setSectionInView] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   const totalSlides = slides.length;
   const currentSlide = slides[currentIndex];
+  const videoIndicesToLoad = useMemo(
+    () => getVideoIndicesToLoad(currentIndex, totalSlides),
+    [currentIndex, totalSlides],
+  );
 
   const goToNext = useCallback(() => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalSlides);
@@ -152,6 +191,21 @@ export default function Testimonials() {
   }, [goToNext]);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setSectionInView(entry.isIntersecting);
+      },
+      { rootMargin: "300px 0px" },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     if (currentSlide?.type !== "card") return;
 
     const interval = setInterval(() => {
@@ -162,22 +216,45 @@ export default function Testimonials() {
   }, [currentIndex, currentSlide?.type, totalSlides]);
 
   useEffect(() => {
+    if (!sectionInView || currentSlide?.type !== "video") return;
+
+    const video = videoRefs.current[currentIndex];
+    if (!video?.src) return;
+
+    video.muted = !isUnmuted;
+
+    const playVideo = () => {
+      video.play().catch(() => {});
+    };
+
+    if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+      playVideo();
+      return;
+    }
+
+    const handleCanPlay = () => {
+      playVideo();
+    };
+
+    video.addEventListener("canplay", handleCanPlay);
+
+    return () => {
+      video.removeEventListener("canplay", handleCanPlay);
+    };
+  }, [currentIndex, currentSlide?.type, isUnmuted, sectionInView]);
+
+  useEffect(() => {
     videoRefs.current.forEach((video, index) => {
       if (!video || slides[index]?.type !== "video") return;
-
-      if (index === currentIndex) {
-        video.muted = !isUnmuted;
-        video.play().catch(() => {});
-      } else {
+      if (index !== currentIndex) {
         video.pause();
-        video.currentTime = 0;
-        video.muted = true;
       }
     });
-  }, [currentIndex, isUnmuted]);
+  }, [currentIndex]);
 
   return (
     <section
+      ref={sectionRef}
       id="testimonials"
       className="relative mt-0 flex w-full flex-col items-stretch pb-3 pt-6 sm:mt-0 sm:pb-4 sm:pt-3 md:pb-5 md:pt-4 lg:pb-6 lg:pt-5 px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]"
     >
@@ -230,6 +307,12 @@ export default function Testimonials() {
             >
               {slides.map((slide, index) => {
                 const isActive = index === currentIndex;
+                const shouldLoadVideo =
+                  slide.type === "video" &&
+                  sectionInView &&
+                  videoIndicesToLoad.has(index);
+                const videoSrc =
+                  slide.type === "video" && shouldLoadVideo ? slide.src : undefined;
 
                 return (
                   <div
@@ -304,11 +387,15 @@ export default function Testimonials() {
                           ref={(el) => {
                             videoRefs.current[index] = el;
                           }}
-                          src={slide.src}
+                          src={videoSrc}
                           className="absolute inset-0 h-full w-full object-cover"
                           playsInline
-                          muted
-                          preload={isActive ? "auto" : "metadata"}
+                          muted={!isUnmuted || !isActive}
+                          preload={
+                            shouldLoadVideo
+                              ? getVideoPreloadMode(index, currentIndex)
+                              : "none"
+                          }
                           onEnded={
                             isActive ? handleVideoEnded : undefined
                           }
