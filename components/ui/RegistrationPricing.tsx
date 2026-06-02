@@ -11,9 +11,11 @@ function RegisterNowButton({ className = "" }: { className?: string }) {
       href={REGISTER_PORTAL_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-block bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-poppins font-bold text-sm sm:text-base px-8 py-3 rounded-lg transition-colors ${className}`}
+      className={`group inline-flex items-center justify-center rounded-lg border border-[#d8efff]/80 bg-gradient-to-br from-[#8cc9fb] via-[#89c6f9] to-[#7abcf4] px-8 py-3 font-poppins text-sm font-bold tracking-wide text-[#022241] shadow-[0_0_20px_rgba(166,219,255,0.55),0_0_42px_rgba(106,175,241,0.42),0_10px_24px_rgba(106,175,241,0.36)] transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-[#e6f5ff] hover:bg-gradient-to-br hover:from-[#9fd5ff] hover:via-[#95cffc] hover:to-[#84c5fa] hover:shadow-[0_0_28px_rgba(182,229,255,0.72),0_0_56px_rgba(106,175,241,0.58),0_14px_30px_rgba(106,175,241,0.46)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6aaff1] sm:text-base ${className}`}
     >
-      Register Now
+      <span className="transition-transform duration-300 group-hover:scale-[1.03]">
+        Register Now
+      </span>
     </a>
   );
 }
