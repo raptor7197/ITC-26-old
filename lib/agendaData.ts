@@ -13,28 +13,29 @@ export type ParallelSession = {
   hall: string;
   title: string;
   items?: string[];
+  colSpan?: number;
 };
 
 export type AgendaSlot =
   | {
-      kind: "single";
-      time: string;
-      title: string;
-      subtitle?: string;
-      location?: string;
-      variant?: AgendaSlotVariant;
-    }
+    kind: "single";
+    time: string;
+    title: string;
+    subtitle?: string;
+    location?: string;
+    variant?: AgendaSlotVariant;
+  }
   | {
-      kind: "parallel";
-      time: string;
-      label?: string;
-      sessions: ParallelSession[];
-    }
+    kind: "parallel";
+    time: string;
+    label?: string;
+    sessions: ParallelSession[];
+  }
   | {
-      kind: "break";
-      time: string;
-      title: string;
-    };
+    kind: "break";
+    time: string;
+    title: string;
+  };
 
 export type AgendaDay = {
   id: string;
@@ -68,95 +69,80 @@ export const agendaDays: AgendaDay[] = [
         kind: "parallel",
         time: "09:15 AM – 10:45 AM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "Tutorial 1", items: ["90 mins"] },
-          { hall: "Grand Victoria 2", title: "Tutorial 2", items: ["90 mins"] },
-          {
-            hall: "Arabica & Robusta",
-            title: "Tutorial 3",
-            items: ["90 mins"],
-          },
-          { hall: "Brain Box", title: "Tutorial 4", items: ["90 mins"] },
+          { hall: "Grand Victoria 1", title: "Tutorial 1", items: ["(90 mins)"] },
+          { hall: "Grand Victoria 2", title: "Tutorial 2", items: ["(90 mins)"] },
+          { hall: "Arabica & Robusta", title: "Tutorial 3", items: ["(90 mins)"] },
+          { hall: "Brain Box", title: "Tutorial 4", items: ["(90 mins)"] },
         ],
       },
       {
-        kind: "break",
+        kind: "parallel",
         time: "10:45 AM – 11:15 AM",
-        title: "Tea / Coffee Break",
+        sessions: [
+          { hall: "Grand Victoria 1", title: "Tea/Coffee Break", colSpan: 3 },
+          { hall: "Brain Box", title: "No Activity Planned" },
+        ],
       },
       {
         kind: "parallel",
         time: "11:15 AM – 12:45 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "Tutorial 5", items: ["90 mins"] },
-          { hall: "Grand Victoria 2", title: "Tutorial 6", items: ["90 mins"] },
-          {
-            hall: "Arabica & Robusta",
-            title: "Tutorial 7",
-            items: ["90 mins"],
-          },
+          { hall: "Grand Victoria 1", title: "Tutorial 5", items: ["(90 mins)"] },
+          { hall: "Grand Victoria 2", title: "Tutorial 6", items: ["(90 mins)"] },
+          { hall: "Arabica & Robusta", title: "Tutorial 7", items: ["(90 mins)"] },
           { hall: "Brain Box", title: "No Activity Planned" },
         ],
       },
       {
-        kind: "break",
+        kind: "parallel",
         time: "12:45 PM – 01:45 PM",
-        title: "Lunch Break",
+        sessions: [
+          { hall: "Grand Victoria 1", title: "Lunch Break", colSpan: 3 },
+          { hall: "Brain Box", title: "No Activity Planned" },
+        ],
       },
       {
         kind: "parallel",
         time: "01:45 PM – 03:15 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "Tutorial 8", items: ["90 mins"] },
-          { hall: "Grand Victoria 2", title: "Tutorial 9", items: ["90 mins"] },
-          {
-            hall: "Arabica & Robusta",
-            title: "Tutorial 10",
-            items: ["90 mins"],
-          },
+          { hall: "Grand Victoria 1", title: "Tutorial 8", items: ["(90 mins)"] },
+          { hall: "Grand Victoria 2", title: "Tutorial 9", items: ["(90 mins)"] },
+          { hall: "Arabica & Robusta", title: "Tutorial 10", items: ["(90 mins)"] },
+          { hall: "Brain Box", title: "No Activity Planned" },
         ],
       },
       {
-        kind: "break",
+        kind: "parallel",
         time: "03:15 PM – 03:45 PM",
-        title: "Tea / Coffee Break",
+        sessions: [
+          { hall: "Grand Victoria 1", title: "Tea/Coffee Break", colSpan: 3 },
+          { hall: "Brain Box", title: "No Activity Planned" },
+        ],
       },
       {
         kind: "parallel",
         time: "03:45 PM – 05:15 PM",
         sessions: [
-          {
-            hall: "Grand Victoria 1",
-            title: "Tutorial 11",
-            items: ["90 mins"],
-          },
-          {
-            hall: "Grand Victoria 2",
-            title: "Tutorial 12",
-            items: ["90 mins"],
-          },
-          {
-            hall: "Arabica & Robusta",
-            title: "Tutorial 13",
-            items: ["90 mins"],
-          },
+          { hall: "Grand Victoria 1", title: "Tutorial 11", items: ["(90 mins)"] },
+          { hall: "Grand Victoria 2", title: "Tutorial 12", items: ["(90 mins)"] },
+          { hall: "Arabica & Robusta", title: "Tutorial 13", items: ["(90 mins)"] },
+          { hall: "Brain Box", title: "No Activity Planned" },
         ],
       },
       {
-        kind: "single",
+        kind: "parallel",
         time: "05:15 PM – 06:15 PM",
-        title: "No Activity Planned",
-        variant: "none",
+        sessions: [
+          { hall: "Grand Victoria 1", title: "No Activity Planned", colSpan: 3 },
+          { hall: "Brain Box", title: "No Activity Planned" },
+        ],
       },
       {
         kind: "parallel",
         time: "06:30 PM – 07:45 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "No Activity Planned" },
-          { hall: "Grand Victoria 2", title: "No Activity Planned" },
-          {
-            hall: "Arabica & Robusta",
-            title: "TTTC Workshop — Proposal Review",
-          },
+          { hall: "Grand Victoria 1", title: "No Activity Planned", colSpan: 2 },
+          { hall: "Arabica & Robusta", title: "TTTC Workshop - Proposal Review" },
           { hall: "Brain Box", title: "No Activity Planned" },
         ],
       },
@@ -179,7 +165,7 @@ export const agendaDays: AgendaDay[] = [
         time: "09:00 AM – 09:30 AM",
         title: "Conference Inauguration",
         subtitle:
-          "Opening Remarks, Conference Highlights, Lamp Lighting by Chief Guests",
+          "General Co-Chair, ITC India 2026 | Opening Remarks, Conference Highlights, Lamp Lighting by Chief Guests",
         location: "Grand Victoria 1 & 2",
         variant: "plenary",
       },
@@ -187,21 +173,18 @@ export const agendaDays: AgendaDay[] = [
         kind: "single",
         time: "09:30 AM – 10:00 AM",
         title: "Keynote 1",
-        location: "Grand Victoria 1 & 2",
         variant: "keynote",
       },
       {
         kind: "single",
         time: "10:00 AM – 10:30 AM",
         title: "Keynote 2",
-        location: "Grand Victoria 1 & 2",
         variant: "keynote",
       },
       {
         kind: "single",
         time: "10:30 AM – 11:00 AM",
         title: "Keynote 3",
-        location: "Grand Victoria 1 & 2",
         variant: "keynote",
       },
       {
@@ -213,12 +196,12 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "break",
         time: "11:05 AM – 11:30 AM",
-        title: "Tea / Coffee Break",
+        title: "Tea/Coffee Break",
       },
       {
         kind: "parallel",
         time: "11:30 AM – 12:45 PM",
-        label: "Technical Sessions",
+        label: "SESSIONS",
         sessions: [
           {
             hall: "Grand Victoria 1",
@@ -237,7 +220,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Brain Box",
-            title: "Academia Research Track 1",
+            title: "ART Track 1",
             items: ["Paper 1", "Paper 2", "Paper 3"],
           },
         ],
@@ -250,7 +233,7 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "parallel",
         time: "01:45 PM – 03:30 PM",
-        label: "Technical Sessions",
+        label: "SESSIONS",
         sessions: [
           {
             hall: "Grand Victoria 1",
@@ -269,50 +252,92 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Brain Box",
-            title: "Academia Research Track 2 & Hackathon",
+            title: "ART Track 2",
             items: ["Paper 1", "Paper 2", "Hackathon Presentations"],
           },
         ],
       },
       {
         kind: "parallel",
-        time: "03:30 PM – 05:15 PM",
+        time: "03:30 PM – 04:00 PM",
         sessions: [
           {
-            hall: "Entrance Lobby",
-            title: "Poster Session",
-            items: ["03:30 PM – 05:15 PM"],
+            hall: "Grand Victoria 1",
+            title: "Tea/Coffee Break",
+            colSpan: 3,
           },
           {
-            hall: "Grand Victoria",
-            title: "Other Events",
-            items: [
-              "03:30 – 04:00 · Tea / Coffee Break",
-              "04:00 – 04:25 · Distinguished Address 1",
-              "04:25 – 04:50 · Distinguished Address 2",
-              "04:50 – 05:15 · Distinguished Address 3",
-            ],
+            hall: "Brain Box",
+            title: "Poster Session",
+            items: ["(ENTRANCE LOBBY)"],
+          },
+        ],
+      },
+      {
+        kind: "parallel",
+        time: "04:00 PM – 04:25 PM",
+        sessions: [
+          {
+            hall: "Grand Victoria 1",
+            title: "Distinguished Address 1",
+            colSpan: 3,
+          },
+          {
+            hall: "Brain Box",
+            title: "Poster Session",
+            items: ["(ENTRANCE LOBBY)"],
+          },
+        ],
+      },
+      {
+        kind: "parallel",
+        time: "04:25 PM – 04:50 PM",
+        sessions: [
+          {
+            hall: "Grand Victoria 1",
+            title: "Distinguished Address 2",
+            colSpan: 3,
+          },
+          {
+            hall: "Brain Box",
+            title: "Poster Session",
+            items: ["(ENTRANCE LOBBY)"],
+          },
+        ],
+      },
+      {
+        kind: "parallel",
+        time: "04:50 PM – 05:15 PM",
+        sessions: [
+          {
+            hall: "Grand Victoria 1",
+            title: "Distinguished Address 3",
+            colSpan: 3,
+          },
+          {
+            hall: "Brain Box",
+            title: "Poster Session",
+            items: ["(ENTRANCE LOBBY)"],
           },
         ],
       },
       {
         kind: "single",
         time: "05:15 PM – 05:30 PM",
-        title: "Closing Remarks",
-        subtitle: "General Co-Chairs, ITC India 2026",
+        title: "Closing Remarks | General Co-Chairs, ITC India 2026",
         variant: "plenary",
       },
       {
         kind: "break",
         time: "05:30 PM – 06:30 PM",
-        title: "Break (No Activity Planned)",
+        title: "BREAK (NO ACTIVITY PLANNED)",
       },
       {
         kind: "single",
         time: "06:30 PM – 08:30 PM",
-        title: "Banquet Sit-Down Dinner",
+        title: "Banquet Sit Down Dinner (Invite Only)",
         subtitle:
-          "Invite Only · ITC India 10th Edition Reflections · Felicitation of Past Chairs & Advisory Committee Members · Panel 2",
+          "ITC India - 10th Edition Reflections | Felicitation of the Past Chairs, Advisory Committee Members | Panel 2",
         variant: "evening",
       },
     ],
@@ -332,41 +357,36 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "single",
         time: "09:00 AM – 09:30 AM",
-        title: "Welcome / Day 1 Summary",
-        subtitle: "General Co-Chair, ITC India 2025",
-        location: "Grand Victoria 1 & 2",
+        title: "Welcome / Day 1 Summary | General Co-Chair, ITC India 2025",
         variant: "plenary",
       },
       {
         kind: "single",
         time: "09:30 AM – 10:00 AM",
         title: "Keynote 4",
-        location: "Grand Victoria 1 & 2",
         variant: "keynote",
       },
       {
         kind: "single",
         time: "10:00 AM – 10:30 AM",
         title: "Keynote 5",
-        location: "Grand Victoria 1 & 2",
         variant: "keynote",
       },
       {
         kind: "single",
         time: "10:30 AM – 11:00 AM",
         title: "Keynote 6",
-        location: "Grand Victoria 1 & 2",
         variant: "keynote",
       },
       {
         kind: "break",
         time: "11:00 AM – 11:30 AM",
-        title: "Tea / Coffee Break",
+        title: "Tea/Coffee Break",
       },
       {
         kind: "parallel",
         time: "11:30 AM – 12:45 PM",
-        label: "Technical Sessions",
+        label: "SESSIONS",
         sessions: [
           {
             hall: "Grand Victoria 1",
@@ -398,7 +418,7 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "parallel",
         time: "01:45 PM – 03:30 PM",
-        label: "Technical Sessions",
+        label: "SESSIONS",
         sessions: [
           {
             hall: "Grand Victoria 1",
@@ -425,34 +445,52 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "break",
         time: "03:30 PM – 04:00 PM",
-        title: "Tea / Coffee Break",
+        title: "Tea/Coffee Break",
       },
       {
         kind: "parallel",
-        time: "04:00 PM – 05:30 PM",
+        time: "04:00 PM – 04:25 PM",
         sessions: [
           {
-            hall: "Entrance Lobby",
-            title: "Poster Session",
-            items: ["04:00 PM – 05:30 PM"],
+            hall: "Grand Victoria 1",
+            title: "Distinguished Address 4",
+            colSpan: 2,
           },
           {
-            hall: "Grand Victoria 1 & 2",
-            title: "Other Events",
-            items: [
-              "04:00 – 04:25 · Distinguished Address 4",
-              "04:25 – 05:30 · Panel 4",
-            ],
+            hall: "Arabica & Robusta",
+            title: "No Activity Planned",
+          },
+          {
+            hall: "Brain Box",
+            title: "Poster Session",
+            items: ["(ENTRANCE LOBBY)"],
+          },
+        ],
+      },
+      {
+        kind: "parallel",
+        time: "04:25 PM – 05:30 PM",
+        sessions: [
+          {
+            hall: "Grand Victoria 1",
+            title: "Panel 4",
+            colSpan: 2,
+          },
+          {
+            hall: "Arabica & Robusta",
+            title: "No Activity Planned",
+          },
+          {
+            hall: "Brain Box",
+            title: "Poster Session",
+            items: ["(ENTRANCE LOBBY)"],
           },
         ],
       },
       {
         kind: "single",
         time: "05:30 PM – 06:00 PM",
-        title: "Closing Ceremony",
-        subtitle:
-          "Awards and Valedictory Session · General Co-Chair, ITC India 2026",
-        location: "Grand Victoria 1 & 2",
+        title: "Closing Ceremony | Awards and Valedictory Session | General Co-Chair, ITC India 2026",
         variant: "plenary",
       },
     ],
