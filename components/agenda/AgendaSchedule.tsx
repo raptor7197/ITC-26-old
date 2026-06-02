@@ -77,6 +77,8 @@ const TRACK_STYLES = {
   },
 };
 
+
+
 function CircuitGraphic() {
   return (
     <div className="absolute right-0 top-0 bottom-0 w-64 pointer-events-none overflow-hidden opacity-50 hidden md:block">
@@ -99,21 +101,25 @@ export default function AgendaSchedule() {
   const activeDay = agendaDays.find((d) => d.id === activeId) ?? agendaDays[0];
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto text-white flex flex-col font-inter relative p-4 md:p-8">
+    <div className="relative mx-auto flex w-full min-w-0 max-w-[1400px] flex-col font-inter text-white">
       {/* Top Section */}
-      <div className="relative z-10 mb-6 flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6">
-        <div className="flex flex-col gap-4">
-          <h1 className="text-4xl md:text-5xl font-black tracking-widest text-white font-sarpanch" style={{ textShadow: "0 0 10px rgba(255,255,255,0.3)" }}>
+      <div className="relative z-10 mb-6 flex flex-col justify-between gap-6 pb-6 md:flex-row md:items-end">
+        <div className="flex min-w-0 flex-col gap-4">
+          <h1
+            className="font-sarpanch text-3xl font-black tracking-widest text-white sm:text-4xl md:text-5xl"
+            style={{ textShadow: "0 0 10px rgba(255,255,255,0.3)" }}
+          >
             PROGRAM AGENDA
           </h1>
-          <div className="flex flex-wrap gap-4 mt-2">
+          <div className="mt-2 flex flex-wrap gap-2 sm:gap-4">
             {agendaDays.map((day) => {
               const active = day.id === activeId;
               return (
                 <button
                   key={day.id}
+                  type="button"
                   onClick={() => setActiveId(day.id)}
-                  className={`rounded-full px-8 py-2 text-sm font-bold uppercase transition-all duration-300 ${
+                  className={`rounded-full px-4 py-2 text-xs font-bold uppercase transition-all duration-300 sm:px-8 sm:text-sm ${
                     active
                       ? "border border-sky-400 bg-sky-500/20 text-sky-100 shadow-[0_0_15px_rgba(56,189,248,0.4)]"
                       : "border border-white/20 bg-transparent text-gray-300 hover:border-sky-300 hover:text-white"
@@ -126,20 +132,20 @@ export default function AgendaSchedule() {
           </div>
         </div>
 
-        <div className="flex items-start gap-4">
-          <div className="hidden md:flex items-center">
+        <div className="flex min-w-0 items-start gap-4">
+          <div className="hidden items-center md:flex">
              <svg width="40" height="80" viewBox="0 0 40 80" className="text-sky-400 opacity-60">
                 <path d="M 0,20 L 20,20 L 20,60 L 40,60" fill="none" stroke="currentColor" strokeWidth="1" strokeDasharray="3,3" />
                 <circle cx="0" cy="20" r="3" fill="transparent" stroke="currentColor" strokeWidth="1" />
                 <circle cx="40" cy="60" r="3" fill="currentColor" />
              </svg>
           </div>
-          <div className="flex flex-col border-l-2 border-sky-400/50 pl-4 py-1 min-w-[450px] max-w-[700px]">
-            <div className="flex items-center gap-2 mb-1">
+          <div className="flex min-w-0 w-full flex-col border-l-2 border-sky-400/50 py-1 pl-4 md:max-w-[700px]">
+            <div className="mb-1 flex items-center gap-2">
               {ICONS.calendar}
-              <span className="text-sm font-bold tracking-widest uppercase text-sky-300">{activeDay.label}</span>
+              <span className="text-sm font-bold uppercase tracking-widest text-sky-300">{activeDay.label}</span>
             </div>
-            <h2 className="text-2xl font-bold tracking-wider uppercase text-white mb-1 whitespace-nowrap">
+            <h2 className="mb-1 text-xl font-bold uppercase tracking-wider break-words text-white sm:text-2xl">
               {activeDay.subtitle}
             </h2>
             <p className="text-sm text-sky-200/80">{activeDay.date}</p>
@@ -149,15 +155,15 @@ export default function AgendaSchedule() {
         <CircuitGraphic />
       </div>
 
-      {/* Main Table Container */}
-      <div className="relative rounded-lg border border-dashed border-sky-400/50 bg-[#031428]/60 backdrop-blur-md shadow-[0_0_30px_rgba(4,24,48,0.8)] overflow-x-auto">
+      {/* Desktop table */}
+      <div className="relative min-w-0 rounded-lg border border-dashed border-sky-400/50 bg-[#031428]/60 shadow-[0_0_30px_rgba(4,24,48,0.8)] backdrop-blur-md">
         {/* Subtle grid pattern background */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
              style={{ backgroundImage: "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)", backgroundSize: "20px 20px" }}>
         </div>
 
-        <div className="relative z-10 w-full overflow-x-auto">
-          <table className="w-full table-fixed border-collapse text-sm min-w-[880px]">
+        <div className="relative z-10 w-full min-w-0 overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
+          <table className="w-full min-w-[880px] table-fixed border-collapse text-sm">
             <thead>
               <tr>
                 <th className="border-r border-b border-[#1c3a5e] bg-[#071f3a]/80 backdrop-blur-sm p-2 sm:p-4 text-center w-[90px] sm:w-[140px]">
@@ -166,12 +172,12 @@ export default function AgendaSchedule() {
                 {VENUES.map((venue) => {
                   const style = TRACK_STYLES[venue as keyof typeof TRACK_STYLES] || { bgHeader: "bg-[#334155]", title: venue, icon: null };
                   return (
-                    <th key={venue} className={`border-r border-b border-[#1c3a5e] ${style.bgHeader} p-3 text-left w-1/4`}>
-                      <div className="flex items-center gap-3">
-                        {style.icon}
-                        <div className="flex flex-col items-start">
-                          <span className="text-[11px] font-extrabold tracking-wider opacity-85 uppercase">{style.title}</span>
-                          <span className="text-[13px] font-black tracking-wider uppercase">{venue}</span>
+                    <th key={venue} className={`border-r border-b border-[#1c3a5e] ${style.bgHeader} w-1/4 p-2 text-left sm:p-3`}>
+                      <div className="flex items-center gap-2 sm:gap-3">
+                        <span className="shrink-0 scale-90 sm:scale-100">{style.icon}</span>
+                        <div className="flex min-w-0 flex-col items-start">
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider opacity-85 sm:text-[11px]">{style.title}</span>
+                          <span className="text-[11px] font-black uppercase leading-tight tracking-wide sm:text-[13px]">{venue}</span>
                         </div>
                       </div>
                     </th>
