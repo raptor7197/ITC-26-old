@@ -361,6 +361,15 @@ body::-webkit-scrollbar-button:horizontal:double-button:end:increment,
   line-height: 1.08;
 }
 
+/* Keynote title - longer word, needs lower cqi to fit inside pocket */
+.angkor-title-pocket .angkor-section-title.keynote-zigzag-title {
+  font-size: clamp(
+    14px,
+    min(calc(var(--zigzag-section-height) * 50 / 110), 8cqi),
+    58px
+  );
+}
+
 .angkor-heading-gutter {
   box-sizing: border-box;
   padding-inline: var(--angkor-heading-pad-x);
