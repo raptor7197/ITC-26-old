@@ -52,23 +52,34 @@ const ICONS = {
   ),
   coffee: (
     <svg
-      className="w-5 h-5 text-sky-200"
+      className="w-5 h-5 text-sky-400"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H5a2 2 0 00-2 2v5a2 2 0 002 2z"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M8 3h8M12 3v5"
-      />
+      <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+      <line x1="6" y1="1" x2="6" y2="4"/>
+      <line x1="10" y1="1" x2="10" y2="4"/>
+      <line x1="14" y1="1" x2="14" y2="4"/>
+    </svg>
+  ),
+  lunch: (
+    <svg
+      className="w-5 h-5 text-sky-400"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M6 10h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/>
+      <path d="M6 6h12a2 2 0 0 1 2 2v2H4V8a2 2 0 0 1 2-2Z"/>
+      <path d="M10 6V4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2"/>
     </svg>
   ),
   // CPU
@@ -107,73 +118,63 @@ const ICONS = {
   // Shield
   track3: (
     <svg
-      className="w-6 h-6 text-emerald-400"
+      className="w-6 h-6 text-sky-400 opacity-90"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-      />
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
     </svg>
   ),
   // Brain
   track4: (
     <svg
-      className="w-6 h-6 text-amber-400"
+      className="w-6 h-6 text-amber-400 opacity-90"
       fill="none"
       viewBox="0 0 24 24"
       stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M12 4.5v15m0 0a3.75 3.75 0 01-3.75-3.75v-6.75a3.75 3.75 0 013.75-3.75m0 0a3.75 3.75 0 013.75 3.75v6.75a3.75 3.75 0 01-3.75 3.75M9.75 4.5h4.5"
-      />
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={1.5}
-        d="M8.25 15h7.5"
-      />
+      <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
+      <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
+      <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
+      <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/>
+      <path d="M6.002 5.125A3 3 0 0 0 6.401 6.5"/>
+      <path d="M3.477 10.896a4 4 0 0 1 .585-.396"/>
+      <path d="M19.938 10.5a4 4 0 0 1 .585.396"/>
+      <path d="M6 18a4 4 0 0 1-1.967-.516"/>
+      <path d="M19.967 17.484A4 4 0 0 1 18 18"/>
     </svg>
   ),
 };
 
 const TRACK_STYLES = {
   "Grand Victoria 1": {
-    bgHeader:
-      "bg-[#1e293b] !important border-r border-b border-white/10 text-white",
-    bgCell:
-      "bg-[#0f172a] !important backdrop-blur-sm border border-white/10 text-white font-medium",
+    bgHeader: "bg-gradient-to-br from-[#4b8aff] via-[#1a52b0] to-[#081a4a]",
+    bgCell: "bg-gradient-to-br from-[#1b4385] to-[#091533] text-white",
     icon: ICONS.track1,
     title: "TRACK 1 (A)",
   },
   "Grand Victoria 2": {
-    bgHeader:
-      "bg-[#1e293b] !important border-r border-b border-white/10 text-white",
-    bgCell:
-      "bg-[#0f172a] !important backdrop-blur-sm border border-white/10 text-white font-medium",
+    bgHeader: "bg-gradient-to-br from-[#a67aff] via-[#5424a0] to-[#25085e]",
+    bgCell: "bg-gradient-to-br from-[#271c6e] to-[#090826] text-white",
     icon: ICONS.track2,
     title: "TRACK 2 (A)",
   },
   "Arabica & Robusta": {
-    bgHeader:
-      "bg-[#1e293b] !important border-r border-b border-white/10 text-white",
-    bgCell:
-      "bg-[#0f172a] !important backdrop-blur-sm border border-white/10 text-white font-medium",
+    bgHeader: "bg-gradient-to-br from-[#42b1eb] via-[#104c6e] to-[#052236]",
+    bgCell: "bg-gradient-to-br from-[#163c70] to-[#081224] text-white",
     icon: ICONS.track3,
     title: "TRACK 3 (A)",
   },
   "Brain Box": {
-    bgHeader:
-      "bg-[#1e293b] !important border-r border-b border-white/10 text-white",
-    bgCell:
-      "bg-[#0f172a] !important backdrop-blur-sm border border-white/10 text-white font-medium",
+    bgHeader: "bg-gradient-to-br from-[#e3ae3d] via-[#735008] to-[#302102]",
+    bgCell: "bg-gradient-to-br from-[#705807] to-[#3d2e00] text-white",
     icon: ICONS.track4,
     title: "TRACK 4",
   },
@@ -220,57 +221,147 @@ export default function AgendaSchedule() {
   const activeDay = agendaDays.find((d) => d.id === activeId) ?? agendaDays[0];
 
   return (
-    <div className="relative mx-auto flex w-full min-w-0 max-w-[1400px] flex-col font-inter text-white">
+    <div className="w-full max-w-[1400px] mx-auto text-white flex flex-col relative p-4 md:p-8">
       {/* Top Section */}
-      <div className="relative z-10 mb-6 flex flex-col items-center gap-6 pb-6">
-        <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-          ITC India 2026 Conference Schedule
-        </h1>
-        <div className="flex flex-wrap gap-2 sm:gap-4">
-          {agendaDays.map((day) => {
-            const active = day.id === activeId;
-            return (
-              <button
-                key={day.id}
-                type="button"
-                onClick={() => setActiveId(day.id)}
-                className={`rounded-md px-6 py-2 text-sm font-bold uppercase transition-all duration-300 ${
-                  active
-                    ? "bg-white text-black"
-                    : "border border-white/20 bg-transparent text-gray-300 hover:bg-white/10 hover:text-white"
-                }`}
+      <div className="relative z-10 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        {/* LEFT: Title and Tabs */}
+        <div className="flex flex-col gap-6 w-full max-w-[500px]">
+          <h1
+            className="text-[42px] md:text-[56px] leading-none tracking-wide text-white font-black-ops-one"
+            style={{
+              textShadow:
+                "0 4px 10px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.1)",
+            }}
+          >
+            PROGRAM AGENDA
+          </h1>
+          <div className="flex flex-wrap gap-4 mt-2">
+            {agendaDays.map((day) => {
+              const active = day.id === activeId;
+              return (
+                <button
+                  key={day.id}
+                  onClick={() => setActiveId(day.id)}
+                  className={`rounded-[30px] px-8 py-[10px] text-[15px] font-bold transition-all duration-300 min-w-[120px] ${
+                    active
+                      ? "border border-[#00b0f0] bg-[#0055ff] text-white shadow-[0_0_15px_rgba(0,176,240,0.6)]"
+                      : "border border-[#23426b] bg-[#09152b] text-[#8fa7c7] hover:border-[#3a68a3] hover:text-white"
+                  }`}
+                >
+                  {day.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* MIDDLE: Active Day Title (connected via dashed line) */}
+        <div className="flex items-start gap-6 flex-1 min-w-[300px]">
+          {/* Connector Graphic from Title to Details */}
+          <div className="hidden md:flex flex-col justify-end pb-2 relative h-[100px] w-[40px]">
+            {/* The dot */}
+            <div className="absolute top-[40px] left-[-20px] w-2 h-2 rounded-full border-2 border-sky-400"></div>
+            <div className="absolute top-[42.5px] left-[-16px] w-[56px] border-t-2 border-dotted border-sky-400"></div>
+            {/* Vertical drop */}
+            <div className="absolute top-[42.5px] left-[40px] h-[50px] border-l-2 border-dotted border-sky-400"></div>
+          </div>
+
+          <div className="flex flex-col pl-4 md:pl-0 mt-8 md:mt-0">
+            <div className="flex items-center gap-2 mb-2">
+              <svg
+                className="w-5 h-5 text-sky-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
-                {day.label}
-              </button>
-            );
-          })}
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              <span className="text-[13px] font-bold tracking-widest text-sky-400 uppercase">
+                {activeDay.label}
+              </span>
+            </div>
+            <h2 className="text-[28px] font-black tracking-wider text-white mb-1 whitespace-nowrap">
+              {activeDay.subtitle}
+            </h2>
+            <p className="text-[15px] text-sky-400 font-medium">
+              {activeDay.date}
+            </p>
+          </div>
+        </div>
+
+        {/* RIGHT: Tech Circuit Graphics */}
+        <div className="hidden lg:block absolute right-0 top-6 w-[200px] h-[80px]">
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 200 80"
+            className="text-sky-400/80"
+          >
+            <path
+              d="M0,60 L40,60 L60,40 L200,40"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
+            <circle cx="0" cy="60" r="2.5" fill="currentColor" />
+
+            <path
+              d="M20,70 L50,70 L70,50 L200,50"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
+            <circle cx="20" cy="70" r="2.5" fill="currentColor" />
+
+            <path
+              d="M80,30 L100,30 L110,20 L200,20"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+            />
+            <circle cx="80" cy="30" r="2.5" fill="currentColor" />
+            <circle
+              cx="100"
+              cy="30"
+              r="1.5"
+              fill="none"
+              stroke="currentColor"
+            />
+
+            <path
+              d="M120,60 L200,60"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeDasharray="2,4"
+            />
+          </svg>
         </div>
       </div>
 
-      {/* Main Day Header */}
-      <div className="mb-6 rounded-t-lg bg-[#1e293b] p-6 text-center border border-white/10">
-        <h2 className="text-xl font-bold">{activeDay.subtitle}</h2>
-        <p className="text-gray-400">{activeDay.date}</p>
-      </div>
-
-      {/* Desktop table */}
-      <div className="relative min-w-0 rounded-b-lg border border-white/10 bg-[#0f172a]/60">
-        {/* Subtle grid pattern background */}
+      {/* Main Table Container */}
+      <div className="relative rounded-[8px] bg-[#071325]/90 overflow-x-auto shadow-lg">
+        {/* Subtle grid pattern background matching the reference */}
         <div
-          className="absolute inset-0 pointer-events-none opacity-[0.03]"
+          className="absolute inset-0 pointer-events-none opacity-20"
           style={{
             backgroundImage:
-              "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+              "linear-gradient(#152c4d 1px, transparent 1px), linear-gradient(90deg, #152c4d 1px, transparent 1px)",
             backgroundSize: "20px 20px",
           }}
         ></div>
 
-        <div className="relative z-10 w-full min-w-0 overflow-x-auto overscroll-x-contain [-webkit-overflow-scrolling:touch]">
-          <table className="w-full min-w-[880px] table-fixed border-collapse text-sm">
+        <div className="relative z-10 w-full overflow-x-auto">
+          <table className="w-full table-fixed border-collapse text-sm min-w-[880px]">
             <thead>
               <tr>
-                <th className="border-r border-b border-[#1c3a5e] bg-[#071f3a]/80 backdrop-blur-sm p-2 sm:p-4 text-center w-[90px] sm:w-[140px]">
-                  <span className="text-xs font-bold tracking-widest text-sky-100 uppercase">
+                <th className="border-2 border-white/20 bg-[#0c2242] p-2 sm:p-4 text-center w-[120px] sm:w-[150px]">
+                  <span className="text-[13px] font-black tracking-widest text-white uppercase">
                     TIME
                   </span>
                 </th>
@@ -281,17 +372,15 @@ export default function AgendaSchedule() {
                   return (
                     <th
                       key={venue}
-                      className={`border-r border-b border-[#1c3a5e] ${style.bgHeader} w-1/4 p-2 text-left sm:p-3`}
+                      className={`border-2 border-white/20 ${style.bgHeader} p-3 text-left w-1/4`}
                     >
-                      <div className="flex items-center gap-2 sm:gap-3">
-                        <span className="shrink-0 scale-90 sm:scale-100">
-                          {style.icon}
-                        </span>
-                        <div className="flex min-w-0 flex-col items-start">
-                          <span className="text-[10px] font-extrabold uppercase tracking-wider opacity-85 sm:text-[11px]">
+                      <div className="flex items-center gap-3">
+                        {style.icon}
+                        <div className="flex flex-col items-start">
+                          <span className="text-[11px] font-extrabold tracking-wider opacity-85 uppercase">
                             {style.title}
                           </span>
-                          <span className="text-[11px] font-black uppercase leading-tight tracking-wide sm:text-[13px]">
+                          <span className="text-[13px] font-black tracking-wider uppercase">
                             {venue}
                           </span>
                         </div>
@@ -313,23 +402,22 @@ export default function AgendaSchedule() {
                   return (
                     <tr
                       key={`slot-${index}`}
-                      className="border-b border-[#1c3a5e]"
                     >
-                      <td className="border-r border-[#1c3a5e] bg-[#0c2447]/95 backdrop-blur-sm p-3 text-center whitespace-nowrap">
+                      <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center whitespace-nowrap">
                         <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
                           {ICONS.clock}
-                          <span className="text-xs font-medium">
+                          <span className="text-xs font-medium text-sky-100">
                             {slot.time}
                           </span>
                         </div>
                       </td>
                       <td
                         colSpan={4}
-                        className="bg-[#123863]/90 backdrop-blur-sm p-4 text-center"
+                        className="border-2 border-white/20 bg-transparent p-3 text-center"
                       >
-                        <div className="flex items-center justify-center gap-3">
-                          {isRegistration ? ICONS.user : ICONS.coffee}
-                          <span className="text-sm font-bold tracking-widest uppercase text-sky-100">
+                        <div className="flex items-center justify-center gap-3 bg-[#03152d] border border-white/20 rounded-xl mx-2 py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+                          {isRegistration ? ICONS.user : slot.title.toLowerCase().includes("lunch") ? ICONS.lunch : ICONS.coffee}
+                          <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
                             {slot.title}
                           </span>
                         </div>
@@ -355,33 +443,31 @@ export default function AgendaSchedule() {
                 return (
                   <tr
                     key={`slot-${index}`}
-                    className="border-b border-[#1c3a5e]"
                   >
-                    <td className="border-r border-[#1c3a5e] bg-[#0c2447]/95 backdrop-blur-sm p-3 text-center align-top whitespace-nowrap">
+                    <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center align-top whitespace-nowrap">
                       <div className="flex flex-col items-center gap-1 text-sky-100 mt-2">
                         {ICONS.clock}
-                        <span className="text-xs font-medium">
+                        <span className="text-xs font-medium text-sky-100">
                           {slot.time.split(" – ")[0]} –
                         </span>
-                        <span className="text-xs font-medium">
+                        <span className="text-xs font-medium text-sky-100">
                           {slot.time.split(" – ")[1]}
                         </span>
                       </div>
                     </td>
 
                     {slot.kind === "single" ? (
-                      <td
-                        colSpan={4}
-                        className="bg-gradient-to-br from-[#123863]/90 to-[#0a2340]/95 backdrop-blur-sm p-4 border-r border-[#1c3a5e]"
-                      >
-                        <div className="font-bold text-white text-base">
-                          {slot.title}
-                        </div>
-                        {slot.subtitle && (
-                          <div className="text-xs text-sky-200 mt-1">
-                            {slot.subtitle}
+                      <td colSpan={4} className="border-2 border-white/20 bg-transparent p-3">
+                        <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+                          <div className="font-bold text-white text-base">
+                            {slot.title}
                           </div>
-                        )}
+                          {slot.subtitle && (
+                            <div className="text-xs text-sky-200 mt-1">
+                              {slot.subtitle}
+                            </div>
+                          )}
+                        </div>
                       </td>
                     ) : (
                       (() => {
@@ -404,21 +490,21 @@ export default function AgendaSchedule() {
                             <td
                               key={venue}
                               colSpan={colSpan}
-                              className={`border-r border-[#1c3a5e] ${style ? style.bgCell : "bg-[#1e40af]/30 backdrop-blur-sm border border-blue-400/35 text-white"} p-2 sm:p-4 align-top break-words`}
+                              className={`border-2 border-white/20 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words`}
                             >
                               {session ? (
                                 <div className="flex flex-col h-full">
-                                  <h4 className="font-bold text-sm leading-snug text-white mb-3">
+                                  <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
                                     {session.title}
                                   </h4>
                                   {session.items &&
                                     session.items.length > 0 && (
-                                      <div className="mt-auto space-y-2">
+                                      <div className="mt-auto space-y-[6px]">
                                         {session.items.map(
                                           (item: string, idx: number) => (
                                             <div
                                               key={idx}
-                                              className="flex items-start gap-2 text-[13px] font-semibold text-sky-100/95 leading-snug"
+                                              className="flex items-start gap-2 text-[12px] font-normal text-[#a3b8cc] leading-[1.3]"
                                             >
                                               {ICONS.user}
                                               <span>{item}</span>
@@ -429,7 +515,7 @@ export default function AgendaSchedule() {
                                     )}
                                 </div>
                               ) : (
-                                <div className="text-xs text-white/30 italic text-center mt-4">
+                                <div className="text-xs text-[#a3b8cc]/50 italic text-center mt-4">
                                   —
                                 </div>
                               )}

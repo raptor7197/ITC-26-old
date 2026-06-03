@@ -7,6 +7,7 @@ import {
   Angkor,
   Inter,
   Sarpanch,
+  Black_Ops_One,
 } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/ui/Footer";
@@ -56,6 +57,12 @@ const sarpanch = Sarpanch({
   weight: ["400", "700"],
 });
 
+const blackOpsOne = Black_Ops_One({
+  variable: "--font-black-ops-one",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
   title: "ITC India 2026 - IEEE International Test Conference",
   description:
@@ -80,7 +87,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} ${urbanist.variable} ${poppins.variable} ${robotoSlab.variable} ${angkor.variable} ${inter.variable} ${sarpanch.variable} antialiased bg-[#03396c] selection:bg-white/20 relative`}
+        className={`${spaceGrotesk.variable} ${urbanist.variable} ${poppins.variable} ${robotoSlab.variable} ${angkor.variable} ${inter.variable} ${sarpanch.variable} ${blackOpsOne.variable} antialiased bg-[#03396c] selection:bg-white/20 relative`}
       >
         <div className="absolute inset-0 pointer-events-none z-0">
           <div

@@ -76,12 +76,9 @@ export const agendaDays: AgendaDay[] = [
         ],
       },
       {
-        kind: "parallel",
+        kind: "break",
         time: "10:45 AM – 11:15 AM",
-        sessions: [
-          { hall: "Grand Victoria 1", title: "Tea/Coffee Break", colSpan: 3 },
-          { hall: "Brain Box", title: "No Activity Planned" },
-        ],
+        title: "Tea/Coffee Break",
       },
       {
         kind: "parallel",
@@ -94,12 +91,9 @@ export const agendaDays: AgendaDay[] = [
         ],
       },
       {
-        kind: "parallel",
+        kind: "break",
         time: "12:45 PM – 01:45 PM",
-        sessions: [
-          { hall: "Grand Victoria 1", title: "Lunch Break", colSpan: 3 },
-          { hall: "Brain Box", title: "No Activity Planned" },
-        ],
+        title: "Lunch Break",
       },
       {
         kind: "parallel",
@@ -112,12 +106,9 @@ export const agendaDays: AgendaDay[] = [
         ],
       },
       {
-        kind: "parallel",
+        kind: "break",
         time: "03:15 PM – 03:45 PM",
-        sessions: [
-          { hall: "Grand Victoria 1", title: "Tea/Coffee Break", colSpan: 3 },
-          { hall: "Brain Box", title: "No Activity Planned" },
-        ],
+        title: "Tea/Coffee Break",
       },
       {
         kind: "parallel",
