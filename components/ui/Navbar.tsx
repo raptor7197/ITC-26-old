@@ -9,7 +9,14 @@ import { useRouter, usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "HOME", href: "/" },
-  { name: "AGENDA", href: "/agenda" },
+  {
+    name: "PROGRAM",
+    href: "#",
+    dropdown: [
+      { name: "Agenda", href: "/agenda" },
+      { name: "Keynote", href: "/keynote" },
+    ],
+  },
   { name: "REGISTRATION", href: "/registration" },
   { name: "COMMITTEE", href: "/committee" },
   {
