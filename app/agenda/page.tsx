@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AgendaPage() {
   return (
     <main className="relative min-h-screen font-poppins text-white selection:bg-white/20">
-      <div className="relative z-10 mx-auto flex w-[85%] max-w-[1200px] flex-col pb-16 pt-[130px] sm:w-[90%] md:w-full md:px-10">
+      <div className="relative z-10 mx-auto flex w-full px-4 sm:px-8 md:px-10 max-w-[1200px] flex-col pb-16 pt-[130px]">
 
 
         <AgendaSchedule />

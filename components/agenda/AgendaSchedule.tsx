@@ -134,7 +134,7 @@ export default function AgendaSchedule() {
                 <circle cx="40" cy="60" r="3" fill="currentColor" />
              </svg>
           </div>
-          <div className="flex flex-col border-l-2 border-sky-400/50 pl-4 py-1 min-w-[450px] max-w-[700px]">
+          <div className="flex flex-col border-l-2 border-sky-400/50 pl-4 py-1 w-full md:min-w-[450px] max-w-[700px]">
             <div className="flex items-center gap-2 mb-1">
               {ICONS.calendar}
               <span className="text-sm font-bold tracking-widest uppercase text-sky-300">{activeDay.label}</span>
