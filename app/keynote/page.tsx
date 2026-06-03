@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const keynoteSpeakers = [
   {
     name: "Subhasish Mitra",
-    image: "/images/subhasish-mitra.jpg",
+    image: "/images/keynote/Subhasish-Mitra.png",
     title:
       "Silent Data Corruption by 10× Test Escapes Threatens Reliable Computing",
     description:
@@ -19,7 +19,7 @@ const keynoteSpeakers = [
   },
   {
     name: "Senthilkumar Dhamodharan",
-    image: "/images/senthilkumar.jpg",
+    image: "/images/keynote/senthilkumar-photo.png",
     title:
       "SI Complexity to AI Revolution: India’s Silicon Leap 2047",
     description:
@@ -55,13 +55,11 @@ export default function KeynotePage() {
               <div className="grid grid-cols-1 lg:grid-cols-[320px_1fr] gap-10 p-8 md:p-10">
                 {/* LEFT - IMAGE */}
                 <div className="flex flex-col items-center justify-center">
-                  <div className="relative overflow-hidden rounded-[28px] border border-white/20 bg-white/10 p-2">
-                    <Image
+                  <div className="relative w-[280px]">
+                    <img
                       src={speaker.image}
                       alt={speaker.name}
-                      width={280}
-                      height={340}
-                      className="rounded-[20px] object-cover"
+                      className="w-full h-auto"
                     />
                   </div>
 

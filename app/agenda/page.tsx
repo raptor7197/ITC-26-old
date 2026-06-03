@@ -1,23 +1,16 @@
+import type { Metadata } from "next";
 import AgendaSchedule from "@/components/agenda/AgendaSchedule";
 
-export const metadata = {
-  title: "Conference Schedule | ITC India 2026",
-  description: "Official conference schedule for ITC India 2026.",
+export const metadata: Metadata = {
+  title: "Program Agenda | ITC India 2026",
+  description:
+    "Conference program agenda for the 10th IEEE International Test Conference India 2026 — tutorials, keynotes, technical tracks, and exhibits.",
 };
 
 export default function AgendaPage() {
   return (
-    <main className="relative z-10 w-full overflow-x-hidden pt-[120px] pb-20">
-      <div className="mx-auto w-[90%] max-w-[1200px]">
-        <div className="mb-12 text-center">
-          <h1 className="font-sarpanch text-4xl font-black tracking-widest text-white sm:text-5xl md:text-[64px]">
-            CONFERENCE AGENDA
-          </h1>
-          <p className="mx-auto mt-6 max-w-3xl text-lg text-sky-100/80">
-            A detailed overview of the ITC India 2026 conference sessions.
-          </p>
-        </div>
-
+    <main className="relative min-h-screen font-poppins text-white selection:bg-white/20">
+      <div className="relative z-10 mx-auto flex w-full px-4 sm:px-8 md:px-10 max-w-[1200px] flex-col pb-16 pt-[130px]">
         <AgendaSchedule />
       </div>
     </main>
