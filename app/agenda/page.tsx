@@ -11,7 +11,7 @@ export default function AgendaPage() {
       <div className="mx-auto w-[90%] max-w-[1200px]">
         <div className="mb-12 text-center">
           <h1 className="font-sarpanch text-4xl font-black tracking-widest text-white sm:text-5xl md:text-[64px]">
-            CONFERENCE AGENDA
+            Conference Agenda
           </h1>
           <p className="mx-auto mt-6 max-w-3xl text-lg text-sky-100/80">
             A detailed overview of the ITC India 2026 conference sessions.
