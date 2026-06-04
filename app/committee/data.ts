@@ -45,7 +45,7 @@ export const members2: Member[] = [
     link: "https://www.linkedin.com/in/onithinbharadwaj/",
     img: "NB.png",
     name: "Nithin Bharadwaj",
-    comp: "Microchip, UK",
+    comp: "Graphcore, UK",
   },
 ];
 
