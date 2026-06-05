@@ -3,6 +3,7 @@
 import React from "react";
 
 const MARQUEE_ITEMS = [
+  'Notification: "ART Notification for acceptance - 7th June, 2026"',
   'Notification: "Paper - 24th May, 2026; Poster - 27th May, 2026; Tutorial- 22nd May, 2026"',
   "Registrations open",
 ];
