@@ -43,7 +43,7 @@ export default function Keynote() {
           </div>
         </div>
 
-        <h1 className="font-angkor z-30 text-center text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:-mt-4 max-[639px]:mb-4 max-[639px]:pt-0 sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mt-0 sm:mb-0 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:items-center sm:justify-center sm:pl-[49.2%] sm:pr-4 md:pr-5 lg:pr-6 sm:translate-y-2.5 md:h-[100px] lg:h-[110px] xl:h-[123px]">
+        <h1 className="z-30 text-center text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:-mt-4 max-[639px]:mb-4 max-[639px]:pt-0 sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mt-0 sm:mb-0 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:items-center sm:justify-center sm:pl-[49.2%] sm:pr-4 md:pr-5 lg:pr-6 sm:translate-y-2.5 md:h-[100px] lg:h-[110px] xl:h-[123px]">
           <span className="angkor-title-pocket flex min-h-0 w-full min-w-0 max-w-full flex-1 items-center justify-center">
             <span className="angkor-section-title keynote-zigzag-title whitespace-nowrap">
               KEYNOTE SPEAKERS
@@ -84,14 +84,14 @@ export default function Keynote() {
 
                 {/* KEYNOTE Badge */}
                 <div className="mb-4 bg-[#00b0f0] w-fit px-4 py-1 rounded-[2px] shadow-[2px_2px_0px_rgba(0,0,0,0.25)]">
-                  <span className="text-[#06182c] font-black font-angkor text-lg md:text-xl tracking-[0.08em] uppercase">
+                  <span className="text-[#06182c] font-black text-lg md:text-xl tracking-[0.08em] uppercase">
                     {speaker.id}
                   </span>
                 </div>
 
                 {/* Speaker Name */}
                 <h2
-                  className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[80px] tracking-tight mb-2 drop-shadow-lg text-white font-space-grotesk"
+                  className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[80px] tracking-tight mb-2 drop-shadow-lg text-white"
                 >
                   {speaker.name}
                 </h2>
@@ -103,7 +103,7 @@ export default function Keynote() {
 
                 {/* Talk Title */}
                 <h3
-                  className="font-angkor text-2xl sm:text-3xl md:text-4xl leading-[1.2] uppercase mb-4 max-w-[800px] drop-shadow-md text-[#f0f8ff] tracking-tight"
+                  className="text-2xl sm:text-3xl md:text-4xl leading-[1.2] uppercase mb-4 max-w-[800px] drop-shadow-md text-[#f0f8ff] tracking-tight"
                 >
                   {speaker.title}
                 </h3>
