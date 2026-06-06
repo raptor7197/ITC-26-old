@@ -61,10 +61,10 @@ export default function Keynote() {
 
         {speakers.map((speaker, index) => (
           <div key={speaker.id} className="relative flex flex-col w-full">
-            
+
             {/* TOP ROW: Photo + Info */}
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-8 items-stretch">
-              
+
               {/* LEFT: Photo */}
               <div
                 className="flex-shrink-0 mx-auto md:mx-0"
@@ -81,11 +81,11 @@ export default function Keynote() {
 
               {/* RIGHT: Content */}
               <div className="flex-1 flex flex-col justify-center pt-2 items-center md:items-start text-center md:text-left">
-                
+
                 {/* KEYNOTE Badge */}
                 <div className="mb-4 bg-[#00b0f0] w-fit px-4 py-1 rounded-[2px] shadow-[2px_2px_0px_rgba(0,0,0,0.25)]">
                   <span className="text-[#06182c] font-black font-angkor text-lg md:text-xl tracking-[0.08em] uppercase">
-                    KEYNOTE {speaker.id}
+                    {speaker.id}
                   </span>
                 </div>
 
@@ -107,7 +107,7 @@ export default function Keynote() {
                 >
                   {speaker.title}
                 </h3>
-                
+
                 {/* Removed Talk Description from here */}
 
                 {/* Divider */}
@@ -135,7 +135,7 @@ export default function Keynote() {
 
           </div>
         ))}
-        
+
       </div>
     </main>
   );

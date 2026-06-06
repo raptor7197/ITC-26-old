@@ -322,15 +322,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "break",
         time: "05:30 PM – 06:30 PM",
         title: "BREAK (NO ACTIVITY PLANNED)",
-      },
-      {
-        kind: "single",
-        time: "06:30 PM – 08:30 PM",
-        title: "Banquet Sit Down Dinner (Invite Only)",
-        subtitle:
-          "ITC India - 10th Edition Reflections | Felicitation of the Past Chairs, Advisory Committee Members | Panel 2",
-        variant: "evening",
-      },
+      }
     ],
   },
   {
