@@ -82,12 +82,7 @@ export default function Keynote() {
               {/* RIGHT: Content */}
               <div className="flex-1 flex flex-col justify-center pt-2 items-center md:items-start text-center md:text-left">
 
-                {/* KEYNOTE Badge */}
-                <div className="mb-4 bg-[#00b0f0] w-fit px-4 py-1 rounded-[2px] shadow-[2px_2px_0px_rgba(0,0,0,0.25)]">
-                  <span className="text-[#06182c] font-black text-lg md:text-xl tracking-[0.08em] uppercase">
-                    {speaker.id}
-                  </span>
-                </div>
+
 
                 {/* Speaker Name */}
                 <h2
