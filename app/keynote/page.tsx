@@ -45,7 +45,7 @@ export default function Keynote() {
 
         <h1 className="z-30 text-center text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:-mt-4 max-[639px]:mb-4 max-[639px]:pt-0 sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mt-0 sm:mb-0 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:items-center sm:justify-center sm:pl-[49.2%] sm:pr-4 md:pr-5 lg:pr-6 sm:translate-y-2.5 md:h-[100px] lg:h-[110px] xl:h-[123px]">
           <span className="angkor-title-pocket flex min-h-0 w-full min-w-0 max-w-full flex-1 items-center justify-center">
-            <span className="angkor-section-title keynote-zigzag-title whitespace-nowrap">
+            <span className="text-4xl md:text-[64px] font-bold tracking-tight text-white whitespace-nowrap">
               KEYNOTE SPEAKERS
             </span>
           </span>
@@ -120,7 +120,7 @@ export default function Keynote() {
             </div>
 
             {/* BOTTOM ROW: Bio text */}
-            <div className="text-[#caddf0] text-[14px] sm:text-[15px] md:text-[17px] leading-relaxed text-justify space-y-4 sm:space-y-5 bg-[#0b284e]/40 p-6 sm:p-8 md:p-10 rounded-lg border border-white/5 shadow-inner mt-4">
+            <div className="text-[#caddf0] text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed text-justify space-y-4 sm:space-y-5 bg-[#0b284e]/40 p-6 sm:p-8 md:p-10 rounded-lg border border-white/5 shadow-inner mt-4">
               <p>
                 <span className="text-white font-bold mr-2">Talk Description —</span>
                 {speaker.description}
