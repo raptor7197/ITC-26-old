@@ -151,6 +151,30 @@ const ICONS = {
       <path d="M19.967 17.484A4 4 0 0 1 18 18"/>
     </svg>
   ),
+  bullet: (
+    <div className="w-1.5 h-1.5 rounded-full bg-sky-400 shrink-0 mt-1.5" />
+  ),
+  location: (
+    <svg
+      className="w-4 h-4 text-sky-400 shrink-0 mt-0.5"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+      />
+    </svg>
+  ),
 };
 
 const TRACK_STYLES = {
@@ -285,7 +309,7 @@ export default function AgendaSchedule() {
                 {activeDay.label}
               </span>
             </div>
-            <h2 className="text-[28px] font-black tracking-wider text-white mb-1 whitespace-nowrap">
+            <h2 className={`font-black tracking-wider text-white mb-1 whitespace-nowrap ${activeDay.subtitle === "Tutorials & Industry Test Challenge" ? "text-[24px]" : "text-[28px]"}`}>
               {activeDay.subtitle}
             </h2>
             <p className="text-[15px] text-sky-400 font-medium">
@@ -506,7 +530,7 @@ export default function AgendaSchedule() {
                                               key={idx}
                                               className="flex items-start gap-2 text-[12px] font-normal text-[#a3b8cc] leading-[1.3]"
                                             >
-                                              {ICONS.user}
+                                              {item.includes("ENTRANCE LOBBY") ? ICONS.location : (["day1", "day2"].includes(activeId) ? ICONS.bullet : ICONS.user)}
                                               <span>{item}</span>
                                             </div>
                                           ),

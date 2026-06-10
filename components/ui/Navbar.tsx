@@ -30,6 +30,7 @@ const navLinks = [
       { name: "Call For Workshop", href: "/call-for-workshop" },
       { name: "ITC Hackathon", href: "/hackathon" },
       { name: "ITC Fellowship", href: "/fellowship" },
+      { name: "Author Kit", href: "/author-kit" },
     ],
   },
   {

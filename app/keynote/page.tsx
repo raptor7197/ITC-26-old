@@ -29,41 +29,22 @@ const speakers = [
 
 export default function Keynote() {
   return (
-    <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[40px] sm:pt-[60px] md:pt-[160px] pb-24 font-poppins text-white">
-      {/* Page Title (Matching Testimonials) */}
-      <section className="relative mt-0 flex w-full flex-col items-stretch pb-3 pt-6 sm:mt-0 sm:pb-4 sm:pt-3 md:pb-5 md:pt-4 lg:pb-6 lg:pt-5 px-[5%] sm:px-[4%] md:px-[3%] lg:px-[2.5%] xl:px-[2.25%]">
-        <div className="max-[640px]:hidden absolute top-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] h-[60px] sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px] pointer-events-none -z-10 opacity-60 sm:opacity-70 md:opacity-80">
-          <div className="absolute inset-0 w-full h-full rotate-180 scale-y-[-1]">
-            <Image
-              src="/images/vector11.svg"
-              alt="Separator"
-              fill
-              className="object-fill"
-            />
-          </div>
-        </div>
-
-        <h1 className="z-30 text-center text-white max-[639px]:angkor-heading-gutter max-[639px]:relative max-[639px]:-mt-4 max-[639px]:mb-4 max-[639px]:pt-0 sm:absolute sm:top-0 sm:left-[4%] sm:right-[4%] sm:mt-0 sm:mb-0 sm:pt-0 md:left-[3%] md:right-[3%] lg:left-[2.5%] lg:right-[2.5%] xl:left-[2.25%] xl:right-[2.25%] sm:flex sm:h-[80px] sm:items-center sm:justify-center sm:pl-[49.2%] sm:pr-4 md:pr-5 lg:pr-6 sm:translate-y-2.5 md:h-[100px] lg:h-[110px] xl:h-[123px]">
-          <span className="angkor-title-pocket flex min-h-0 w-full min-w-0 max-w-full flex-1 items-center justify-center">
-            <span className="text-4xl md:text-[64px] font-bold tracking-tight text-white whitespace-nowrap">
-              KEYNOTE SPEAKERS
-            </span>
-          </span>
+    <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[40px] sm:pt-[60px] md:pt-[120px] pb-24 font-poppins text-white">
+      {/* Page Title */}
+      <section className="relative flex w-full flex-col items-center justify-center pt-8 md:pt-10 pb-12 md:pb-16">
+        <h1 className="text-4xl md:text-[56px] font-bold tracking-tight text-white uppercase mb-6 text-center">
+          KEYNOTE SPEAKERS
         </h1>
-
-        <div
-          className="hidden shrink-0 sm:block sm:h-[80px] md:h-[100px] lg:h-[110px] xl:h-[123px]"
-          aria-hidden
-        />
+        <div className="w-[120px] h-[3px] bg-[#00b0f0]"></div>
       </section>
 
-      <div className="relative z-10 w-full max-w-none md:max-w-[85%] lg:max-w-[80%] flex flex-col mx-auto gap-12 md:gap-20 px-[5%] md:px-6 mt-8 md:mt-12">
+      <div className="relative z-10 w-full max-w-[1100px] flex flex-col mx-auto gap-16 md:gap-24 px-[5%] md:px-8 mt-4">
 
         {speakers.map((speaker, index) => (
           <div key={speaker.id} className="relative flex flex-col w-full">
 
             {/* TOP ROW: Photo + Info */}
-            <div className="flex flex-col md:flex-row gap-8 md:gap-12 mb-8 items-stretch">
+            <div className="flex flex-col md:flex-row gap-10 md:gap-14 mb-8 items-start">
 
               {/* LEFT: Photo */}
               <div
@@ -80,46 +61,38 @@ export default function Keynote() {
               </div>
 
               {/* RIGHT: Content */}
-              <div className="flex-1 flex flex-col justify-center pt-2 items-center md:items-start text-center md:text-left">
-
-
+              <div className="flex-1 flex flex-col justify-start items-center md:items-start text-center md:text-left pt-1 md:pt-2">
 
                 {/* Speaker Name */}
-                <h2
-                  className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[80px] tracking-tight mb-2 drop-shadow-lg text-white"
-                >
+                <h2 className="font-black text-4xl sm:text-5xl md:text-[52px] tracking-tight mb-1 text-white drop-shadow-md">
                   {speaker.name}
                 </h2>
 
                 {/* Affiliation */}
-                <p className="text-[#00b0f0] font-bold text-xl sm:text-2xl md:text-3xl mb-6 tracking-wide drop-shadow-sm">
+                <p className="text-[#00b0f0] font-bold text-lg sm:text-xl md:text-[22px] mb-5 tracking-wide">
                   {speaker.affiliation}
                 </p>
 
                 {/* Talk Title */}
-                <h3
-                  className="text-2xl sm:text-3xl md:text-4xl leading-[1.2] uppercase mb-4 max-w-[800px] drop-shadow-md text-[#f0f8ff] tracking-tight"
-                >
+                <h3 className="text-lg sm:text-xl md:text-[22px] font-bold uppercase mb-4 text-white leading-snug tracking-wide max-w-[850px] drop-shadow-sm">
                   {speaker.title}
                 </h3>
 
-                {/* Removed Talk Description from here */}
+                {/* Talk Description */}
+                <p className="text-[#a0b0c0] text-[16px] sm:text-[18px] leading-relaxed mb-8 text-justify max-w-[850px]">
+                  {speaker.description}
+                </p>
 
                 {/* Divider */}
-                <div className="flex items-center mb-2 w-full mt-auto opacity-50 md:opacity-100">
+                <div className="flex items-center w-full mt-auto mb-2 opacity-100 max-w-[850px]">
                   <div className="h-[2px] flex-1 bg-[#00b0f0]" />
-                  <div className="w-[10px] h-[10px] flex-shrink-0 rounded-full bg-[#00b0f0] ml-[-5px]" />
+                  <div className="w-[8px] h-[8px] rounded-full bg-[#00b0f0] ml-[-2px]" />
                 </div>
-
               </div>
             </div>
 
             {/* BOTTOM ROW: Bio text */}
-            <div className="text-[#caddf0] text-[16px] sm:text-[18px] md:text-[20px] leading-relaxed text-justify space-y-4 sm:space-y-5 bg-[#0b284e]/40 p-6 sm:p-8 md:p-10 rounded-lg border border-white/5 shadow-inner mt-4">
-              <p>
-                <span className="text-white font-bold mr-2">Talk Description —</span>
-                {speaker.description}
-              </p>
+            <div className="text-[#caddf0] text-[16px] sm:text-[18px] leading-relaxed text-justify space-y-4 bg-[#0b284e]/60 p-6 sm:p-8 md:p-10 rounded-lg border border-white/10 mt-2">
               {speaker.bio.map((paragraph, i) => (
                 <p key={i}>
                   {i === 0 && <span className="text-white font-bold mr-2">Speaker Biography —</span>}
