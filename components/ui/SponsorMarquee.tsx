@@ -16,7 +16,7 @@ const sponsors = [
   { name: "Advantest", src: "/images/advantest.png", category: "Gold" },
   { name: "Synopsys", src: "/images/synopsys.png", category: "Gold" },
   { name: "Teradyne", src: "/images/teradyne.png", category: "Gold" },
-  { name: "Anora labs", src: "/images/anoralabs.svg", category: "Silver" },
+  { name: "Anora labs", src: "/images/anoralabs.png", category: "Silver" },
   { name: "Marvel", src: "/images/marvell-logo.svg", category: "Bronze" },
   { name: "Sandisk", src: "/images/sandisk1.png", category: "Bronze" },
   {
