@@ -27,16 +27,12 @@ const speakers = [
   }
 ];
 
+import PageHeader from "@/components/ui/PageHeader";
+
 export default function Keynote() {
   return (
-    <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[40px] sm:pt-[60px] md:pt-[120px] pb-24 font-poppins text-white">
-      {/* Page Title */}
-      <section className="relative flex w-full flex-col items-center justify-center pt-8 md:pt-10 pb-12 md:pb-16">
-        <h1 className="text-4xl md:text-[56px] font-bold tracking-tight text-white uppercase mb-6 text-center">
-          KEYNOTE SPEAKERS
-        </h1>
-        <div className="w-[120px] h-[3px] bg-[#00b0f0]"></div>
-      </section>
+    <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[120px] pb-24 font-poppins text-white">
+      <PageHeader title="KEYNOTE SPEAKERS" />
 
       <div className="relative z-10 w-full max-w-[1100px] flex flex-col mx-auto gap-16 md:gap-24 px-[5%] md:px-8 mt-4">
 

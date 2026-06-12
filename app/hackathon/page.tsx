@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PageHeader from "@/components/ui/PageHeader";
 import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
 import { authorDeadlines, isPastDeadline } from "@/lib/authorDeadlines";
 
@@ -11,72 +12,13 @@ const guidePadding =
 
 export default function HackathonPage() {
   return (
-    <main className="relative min-h-screen w-full min-w-0 max-w-full overflow-x-hidden bg-[#03396c] font-poppins text-white selection:bg-white/20">
-      <div
-        className="absolute inset-0 z-0 opacity-10 pointer-events-none"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, #ffffff 1px, transparent 1px),
-            linear-gradient(to bottom, #ffffff 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
-      />
-      <div
-        className="absolute top-0 bottom-0 left-[5%] sm:left-[4%] md:left-[3%] lg:left-[2.5%] xl:left-[2.25%] z-[1] w-px opacity-60 sm:opacity-70 md:opacity-80 pointer-events-none"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.7) 6px, transparent 3px, transparent 12px)",
-        }}
-        aria-hidden
-      />
-      <div
-        className="absolute top-0 bottom-0 right-[5%] sm:right-[4%] md:right-[3%] lg:right-[2.5%] xl:right-[2.25%] z-[1] w-px opacity-60 sm:opacity-70 md:opacity-80 pointer-events-none"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0px, rgba(255, 255, 255, 0.7) 6px, transparent 3px, transparent 12px)",
-        }}
-        aria-hidden
-      />
-
-      <div
-        className={`relative z-10 w-full min-w-0 max-w-full box-border pt-[120px] sm:pt-[150px] pb-20 ${guidePadding}`}
-      >
+    <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
+      <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
+        <PageHeader title="HACKATHON" />
+        
         <div className="mx-auto flex w-full min-w-0 max-w-full flex-col [overflow-wrap:anywhere] lg:max-w-[1400px]">
           <div className="mb-12 min-w-0">
-            <div className="flex flex-col items-center sm:items-start justify-center sm:justify-start gap-4 md:gap-6 mb-6">
-              <Image
-                src="/itc-logo.svg"
-                alt="ITC Logo"
-                width={80}
-                height={80}
-                className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-              />
-            </div>
-            <p className="text-sm md:text-base font-semibold text-[#6aaff1] uppercase tracking-wider mb-2">
-              10th IEEE International Test Conference India 2026
-            </p>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase leading-tight">
-              HACKATHON
-            </h1>
-            <div className="min-w-0 bg-white/10 backdrop-blur-md p-6 pr-4 rounded-lg border border-white/20 shadow-xl max-w-3xl mb-8">
-              <div className="grid min-w-0 grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <p className="text-xs text-gray-300 uppercase mb-1">Date</p>
-                  <p className="text-xl md:text-2xl font-bold text-[#6aaff1]">
-                    July 19-21, 2026
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xs text-gray-300 uppercase mb-1">
-                    Location
-                  </p>
-                  <p className="text-xl md:text-2xl font-bold">
-                    Radisson Blu, Marathahalli, Bengaluru
-                  </p>
-                </div>
-              </div>
-            </div>
+
 
             <div className="flex min-w-0 flex-col sm:flex-row gap-4 items-center sm:items-start w-full">
               <AuthorActionButton
@@ -186,7 +128,7 @@ export default function HackathonPage() {
                   <tr className="border-b border-white/10 hover:bg-white/10 transition-colors">
                     <td className="p-4 md:p-5">
                       Declaration of Round-1 results (All Round-1 Winners to
-                      receive fellowships for attending ITC India-2026
+                      receive fellowships for attending IEEE ITC India-2026
                       conference)
                     </td>
                     <td className="p-4 md:p-5 font-bold text-[#6aaff1]">

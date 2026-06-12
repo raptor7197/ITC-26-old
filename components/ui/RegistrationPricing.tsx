@@ -219,6 +219,52 @@ function PricingTable({
   );
 }
 
+function RefundPolicy() {
+  return (
+    <div className="mt-10 sm:mt-12 w-full">
+      <div className="bg-[#022241]/60 border border-[#6aaff1]/20 rounded-xl backdrop-blur-sm p-6 sm:p-8 md:p-10">
+        <h3 className="text-xl sm:text-2xl font-bold mb-6 border-b border-[#6aaff1]/20 pb-3 text-white tracking-wide font-poppins">
+          Refund Policy
+        </h3>
+        
+        <div className="space-y-5 text-white/80 font-poppins text-sm sm:text-base leading-relaxed">
+          <p>
+            <strong className="text-white font-semibold">Note:</strong> In case of no-show or non-participation by the individual/company, the amount paid is non-refundable.
+          </p>
+          
+          <p>
+            The amount paid to participate in the IEEE ITC India (ITC SEMICONDUCTOR INDUSTRY SOCIETY) is subject to following refund policy:
+          </p>
+          
+          <ul className="list-disc list-outside ml-6 space-y-4 text-white/70">
+            <li>
+              In case of event is cancelled by the organizer, the amount paid by the individual/company is fully refundable. There will be no deduction and the refund will be made in the form of an account payee cheque to the registered participant within 30 days of official cancellation of the event.
+            </li>
+            <li>
+              In the case of duplicate payment, a refund will be issued upon submission of valid proof of the transaction. The necessary documentation must be provided to verify the duplicate payment before the refund is processed.
+            </li>
+          </ul>
+
+          <div className="pt-4 space-y-2 border-t border-[#6aaff1]/10 mt-6">
+            <p className="pt-4">
+              To claim the refund, share the ticket confirmation email and your Bank account details to{" "}
+              <a href="mailto:register.itcindia@gmail.com" className="text-[#6aaff1] hover:text-[#9fd5ff] hover:underline font-medium transition-colors">
+                register.itcindia@gmail.com
+              </a>
+            </p>
+            <p>
+              For any clarifications related to payment, send an email to{" "}
+              <a href="mailto:register.itcindia@gmail.com" className="text-[#6aaff1] hover:text-[#9fd5ff] hover:underline font-medium transition-colors">
+                register.itcindia@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function RegistrationPricing() {
   const [tab, setTab] = useState<"indian" | "international">("indian");
 
@@ -301,11 +347,13 @@ export default function RegistrationPricing() {
               Prices are NOT inclusive of GST
             </p>
             <RegisterNowButton />
-            <div className="text-white/60 text-xs sm:text-sm">
+            <div className="text-white/60 text-xs sm:text-sm text-center">
               For bulk registration queries: register.itcindia@gmail.com
             </div>
           </div>
         </div>
+
+        <RefundPolicy />
       </div>
     </section>
   );

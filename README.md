@@ -1,4 +1,4 @@
-# ITC India 2026 - Conference Website
+# IEEE ITC India 2026 - Conference Website
 
 Official website for the 10th IEEE International Test Conference INDIA - An initiative towards India's semiconductor ecosystem.
 
@@ -324,7 +324,7 @@ Sign out and sign in again. Check Firebase credentials in `.env.local`
 
 ## 📄 License
 
-This project is for the ITC India 2026 conference.
+This project is for the IEEE ITC India 2026 conference.
 
 ## 🤝 Contributing
 
@@ -332,7 +332,7 @@ This is a conference website project. For contributions, please contact the orga
 
 ## 📧 Support
 
-For questions or issues, please contact the ITC India 2026 organizing committee.
+For questions or issues, please contact the IEEE ITC India 2026 organizing committee.
 
 ## 🎯 Key Features Summary
 

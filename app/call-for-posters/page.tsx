@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import PageHeader from "@/components/ui/PageHeader";
 import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
 import { authorDeadlines, isPastDeadline } from "@/lib/authorDeadlines";
 
@@ -9,26 +10,7 @@ export default function CallForPosters() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
-        <div className="text-center mb-16">
-          <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6">
-            <Image 
-              src="/itc-logo.svg"
-              alt="ITC Logo"
-              width={80}
-              height={80}
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-            />
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center">
-              10<sup>th</sup> IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
-            </h1>
-          </div>
-          <p className="text-xl md:text-2xl font-semibold text-[#6aaff1]">
-            JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
-          </p>
-          <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white">
-            CALL FOR POSTERS
-          </h2>
-        </div>
+        <PageHeader title="CALL FOR POSTERS" />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6">
@@ -36,9 +18,9 @@ export default function CallForPosters() {
               <div className="space-y-4 text-gray-200 text-justify">
                 <p>
                   Celebrating its 10<sup>th</sup> edition, the IEEE International Test
-                  Conference India (ITC India) is the premier conference
+                  Conference India (IEEE ITC India) is the premier conference
                   dedicated to testing of electronic devices, circuits, and
-                  systems. ITC India 2026 invites researchers, developers, and
+                  systems. IEEE ITC India 2026 invites researchers, developers, and
                   practitioners from academia and industry to submit original,
                   unpublished work on all aspects of VLSI test, reliability,
                   yield, and quality for current and emerging semiconductor
@@ -101,7 +83,7 @@ export default function CallForPosters() {
                   For detailed information about the submission process,
                   requirements and deadlines, the selection process and any
                   other questions regarding the program itself or contact
-                  information, please consult the ITC India web site at{" "}
+                  information, please consult the IEEE ITC India web site at{" "}
                   <a
                     href="https://itctestweekindia.org"
                     className="text-blue-300 hover:text-blue-100 underline break-all"
@@ -263,10 +245,10 @@ export default function CallForPosters() {
                   SUBMIT POSTER
                 </AuthorActionButton>
                 <AuthorActionButton
-                  closed={posterSubmissionClosed}
-                  deadline={authorDeadlines.posters}
+                  closed={false}
                   variant="secondary"
-                  href="https://www.ieee.org/conferences/publishing/templates.html"
+                  href="/ITC_2025_Poster_Template.pdf"
+                  download="ITC_2025_Poster_Template.pdf"
                 >
                   DOWNLOAD IEEE TEMPLATE
                 </AuthorActionButton>
@@ -280,7 +262,7 @@ export default function CallForPosters() {
                 For detailed information about the submission process,
                 requirements and deadlines, the selection process and any other
                 questions regarding the program itself or contact information,
-                please consult the ITC India web site or email us.
+                please consult the IEEE ITC India web site or email us.
               </p>
               <div className="space-y-2">
                 <p>
@@ -311,7 +293,7 @@ export default function CallForPosters() {
         </div>
 
         <div className="mt-16 text-center text-gray-400">
-          <p>We look forward to your contributions to ITC India 2026!</p>
+          <p>We look forward to your contributions to IEEE ITC India 2026!</p>
         </div>
       </div>
     </main>

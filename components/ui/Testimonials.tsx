@@ -87,7 +87,7 @@ const testimonials = [
 const testimonialVideos = Array.from(
   { length: 14 },
   (_, i) => `/videos/testimonials/${i + 1}.mp4`,
-);
+).filter(src => src !== "/videos/testimonials/4.mp4");
 
 const CARD_COUNT = testimonials.length;
 

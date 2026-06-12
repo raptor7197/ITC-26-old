@@ -28,8 +28,8 @@ const navLinks = [
       { name: "Academia Research Track", href: "/art" },
       { name: "Call For Posters", href: "/call-for-posters" },
       { name: "Call For Workshop", href: "/call-for-workshop" },
-      { name: "ITC Hackathon", href: "/hackathon" },
-      { name: "ITC Fellowship", href: "/fellowship" },
+      { name: "IEEE ITC Hackathon", href: "/hackathon" },
+      { name: "IEEE ITC Fellowship", href: "/fellowship" },
       { name: "Author Kit", href: "/author-kit" },
     ],
   },
@@ -37,8 +37,11 @@ const navLinks = [
     name: "SPONSORSHIP",
     href: "#",
     dropdown: [
-      { name: "Our Sponsors ", href: "/sponsors" },
+      { name: "Our Sponsors", href: "/sponsors" },
       { name: "Call for Sponsors", href: "/call-for-sponsors" },
+
+      // Add this
+      { name: "Booth Exhibitors Toolkit", href: "/bet" },
     ],
   },
   {

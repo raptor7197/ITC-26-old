@@ -124,7 +124,7 @@ export default function Carousel3D() {
                     <div className="absolute right-3 top-2.5 flex items-center gap-1 opacity-40">
                       <div className="h-[6px] w-[6px] rounded-full bg-blue-600" />
                       <span className="text-[8px] font-semibold tracking-wider text-gray-500 sm:text-[9px]">
-                        ITC 2026
+                        ITC 2025
                       </span>
                     </div>
 

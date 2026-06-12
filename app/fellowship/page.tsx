@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PageHeader from "@/components/ui/PageHeader";
 import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
 import { FellowshipApplicationSidebar } from "@/components/fellowship/FellowshipApplicationSidebar";
 import { authorDeadlines, isPastDeadline } from "@/lib/authorDeadlines";
@@ -28,7 +29,7 @@ const guidelinePoints = [
 const selectionPoints = [
   "Authors of accepted papers will be given priority.",
   "Based on Academic achievements and research contributions.",
-  "Statement of purpose for attending ITC India 2026.",
+  "Statement of purpose for attending IEEE ITC India 2026.",
 ];
 
 const applicationProcessPoints = [
@@ -70,23 +71,7 @@ export default function FellowshipPage() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
-        <div className="text-center mb-16">
-          <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6">
-            <Image
-              src="/itc-logo.svg"
-              alt="ITC Logo"
-              width={80}
-              height={80}
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-            />
-          </div>
-          <h2 className="text-3xl sm:text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white uppercase leading-tight md:leading-tight">
-            Call For ITC India 2026 Fellowship
-          </h2>
-          <p className="text-lg sm:text-xl md:text-2xl font-semibold text-[#6aaff1] uppercase mt-4 px-2">
-            REIMAGINING TEST IN THE ERA OF INTELLIGENT SILICON
-          </p>
-        </div>
+        <PageHeader title="FELLOWSHIP PROGRAM" />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-12">
@@ -147,7 +132,7 @@ export default function FellowshipPage() {
                 <li>Scopus ID and Google Scholar ID (optional)</li>
                 <li>
                   A short write-up on your current area of research and the
-                  purpose of attending ITC 2026 (Max 1 page PDF)
+                  purpose of attending IEEE ITC 2026 (Max 1 page PDF)
                 </li>
                 <li>
                   IEEE ITC 2026 Paper ID or Poster/Hackathon ID (if applicable)
@@ -225,7 +210,7 @@ export default function FellowshipPage() {
               </h3>
               <div className="space-y-6 text-sm md:text-base text-gray-200 text-justify sm:text-left break-words">
                 <p>
-                  ITC India 2026 offers competency-based fellowships to faculty
+                  IEEE ITC India 2026 offers competency-based fellowships to faculty
                   and student participants from outstation locations working in
                   the domains of VLSI Test and allied fields. As part of the
                   fellowship support, travel reimbursements will be provided in
@@ -282,7 +267,7 @@ export default function FellowshipPage() {
                     Faculty fellows are required to arrange their own
                     accommodation, ensuring that their place of stay affords
                     them timely access to the conference venue on all days of
-                    the event. ITC India 2026 will not facilitate accommodation
+                    the event. IEEE ITC India 2026 will not facilitate accommodation
                     arrangements for faculty fellows under any circumstances.
                     However, an accommodation allowance of ₹1,000 per day or the
                     actual amount incurred — whichever is lower — will be
@@ -311,7 +296,7 @@ export default function FellowshipPage() {
 
             <section className="bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
-                Table 1 : ITC India Fellowship Support Structure for Outstation
+                Table 1 : IEEE ITC India Fellowship Support Structure for Outstation
                 Participants
               </h3>
               <div className="overflow-x-auto">

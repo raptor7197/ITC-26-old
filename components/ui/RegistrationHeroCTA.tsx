@@ -32,7 +32,7 @@ function RegistrationHeadingLink({
     <>
       <span className="sr-only">{srLabel}</span>
       <HeadingTag
-        className={`inline-flex items-center justify-center gap-2 sm:gap-2.5 font-bold font-angkor tracking-wide uppercase leading-none ${titleSize}`}
+        className={`inline-flex items-center justify-center gap-2 sm:gap-2.5 font-bold font-poppins tracking-tight uppercase leading-none ${titleSize}`}
       >
         <span className="text-white transition-colors duration-200 group-hover:text-[#90cbfb]">
           Registration
@@ -117,16 +117,14 @@ export default function RegistrationHeroCTA({
   if (variant === "page") {
     return (
       <div className={wrapperClass}>
-        <a
-          href={REGISTER_EVENTS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/registration"
           role="button"
-          title="Open official registration portal"
+          title="View Registration Details"
           className="hero-register-btn"
         >
           <span className="hero-register-btn-text">Register Now</span>
-        </a>
+        </Link>
       </div>
     );
   }
