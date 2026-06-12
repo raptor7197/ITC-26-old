@@ -37,8 +37,11 @@ const navLinks = [
     name: "SPONSORSHIP",
     href: "#",
     dropdown: [
-      { name: "Our Sponsors ", href: "/sponsors" },
+      { name: "Our Sponsors", href: "/sponsors" },
       { name: "Call for Sponsors", href: "/call-for-sponsors" },
+
+      // Add this
+      { name: "Booth Exhibitors Toolkit", href: "/bet" },
     ],
   },
   {
