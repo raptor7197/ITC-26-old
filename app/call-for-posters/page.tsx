@@ -245,10 +245,10 @@ export default function CallForPosters() {
                   SUBMIT POSTER
                 </AuthorActionButton>
                 <AuthorActionButton
-                  closed={posterSubmissionClosed}
-                  deadline={authorDeadlines.posters}
+                  closed={false}
                   variant="secondary"
-                  href="https://www.ieee.org/conferences/publishing/templates.html"
+                  href="/ITC_2025_Poster_Template.pdf"
+                  download="ITC_2025_Poster_Template.pdf"
                 >
                   DOWNLOAD IEEE TEMPLATE
                 </AuthorActionButton>
