@@ -12,7 +12,7 @@ const faqs = [
   {
     q: "Is the conference fully offline, virtual, or hybrid?",
     a: [
-      "ITC India 2026 is primarily an in-person (offline) conference to enable better networking and collaboration.",
+      "IEEE ITC India 2026 is primarily an in-person (offline) conference to enable better networking and collaboration.",
       "Some sessions may be accessible in hybrid or virtual mode based on final arrangements.",
     ],
   },
@@ -26,19 +26,19 @@ const faqs = [
   {
     q: "Is there a student research forum or competition?",
     a: [
-      "Yes, ITC India features a Student Research Forum and the ART (Academia Research Track) for showcasing student research.",
+      "Yes, IEEE ITC India features a Student Research Forum and the ART (Academia Research Track) for showcasing student research.",
       "These platforms offer feedback, recognition, and interaction with leading industry experts.",
     ],
   },
   {
-    q: "What is the ITC India hackathon?",
+    q: "What is the IEEE ITC India hackathon?",
     a: [
       "The hackathon is a team-based challenge focused on solving real-world problems in semiconductor testing.",
       "Participants work on industry-relevant topics with mentorship, competing for prizes and recognition.",
     ],
   },
   {
-    q: "What is the ITC India fellowship program?",
+    q: "What is the IEEE ITC India fellowship program?",
     a: [
       "The fellowship supports students and researchers with financial aid to attend the conference.",
       "It also offers access to sessions, networking opportunities, and exposure to industry leaders.",

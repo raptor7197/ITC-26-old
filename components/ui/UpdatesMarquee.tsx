@@ -3,8 +3,8 @@
 import React from "react";
 
 const MARQUEE_ITEMS = [
-  'Notification: "ART Notification for acceptance - 7th June, 2026; Paper - 24th May, 2026; Poster - 27th May, 2026; Tutorial- 22nd May, 2026"',
-  "Registrations open",
+  'Closed: Paper, Poster, Tutorial Submissions & Fellowship Applications',
+  'Upcoming: Hackathon Round 1 Results (10th-15th June 2026); Hackathon Round 2 Submission (10th July 2026)',
 ];
 
 export default function UpdatesMarquee() {

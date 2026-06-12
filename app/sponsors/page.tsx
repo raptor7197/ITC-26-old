@@ -11,12 +11,12 @@ export default function SponsorsPage() {
           <div className="w-24 h-1 bg-[#6aaff1] mx-auto rounded-full mb-8"></div>
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             We proudly acknowledge the support of our industry partners who help
-            make ITC India 2026 a premier event for the semiconductor test
+            make IEEE ITC India 2026 a premier event for the semiconductor test
             community.
           </p>
           <div className="mt-8 flex justify-center">
             <a
-              href="/ITC India 2026 Sponsorship.pdf"
+              href="/IEEE ITC India 2026 Sponsorship.pdf"
               download
               className="inline-block bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_rgba(106,175,241,0.3)] transition-all duration-300 uppercase tracking-wider text-sm md:text-base"
             >

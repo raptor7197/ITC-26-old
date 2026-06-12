@@ -28,7 +28,7 @@ export default function CallForSponsors() {
           </h2>
           <div className="mt-8 flex justify-center">
             <a
-              href="/ITC India 2026 Sponsorship.pdf"
+              href="/IEEE ITC India 2026 Sponsorship.pdf"
               download
               className="inline-block bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold py-3 px-8 rounded-lg shadow-[0_0_15px_rgba(106,175,241,0.3)] transition-all duration-300 uppercase tracking-wider text-sm md:text-base"
             >
@@ -45,7 +45,7 @@ export default function CallForSponsors() {
               Marathalli ORR, Bengaluru, from July 19-21, 2026.
             </p>
             <p>
-              Celebrating a decade of excellence, ITC India 2026 marks our 10
+              Celebrating a decade of excellence, IEEE ITC India 2026 marks our 10
               <sup>th</sup> annual gathering. This premier forum brings together
               leading experts, innovators, and practitioners in design, test,
               manufacturing, and reliability of electronic systems and
@@ -72,7 +72,7 @@ export default function CallForSponsors() {
               As an industry leader, you understand the importance of
               establishing your company's technical leadership and effectively
               highlighting your expertise to the broader technical community.
-              ITC India is the perfect stage for you to achieve significant
+              IEEE ITC India is the perfect stage for you to achieve significant
               business value and elevate your organization's profile. Enclosed
               are the details of several sponsorship opportunities for your
               serious consideration. The attached sponsorship packages,

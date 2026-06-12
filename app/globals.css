@@ -370,6 +370,22 @@ body::-webkit-scrollbar-button:horizontal:double-button:end:increment,
   );
 }
 
+/* Welcome title - much longer word, needs even lower cqi to fit inside pocket */
+.angkor-title-pocket .angkor-section-title.welcome-zigzag-title {
+  font-size: clamp(
+    14px,
+    min(calc(var(--zigzag-section-height) * 38 / 110), 8.5cqi),
+    40px
+  );
+}
+.hero-zigzag-title-pocket .angkor-section-title.welcome-zigzag-title {
+  font-size: clamp(
+    14px,
+    min(calc(var(--zigzag-hero-height) * 36 / 100), 9.5cqi),
+    36px
+  );
+}
+
 .angkor-heading-gutter {
   box-sizing: border-box;
   padding-inline: var(--angkor-heading-pad-x);

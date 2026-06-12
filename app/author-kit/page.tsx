@@ -1,39 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import PageHeader from "@/components/ui/PageHeader";
 
 export default function AuthorKit() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         {/* Header Section */}
-        <div className="text-center mb-16">
-          <div className="flex flex-col items-center justify-center gap-4 md:gap-6 mb-6">
-            <Image
-              src="/itc-logo.svg"
-              alt="ITC Logo"
-              width={80}
-              height={80}
-              className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
-            />
-            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center">
-              10<sup>th</sup> IEEE INTERNATIONAL TEST CONFERENCE INDIA 2026
-            </h1>
-          </div>
-          <p className="text-xl md:text-2xl font-semibold text-[#6aaff1]">
-            JULY 19-21, 2026 | RADISSON BLU, BENGALURU
-          </p>
-          <p className="text-lg md:text-xl font-medium mt-2 text-white">
-            Theme: Reimagining Test in the Era of Intelligent Silicon
-          </p>
-          <h2 className="text-4xl md:text-[64px] font-bold mt-8 tracking-tight text-white">
-            AUTHOR KIT
-          </h2>
-          <p className="text-lg md:text-xl font-medium mt-4 text-gray-300">
-            Guidelines for the authors of Accepted Regular Papers
-          </p>
-        </div>
-
+        <PageHeader title="AUTHOR KIT" />
+        <p className="text-lg md:text-xl font-medium mt-4 mb-16 text-center text-gray-300">
+          Guidelines for the authors of Accepted Regular Papers
+        </p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-6">
 
@@ -168,7 +146,7 @@ export default function AuthorKit() {
                 </p>
                 <p>
                   Deadline for Final Paper Submission: <strong>15th June, 2026</strong>.
-                  This is a hard deadline for papers to be included in the ITC India 2026 Proceedings on IEEE Xplore.
+                  This is a hard deadline for papers to be included in the IEEE ITC India 2026 Proceedings on IEEE Xplore.
                 </p>
               </div>
             </section>
@@ -179,7 +157,7 @@ export default function AuthorKit() {
               </h3>
               <div className="space-y-4 text-gray-200">
                 <p>
-                  To be published in the ITC India 2026 Conference Proceedings, an author of an accepted paper is required
+                  To be published in the IEEE ITC India 2026 Conference Proceedings, an author of an accepted paper is required
                   to register and must present the paper at the conference.{" "}
                   <Link href="/registration" className="text-blue-300 hover:text-blue-100 underline">
                     Register HERE
@@ -225,7 +203,7 @@ export default function AuthorKit() {
               <div className="bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
                 <h3 className="text-lg font-bold text-white mb-3">Policy on Plagiarism</h3>
                 <p className="text-sm text-gray-300 text-justify">
-                  All papers submitted to ITC India 2026 will be checked for plagiarism, inappropriate multiple submission,
+                  All papers submitted to IEEE ITC India 2026 will be checked for plagiarism, inappropriate multiple submission,
                   and inappropriate use of previous work. Potential issues will be handled in accordance with the
                   IEEE Publication Services and Products Board Operations Manual.
                 </p>
@@ -256,7 +234,7 @@ export default function AuthorKit() {
         </div>
 
         <div className="mt-16 text-center text-gray-400">
-          <p>We look forward to your contributions to ITC India 2026!</p>
+          <p>We look forward to your contributions to IEEE ITC India 2026!</p>
         </div>
       </div>
     </main>

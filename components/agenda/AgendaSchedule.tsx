@@ -250,13 +250,7 @@ export default function AgendaSchedule() {
       <div className="relative z-10 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         {/* LEFT: Title and Tabs */}
         <div className="flex flex-col gap-6 w-full max-w-[500px]">
-          <h1
-            className="text-[42px] md:text-[56px] leading-none tracking-wide text-white font-black-ops-one"
-            style={{
-              textShadow:
-                "0 4px 10px rgba(0,0,0,0.5), 0 0 10px rgba(255,255,255,0.1)",
-            }}
-          >
+          <h1 className="text-4xl sm:text-5xl md:text-[56px] font-bold tracking-tight text-white uppercase font-poppins">
             PROGRAM AGENDA
           </h1>
           <div className="flex flex-wrap gap-4 mt-2">

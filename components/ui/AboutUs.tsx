@@ -21,9 +21,16 @@ export default function AboutUs() {
             </div>
           </div>
         </div>
-        <div className="angkor-title-pocket mt-10 w-full min-w-0 max-w-full">
-          <h2 className="font-angkor pt-2 text-center text-white [padding-inline:0]">
-            <span className="angkor-section-title">ABOUT US</span>
+        <div className="angkor-title-pocket mt-10 w-full min-w-0 max-w-full flex justify-center">
+          <h2 className="font-angkor pt-6 sm:pt-8 text-center text-white [padding-inline:0]">
+            <span className="angkor-section-title faq-zigzag-title text-center block">
+              <span className="block whitespace-nowrap text-white uppercase">
+                WELCOME TO
+              </span>
+              <span className="block whitespace-nowrap text-[#6aaff1] uppercase">
+                ITC INDIA 2026
+              </span>
+            </span>
           </h2>
         </div>
       </div>
@@ -42,9 +49,16 @@ export default function AboutUs() {
           />
         </div>
 
-        <div className="hero-zigzag-title-pocket absolute top-0 left-0 z-20 flex h-full w-[41%] min-w-0 items-center justify-center overflow-hidden px-1">
-          <h2 className="font-angkor min-w-0 max-w-full text-center whitespace-nowrap text-white">
-            <span className="angkor-section-title">ABOUT US</span>
+        <div className="hero-zigzag-title-pocket absolute top-0 left-0 z-20 flex h-full w-[41%] min-w-0 items-center justify-start px-1">
+          <h2 className="font-angkor min-w-0 max-w-full text-left text-white flex flex-col justify-center pt-10 sm:pt-12 md:pt-16 lg:pt-20 pl-4 sm:pl-6 md:pl-8 pr-4 sm:pr-8 md:pr-12">
+            <span className="angkor-section-title faq-zigzag-title text-left block">
+              <span className="block whitespace-nowrap text-white uppercase">
+                WELCOME TO
+              </span>
+              <span className="block whitespace-nowrap text-[#6aaff1] uppercase">
+                ITC INDIA 2026
+              </span>
+            </span>
           </h2>
         </div>
 
@@ -63,9 +77,6 @@ export default function AboutUs() {
           className="flex min-h-0 min-w-0 flex-1 flex-col justify-center overflow-hidden break-words
                      max-sm:px-3 sm:pl-5 md:pl-6 lg:pl-7 xl:pl-8 sm:pr-0"
         >
-          <h3 className="mb-4 text-center font-space-grotesk text-[22px] font-bold leading-[1.2] sm:mb-6 sm:text-[28px] md:text-left md:text-[32px] lg:text-[38px] xl:text-[44px]">
-            Welcome to ITC INDIA 2026
-          </h3>
           <div className="space-y-3 text-center font-poppins text-[14px] leading-[1.6] text-white/90 sm:space-y-4 sm:text-[16px] md:text-left md:text-[17px]">
             <p>
               International Test Conference is the world&apos;s premier venue
@@ -76,7 +87,7 @@ export default function AboutUs() {
               failure analysis, and back to process and design improvement.
             </p>
             <p>
-              At ITC India, design, test, and yield professionals can confront
+              At IEEE ITC India, design, test, and yield professionals can confront
               challenges faced by the industry, and learn how these challenges
               are being addressed by the combined efforts of academia, design
               tool and equipment suppliers, designers, and test engineers.

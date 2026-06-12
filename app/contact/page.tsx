@@ -17,7 +17,7 @@ export default function ContactUs() {
           CONTACT US
         </h1>
         <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto">
-          Have questions about ITC India 2026? Reach out to us through any of the channels below.
+          Have questions about IEEE ITC India 2026? Reach out to us through any of the channels below.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">

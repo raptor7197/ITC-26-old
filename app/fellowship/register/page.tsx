@@ -750,7 +750,7 @@ export default function FellowshipApplication() {
               <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Provide a short write up on your current area of research and
-                  the purpose of attending ITC 2026 (max 1 page PDF){" "}
+                  the purpose of attending IEEE ITC 2026 (max 1 page PDF){" "}
                   <span className="text-red-500">*</span>
                 </label>
                 <p className="text-xs text-gray-500 mb-3">
@@ -773,7 +773,7 @@ export default function FellowshipApplication() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1.5">
                   Mention your ID of Submitted / Selected - Paper / Poster /
-                  Hackathon, if any in ITC India 2026{" "}
+                  Hackathon, if any in IEEE ITC India 2026{" "}
                   <span className="text-red-500">*</span>
                 </label>
                 <input

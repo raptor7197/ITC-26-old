@@ -12,7 +12,7 @@ const variantClasses: Record<ClosedAuthorButtonVariant, string> = {
   secondary:
     "block w-full bg-transparent border-2 border-[#6aaff1]/25 text-gray-500 font-bold text-center py-3 rounded cursor-not-allowed opacity-70",
   "hero-primary":
-    "w-full sm:w-auto bg-[#6aaff1]/25 text-[#03396c]/45 text-base md:text-lg font-bold py-4 px-8 rounded-lg cursor-not-allowed uppercase tracking-wider opacity-70",
+    "w-full sm:w-auto bg-white/10 text-white/60 text-base md:text-lg font-bold py-4 px-8 rounded-lg cursor-not-allowed uppercase tracking-wider opacity-70",
   "hero-secondary":
     "w-full sm:w-auto bg-transparent text-gray-500 text-base md:text-lg font-bold py-4 px-8 border-2 border-white/20 rounded-lg cursor-not-allowed uppercase tracking-wider opacity-70",
   "inline-primary":

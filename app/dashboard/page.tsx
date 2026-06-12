@@ -403,7 +403,7 @@ export default function DashboardPage() {
                     Fellowship
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">
-                    Register for ITC Fellowship Program
+                    Register for IEEE ITC Fellowship Program
                   </p>
                 </div>
                 <svg
@@ -429,7 +429,7 @@ export default function DashboardPage() {
                     Hackathon
                   </p>
                   <p className="text-xs text-gray-400 mt-0.5">
-                    Join the ITC Hackathon
+                    Join the IEEE ITC Hackathon
                   </p>
                 </div>
                 <svg
