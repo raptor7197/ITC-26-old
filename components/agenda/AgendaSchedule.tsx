@@ -250,46 +250,71 @@ function CircuitGraphic() {
 export default function AgendaSchedule() {
   const [activeId, setActiveId] = useState(agendaDays[0].id);
   const [selectedData, setSelectedData] = useState<ModalData | null>(null);
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const [showTooltip, setShowTooltip] = useState(false);
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-      
-      const target = e.target as HTMLElement;
-      // Check if we are hovering over an element that triggers a modal
-      if (target.closest('[data-clickable="true"]')) {
-        setShowTooltip(true);
-      } else {
-        setShowTooltip(false);
-      }
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
 
   const getMatchData = (title: string, items?: string[]): ModalData | null => {
+    const safeTitle = title.toLowerCase();
+
     // Check Tutorials
     const tutorialMatch = tutorialsData.find(
-      (t) => t.title === title || (t.title && title.includes(t.title)),
+      (t) =>
+        t.title &&
+        (t.title.toLowerCase() === safeTitle ||
+          safeTitle.includes(t.title.toLowerCase())),
     );
     if (tutorialMatch) return tutorialMatch as ModalData;
 
     // Check Keynotes
-    const keynoteMatch = keynoteSpeakers.find((k) => title.includes(k.name));
+    const keynoteMatch = keynoteSpeakers.find((k) =>
+      safeTitle.includes(k.name.toLowerCase()),
+    );
     if (keynoteMatch) return keynoteMatch as ModalData;
 
     // Check Industry Speakers (match name in title or items)
     const industryMatch = industrySpeakers.find(
       (i) =>
-        title.includes(i.name) ||
-        (items && items.some((item) => item.includes(i.name))),
+        safeTitle.includes(i.name.toLowerCase()) ||
+        (items &&
+          items.some((item) =>
+            item.toLowerCase().includes(i.name.toLowerCase()),
+          )),
     );
     if (industryMatch) return industryMatch as ModalData;
 
-    return null;
+    // --- FALLBACK FOR PRESENTATIONS ---
+    const nonPresentationKeywords = [
+      "registration",
+      "break",
+      "lunch",
+      "tea",
+      "coffee",
+      "exhibition",
+      "remarks",
+      "award",
+      "conclusion",
+      "welcome",
+      "closing",
+      "inauguration",
+      "tttc workshop",
+      "poster session",
+      "distinguished address",
+      "itc-at-itc",
+      "talk1",
+      "talk2",
+      "talk3",
+      "talk4",
+      "panel",
+      "banquet",
+      "dinner",
+      "no activity planned",
+    ];
+    if (nonPresentationKeywords.some((kw) => safeTitle.includes(kw))) {
+      return null;
+    }
+
+    return {
+      name: title,
+      comingSoon: true,
+    };
   };
 
   const handleTileClick = (title: string, items?: string[]) => {
@@ -537,7 +562,7 @@ export default function AgendaSchedule() {
                         colSpan={4}
                         className={`border-2 border-white/20 bg-transparent p-3 ${getMatchData(slot.title) ? "cursor-pointer hover:bg-white/5 transition-colors" : ""}`}
                         onClick={() => handleTileClick(slot.title)}
-                        {...(getMatchData(slot.title) ? { "data-clickable": "true" } : {})}
+                        {...(getMatchData(slot.title) ? { "title": "Click to read more details" } : {})}
                       >
                         <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none">
                           <div className="font-bold text-white text-base">
@@ -576,7 +601,7 @@ export default function AgendaSchedule() {
                                 session &&
                                 handleTileClick(session.title, session.items)
                               }
-                              {...(session && getMatchData(session.title, session.items) ? { "data-clickable": "true" } : {})}
+                              {...(session && getMatchData(session.title, session.items) ? { "title": "Click to read more details" } : {})}
                             >
                               {session ? (
                                 <div className="flex flex-col h-full">
@@ -588,7 +613,7 @@ export default function AgendaSchedule() {
                                       <div className="mt-auto space-y-[6px]">
                                         {session.items.map(
                                           (item: string, idx: number) => {
-                                            const itemMatch = getMatchData(item);
+                                            const itemMatch = null;
                                             return (
                                               <div
                                                 key={idx}
@@ -603,7 +628,7 @@ export default function AgendaSchedule() {
                                                     handleTileClick(item);
                                                   }
                                                 }}
-                                                {...(itemMatch ? { "data-clickable": "true" } : {})}
+                                                {...(itemMatch ? { "title": "Click to read more details" } : {})}
                                               >
                                                 {item.includes("ENTRANCE LOBBY")
                                                   ? ICONS.location
@@ -638,15 +663,6 @@ export default function AgendaSchedule() {
           </table>
         </div>
       </div>
-
-      {showTooltip && !selectedData && (
-        <div
-          className="fixed pointer-events-none z-[99999] bg-[#00b0f0] text-[#071325] px-3 py-1.5 rounded-full text-[11px] font-extrabold tracking-widest shadow-[0_0_15px_rgba(0,176,240,0.5)] transform -translate-x-1/2 -translate-y-8 transition-opacity duration-100 uppercase whitespace-nowrap"
-          style={{ left: mousePos.x, top: mousePos.y }}
-        >
-          Read More
-        </div>
-      )}
 
       <AgendaModal
         isOpen={!!selectedData}
