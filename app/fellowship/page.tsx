@@ -155,7 +155,7 @@ export default function FellowshipPage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <AuthorActionButton
-                    closed={fellowshipApplicationClosed}
+                    closed={false}
                     deadline={authorDeadlines.fellowshipApplication}
                     variant="inline-secondary"
                     href="/Student%20Template.docx"
@@ -164,7 +164,7 @@ export default function FellowshipPage() {
                     Download student bonafide template
                   </AuthorActionButton>
                   <AuthorActionButton
-                    closed={fellowshipApplicationClosed}
+                    closed={false}
                     deadline={authorDeadlines.fellowshipApplication}
                     variant="inline-secondary"
                     href="/Faculty%20Template.docx"
@@ -458,7 +458,7 @@ export default function FellowshipPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <AuthorActionButton
-              closed={fellowshipApplicationClosed}
+              closed={false}
               deadline={authorDeadlines.fellowshipApplication}
               variant="inline-primary"
               href="/Faculty%20Template.docx"
@@ -467,7 +467,7 @@ export default function FellowshipPage() {
               Download Faculty Template
             </AuthorActionButton>
             <AuthorActionButton
-              closed={fellowshipApplicationClosed}
+              closed={false}
               deadline={authorDeadlines.fellowshipApplication}
               variant="inline-secondary"
               href="/Student%20Template.docx"

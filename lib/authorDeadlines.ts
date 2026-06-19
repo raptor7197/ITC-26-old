@@ -8,7 +8,7 @@ export const authorDeadlines = {
   cftTutorial: endOfDay(2026, 4, 15),
   posters: endOfDay(2026, 4, 15),
   workshopProposal: endOfDay(2026, 5, 31),
-  fellowshipApplication: endOfDay(2026, 5, 7),
+  fellowshipApplication: endOfDay(2026, 12, 31),
   /** Hero CTAs on the hackathon page (Round-1 solution submission). */
   hackathonRound1: endOfDay(2026, 5, 31),
 } as const;
