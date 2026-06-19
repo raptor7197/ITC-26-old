@@ -492,189 +492,247 @@ export default function AgendaSchedule() {
               </tr>
             </thead>
             <tbody>
-              {activeDay.slots.map((slot, index) => {
-                // Break or Registration spans all columns
-                if (
-                  slot.kind === "break" ||
-                  (slot.kind === "single" && slot.variant === "registration")
-                ) {
-                  const isRegistration =
-                    slot.kind === "single" && slot.variant === "registration";
-                  return (
+              {(() => {
+                const activeRowSpans: Record<string, number> = {
+                  "Grand Victoria 1": 0,
+                  "Grand Victoria 2": 0,
+                  "Arabica & Robusta": 0,
+                  "Brain Box": 0,
+                };
+
+                return activeDay.slots.map((slot, index) => {
+                  // Break or Registration slots
+                  if (
+                    slot.kind === "break" ||
+                    (slot.kind === "single" && slot.variant === "registration")
+                  ) {
+                    const isRegistration =
+                      slot.kind === "single" && slot.variant === "registration";
+
+                    let colsToSpan = 0;
+                    for (const v of VENUES) {
+                      if (activeRowSpans[v] > 0) break;
+                      colsToSpan++;
+                    }
+
+                    // Decrement for this row
+                    for (const v of VENUES) {
+                      if (activeRowSpans[v] > 0) activeRowSpans[v]--;
+                    }
+
+                    return (
+                      <tr key={`slot-${index}`}>
+                        <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center whitespace-nowrap">
+                          <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
+                            {ICONS.clock}
+                            <span className="text-xs font-medium text-sky-100">
+                              {slot.time}
+                            </span>
+                          </div>
+                        </td>
+                        <td
+                          colSpan={colsToSpan}
+                          className="border-2 border-white/20 bg-transparent p-3 text-center"
+                        >
+                          <div className="flex items-center justify-center gap-3 bg-[#03152d] border border-white/20 rounded-xl mx-2 py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+                            {isRegistration
+                              ? ICONS.user
+                              : slot.title.toLowerCase().includes("lunch")
+                                ? ICONS.lunch
+                                : ICONS.coffee}
+                            <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
+                              {slot.title}
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  }
+
+                  // Parallel or Single Slot
+                  let sessionsByVenue: Record<string, any> = {};
+                  if (slot.kind === "parallel") {
+                    slot.sessions.forEach((s) => {
+                      sessionsByVenue[s.hall] = s;
+                    });
+                  }
+
+                  let singleColsToSpan = 0;
+                  for (const v of VENUES) {
+                    if (activeRowSpans[v] > 0) break;
+                    singleColsToSpan++;
+                  }
+
+                  const trContent = (
                     <tr key={`slot-${index}`}>
-                      <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center whitespace-nowrap">
-                        <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
+                      <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center align-top whitespace-nowrap">
+                        <div className="flex flex-col items-center gap-1 text-sky-100 mt-2">
                           {ICONS.clock}
                           <span className="text-xs font-medium text-sky-100">
-                            {slot.time}
+                            {slot.time.split(" – ")[0]} –
+                          </span>
+                          <span className="text-xs font-medium text-sky-100">
+                            {slot.time.split(" – ")[1]}
                           </span>
                         </div>
                       </td>
-                      <td
-                        colSpan={4}
-                        className="border-2 border-white/20 bg-transparent p-3 text-center"
-                      >
-                        <div className="flex items-center justify-center gap-3 bg-[#03152d] border border-white/20 rounded-xl mx-2 py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
-                          {isRegistration
-                            ? ICONS.user
-                            : slot.title.toLowerCase().includes("lunch")
-                              ? ICONS.lunch
-                              : ICONS.coffee}
-                          <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
-                            {slot.title}
-                          </span>
-                        </div>
-                      </td>
-                    </tr>
-                  );
-                }
 
-                // Parallel or Single Slot
-                let sessionsByVenue: Record<string, any> = {};
-                if (slot.kind === "parallel") {
-                  slot.sessions.forEach((s) => {
-                    sessionsByVenue[s.hall] = s;
-                  });
-                } else if (slot.kind === "single") {
-                  if (slot.location) {
-                    // It specifies locations. Since our columns are fixed to 4 venues,
-                    // if it's Grand Victoria 1 & 2, it spans two. To simplify, we can just span it across all.
-                    // But in the exact design, single sessions aren't really shown except via spanning.
-                  }
-                }
-
-                return (
-                  <tr key={`slot-${index}`}>
-                    <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center align-top whitespace-nowrap">
-                      <div className="flex flex-col items-center gap-1 text-sky-100 mt-2">
-                        {ICONS.clock}
-                        <span className="text-xs font-medium text-sky-100">
-                          {slot.time.split(" – ")[0]} –
-                        </span>
-                        <span className="text-xs font-medium text-sky-100">
-                          {slot.time.split(" – ")[1]}
-                        </span>
-                      </div>
-                    </td>
-
-                    {slot.kind === "single" ? (
-                      <td
-                        colSpan={4}
-                        className={`border-2 border-white/20 bg-transparent p-3 ${getMatchData(slot.title) ? "cursor-pointer hover:bg-white/5 transition-colors" : ""}`}
-                        onClick={() => handleTileClick(slot.title)}
-                        {...(getMatchData(slot.title) ? { "title": "Click to read more details" } : {})}
-                      >
-                        {slot.variant === "keynote" ? (
-                          <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none">
-                            <div className="font-bold text-white text-base">
-                              Keynote Address
-                            </div>
-                            {slot.subtitle && (
-                              <div className="text-sm font-semibold text-sky-200 mt-1">
-                                {slot.subtitle}
-                              </div>
-                            )}
-                            <div className="text-xs text-[#a3b8cc] mt-1">
-                              {slot.title.replace(/^Keynote:\s*/i, "")}
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none">
-                            <div className="font-bold text-white text-base">
-                              {slot.title}
-                            </div>
-                            {slot.subtitle && (
-                              <div className="text-xs text-sky-200 mt-1">
-                                {slot.subtitle}
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </td>
-                    ) : (
-                      (() => {
-                        const cells = [];
-                        let skip = 0;
-                        for (let i = 0; i < VENUES.length; i++) {
-                          if (skip > 0) {
-                            skip--;
-                            continue;
-                          }
-                          const venue = VENUES[i];
-                          const session = sessionsByVenue[venue];
-                          const style =
-                            TRACK_STYLES[venue as keyof typeof TRACK_STYLES];
-                          const colSpan = session?.colSpan || 1;
-                          if (colSpan > 1) {
-                            skip = colSpan - 1;
-                          }
-                          cells.push(
-                            <td
-                              key={venue}
-                              colSpan={colSpan}
-                              className={`border-2 border-white/20 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title, session.items) ? "cursor-pointer hover:brightness-110 transition-all" : ""}`}
-                              onClick={() =>
-                                session &&
-                                handleTileClick(session.title, session.items)
-                              }
-                              {...(session && getMatchData(session.title, session.items) ? { "title": "Click to read more details" } : {})}
-                            >
-                              {session ? (
-                                <div className="flex flex-col h-full">
-                                  <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
-                                    {session.title}
-                                  </h4>
-                                  {session.items &&
-                                    session.items.length > 0 && (
-                                      <div className="mt-auto space-y-[6px]">
-                                        {session.items.map(
-                                          (item: string, idx: number) => {
-                                            const itemMatch = null;
-                                            return (
-                                              <div
-                                                key={idx}
-                                                className={`flex items-start gap-2 text-[12px] font-normal leading-[1.3] ${
-                                                  itemMatch
-                                                    ? "text-sky-300 cursor-pointer hover:text-white transition-colors"
-                                                    : "text-[#a3b8cc]"
-                                                }`}
-                                                onClick={(e) => {
-                                                  if (itemMatch) {
-                                                    e.stopPropagation();
-                                                    handleTileClick(item);
-                                                  }
-                                                }}
-                                                {...(itemMatch ? { "title": "Click to read more details" } : {})}
-                                              >
-                                                {item.includes("ENTRANCE LOBBY")
-                                                  ? ICONS.location
-                                                  : ["day1", "day2"].includes(
-                                                        activeId,
-                                                      )
-                                                    ? ICONS.bullet
-                                                    : ICONS.user}
-                                                <span>{item}</span>
-                                              </div>
-                                            );
-                                          },
-                                        )}
-                                      </div>
-                                    )}
+                      {slot.kind === "single" ? (
+                        <td
+                          colSpan={singleColsToSpan}
+                          className={`border-2 border-white/20 bg-transparent p-3 ${getMatchData(slot.title) ? "cursor-pointer hover:bg-white/5 transition-colors" : ""}`}
+                          onClick={() => handleTileClick(slot.title)}
+                          {...(getMatchData(slot.title) ? { "title": "Click to read more details" } : {})}
+                        >
+                          {slot.variant === "keynote" ? (
+                            <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-between">
+                              <div>
+                                <div className="font-bold text-white text-base">
+                                  Keynote Address
                                 </div>
-                              ) : (
-                                <div className="text-xs text-[#a3b8cc]/50 italic text-center mt-4">
-                                  —
+                                {slot.subtitle && (
+                                  <div className="text-sm font-semibold text-sky-200 mt-1">
+                                    {slot.subtitle}
+                                  </div>
+                                )}
+                                <div className="text-xs text-[#a3b8cc] mt-1">
+                                  {slot.title.replace(/^Keynote:\s*/i, "")}
+                                </div>
+                              </div>
+                              {slot.location && (
+                                <div className="flex items-center gap-1.5 mt-3 text-xs font-semibold text-sky-400">
+                                  {ICONS.location}
+                                  <span>{slot.location}</span>
                                 </div>
                               )}
-                            </td>,
-                          );
-                        }
-                        return cells;
-                      })()
-                    )}
-                  </tr>
-                );
-              })}
+                            </div>
+                          ) : (
+                            <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-between">
+                              <div>
+                                <div className="font-bold text-white text-base">
+                                  {slot.title}
+                                </div>
+                                {slot.subtitle && (
+                                  <div className="text-xs text-sky-200 mt-1">
+                                    {slot.subtitle}
+                                  </div>
+                                )}
+                              </div>
+                              {slot.location && (
+                                <div className="flex items-center gap-1.5 mt-3 text-xs font-semibold text-sky-400">
+                                  {ICONS.location}
+                                  <span>{slot.location}</span>
+                                </div>
+                              )}
+                            </div>
+                          )}
+                        </td>
+                      ) : (
+                        (() => {
+                          const cells = [];
+                          let skip = 0;
+                          for (let i = 0; i < VENUES.length; i++) {
+                            const venue = VENUES[i];
+                            if (activeRowSpans[venue] > 0) {
+                              continue;
+                            }
+                            if (skip > 0) {
+                              skip--;
+                              continue;
+                            }
+                            const session = sessionsByVenue[venue];
+                            const style =
+                              TRACK_STYLES[venue as keyof typeof TRACK_STYLES];
+                            const colSpan = session?.colSpan || 1;
+                            const rowSpan = session?.rowSpan || 1;
+
+                            if (colSpan > 1) {
+                              skip = colSpan - 1;
+                            }
+                            if (rowSpan > 1) {
+                              for (let c = 0; c < colSpan; c++) {
+                                activeRowSpans[VENUES[i + c]] = rowSpan;
+                              }
+                            }
+
+                            cells.push(
+                              <td
+                                key={venue}
+                                colSpan={colSpan}
+                                rowSpan={rowSpan}
+                                className={`border-2 border-white/20 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title, session.items) ? "cursor-pointer hover:brightness-110 transition-all" : ""}`}
+                                onClick={() =>
+                                  session &&
+                                  handleTileClick(session.title, session.items)
+                                }
+                                {...(session && getMatchData(session.title, session.items) ? { "title": "Click to read more details" } : {})}
+                              >
+                                {session ? (
+                                  <div className="flex flex-col h-full">
+                                    <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
+                                      {session.title}
+                                    </h4>
+                                    <div className="mt-auto pt-3 flex flex-col gap-3">
+                                      {session.items && session.items.length > 0 && (
+                                        <div className="space-y-[6px]">
+                                          {session.items.map(
+                                            (item: string, idx: number) => {
+                                              const itemMatch = null;
+                                              return (
+                                                <div
+                                                  key={idx}
+                                                  className={`flex items-start gap-2 text-[12px] font-normal leading-[1.3] ${
+                                                    itemMatch
+                                                      ? "text-sky-300 cursor-pointer hover:text-white transition-colors"
+                                                      : "text-[#a3b8cc]"
+                                                  }`}
+                                                  onClick={(e) => {
+                                                    if (itemMatch) {
+                                                      e.stopPropagation();
+                                                      handleTileClick(item);
+                                                    }
+                                                  }}
+                                                  {...(itemMatch ? { "title": "Click to read more details" } : {})}
+                                                >
+                                                  {["day1", "day2"].includes(activeId)
+                                                    ? ICONS.bullet
+                                                    : ICONS.user}
+                                                  <span>{item}</span>
+                                                </div>
+                                              );
+                                            },
+                                          )}
+                                        </div>
+                                      )}
+                                      {session.location && (
+                                        <div className="flex items-center gap-1.5 text-xs font-semibold text-sky-400">
+                                          {ICONS.location}
+                                          <span>{session.location}</span>
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                ) : (
+                                  <div className="text-xs text-[#a3b8cc]/50 italic text-center mt-4">
+                                    —
+                                  </div>
+                                )}
+                              </td>
+                            );
+                          }
+                          return cells;
+                        })()
+                      )}
+                    </tr>
+                  );
+
+                  for (const v of VENUES) {
+                    if (activeRowSpans[v] > 0) activeRowSpans[v]--;
+                  }
+
+                  return trContent;
+                });
+              })()}
             </tbody>
           </table>
         </div>

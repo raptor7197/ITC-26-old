@@ -8,14 +8,14 @@ export const keynoteSpeakers = [
   },
   {
     id: 1,
-    name: "Subhasish Mitra",
+    name: "Subhashish Mitra",
     affiliation: "Stanford University",
     title:
       "Silent Data Corruption by 10× Test Escapes Threatens Reliable Computing",
     description:
       "In an era where computing underpins everything from cloud infrastructure and AI to autonomous systems, ensuring reliability has never been more critical. This keynote examines the growing threat of test escapes and silent data corruption, highlighting the limitations of conventional testing approaches and the need for next-generation strategies to safeguard trust in increasingly complex semiconductor systems.",
     bio: [
-      "Subhasish Mitra is the William E. Ayer Endowed Chair Professor at Stanford University and a globally recognized leader in robust computing, system reliability, and electronic design automation. Over decades of pioneering research, his innovations in testing, validation, fault prediction, and resilience have shaped modern semiconductor systems and influenced technologies deployed across cloud, AI, and automotive platforms worldwide.",
+      "Subhashish Mitra is the William E. Ayer Endowed Chair Professor at Stanford University and a globally recognized leader in robust computing, system reliability, and electronic design automation. Over decades of pioneering research, his innovations in testing, validation, fault prediction, and resilience have shaped modern semiconductor systems and influenced technologies deployed across cloud, AI, and automotive platforms worldwide.",
       "His extensive work with academia, industry, and national semiconductor initiatives has provided him with unique insights into the reliability challenges facing next-generation computing systems, making him a leading voice on the future of trustworthy and resilient computing.",
     ],
     image: "/images/keynote/Subhasish-Mitra.png",
@@ -344,7 +344,36 @@ export const tutorialsData = [  {
       },
     ],
     status: "ready",
-  },];
+  },
+  {
+    id: "chiplet",
+    title: "Testing Chiplet-Based 2.5D/3D ICs : An Academia/Industry perspective",
+    abstract: "Details coming soon.",
+    authors: [
+      {
+        name: "Binod Kumar, Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati), Jyotirmoy Saikia and Sagar Kumar (Cadence)",
+        affiliation: "",
+        bio: "",
+        image: ""
+      }
+    ],
+    status: "ready",
+  },
+  {
+    id: "p2929",
+    title: "Beyond Scan Dump: Why IEEE P2929 Enables True Scan State Extraction",
+    abstract: "Details coming soon.",
+    authors: [
+      {
+        name: "Lee Harrison, Andy Hughes and Peter Orlando (Siemens EDA)",
+        affiliation: "",
+        bio: "",
+        image: ""
+      }
+    ],
+    status: "ready",
+  }
+];
 
 export const distinguishedAddressesData = [
   { id: 0, name: "Arojit Roychowdhury", affiliation: "Sr. Director of Technology, Qualcomm", comingSoon: true },
