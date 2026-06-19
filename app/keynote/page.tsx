@@ -45,6 +45,12 @@ const speakers = [
     image: "/images/keynote/jeff_rearick_2024.png",
   },
   {
+    id: 5.5,
+    name: "Nilanjan Mukherjee",
+    affiliation: "Siemens",
+    comingSoon: true,
+  },
+  {
     id: 6,
     name: "Bizhan Delgoshaei",
     affiliation: "Google",
