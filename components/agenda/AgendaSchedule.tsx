@@ -1,8 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { AgendaDay, AgendaSlot, ParallelSession } from "@/lib/agendaData";
 import { agendaDays, VENUES } from "@/lib/agendaData";
+
+import {
+  keynoteSpeakers,
+  industrySpeakers,
+  tutorialsData,
+} from "@/lib/speakersData";
+import AgendaModal, { ModalData } from "./AgendaModal";
 
 const ICONS = {
   calendar: (
@@ -60,11 +67,11 @@ const ICONS = {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
-      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
-      <line x1="6" y1="1" x2="6" y2="4"/>
-      <line x1="10" y1="1" x2="10" y2="4"/>
-      <line x1="14" y1="1" x2="14" y2="4"/>
+      <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+      <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
+      <line x1="6" y1="1" x2="6" y2="4" />
+      <line x1="10" y1="1" x2="10" y2="4" />
+      <line x1="14" y1="1" x2="14" y2="4" />
     </svg>
   ),
   lunch: (
@@ -77,9 +84,9 @@ const ICONS = {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M6 10h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z"/>
-      <path d="M6 6h12a2 2 0 0 1 2 2v2H4V8a2 2 0 0 1 2-2Z"/>
-      <path d="M10 6V4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2"/>
+      <path d="M6 10h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2Z" />
+      <path d="M6 6h12a2 2 0 0 1 2 2v2H4V8a2 2 0 0 1 2-2Z" />
+      <path d="M10 6V4a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2" />
     </svg>
   ),
   // CPU
@@ -126,7 +133,7 @@ const ICONS = {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
     </svg>
   ),
   // Brain
@@ -140,15 +147,15 @@ const ICONS = {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"/>
-      <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"/>
-      <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"/>
-      <path d="M17.599 6.5a3 3 0 0 0 .399-1.375"/>
-      <path d="M6.002 5.125A3 3 0 0 0 6.401 6.5"/>
-      <path d="M3.477 10.896a4 4 0 0 1 .585-.396"/>
-      <path d="M19.938 10.5a4 4 0 0 1 .585.396"/>
-      <path d="M6 18a4 4 0 0 1-1.967-.516"/>
-      <path d="M19.967 17.484A4 4 0 0 1 18 18"/>
+      <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+      <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" />
+      <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" />
+      <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" />
+      <path d="M6.002 5.125A3 3 0 0 0 6.401 6.5" />
+      <path d="M3.477 10.896a4 4 0 0 1 .585-.396" />
+      <path d="M19.938 10.5a4 4 0 0 1 .585.396" />
+      <path d="M6 18a4 4 0 0 1-1.967-.516" />
+      <path d="M19.967 17.484A4 4 0 0 1 18 18" />
     </svg>
   ),
   bullet: (
@@ -242,6 +249,55 @@ function CircuitGraphic() {
 
 export default function AgendaSchedule() {
   const [activeId, setActiveId] = useState(agendaDays[0].id);
+  const [selectedData, setSelectedData] = useState<ModalData | null>(null);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      setMousePos({ x: e.clientX, y: e.clientY });
+      
+      const target = e.target as HTMLElement;
+      // Check if we are hovering over an element that triggers a modal
+      if (target.closest('[data-clickable="true"]')) {
+        setShowTooltip(true);
+      } else {
+        setShowTooltip(false);
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const getMatchData = (title: string, items?: string[]): ModalData | null => {
+    // Check Tutorials
+    const tutorialMatch = tutorialsData.find(
+      (t) => t.title === title || (t.title && title.includes(t.title)),
+    );
+    if (tutorialMatch) return tutorialMatch as ModalData;
+
+    // Check Keynotes
+    const keynoteMatch = keynoteSpeakers.find((k) => title.includes(k.name));
+    if (keynoteMatch) return keynoteMatch as ModalData;
+
+    // Check Industry Speakers (match name in title or items)
+    const industryMatch = industrySpeakers.find(
+      (i) =>
+        title.includes(i.name) ||
+        (items && items.some((item) => item.includes(i.name))),
+    );
+    if (industryMatch) return industryMatch as ModalData;
+
+    return null;
+  };
+
+  const handleTileClick = (title: string, items?: string[]) => {
+    const data = getMatchData(title, items);
+    if (data) {
+      setSelectedData(data);
+    }
+  };
   const activeDay = agendaDays.find((d) => d.id === activeId) ?? agendaDays[0];
 
   return (
@@ -303,7 +359,9 @@ export default function AgendaSchedule() {
                 {activeDay.label}
               </span>
             </div>
-            <h2 className={`font-black tracking-wider text-white mb-1 whitespace-nowrap ${activeDay.subtitle === "Tutorials & Industry Test Challenge" ? "text-[24px]" : "text-[28px]"}`}>
+            <h2
+              className={`font-black tracking-wider text-white mb-1 whitespace-nowrap ${activeDay.subtitle === "Tutorials & Industry Test Challenge" ? "text-[24px]" : "text-[28px]"}`}
+            >
               {activeDay.subtitle}
             </h2>
             <p className="text-[15px] text-sky-400 font-medium">
@@ -418,9 +476,7 @@ export default function AgendaSchedule() {
                   const isRegistration =
                     slot.kind === "single" && slot.variant === "registration";
                   return (
-                    <tr
-                      key={`slot-${index}`}
-                    >
+                    <tr key={`slot-${index}`}>
                       <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center whitespace-nowrap">
                         <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
                           {ICONS.clock}
@@ -434,7 +490,11 @@ export default function AgendaSchedule() {
                         className="border-2 border-white/20 bg-transparent p-3 text-center"
                       >
                         <div className="flex items-center justify-center gap-3 bg-[#03152d] border border-white/20 rounded-xl mx-2 py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
-                          {isRegistration ? ICONS.user : slot.title.toLowerCase().includes("lunch") ? ICONS.lunch : ICONS.coffee}
+                          {isRegistration
+                            ? ICONS.user
+                            : slot.title.toLowerCase().includes("lunch")
+                              ? ICONS.lunch
+                              : ICONS.coffee}
                           <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
                             {slot.title}
                           </span>
@@ -459,9 +519,7 @@ export default function AgendaSchedule() {
                 }
 
                 return (
-                  <tr
-                    key={`slot-${index}`}
-                  >
+                  <tr key={`slot-${index}`}>
                     <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center align-top whitespace-nowrap">
                       <div className="flex flex-col items-center gap-1 text-sky-100 mt-2">
                         {ICONS.clock}
@@ -475,8 +533,13 @@ export default function AgendaSchedule() {
                     </td>
 
                     {slot.kind === "single" ? (
-                      <td colSpan={4} className="border-2 border-white/20 bg-transparent p-3">
-                        <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+                      <td
+                        colSpan={4}
+                        className={`border-2 border-white/20 bg-transparent p-3 ${getMatchData(slot.title) ? "cursor-pointer hover:bg-white/5 transition-colors" : ""}`}
+                        onClick={() => handleTileClick(slot.title)}
+                        {...(getMatchData(slot.title) ? { "data-clickable": "true" } : {})}
+                      >
+                        <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none">
                           <div className="font-bold text-white text-base">
                             {slot.title}
                           </div>
@@ -508,7 +571,12 @@ export default function AgendaSchedule() {
                             <td
                               key={venue}
                               colSpan={colSpan}
-                              className={`border-2 border-white/20 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words`}
+                              className={`border-2 border-white/20 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title, session.items) ? "cursor-pointer hover:brightness-110 transition-all" : ""}`}
+                              onClick={() =>
+                                session &&
+                                handleTileClick(session.title, session.items)
+                              }
+                              {...(session && getMatchData(session.title, session.items) ? { "data-clickable": "true" } : {})}
                             >
                               {session ? (
                                 <div className="flex flex-col h-full">
@@ -519,15 +587,35 @@ export default function AgendaSchedule() {
                                     session.items.length > 0 && (
                                       <div className="mt-auto space-y-[6px]">
                                         {session.items.map(
-                                          (item: string, idx: number) => (
-                                            <div
-                                              key={idx}
-                                              className="flex items-start gap-2 text-[12px] font-normal text-[#a3b8cc] leading-[1.3]"
-                                            >
-                                              {item.includes("ENTRANCE LOBBY") ? ICONS.location : (["day1", "day2"].includes(activeId) ? ICONS.bullet : ICONS.user)}
-                                              <span>{item}</span>
-                                            </div>
-                                          ),
+                                          (item: string, idx: number) => {
+                                            const itemMatch = getMatchData(item);
+                                            return (
+                                              <div
+                                                key={idx}
+                                                className={`flex items-start gap-2 text-[12px] font-normal leading-[1.3] ${
+                                                  itemMatch
+                                                    ? "text-sky-300 cursor-pointer hover:text-white transition-colors"
+                                                    : "text-[#a3b8cc]"
+                                                }`}
+                                                onClick={(e) => {
+                                                  if (itemMatch) {
+                                                    e.stopPropagation();
+                                                    handleTileClick(item);
+                                                  }
+                                                }}
+                                                {...(itemMatch ? { "data-clickable": "true" } : {})}
+                                              >
+                                                {item.includes("ENTRANCE LOBBY")
+                                                  ? ICONS.location
+                                                  : ["day1", "day2"].includes(
+                                                        activeId,
+                                                      )
+                                                    ? ICONS.bullet
+                                                    : ICONS.user}
+                                                <span>{item}</span>
+                                              </div>
+                                            );
+                                          },
                                         )}
                                       </div>
                                     )}
@@ -550,6 +638,21 @@ export default function AgendaSchedule() {
           </table>
         </div>
       </div>
+
+      {showTooltip && !selectedData && (
+        <div
+          className="fixed pointer-events-none z-[99999] bg-[#00b0f0] text-[#071325] px-3 py-1.5 rounded-full text-[11px] font-extrabold tracking-widest shadow-[0_0_15px_rgba(0,176,240,0.5)] transform -translate-x-1/2 -translate-y-8 transition-opacity duration-100 uppercase whitespace-nowrap"
+          style={{ left: mousePos.x, top: mousePos.y }}
+        >
+          Read More
+        </div>
+      )}
+
+      <AgendaModal
+        isOpen={!!selectedData}
+        onClose={() => setSelectedData(null)}
+        data={selectedData}
+      />
     </div>
   );
 }
