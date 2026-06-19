@@ -65,10 +65,6 @@ export function FellowshipApplicationSidebar() {
                   : "Pending Review"}
             </span>
           </div>
-        ) : applicationsClosed ? (
-          <p className="text-sm text-gray-200 italic">
-            Fellowship applications are now closed.
-          </p>
         ) : (
           <p className="text-sm text-gray-200 italic">
             Applications are reviewed on a rolling basis. Early submissions are
@@ -87,7 +83,7 @@ export function FellowshipApplicationSidebar() {
           </Link>
         ) : (
           <AuthorActionButton
-            closed={applicationsClosed}
+            closed={false}
             deadline={authorDeadlines.fellowshipApplication}
             href="/fellowship/register"
           >
