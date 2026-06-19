@@ -15,6 +15,11 @@ const navLinks = [
     dropdown: [
       { name: "Agenda", href: "/agenda" },
       { name: "Keynote", href: "/keynote" },
+      { name: "Distinguished Addresses", href: "/distinguished-addresses" },
+      { name: "Industry Sessions", href: "/industry-sessions" },
+      { name: "Industry Showcase", href: "/industry-showcase" },
+      { name: "Panels", href: "/panels" },
+      { name: "Tutorials", href: "/tutorials" },
     ],
   },
   { name: "REGISTRATION", href: "/registration" },
