@@ -102,7 +102,7 @@ export const agendaDays: AgendaDay[] = [
           { hall: "Grand Victoria 1", title: "Testing to Self Testing: Self Test Driven Functional Safety for ISO 26262 Compliant Automotive SoCs", items: ["Rajesh Kumar Tiwari and Mohammed Zuber P Malek (Qualcomm)"] },
           { hall: "Grand Victoria 2", title: "The Seamless Integration of Packetized scan and In-system test with Advanced ATE Equipment", items: ["Lee Harrison (Siemens EDA)"] },
           { hall: "Arabica & Robusta", title: "Advanced Test Data Analytics for Yield and Quality Improvement", items: ["Navya Rastogi, Shamitha Rao, Shrestha Hota (Synopsys) and Soumya Mittal (Qualcomm)"] },
-          { hall: "Brain Box", title: "No Activity Planned" },
+          { hall: "Brain Box", title: "ITC-at-ITC", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige"] },
         ],
       },
       {
@@ -154,7 +154,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "single",
         time: "09:00 AM – 09:30 AM",
         title: "Conference Inauguration",
-        subtitle: "General Co-Chair, IEEE ITC India 2026 | Opening Remarks, Conference Highlights, Lamp Lighting by Chief Guests",
+        subtitle: "General Co-Chair, ITC India 2026 (Opening Remarks, Conference Highlights, Lamp Lighting by Chief Guests)",
         location: "Grand Victoria 1 & 2",
         variant: "plenary",
       },
@@ -167,13 +167,15 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "single",
         time: "10:00 AM – 10:30 AM",
-        title: "Keynote: Subhashish Mitra (Stanford)",
+        title: "Keynote: Subhashish Mitra (Stanford University)",
+        subtitle: "Silent Data corruption by 10x Test Escapes Threatens Reliable computing",
         variant: "keynote",
       },
       {
         kind: "single",
         time: "10:30 AM – 11:00 AM",
-        title: "Keynote: Senthilkumar Dhamodharan (Caliber)",
+        title: "Keynote: Senthilkumar Dhamodharan (Caliber Interconnect)",
+        subtitle: "SI Complexity to AI Revolution: India’s Silicon Leap 2047",
         variant: "keynote",
       },
       {
@@ -196,33 +198,33 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Technical Track 1: 3D IC and Chiplet Testing",
             items: [
-              "Paper 1: RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP",
-              "Paper 2: A Methodology for Robust Testing of Through Glass Vias (TGV) on Glass Substrate-based 3D Chiplets",
-              "Paper 3: Cost Aware Sector Symmetry and Wafer Cutting Methods for 3D ICs with Heterogeneous Defects"
+              "1.1: RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP (Hilay Patel, Naman Kalra and Jaynarayan T Tudu)",
+              "1.2: A Methodology for Robust Testing of Through Glass Vias (TGV) on Glass Substrate-based 3D Chiplets (Manisha Kumari, Jaynarayan T Tudu and Binod Kumar)",
+              "1.3: Cost Aware Sector Symmetry and Wafer Cutting Methods for 3D ICs with Heterogeneous Defects (Tanusree Kaibartta, Saksham Jha, Digvijay Anand Anand and Debesh Das)"
             ],
           },
           {
             hall: "Grand Victoria 2",
             title: "Technical Track 2: Hardware Security and Trojan Detection",
             items: [
-              "Paper 1: Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs",
-              "Paper 2: STAMP: Statistical Trojan Attribution via Multi-class Power-trace analysis",
-              "Paper 3: Test Pattern-Driven Detection of Hardware Trojans Using Switching Activity Analysis in FPGA-Based Systems"
+              "2.1: Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs (Prasanth Viswanathan Pillai, Varshashree Kottadamane, Ramakrishna Pidaparthi, Rohit Chaudhari, Sivareddy Maramreddy, Naveen Kothuri, Narendra Ravilla and Labeeb K)",
+              "2.2: Test Pattern-Driven Detection of Hardware Trojans Using Switching Activity Analysis in FPGA-Based Systems (Kannan S J, Chinakaku Lakshmi Prasanna and Sobhit Saxena)",
+              "2.3: STAMP: Statistical Trojan Attribution via Multi-class Power-trace analysis (Senthilkumar Dhamodharan, Sinthanai Selvi G, Karthika R and Abirami Vinayagamoorthy)"
             ],
           },
           {
             hall: "Arabica & Robusta",
             title: "Technical Track 3: Pre-Silicon Verification and Debug",
             items: [
-              "Paper 1: Comprehensive Coverage Framework for LPDDR6 Feature Validation: Navigating Complex Modes and Reducing the Verification Closure Gap",
-              "Paper 2: A Novel Verification Method for Debug Tracing-in Close Chassis System",
-              "Paper 3: Assertion Based Formal Verification of AES 128 Crypto Core"
+              "3.1: Comprehensive Coverage Framework for LPDDR6 Feature Validation: Navigating Complex Modes and Reducing the Verification Closure Gap (Dharini Subashchandran, Gruhesh Patel, Meghna Ahuja and Shyam Sharma)",
+              "3.2: A Novel Verification Method for Debug Tracing-in Close Chassis System (Maneesh Pandey and Madhav Lekkala)",
+              "3.3: Assertion Based Formal Verification of AES 128 Crypto Core (Shivang Sharma, Vineeth Jaisal and Prashant Singh)"
             ],
           },
           {
             hall: "Brain Box",
             title: "Special Session",
-            items: ["Industry Showcase 1", "Caliber", "TeraDyne"],
+            items: ["Industry Showcase 1", "Caliber (11:30 AM - 12:15 PM)", "TeraDyne (12:15 PM - 01:00 PM)"],
           },
         ],
       },
@@ -240,36 +242,36 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Technical Track 4: Advances in DFT and ATPG",
             items: [
-              "Paper 1: Physically Aware Weighted Fault Model : A new paradigm in testing",
-              "Paper 2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration",
-              "Paper 3: A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets",
-              "Paper 4: Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG"
+              "4.1: Physically Aware Weighted Fault Model : A new paradigm in testing (Sandipan Sharma, Srinivas Vooka, Maheedhar Jalasutram, Pranav Murthy, Chieh-Jen Ku and Yanhan Zhu)",
+              "4.2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration (Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha)",
+              "4.3: A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets (Hanumant Tuntoni, Hillol Maity, Sreenu Kakanuri, Peter Wohl, Parthajit Bhattacharya, Bruce Xue and Geguang Miao)",
+              "4.4: Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG (Rahul Bhattacharya)"
             ],
           },
           {
             hall: "Grand Victoria 2",
             title: "Technical Track 5: AI and Machine Learning Applications",
             items: [
-              "Paper 1: Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design",
-              "Paper 2: AI-Driven IP Configuration Optimization for Post-Silicon Validation",
-              "Paper 3: T-MAP: A Cross-Platform AI driven Test-Program Metadata Analysis Tool for Digital Coverage, Force, limit and Range Verification",
-              "Paper 4: Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection"
+              "5.1: Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design (Senthilkumar Dhamodharan, Loka Priya, Dyaneswaran Priya and Karthika R)",
+              "5.2: AI-Driven IP Configuration Optimization for Post-Silicon Validation (Akhilesh Tiwary, Maneesh Kumar Pandey, Nihar Chaniyara and Utsav Banerjee)",
+              "5.3: T-MAP: A Cross-Platform AI driven Test-Program Metadata Analysis Tool for Digital Coverage, Force, limit and Range Verification (Kaushik Chakravorty, Dundapa Sankapal, Vishal Rohilla, Sudhish Raj Gj, Pratyush Dargan and Robert Cook)",
+              "5.4: Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection (Kalyana Sundaram Chandran and Senthilkumar Dhamodharan)"
             ],
           },
           {
             hall: "Arabica & Robusta",
             title: "Technical Track 6: Secure IJTAG and Access Control",
             items: [
-              "Paper 1: State-Isolated Scan - A Secure Low-Power Scan Architecture",
-              "Paper 2: eFPGA-Enabled Dynamic Access Control for Secure IEEE 1687 (IJTAG) Networks",
-              "Paper 3: Design of a SAT-Resilient IJTAG Architecture for Secure and Scalable On-Chip Instrument Access",
-              "Paper 4: PQC-Based Secure Access Manager for IJTAG Network"
+              "6.1: State-Isolated Scan - A Secure Low-Power Scan Architecture (C.P. Ravikumar and Kushal C.)",
+              "6.2: eFPGA-Enabled Dynamic Access Control for Secure IEEE 1687 (IJTAG) Networks (Anshul Raghavendra Katti, Anekait Thampi, Manish Nagaraju and Sudeendra Kumar K)",
+              "6.3: Design of a SAT-Resilient IJTAG Architecture for Secure and Scalable On-Chip Instrument Access (Saravanan P, Dharani Sree K, Jothika K, Nivashini S and Sivaprabha Sri Pl)",
+              "6.4: PQC-Based Secure Access Manager for IJTAG Network (ART Paper) (Prajwal G S Basavaraj, Abhinav S, Arun Kumar N, Sudeendra Kumar)"
             ],
           },
           {
             hall: "Brain Box",
             title: "Special Session",
-            items: ["Industry Showcase 2", "Advantest 1", "Advantest 2"],
+            items: ["Industry Showcase 2", "Advantest (02:00 PM - 03:30 PM)"],
           },
         ],
       },
@@ -295,7 +297,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "DA: Qualcomm",
+            title: "Distinguished Address: Arojit Roychowdhury, Sr. Director of Technology, Qualcomm",
             colSpan: 3,
           },
           {
@@ -311,7 +313,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "DA: Cadence",
+            title: "Distinguished Address: Don Chan, Vice President, Cadence",
             colSpan: 3,
           },
           {
@@ -327,7 +329,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "DA: Teradyne",
+            title: "Distinguished Address: Teradyne",
             colSpan: 3,
           },
           {
@@ -340,8 +342,21 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "single",
         time: "05:15 PM – 05:30 PM",
-        title: "Closing Remarks | General Co-Chairs, IEEE ITC India 2026",
+        title: "Closing Remarks",
+        subtitle: "General Co-Chairs, ITC India 2026",
         variant: "plenary",
+      },
+      {
+        kind: "break",
+        time: "05:30 PM – 06:30 PM",
+        title: "BREAK (NO ACTIVITY PLANNED)",
+      },
+      {
+        kind: "single",
+        time: "06:30 PM – 08:30 PM",
+        title: "Banquet Sit Down Dinner (Invite Only)",
+        subtitle: "ITC India - 10th Edition Reflections | Panel: The Economics of Test: Where Should We Spend the Budget? Moderator: Navin Bishnoi | Felicitation of the Past Committee Members | Dinner",
+        variant: "evening",
       },
     ],
   },
@@ -361,13 +376,14 @@ export const agendaDays: AgendaDay[] = [
         kind: "single",
         time: "09:00 AM – 09:30 AM",
         title: "Welcome / Day 1 Summary",
-        subtitle: "General Co-Chair, IEEE ITC India 2025",
+        subtitle: "General Co-Chair, ITC India 2026",
         variant: "plenary",
       },
       {
         kind: "single",
         time: "09:30 AM – 10:00 AM",
         title: "Keynote: Jeff Rearick (AMD)",
+        subtitle: "AI IN TEST: FEAR IT OR HARNESS IT",
         variant: "keynote",
       },
       {
@@ -380,6 +396,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "single",
         time: "10:30 AM – 11:00 AM",
         title: "Keynote: Bizhan Delgoshaei (Google)",
+        subtitle: "From Silent Patient to Self-Healing Silicon: The Four Evolutionary Stages of DFT in Mass Production.",
         variant: "keynote",
       },
       {
@@ -395,30 +412,39 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Grand Victoria 1",
             title: "Industry Session 1",
-            items: ["Panel 3", "Talk 1: Anora"],
+            items: [
+              "Talk 1: Jayashree Saxena, Vice President – Semiconductor DFT, Anora Labs",
+              "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Senior Member Technical Staff, Texas Instruments",
+              "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Director of Engineering, Marvell"
+            ],
           },
           {
             hall: "Grand Victoria 2",
             title: "Technical Track 7: ATE and Hardware Test Methods",
             items: [
-              "Paper 1: Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test",
-              "Paper 2: Polynomial Regression Based Qualitative Assessment of Automated Test Equipment Calibration",
-              "Paper 3: A Novel Plug-In Module Architecture for Extending Automatic Test Equipment Capability to Wireless Testing of Pin-Less Semiconductor Devices"
+              "7.1: Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test (Sujith Thomas, Siva Elango S, Dinesh Sharma and Mathangi Raghuraman)",
+              "7.2: Polynomial Regression Based Qualitative Assessment of Automated Test Equipment Calibration (Anand Venkatachalam, Ernst Aderholz, Matthias Sauer, Simon Schweizer, Matthias Werner and Ilia Polian)",
+              "7.3: A Novel Plug-In Module Architecture for Extending Automatic Test Equipment Capability to Wireless Testing of Pin-Less Semiconductor Devices (Sathiyapriya Krishnamoorthy, Manoj Pachaiyan and Senthilkumar Dhamodharan)"
             ],
           },
           {
             hall: "Arabica & Robusta",
             title: "Technical Track 8: Silicon Reliability and Lifecycle Management",
             items: [
-              "Paper 1: Unified Compact Health and Aging Models for Manufacturing to In-Field Silicon Quality and Reliability Management",
-              "Paper 2: Reliability Refining Next Generation UV Cured Conformal Coatings under Harsh Environment Testing",
-              "Paper 3: Design and Context Aware Embedded Monitor Analytics Through High-Volume Algorithmics and Explainable AI"
+              "8.1: Unified Compact Health and Aging Models for Manufacturing to In-Field Silicon Quality and Reliability Management (Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota)",
+              "8.2: Reliability Refining Next Generation UV Cured Conformal Coatings under Harsh Environment Testing (Aurkie Ray, Cole Sandvold, Andi Duffy, Bethany Turner, Saskia Hogan, Phil Kinner, Christopher Allen and Anna Lifton)",
+              "8.3: Design and Context Aware Embedded Monitor Analytics Through High-Volume Algorithmics and Explainable AI (Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota)"
             ],
           },
           {
             hall: "Brain Box",
             title: "ART Track 1",
-            items: ["Paper 1", "Paper 2", "Paper 3"],
+            items: [
+              "ART1: A Unified Fault Detection and Repair Framework for Memristor-Based Non-Volatile Memories (Aryan Anand and Vishal Gupta)",
+              "ART2: Towards Secure IoT: A Lightweight PUF-Based Proximity-Aware Authentication Protocol for Resource-Constrained IoT Devices (Abdulla Syed, Navya Sri Tulluru and Mounika Mellamarthi)",
+              "ART3: Functional Safety Testing of On-Chip Cache Memories (Siyana Bijju, Simi Sukamaran and Tripti S Warrier)",
+              "ART4: Assertion-Centric UVM Verification of a Fault-Injectable 32-bit RISC-V ALU–IFU Subsystem (Divyanshi Sharma and Sandeep Patel)"
+            ],
           },
         ],
       },
@@ -435,32 +461,43 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Grand Victoria 1",
             title: "Industry Session 2",
-            items: ["Talk 2: TI", "Talk 3: Marvell", "Talk 4: SanDisk", "Talk 5: Tessolve"],
+            items: [
+              "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava",
+              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High Speed Flash Interface IOs",
+              "Talk 5: Tessolve"
+            ],
           },
           {
             hall: "Grand Victoria 2",
             title: "Technical Track 9: Memory Test and MBIST Methodologies",
             items: [
-              "Paper 1: Physical Design Aware Verification Methodology for Closing Coverage Gaps in SharedBus MBIST",
-              "Paper 2: Constraint-Based Functional Testing of Encrypted Memory Systems",
-              "Paper 3: Enabling EDA Automation for HBM Testing Using A Plug-n-Play DFT Interface",
-              "Paper 4: Enhancements in Memory Test for improved diagnosability and comprehensive multi-bank test"
+              "9.1: Physical Design Aware Verification Methodology for Closing Coverage Gaps in SharedBus MBIST (Shivam Tulsyan, Mayank Parasrampuria, Prachi Sinha, Vasudevan Pillai A and Maheedhar Jalasutram)",
+              "9.2: Constraint-Based Functional Testing of Encrypted Memory Systems (Ravikumar C.P.)",
+              "9.3: Enabling EDA Automation for HBM Testing Using A Plug-n-Play DFT Interface (Quoc Phan, Anshuman Chandra, Bartosz Zelek, Barbara Działowska, Marta Stępniewska and Jonathan Gaudet)",
+              "9.4: Enhancements in Memory Test for improved diagnosability and comprehensive multi-bank test (Prachi Sinha, Veerabhadrarao Vasa, Shivam Tulsyan and Mayank Parasrampuria)"
             ],
           },
           {
             hall: "Arabica & Robusta",
             title: "Technical Track 10: Post-Silicon Validation, Silicon Fixes, and Low-Power DFT",
             items: [
-              "Paper 1: A novel hardware design for effective supply voltage glitch injection",
-              "Paper 2: Validation Methodology to Characterize Absolute Propagation Delay, Delay variation over temperature and Programmable Delay of 1ps DNL step in Wideband RF Buffers upto 12.8GHz",
-              "Paper 3: DFT-Enhanced Spare Cell Architecture for Scan-Integrated ECO and Leakage Optimization in SoCs",
-              "Paper 4: Hybrid Power Gating: Hardware Trio Framework based ATPG for Low-Power Scan"
+              "10.1: A novel hardware design for effective supply voltage glitch injection (Asmita Mohapatra, Antony Varghese and Ashok Kumar)",
+              "10.2: Validation Methodology to Characterize Absolute Propagation Delay, Delay variation over temperature and Programmable Delay of 1ps DNL step in Wideband RF Buffers upto 12.8GHz (Harish Ramesh, Jason Xavier and Pranav Kumar)",
+              "10.3: DFT-Enhanced Spare Cell Architecture for Scan-Integrated ECO and Leakage Optimization in SoCs (Pramod Gayakwad, Raghavendra H D, Chandhramohan K P, Khushboo Rathore, Vishwanath Kunchigi, Vamsi Krishna Oliveti and Santhosh Kamatam)",
+              "10.4: Hybrid Power Gating: Hardware Trio Framework based ATPG for Low-Power Scan (TRC Paper) (Darshan V, Karthikeyan Soundararajan, Vivek Roopchand, Arul Karthick Kumar and Praveen Raghuraman)"
             ],
           },
           {
             hall: "Brain Box",
             title: "ART Track 2",
-            items: ["Hackathon Opening Remarks", "Team 1", "Team 2", "Team 3", "Team 4"],
+            items: [
+              "Hackathon Opening Remarks",
+              "Team 1: A Fault Model for Guided-Wave Optical Interconnects in Die-to-Die Architectures (Sanjay S. Subramaniam, Shaun Sebastian, Nishanth M., Gouri S. Nair)",
+              "Team 2: Cross-Layer Degradation-Aware Fault Modeling and Adaptive Test Generation for FeFET Non-Volatile Memories (Aashish Niranjan Barathykannan, Akhilesh M., Shanganidhi K. N., Dinesh Babu A.)",
+              "Team 3: Functional Fault Modeling for MAC-Based CNN Accelerators (M R Harsha, Vanshika Kavi and Suresh G Kini)",
+              "Team 4: Fault Primitive Taxonomy and MARCH-ReRAM: A Comprehensive Test Framework for Resistive RAM Arrays Addressing Manufacturing Defects and In Field Reliability Degradation (Gawtam P and Maithreyan S)",
+              "Team 5: Observability-Based Functional Fault Modeling for RISC-V Processors (Alan Paul, Niranjan K S, Kevin Jose and Adithya R Prabhu)"
+            ],
           },
         ],
       },
@@ -486,7 +523,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "DA: Advantest",
+            title: "Distinguished Address: Advantest",
             colSpan: 3,
           },
           {
@@ -502,7 +539,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "Panel 4",
+            title: "Panel: Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets? Moderator: Kamlesh Pandey",
             colSpan: 3,
           },
           {
@@ -516,7 +553,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "single",
         time: "05:30 PM – 06:00 PM",
         title: "Closing Ceremony | Awards and Valedictory Session",
-        subtitle: "General Co-Chair, IEEE ITC India 2026",
+        subtitle: "General Co-Chair, ITC India 2026",
         variant: "plenary",
       },
     ],
