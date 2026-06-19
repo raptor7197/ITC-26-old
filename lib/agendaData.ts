@@ -167,7 +167,7 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "single",
         time: "10:00 AM – 10:30 AM",
-        title: "Keynote: Subhashish Mitra (Stanford University)",
+        title: "Keynote: Subhasish Mitra (Stanford University)",
         subtitle: "Silent Data corruption by 10x Test Escapes Threatens Reliable computing",
         variant: "keynote",
       },
