@@ -21,6 +21,11 @@ export default function Keynote() {
                     {speaker.affiliation}
                   </p>
                 )}
+                {speaker.title && (
+                  <h3 className="text-xl sm:text-2xl font-bold uppercase mb-6 text-white leading-snug tracking-wide drop-shadow-sm max-w-3xl">
+                    {speaker.title}
+                  </h3>
+                )}
                 <div className="h-[2px] w-24 bg-[#00b0f0]/50 mb-6 rounded-full"></div>
                 <p className="text-[#caddf0] font-bold text-lg tracking-widest uppercase flex items-center gap-3">
                   <svg
