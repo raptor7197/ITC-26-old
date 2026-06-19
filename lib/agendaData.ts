@@ -162,6 +162,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "single",
         time: "09:30 AM – 10:00 AM",
         title: "Keynote: Yervant Zorian (Synopsys)",
+        subtitle: "Designing Chiplets & 3DIC for Quality & Reliability",
         variant: "keynote",
       },
       {

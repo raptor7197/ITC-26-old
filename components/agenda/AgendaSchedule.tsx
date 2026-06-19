@@ -564,16 +564,32 @@ export default function AgendaSchedule() {
                         onClick={() => handleTileClick(slot.title)}
                         {...(getMatchData(slot.title) ? { "title": "Click to read more details" } : {})}
                       >
-                        <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none">
-                          <div className="font-bold text-white text-base">
-                            {slot.title}
-                          </div>
-                          {slot.subtitle && (
-                            <div className="text-xs text-sky-200 mt-1">
-                              {slot.subtitle}
+                        {slot.variant === "keynote" ? (
+                          <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none">
+                            <div className="font-bold text-white text-base">
+                              Keynote Address
                             </div>
-                          )}
-                        </div>
+                            {slot.subtitle && (
+                              <div className="text-sm font-semibold text-sky-200 mt-1">
+                                {slot.subtitle}
+                              </div>
+                            )}
+                            <div className="text-xs text-[#a3b8cc] mt-1">
+                              {slot.title.replace(/^Keynote:\s*/i, "")}
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none">
+                            <div className="font-bold text-white text-base">
+                              {slot.title}
+                            </div>
+                            {slot.subtitle && (
+                              <div className="text-xs text-sky-200 mt-1">
+                                {slot.subtitle}
+                              </div>
+                            )}
+                          </div>
+                        )}
                       </td>
                     ) : (
                       (() => {
