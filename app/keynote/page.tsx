@@ -24,7 +24,7 @@ const speakers = [
       "His industry experience, combined with ongoing research in AI/ML applications for post-silicon validation, provides him with a unique perspective on how intelligent testing and AI-driven innovation can shape the future of the semiconductor industry."
     ],
     image: "/images/keynote/senthilkumar-photo.png",
-  }
+  },
 ];
 
 import PageHeader from "@/components/ui/PageHeader";
