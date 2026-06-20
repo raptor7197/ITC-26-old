@@ -9,6 +9,8 @@ import {
   industrySpeakers,
   tutorialsData,
   panelsData,
+  distinguishedAddressesData,
+  industryShowcaseData,
 } from "@/lib/speakersData";
 import AgendaModal, { ModalData } from "./AgendaModal";
 
@@ -294,6 +296,39 @@ export default function AgendaSchedule() {
     );
     if (panelMatch) return panelMatch as ModalData;
 
+    // Check Distinguished Addresses
+    const daMatch = distinguishedAddressesData.find(
+      (da) =>
+        da.name &&
+        (safeTitle.includes(da.name.toLowerCase()) ||
+          (items &&
+            items.some((item) =>
+              item.toLowerCase().includes(da.name.toLowerCase()),
+            ))),
+    );
+    if (daMatch) return daMatch as ModalData;
+
+    // Check Industry Showcase
+    const showcaseMatch = industryShowcaseData.find(
+      (isc) =>
+        isc.name &&
+        (safeTitle.includes(isc.name.toLowerCase()) ||
+          (items &&
+            items.some((item) =>
+              item.toLowerCase().includes(isc.name.toLowerCase()),
+            ))),
+    );
+    if (showcaseMatch) return showcaseMatch as ModalData;
+
+    // Check for explicit paper/talk formats (Team X:, ART X:, X.X:, Talk X:)
+    const paperRegex = /^(team \d+:|art\d+:?|\d+\.\d+:|talk\s*\d+:?|hackathon opening remarks)/i;
+    if (paperRegex.test(safeTitle)) {
+      return {
+        name: title,
+        comingSoon: true,
+      };
+    }
+
     // --- FALLBACK FOR PRESENTATIONS ---
     const nonPresentationKeywords = [
       "registration",
@@ -320,6 +355,7 @@ export default function AgendaSchedule() {
       "banquet",
       "dinner",
       "no activity planned",
+      "industry showcase",
     ];
     if (nonPresentationKeywords.some((kw) => safeTitle.includes(kw))) {
       return null;
@@ -599,41 +635,41 @@ export default function AgendaSchedule() {
                           {...(getMatchData(slot.title) ? { "title": "Click to read more details" } : {})}
                         >
                           {slot.variant === "keynote" ? (
-                            <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-between">
+                            <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
                               <div>
-                                <div className="font-bold text-white text-base">
+                                <div className="font-bold text-white text-base sm:text-lg">
                                   Keynote Address
                                 </div>
                                 {slot.subtitle && (
-                                  <div className="text-sm font-semibold text-sky-200 mt-1">
+                                  <div className="text-sm sm:text-base font-semibold text-sky-200 mt-1.5">
                                     {slot.subtitle}
                                   </div>
                                 )}
-                                <div className="text-xs text-[#a3b8cc] mt-1">
+                                <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5">
                                   {slot.title.replace(/^Keynote:\s*/i, "")}
                                 </div>
                               </div>
                               {slot.location && (
-                                <div className="flex items-center gap-1.5 mt-3 text-xs font-semibold text-sky-400">
+                                <div className="flex items-center justify-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-sky-400">
                                   {ICONS.location}
                                   <span>{slot.location}</span>
                                 </div>
                               )}
                             </div>
                           ) : (
-                            <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-between">
+                            <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
                               <div>
-                                <div className="font-bold text-white text-base">
+                                <div className="font-bold text-white text-base sm:text-lg">
                                   {slot.title}
                                 </div>
                                 {slot.subtitle && (
-                                  <div className="text-xs text-sky-200 mt-1">
+                                  <div className="text-xs sm:text-sm text-sky-200 mt-1.5">
                                     {slot.subtitle}
                                   </div>
                                 )}
                               </div>
                               {slot.location && (
-                                <div className="flex items-center gap-1.5 mt-3 text-xs font-semibold text-sky-400">
+                                <div className="flex items-center justify-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-sky-400">
                                   {ICONS.location}
                                   <span>{slot.location}</span>
                                 </div>

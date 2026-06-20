@@ -230,7 +230,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Brain Box",
             title: "Special Session",
-            items: ["Industry Showcase 1", "Caliber (11:30 AM - 12:15 PM)", "TeraDyne (12:15 PM - 01:00 PM)"],
+            items: ["Industry Showcase 1", "Caliber (11:30 AM - 12:15 PM)", "Teradyne (12:15 PM - 01:00 PM)"],
           },
         ],
       },
@@ -276,8 +276,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Brain Box",
-            title: "Special Session",
-            items: ["Industry Showcase 2", "Advantest (02:00 PM - 03:30 PM)"],
+            title: "Special Session: Industry Showcase 2 — Advantest (02:00 PM - 03:30 PM)",
           },
         ],
       },
