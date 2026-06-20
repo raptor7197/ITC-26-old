@@ -691,7 +691,7 @@ export default function AgendaSchedule() {
                                         <div className="space-y-[6px]">
                                           {session.items.map(
                                             (item: string, idx: number) => {
-                                              const itemMatch = null;
+                                              const itemMatch = getMatchData(item);
                                               return (
                                                 <div
                                                   key={idx}
