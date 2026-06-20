@@ -18,25 +18,25 @@ export default function Tutorials() {
     <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[70px] md:pt-[120px] pb-24 font-poppins text-white">
       <PageHeader title="TUTORIALS" />
 
-      <div className="relative z-10 w-full max-w-[1200px] flex flex-col mx-auto gap-16 px-page mt-10">
+      <div className="relative z-10 w-full max-w-[1200px] flex flex-col mx-auto gap-8 px-page mt-8">
         {tutorials.map((tutorial, idx) => {
           const isExpanded = expandedTutorials[tutorial.id];
           return (
-          <div key={tutorial.id} className="relative flex flex-col w-full bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-10 md:p-12 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300 mb-4 md:mb-8">
+          <div key={tutorial.id} className="relative flex flex-col w-full bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-8 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300">
             {/* Tutorial Title & ID */}
-            <div className={`text-center md:text-left flex flex-col items-center md:items-start ${isExpanded ? 'mb-10' : 'mb-6 md:mb-10'}`}>
+            <div className={`text-center md:text-left flex flex-col items-center md:items-start ${isExpanded ? 'mb-6' : 'mb-4 md:mb-6'}`}>
               {tutorial.title ? (
-                <h2 className="font-black text-2xl sm:text-3xl md:text-[42px] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md leading-tight max-w-[1000px]">
+                <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md leading-tight max-w-[1000px]">
                   {tutorial.title}
                 </h2>
               ) : (
-                <h2 className="font-black text-2xl sm:text-3xl md:text-[42px] tracking-tight text-white/50 drop-shadow-md leading-tight italic">
+                <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight text-white/50 drop-shadow-md leading-tight italic">
                   Title Pending
                 </h2>
               )}
               {/* Divider */}
-              <div className="flex items-center w-full max-w-[600px] mt-6 opacity-80">
-                <div className="w-[6px] h-[6px] rounded-full bg-[#00b0f0] mr-[-1px] z-10" />
+              <div className="flex items-center w-full max-w-[600px] mt-4 opacity-80">
+                <div className="w-[5px] h-[5px] rounded-full bg-[#00b0f0] mr-[-1px] z-10" />
                 <div className="h-[2px] flex-1 bg-[#00b0f0]" />
               </div>
             </div>
@@ -46,11 +46,11 @@ export default function Tutorials() {
 
             {/* Authors (Speakers) */}
             {tutorial.authors && tutorial.authors.length > 0 && (
-              <div className="flex flex-col gap-10 mb-8">
+              <div className="flex flex-col gap-8 mb-6">
                 {tutorial.authors.map((author, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 items-center md:items-start"
+                    className="flex flex-col md:flex-row gap-5 sm:gap-6 md:gap-8 items-center md:items-start"
                   >
                     {/* Photo */}
                     {author.image && (
@@ -81,20 +81,20 @@ export default function Tutorials() {
                     {/* Content */}
                     <div className="flex-1 flex flex-col justify-start items-center md:items-start text-center md:text-left pt-1 h-full">
                       {/* Name */}
-                      <h3 className="font-black text-xl sm:text-2xl md:text-[32px] tracking-tight mb-2 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
+                      <h3 className="font-black text-lg sm:text-xl md:text-[28px] tracking-tight mb-1 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
                         {author.name}
                       </h3>
 
                       {/* Affiliation */}
                       {author.affiliation && (
-                        <p className="text-[#00b0f0] font-bold text-sm sm:text-base md:text-[18px] mb-4 tracking-wide">
+                        <p className="text-[#00b0f0] font-bold text-[13px] sm:text-[14px] md:text-[16px] mb-3 tracking-wide">
                           {author.affiliation}
                         </p>
                       )}
 
                       {/* Bio text */}
                       {author.bio && (
-                        <div className="text-[#a0b0c0] text-[14px] sm:text-[16px] leading-relaxed mb-6 text-justify max-w-[850px] space-y-3">
+                        <div className="text-[#a0b0c0] text-[13px] sm:text-[14px] md:text-[15px] leading-relaxed mb-4 text-justify max-w-[850px] space-y-2">
                           {author.bio.split("\n").map((p, i) => (
                             <p key={i}>{p}</p>
                           ))}
@@ -104,7 +104,7 @@ export default function Tutorials() {
                       {/* Divider */}
                       <div className="flex items-center w-full mt-auto mb-1 opacity-80 max-w-[850px] pt-2">
                         <div className="h-[2px] flex-1 bg-[#00b0f0]" />
-                        <div className="w-[6px] h-[6px] rounded-full bg-[#00b0f0] ml-[-1px]" />
+                        <div className="w-[5px] h-[5px] rounded-full bg-[#00b0f0] ml-[-1px]" />
                       </div>
                     </div>
                   </div>
@@ -114,9 +114,9 @@ export default function Tutorials() {
 
             {/* Abstract */}
             {tutorial.status === "pending" || !tutorial.abstract ? (
-              <div className="mt-2 bg-black/20 border border-[#00b0f0]/30 rounded-lg p-6 w-full flex flex-col items-center justify-center shadow-md">
+              <div className="mt-2 bg-black/20 border border-[#00b0f0]/30 rounded-lg p-5 w-full flex flex-col items-center justify-center shadow-md">
                 <svg
-                  className="w-8 h-8 text-[#00b0f0] mb-3 opacity-80"
+                  className="w-6 h-6 text-[#00b0f0] mb-2 opacity-80"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -128,17 +128,17 @@ export default function Tutorials() {
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
-                <p className="text-[#caddf0] font-bold text-lg tracking-widest uppercase">
+                <p className="text-[#caddf0] font-bold text-base tracking-widest uppercase">
                   More Details Coming Soon
                 </p>
-                <p className="text-[#a0b0c0] mt-2 text-sm text-center max-w-[500px]">
+                <p className="text-[#a0b0c0] mt-1 text-xs text-center max-w-[500px]">
                   The full abstract and author details are pending and will be
                   updated shortly.
                 </p>
               </div>
             ) : (
-              <div className="text-[#caddf0] text-[14px] sm:text-[16px] leading-relaxed text-justify space-y-3 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/5 mt-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
-                <div className="text-white font-black text-lg mb-4 uppercase tracking-widest flex items-center gap-2">
+              <div className="text-[#caddf0] text-[13px] sm:text-[14px] md:text-[15px] leading-relaxed text-justify space-y-2 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-5 sm:p-6 md:p-8 rounded-2xl border border-white/5 mt-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                <div className="text-white font-black text-base mb-3 uppercase tracking-widest flex items-center gap-2">
                   Abstract
                 </div>
                 {tutorial.abstract

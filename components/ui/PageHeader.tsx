@@ -6,7 +6,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title }: PageHeaderProps) {
   return (
-    <div className="text-center mb-12 sm:mb-16 w-full flex flex-col items-center">
+    <div className="text-center mb-12 sm:mb-16 w-full flex flex-col items-center px-6 sm:px-8 md:px-12">
       <div className="flex flex-col items-center justify-center gap-4 md:gap-5 mb-5">
         <Image
           src="/itc-logo.svg"
@@ -25,7 +25,7 @@ export default function PageHeader({ title }: PageHeaderProps) {
         JULY 19-21, 2026 | RADISSON BLU, MARATHAHALLI, BENGALURU
       </p>
       {title && (
-        <h2 className="text-3xl sm:text-4xl md:text-[56px] font-bold mt-8 md:mt-10 tracking-tight text-white uppercase font-poppins">
+        <h2 className="text-2xl sm:text-4xl md:text-[56px] font-bold mt-8 md:mt-10 tracking-tight text-white uppercase font-poppins">
           {title}
         </h2>
       )}
