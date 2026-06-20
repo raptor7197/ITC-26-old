@@ -258,11 +258,11 @@ export default function AgendaSchedule() {
     const safeTitle = title.toLowerCase();
 
     // Check Tutorials
-    const tutorialMatch = tutorialsData.find(
+        const tutorialMatch = tutorialsData.find(
       (t) =>
-        t.title &&
-        (t.title.toLowerCase() === safeTitle ||
-          safeTitle.includes(t.title.toLowerCase())),
+        (t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))) ||
+        (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
+        (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
     );
     if (tutorialMatch) return tutorialMatch as ModalData;
 
@@ -718,31 +718,54 @@ export default function AgendaSchedule() {
                                 {...(session && getMatchData(session.title, session.items) ? { "title": "Click to read more details" } : {})}
                               >
                                 {session ? (
+                                  session.title.toLowerCase().includes("distinguished address") ? (
+                                    <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
+                                      <div>
+                                        <div className="font-bold text-white text-base sm:text-lg">
+                                          {session.title}
+                                        </div>
+                                      </div>
+                                      {session.location && (
+                                        <div className="flex items-center justify-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-sky-400">
+                                          {ICONS.location}
+                                          <span>{session.location}</span>
+                                        </div>
+                                      )}
+                                    </div>
+                                  ) : (
                                   <div className="flex flex-col h-full">
                                     <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
                                       {session.title}
                                     </h4>
+                                    {session.subtitle && (
+                                      <div className="text-xs sm:text-sm text-sky-200 mt-[-8px] mb-4 font-bold italic">
+                                        {session.subtitle}
+                                      </div>
+                                    )}
                                     <div className="mt-auto pt-3 flex flex-col gap-3">
                                       {session.items && session.items.length > 0 && (
                                         <div className="space-y-[6px]">
                                           {session.items.map(
                                             (item: string, idx: number) => {
                                               const itemMatch = getMatchData(item);
+                                              const isTutorialTile = activeId === "tutorials" && session.title !== "ITC-at-ITC";
+                                              const isItemClickable = itemMatch && !isTutorialTile;
+                                              
                                               return (
                                                 <div
                                                   key={idx}
                                                   className={`flex items-start gap-2 text-[12px] font-normal leading-[1.3] ${
-                                                    itemMatch
+                                                    isItemClickable
                                                       ? "text-sky-300 cursor-pointer hover:text-white transition-colors"
-                                                      : "text-[#a3b8cc]"
+                                                      : isTutorialTile ? "text-sky-300" : "text-[#a3b8cc]"
                                                   }`}
                                                   onClick={(e) => {
-                                                    if (itemMatch) {
+                                                    if (isItemClickable) {
                                                       e.stopPropagation();
                                                       handleTileClick(item);
                                                     }
                                                   }}
-                                                  {...(itemMatch ? { "title": "Click to read more details" } : {})}
+                                                  {...(isItemClickable ? { "title": "Click to read more details" } : {})}
                                                 >
                                                   {["day1", "day2"].includes(activeId)
                                                     ? ICONS.bullet
@@ -762,6 +785,7 @@ export default function AgendaSchedule() {
                                       )}
                                     </div>
                                   </div>
+                                  )
                                 ) : (
                                   <div className="text-xs text-[#a3b8cc]/50 italic text-center mt-4">
                                     —

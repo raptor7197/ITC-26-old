@@ -10,6 +10,7 @@ export type AgendaSlotVariant =
   | "none";
 
 export type ParallelSession = {
+  subtitle?: string;
   hall: string;
   title: string;
   items?: string[];
@@ -86,7 +87,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "parallel",
         time: "11:15 AM – 12:45 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "Closed Loop Test Engineering – From Design to Mass Production", items: ["Maheedhar Jalasutram (Google)"] },
+          { hall: "Grand Victoria 1", title: "Closed Loop Test Engineering – From Design to Mass Production", items: ["Maheedhar Jalasutram (Google Silicon Team), Chiehjen (Jeren) Ku and Daejin Shin (Google)"] },
           { hall: "Grand Victoria 2", title: "Machine Learning is Inevitable or Not: A DFT Designer’s View", items: ["Ankush Srivastava (Qualcomm)"] },
           { hall: "Arabica & Robusta", title: "Beyond Scan Dump: Why IEEE P2929 Enables True Scan State Extraction", items: ["Lee Harrison, Andy Hughes and Peter Orlando (Siemens EDA)"] },
           { hall: "Brain Box", title: "Testing Chiplet-Based 2.5D/3D ICs : An Academia/Industry perspective", items: ["Binod Kumar, Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati), Jyotirmoy Saikia and Sagar Kumar (Cadence)"] },
@@ -102,9 +103,9 @@ export const agendaDays: AgendaDay[] = [
         time: "01:45 PM – 03:15 PM",
         sessions: [
           { hall: "Grand Victoria 1", title: "Testing to Self Testing: Self Test Driven Functional Safety for ISO 26262 Compliant Automotive SoCs", items: ["Rajesh Kumar Tiwari and Mohammed Zuber P Malek (Qualcomm)"] },
-          { hall: "Grand Victoria 2", title: "The Seamless Integration of Packetized scan and In-system test with Advanced ATE Equipment", items: ["Lee Harrison (Siemens EDA)"] },
+          { hall: "Grand Victoria 2", title: "The Seamless Integration of Packetized scan and In-system test with Advanced ATE Equipment", items: ["Lee Harrison and Peter VanDenBosch (Siemens EDA)"] },
           { hall: "Arabica & Robusta", title: "Advanced Test Data Analytics for Yield and Quality Improvement", items: ["Navya Rastogi, Shamitha Rao, Shrestha Hota (Synopsys) and Soumya Mittal (Qualcomm)"] },
-          { hall: "Brain Box", title: "ITC-at-ITC", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige"], rowSpan: 4 },
+          { hall: "Brain Box", title: "ITC& @ITC", subtitle: "*invite only session", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige"], rowSpan: 4 },
         ],
       },
       {
@@ -125,16 +126,16 @@ export const agendaDays: AgendaDay[] = [
         kind: "parallel",
         time: "05:15 PM – 06:15 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "No Activity Planned", colSpan: 3 },
+          { hall: "Grand Victoria 1", title: "", colSpan: 3 },
         ],
       },
       {
         kind: "parallel",
         time: "06:30 PM – 07:45 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "No Activity Planned", colSpan: 2 },
+          { hall: "Grand Victoria 1", title: "", colSpan: 2 },
           { hall: "Arabica & Robusta", title: "TTTC Workshop" },
-          { hall: "Brain Box", title: "No Activity Planned" },
+          { hall: "Brain Box", title: "" },
         ],
       },
     ],
@@ -249,7 +250,7 @@ export const agendaDays: AgendaDay[] = [
             title: "Technical Track 4: Advances in DFT and ATPG",
             items: [
               "4.1: Physically Aware Weighted Fault Model : A new paradigm in testing Sandipan Sharma, Srinivas Vooka, Maheedhar Jalasutram, Pranav Murthy (Google India Pvt. Ltd), Chieh-Jen Ku and Yanhan Zhu (Google LLC)",
-              "4.2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha (SanDisk India Pvt Ltd)",
+              "4.2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha (Sandisk India Pvt Ltd)",
               "4.3: A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets Hanumant Tuntoni (Synopsys), Hillol Maity (Nvidia), Sreenu Kakanuri, Peter Wohl, Parthajit Bhattacharya, Bruce Xue and Geguang Miao (Synopsys)",
               "4.4: Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG Rahul Bhattacharya (IIT(ISM) Dhanbad)"
             ],
@@ -456,7 +457,7 @@ export const agendaDays: AgendaDay[] = [
             title: "Industry Session 2",
             items: [
               "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava",
-              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High Speed Flash Interface IOs",
+              "Talk 4: Gopikrishna Siddula (Sandisk) : Testing High Speed Flash Interface IOs",
               "Talk 5: Tessolve"
             ],
           },

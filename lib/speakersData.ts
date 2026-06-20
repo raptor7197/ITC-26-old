@@ -106,7 +106,7 @@ export const industrySpeakers = [
   {
     id: 3,
     name: "Gopikrishna Siddula",
-    affiliation: "SanDisk",
+    affiliation: "Sandisk",
     title: "Testing High Speed Flash Interface IOs",
     comingSoon: true,
   },
