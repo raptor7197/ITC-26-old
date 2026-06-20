@@ -8,6 +8,7 @@ import {
   keynoteSpeakers,
   industrySpeakers,
   tutorialsData,
+  panelsData,
 } from "@/lib/speakersData";
 import AgendaModal, { ModalData } from "./AgendaModal";
 
@@ -279,6 +280,19 @@ export default function AgendaSchedule() {
           )),
     );
     if (industryMatch) return industryMatch as ModalData;
+
+    // Check Panels
+    const panelMatch = panelsData.find(
+      (p) =>
+        p.title &&
+        (p.title.toLowerCase() === safeTitle ||
+          safeTitle.includes(p.title.toLowerCase()) ||
+          (items &&
+            items.some((item) =>
+              item.toLowerCase().includes(p.title.toLowerCase()),
+            ))),
+    );
+    if (panelMatch) return panelMatch as ModalData;
 
     // --- FALLBACK FOR PRESENTATIONS ---
     const nonPresentationKeywords = [
