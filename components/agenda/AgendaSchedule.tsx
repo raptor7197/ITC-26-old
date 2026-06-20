@@ -346,7 +346,7 @@ export default function AgendaSchedule() {
       "tttc workshop",
       "poster session",
       "distinguished address",
-      "itc-at-itc",
+      "itc-at-itc*",
       "talk1",
       "talk2",
       "talk3",
@@ -749,6 +749,25 @@ export default function AgendaSchedule() {
                                         </div>
                                       )}
                                     </div>
+                                  ) : session.title.toLowerCase().startsWith("panel:") ? (
+                                    <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
+                                      <div>
+                                        <div className="font-bold text-white text-base sm:text-lg">
+                                          Panel Discussion
+                                        </div>
+                                        {session.title.replace(/^Panel:\s*/i, "") && (
+                                          <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5">
+                                            {session.title.replace(/^Panel:\s*/i, "")}
+                                          </div>
+                                        )}
+                                      </div>
+                                      {session.location && (
+                                        <div className="flex items-center justify-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-sky-400">
+                                          {ICONS.location}
+                                          <span>{session.location}</span>
+                                        </div>
+                                      )}
+                                    </div>
                                   ) : (
                                   <div className="flex flex-col h-full">
                                     <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
@@ -765,10 +784,33 @@ export default function AgendaSchedule() {
                                           {session.items.map(
                                             (item: string, idx: number) => {
                                               const itemMatch = getMatchData(item);
-                                              const isTutorialTile = activeId === "tutorials" && session.title !== "ITC& @ITC";
+                                              const isTutorialTile = activeId === "tutorials" && session.title !== "ITC-at-ITC*";
                                               const isItemClickable = itemMatch && !isTutorialTile;
                                               
-                                              return (
+                                              const isPanel = item.toLowerCase().startsWith("panel:");
+
+                                              return isPanel ? (
+                                                <div
+                                                  key={idx}
+                                                  className={`mt-3 mb-1 bg-[#03152d] border-l-4 border-sky-400 rounded-r-lg p-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] ${
+                                                    isItemClickable ? "cursor-pointer hover:bg-[#062044] transition-colors" : ""
+                                                  }`}
+                                                  onClick={(e) => {
+                                                    if (isItemClickable) {
+                                                      e.stopPropagation();
+                                                      handleTileClick(item);
+                                                    }
+                                                  }}
+                                                  {...(isItemClickable ? { "title": "Click to read more details" } : {})}
+                                                >
+                                                  <div className="text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                                                    Panel Discussion
+                                                  </div>
+                                                  <div className="text-[13px] font-medium leading-[1.4] text-white">
+                                                    {item.replace(/^Panel:\s*/i, "")}
+                                                  </div>
+                                                </div>
+                                              ) : (
                                                 <div
                                                   key={idx}
                                                   className={`flex items-start gap-2 text-[12px] font-normal leading-[1.3] ${
@@ -795,9 +837,14 @@ export default function AgendaSchedule() {
                                         </div>
                                       )}
                                       {session.location && (
-                                        <div className="flex items-center gap-1.5 text-xs font-semibold text-sky-400">
+                                        <div className="flex items-center gap-1.5 text-xs font-semibold text-sky-400 mt-auto pt-2">
                                           {ICONS.location}
                                           <span>{session.location}</span>
+                                        </div>
+                                      )}
+                                      {session.title.startsWith("ITC-at-ITC") && (
+                                        <div className="text-xs sm:text-sm text-sky-200 mt-2 font-bold italic border-t border-white/10 pt-3">
+                                          *invite only session
                                         </div>
                                       )}
                                     </div>
