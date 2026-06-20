@@ -256,6 +256,7 @@ export default function AgendaSchedule() {
   const [selectedData, setSelectedData] = useState<ModalData | null>(null);
 
   const getMatchData = (title: string, items?: string[]): ModalData | null => {
+    if (!title || title.trim() === "") return null;
     const safeTitle = title.toLowerCase();
 
     // Check Keynotes
