@@ -328,16 +328,16 @@ export default function SponsorsPage() {
               ></a>
             </div>
 
-            <div className="group relative w-4/5 max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+            <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
               <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
 
-              <div className="relative p-6 flex items-center justify-center min-h-[110px]">
+              <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                 <img
                   src="/images/IESA.jpg"
                   alt="IESA"
-                  className="h-16 md:h-20 object-contain transition-transform duration-500 group-hover:scale-110 mb-10"
+                  className="h-20 md:h-28 w-full object-contain transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-6 left-1/2 -translate-x-1/2">
+                <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                   <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
                     Visit Website
                   </span>
@@ -385,7 +385,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/VLSI.jpg"
                   alt="VLSI Society of India"
-                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="h-20 md:h-24 w-full object-contain transition-transform duration-500 group-hover:scale-110 mt-4"
                 />
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                   <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
