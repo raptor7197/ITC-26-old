@@ -718,10 +718,30 @@ export default function AgendaSchedule() {
                                 {...(session && getMatchData(session.title, session.items) ? { "title": "Click to read more details" } : {})}
                               >
                                 {session ? (
+                                  session.title.toLowerCase().includes("distinguished address") ? (
+                                    <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
+                                      <div>
+                                        <div className="font-bold text-white text-base sm:text-lg">
+                                          {session.title}
+                                        </div>
+                                      </div>
+                                      {session.location && (
+                                        <div className="flex items-center justify-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-sky-400">
+                                          {ICONS.location}
+                                          <span>{session.location}</span>
+                                        </div>
+                                      )}
+                                    </div>
+                                  ) : (
                                   <div className="flex flex-col h-full">
                                     <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
                                       {session.title}
                                     </h4>
+                                    {session.subtitle && (
+                                      <div className="text-xs sm:text-sm text-sky-200 mt-[-8px] mb-4 font-bold italic">
+                                        {session.subtitle}
+                                      </div>
+                                    )}
                                     <div className="mt-auto pt-3 flex flex-col gap-3">
                                       {session.items && session.items.length > 0 && (
                                         <div className="space-y-[6px]">
@@ -765,6 +785,7 @@ export default function AgendaSchedule() {
                                       )}
                                     </div>
                                   </div>
+                                  )
                                 ) : (
                                   <div className="text-xs text-[#a3b8cc]/50 italic text-center mt-4">
                                     —
