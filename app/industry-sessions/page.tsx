@@ -4,7 +4,7 @@ import PageHeader from "@/components/ui/PageHeader";
 
 export default function IndustrySessions() {
   return (
-    <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[120px] pb-24 font-poppins text-white">
+    <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[70px] md:pt-[120px] pb-24 font-poppins text-white">
       <PageHeader title="INDUSTRY SESSIONS" />
 
       <div className="relative z-10 w-full max-w-[1100px] flex flex-col mx-auto gap-16 md:gap-24 px-page mt-4">

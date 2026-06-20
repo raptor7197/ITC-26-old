@@ -3,7 +3,7 @@ import { panelsData } from "@/lib/speakersData";
 
 export default function Panels() {
   return (
-    <main className="relative min-h-screen w-full font-poppins text-white box-border pt-[120px] pb-24">
+    <main className="relative min-h-screen w-full font-poppins text-white box-border pt-[70px] md:pt-[120px] pb-24">
       <PageHeader title="PANELS" />
       <div className="relative z-10 w-full max-w-[1100px] flex flex-col mx-auto gap-16 px-page mt-10">
         <div className="flex flex-col gap-8 w-full">

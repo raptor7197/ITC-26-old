@@ -6,7 +6,7 @@ import PageHeader from "@/components/ui/PageHeader";
 export default function AuthorKit() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
-      <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
+      <div className="relative z-10 pt-[70px] md:pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         {/* Header Section */}
         <PageHeader title="AUTHOR KIT" />
         <p className="text-lg md:text-xl font-medium mt-4 mb-16 text-center text-gray-300">

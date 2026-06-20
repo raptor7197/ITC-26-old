@@ -9,7 +9,7 @@ const paperSubmissionClosed = isPastDeadline(authorDeadlines.cfpPaper);
 export default function CallForPapers() {
   return (
     <main className="min-h-screen relative text-white font-poppins selection:bg-white/20">
-      <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
+      <div className="relative z-10 pt-[70px] md:pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col">
         <PageHeader title="CALL FOR PAPERS" />
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">

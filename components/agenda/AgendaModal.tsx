@@ -43,7 +43,7 @@ export default function AgendaModal({
   if (!isOpen || !data) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex justify-center items-end sm:items-center p-0 sm:p-6 sm:pt-[100px] pointer-events-none">
+    <div className="fixed inset-0 z-[9999] flex justify-center items-center px-4 pb-4 pt-[80px] sm:p-6 sm:pt-[100px] pointer-events-none">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity pointer-events-auto"
@@ -52,7 +52,7 @@ export default function AgendaModal({
 
       {/* Modal Content */}
       <div
-        className="relative bg-[#071325] border-t-2 sm:border-2 border-[#00b0f0]/30 rounded-t-3xl sm:rounded-[24px] shadow-[0_-10px_40px_rgba(0,176,240,0.15)] sm:shadow-[0_0_40px_rgba(0,176,240,0.2)] w-full max-w-[900px] flex flex-col overflow-hidden max-h-[90vh] sm:max-h-[80vh] pointer-events-auto"
+        className="relative bg-[#071325] border-2 border-[#00b0f0]/30 rounded-[24px] shadow-[0_0_40px_rgba(0,176,240,0.2)] w-full max-w-[900px] flex flex-col overflow-hidden max-h-[85vh] sm:max-h-[80vh] pointer-events-auto"
         role="dialog"
         aria-modal="true"
       >

@@ -3,7 +3,7 @@ import { industryShowcaseData } from "@/lib/speakersData";
 
 export default function IndustryShowcase() {
   return (
-    <main className="relative min-h-screen w-full font-poppins text-white box-border pt-[120px] pb-24">
+    <main className="relative min-h-screen w-full font-poppins text-white box-border pt-[70px] md:pt-[120px] pb-24">
       <PageHeader title="INDUSTRY SHOWCASE" />
       <div className="relative z-10 w-full max-w-[1100px] mx-auto px-6 mt-16">
         <div className="flex flex-col gap-8 w-full">

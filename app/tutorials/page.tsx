@@ -15,7 +15,7 @@ export default function Tutorials() {
   };
 
   return (
-    <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[120px] pb-24 font-poppins text-white">
+    <main className="relative z-10 min-h-screen w-full max-w-none min-w-0 box-border pt-[70px] md:pt-[120px] pb-24 font-poppins text-white">
       <PageHeader title="TUTORIALS" />
 
       <div className="relative z-10 w-full max-w-[1200px] flex flex-col mx-auto gap-16 px-page mt-10">

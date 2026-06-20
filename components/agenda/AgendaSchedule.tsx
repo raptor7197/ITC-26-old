@@ -396,23 +396,280 @@ export default function AgendaSchedule() {
   };
   const activeDay = agendaDays.find((d) => d.id === activeId) ?? agendaDays[0];
 
+  const renderMobileView = () => {
+    const getTrackIndicatorColor = (hall: string) => {
+      if (hall === "Grand Victoria 1") return "bg-blue-500";
+      if (hall === "Grand Victoria 2") return "bg-indigo-500";
+      if (hall === "Arabica & Robusta") return "bg-sky-400";
+      if (hall === "Brain Box") return "bg-amber-500";
+      return "bg-slate-500";
+    };
+
+    return (
+      <div className="md:hidden w-full mt-2 pb-12 px-2 sm:px-0">
+        <div className="bg-[#040f21]/40 backdrop-blur-xl border border-sky-500/10 rounded-[32px] pt-8 pb-4 shadow-[0_8px_32px_rgba(0,0,0,0.3)] flex flex-col relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-sky-500/5 to-transparent pointer-events-none"></div>
+          <div className="relative z-10 flex flex-col">
+            {activeDay.slots.map((slot, index) => {
+          const isBreak =
+            slot.kind === "break" ||
+            (slot.kind === "single" && slot.variant === "registration");
+          const isSingle = slot.kind === "single" && slot.variant !== "registration";
+          const isParallel = slot.kind === "parallel";
+
+          return (
+            <div key={`mob-slot-${index}`} className="flex flex-col mb-5 relative">
+              {/* Vertical connector line */}
+              {index !== activeDay.slots.length - 1 && (
+                <div className="absolute left-1/2 -translate-x-1/2 top-10 bottom-[-40px] w-px bg-gradient-to-b from-sky-500/20 to-transparent pointer-events-none z-0"></div>
+              )}
+
+              {/* Aesthetic Time Pill */}
+              <div className="relative z-20 flex justify-center w-full mb-3">
+                <div className="bg-[#081730] border border-sky-500/20 shadow-[0_4px_20px_rgba(0,176,240,0.1)] rounded-full px-4 py-1.5 flex items-center gap-2">
+                  {ICONS.clock}
+                  <span className="text-[12px] font-black text-sky-300 tracking-[0.15em] uppercase">
+                    {slot.time}
+                  </span>
+                </div>
+              </div>
+
+              {/* Slot Content */}
+              <div className="flex flex-col mx-3 sm:mx-5 p-3 sm:p-4 gap-3 relative z-10 bg-[#06142c]/50 border border-sky-500/10 rounded-[24px] shadow-[inset_0_1px_5px_rgba(255,255,255,0.02)]">
+                {isBreak && (
+                  <div className="bg-white/[0.02] border border-white/5 rounded-xl p-3 flex items-center justify-center gap-3 shadow-[inset_0_1px_3px_rgba(255,255,255,0.05)]">
+                    {slot.kind === "single" && slot.variant === "registration"
+                      ? ICONS.user
+                      : slot.title.toLowerCase().includes("lunch")
+                        ? ICONS.lunch
+                        : ICONS.coffee}
+                    <span className="text-[12px] font-bold tracking-[0.2em] uppercase text-slate-300 text-center">
+                      {slot.title}
+                    </span>
+                  </div>
+                )}
+
+                {isSingle && (
+                  <div
+                    className={`bg-gradient-to-b from-[#0a1931] to-[#061124] border border-[#1e3a5f] rounded-[14px] p-4 shadow-xl flex flex-col gap-1.5 ${getMatchData(slot.title) ? "cursor-pointer active:scale-[0.98] active:border-sky-500/50 transition-all" : ""}`}
+                    onClick={() => handleTileClick(slot.title)}
+                  >
+                    {slot.variant === "keynote" && (
+                      <div className="flex items-center gap-2 mb-0.5">
+                        {ICONS.user}
+                        <div className="text-[10px] font-extrabold uppercase tracking-widest text-sky-400">
+                          Keynote Address
+                        </div>
+                      </div>
+                    )}
+                    <h3 className="text-[15px] font-bold text-white leading-[1.3]">
+                      {slot.variant === "keynote"
+                        ? slot.title.replace(/^Keynote:\s*/i, "")
+                        : slot.title}
+                    </h3>
+                    {slot.subtitle && (
+                      <p className="text-[12px] text-sky-200/80 font-medium">
+                        {slot.subtitle}
+                      </p>
+                    )}
+                    {slot.location && (
+                      <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-1.5 pt-2 border-t border-white/5">
+                        {ICONS.location}
+                        <span>{slot.location}</span>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {isParallel &&
+                  slot.sessions.map((session, sIdx) => {
+                    const isParallelBreak = session.title.toLowerCase().includes("break");
+                    const isDA = session.title.toLowerCase().includes("distinguished address");
+                    const isPanel = session.title.toLowerCase().startsWith("panel:");
+                    const isClickable = getMatchData(session.title, session.items);
+                    const indicatorColor = getTrackIndicatorColor(session.hall);
+
+                    if (isParallelBreak) {
+                      return (
+                        <div
+                          key={sIdx}
+                          className="bg-white/[0.02] border border-white/5 rounded-xl p-3 flex items-center justify-between shadow-[inset_0_1px_3px_rgba(255,255,255,0.05)]"
+                        >
+                          <div className="flex items-center gap-2.5">
+                            {session.title.toLowerCase().includes("lunch")
+                              ? ICONS.lunch
+                              : ICONS.coffee}
+                            <span className="text-[12px] font-bold tracking-[0.2em] uppercase text-slate-300">
+                              {session.title}
+                            </span>
+                          </div>
+                          <div className="text-[9px] font-bold text-slate-500 uppercase tracking-widest">
+                            {session.hall}
+                          </div>
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div
+                        key={sIdx}
+                        className={`relative bg-[#09152b] border border-[#1a304f] rounded-[14px] p-4 shadow-lg flex flex-col gap-1.5 overflow-hidden ${isClickable ? "cursor-pointer active:scale-[0.98] active:border-sky-500/50 transition-all" : ""}`}
+                        onClick={() =>
+                          isClickable && handleTileClick(session.title, session.items)
+                        }
+                      >
+                        {/* Aesthetic Side Glow Indicator */}
+                        <div className={`absolute left-0 top-0 bottom-0 w-1 ${indicatorColor} shadow-[0_0_15px_currentColor] opacity-80`}></div>
+
+                        <div className="flex flex-col gap-1.5 relative z-10 pl-1">
+                          <div className="text-[10px] font-extrabold uppercase tracking-widest text-slate-400 mb-0.5">
+                            {session.hall}
+                          </div>
+
+                          {isDA || isPanel ? (
+                            <>
+                              <div className="flex items-center gap-1.5 text-sky-400">
+                                {ICONS.user}
+                                <div className="text-[10px] font-extrabold uppercase tracking-widest">
+                                  {isDA ? "Distinguished Address" : "Panel Discussion"}
+                                </div>
+                              </div>
+                              <h3 className="text-[14px] font-bold text-white leading-[1.3]">
+                                {session.title.replace(
+                                  /^(Distinguished Address:?|Panel:)\s*/i,
+                                  "",
+                                )}
+                              </h3>
+                            </>
+                          ) : (
+                            <>
+                              <h3 className="text-[14px] font-bold text-white leading-[1.3]">
+                                {session.title}
+                              </h3>
+                              {session.subtitle && (
+                                <div className="text-[12px] text-sky-200/80 font-medium italic">
+                                  {session.subtitle}
+                                </div>
+                              )}
+                              {session.items && session.items.length > 0 && (
+                                <div className="flex flex-col gap-1.5 mt-1">
+                                  {session.items.map((item: string, idx: number) => {
+                                    const itemMatch = getMatchData(item);
+                                    const isTutorialTile =
+                                      activeId === "tutorials" && session.title !== "ITC-at-ITC";
+                                    const isItemClickable = itemMatch && !isTutorialTile;
+                                    const isItemPanel = item.toLowerCase().startsWith("panel:");
+
+                                    return isItemPanel ? (
+                                      <div
+                                        key={idx}
+                                        className={`mt-0.5 py-1.5 px-2.5 bg-black/20 border-l-2 border-sky-500 rounded-r-lg flex flex-col gap-0.5 shadow-inner ${isItemClickable ? "active:bg-black/40" : ""}`}
+                                        onClick={(e) => {
+                                          if (isItemClickable) {
+                                            e.stopPropagation();
+                                            handleTileClick(item);
+                                          }
+                                        }}
+                                      >
+                                        <div className="text-[9px] font-bold uppercase tracking-wider text-sky-400">
+                                          Panel Discussion
+                                        </div>
+                                        <div className="text-[12px] font-medium text-slate-200 leading-[1.3]">
+                                          {item.replace(/^Panel:\s*/i, "")}
+                                        </div>
+                                      </div>
+                                    ) : (
+                                      <div
+                                        key={idx}
+                                        className={`flex items-start gap-1.5 text-[12px] leading-[1.3] ${
+                                          isItemClickable
+                                            ? "text-sky-300 hover:text-white"
+                                            : isTutorialTile
+                                              ? "text-sky-300"
+                                              : "text-slate-400"
+                                        }`}
+                                        onClick={(e) => {
+                                          if (isItemClickable) {
+                                            e.stopPropagation();
+                                            handleTileClick(item);
+                                          }
+                                        }}
+                                      >
+                                        {["day1", "day2"].includes(activeId)
+                                          ? ICONS.bullet
+                                          : ICONS.user}
+                                        <span className="flex-1">{item}</span>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              )}
+                            </>
+                          )}
+
+                          {session.location && (
+                            <div className="flex items-center gap-1.5 text-[11px] text-slate-500 mt-1.5 pt-2 border-t border-white/5">
+                              {ICONS.location}
+                              <span>{session.location}</span>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
+            </div>
+          );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <div className="w-full max-w-[1400px] mx-auto text-white flex flex-col relative py-4 sm:py-6 md:p-8">
+    <div className="w-full max-w-[1400px] mx-auto text-white flex flex-col relative pt-0 pb-4 sm:pt-2 sm:pb-6 md:p-8">
       {/* Top Section */}
       <div className="relative z-10 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
-        {/* LEFT: Title and Tabs */}
-        <div className="flex flex-col gap-6 w-full max-w-[500px]">
-          <h1 className="text-3xl sm:text-5xl md:text-[56px] font-bold tracking-tight text-white uppercase font-poppins text-center md:text-left">
+        
+        {/* === MOBILE TITLE & TABS === */}
+        <div className="md:hidden flex flex-col gap-5 w-full px-4 sm:px-6">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight uppercase font-poppins text-center text-white pb-1">
             PROGRAM AGENDA
           </h1>
-          <div className="flex w-full overflow-x-auto no-scrollbar gap-2 sm:gap-3 md:gap-4 mt-2 pb-2 md:-mx-0 md:px-0 md:flex-wrap md:pb-0 justify-between md:justify-start">
+          <div className="flex mx-auto w-full sm:w-max p-1.5 bg-[#040f21]/60 backdrop-blur-xl border border-sky-500/20 rounded-[32px] overflow-x-auto no-scrollbar gap-1 shadow-[inset_0_2px_10px_rgba(0,0,0,0.3)]">
             {agendaDays.map((day) => {
               const active = day.id === activeId;
               return (
                 <button
                   key={day.id}
                   onClick={() => setActiveId(day.id)}
-                  className={`flex-1 md:flex-none rounded-[30px] py-[10px] px-2 sm:px-4 md:px-8 text-[13px] sm:text-[15px] md:min-w-[120px] font-bold transition-all duration-300 ${
+                  className={`flex-1 sm:flex-none rounded-[24px] py-2.5 px-3 sm:px-6 text-[13px] sm:text-[14px] font-bold transition-all duration-300 whitespace-nowrap ${
+                    active
+                      ? "bg-blue-600 text-white shadow-[0_2px_12px_rgba(37,99,235,0.5)] border border-blue-500/50"
+                      : "text-slate-400 hover:text-white hover:bg-white/5"
+                  }`}
+                >
+                  {day.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* === DESKTOP TITLE & TABS (Original untouched) === */}
+        <div className="hidden md:flex flex-col gap-6 w-full max-w-[500px]">
+          <h1 className="text-[56px] font-bold tracking-tight text-white uppercase font-poppins text-left">
+            PROGRAM AGENDA
+          </h1>
+          <div className="flex w-full overflow-x-auto no-scrollbar gap-4 mt-2 px-0 flex-wrap pb-0 justify-start">
+            {agendaDays.map((day) => {
+              const active = day.id === activeId;
+              return (
+                <button
+                  key={day.id}
+                  onClick={() => setActiveId(day.id)}
+                  className={`flex-none rounded-[30px] py-[10px] px-8 text-[15px] min-w-[120px] font-bold transition-all duration-300 ${
                     active
                       ? "border border-[#00b0f0] bg-[#0055ff] text-white shadow-[0_0_15px_rgba(0,176,240,0.6)]"
                       : "border border-[#23426b] bg-[#09152b] text-[#8fa7c7] hover:border-[#3a68a3] hover:text-white"
@@ -424,7 +681,6 @@ export default function AgendaSchedule() {
             })}
           </div>
         </div>
-
         {/* MIDDLE: Active Day Title (connected via dashed line) */}
         <div className="flex items-start gap-6 flex-1 min-w-[300px] md:justify-end">
           {/* Connector Graphic from Title to Details */}
@@ -516,8 +772,8 @@ export default function AgendaSchedule() {
         </div>
       </div>
 
-      {/* Main Table Container */}
-      <div className="relative rounded-xl md:rounded-[8px] bg-gradient-to-br from-white/[0.02] to-transparent backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10 group">
+      {/* Main Table Container (Desktop Only) */}
+      <div className="hidden md:block relative rounded-[8px] bg-gradient-to-br from-white/[0.02] to-transparent backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10 group">
         
         {/* Right Scroll Indicator for Mobile */}
         <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#071325] to-transparent z-20 pointer-events-none md:hidden opacity-80" />
@@ -895,6 +1151,8 @@ export default function AgendaSchedule() {
           </table>
         </div>
       </div>
+
+      {renderMobileView()}
 
       <AgendaModal
         isOpen={!!selectedData}
