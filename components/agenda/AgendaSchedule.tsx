@@ -694,6 +694,7 @@ export default function AgendaSchedule() {
                             const style =
                               TRACK_STYLES[venue as keyof typeof TRACK_STYLES];
                             const colSpan = session?.colSpan || 1;
+                            const isParallelBreak = session && session.title.toLowerCase().includes("break");
                             const rowSpan = session?.rowSpan || 1;
 
                             if (colSpan > 1) {
@@ -710,7 +711,11 @@ export default function AgendaSchedule() {
                                 key={venue}
                                 colSpan={colSpan}
                                 rowSpan={rowSpan}
-                                className={`border-2 border-white/20 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title, session.items) ? "cursor-pointer hover:brightness-110 transition-all" : ""}`}
+                                className={
+                                  isParallelBreak
+                                    ? "border-2 border-white/20 bg-transparent p-3 text-center align-middle"
+                                    : `border-2 border-white/20 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title, session.items) ? "cursor-pointer hover:brightness-110 transition-all" : ""}`
+                                }
                                 onClick={() =>
                                   session &&
                                   handleTileClick(session.title, session.items)
@@ -718,7 +723,14 @@ export default function AgendaSchedule() {
                                 {...(session && getMatchData(session.title, session.items) ? { "title": "Click to read more details" } : {})}
                               >
                                 {session ? (
-                                  session.title.toLowerCase().includes("distinguished address") ? (
+                                  isParallelBreak ? (
+                                    <div className="flex items-center justify-center gap-3 bg-[#03152d] border border-white/20 rounded-xl mx-2 py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] h-full min-h-[50px]">
+                                      {session.title.toLowerCase().includes("lunch") ? ICONS.lunch : ICONS.coffee}
+                                      <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
+                                        {session.title}
+                                      </span>
+                                    </div>
+                                  ) : session.title.toLowerCase().includes("distinguished address") ? (
                                     <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
                                       <div>
                                         <div className="font-bold text-white text-base sm:text-lg">
@@ -748,7 +760,7 @@ export default function AgendaSchedule() {
                                           {session.items.map(
                                             (item: string, idx: number) => {
                                               const itemMatch = getMatchData(item);
-                                              const isTutorialTile = activeId === "tutorials" && session.title !== "ITC-at-ITC";
+                                              const isTutorialTile = activeId === "tutorials" && session.title !== "ITC& @ITC";
                                               const isItemClickable = itemMatch && !isTutorialTile;
                                               
                                               return (

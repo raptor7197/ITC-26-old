@@ -126,16 +126,16 @@ export const agendaDays: AgendaDay[] = [
         kind: "parallel",
         time: "05:15 PM – 06:15 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "", colSpan: 3 },
+          { hall: "Grand Victoria 1", title: "No Activity Planned", colSpan: 3 },
         ],
       },
       {
         kind: "parallel",
         time: "06:30 PM – 07:45 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "", colSpan: 2 },
+          { hall: "Grand Victoria 1", title: "No Activity Planned", colSpan: 2 },
           { hall: "Arabica & Robusta", title: "TTTC Workshop" },
-          { hall: "Brain Box", title: "" },
+          { hall: "Brain Box", title: "No Activity Planned" },
         ],
       },
     ],
@@ -277,7 +277,8 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Brain Box",
-            title: "Special Session: Industry Showcase 2 — Advantest (02:00 PM - 03:30 PM)",
+            title: "Special Session",
+            items: ["Industry Showcase 2", "Advantest (02:00 PM - 03:30 PM)"],
           },
         ],
       },
