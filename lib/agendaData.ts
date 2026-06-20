@@ -249,7 +249,7 @@ export const agendaDays: AgendaDay[] = [
             title: "Technical Track 4: Advances in DFT and ATPG",
             items: [
               "4.1: Physically Aware Weighted Fault Model : A new paradigm in testing Sandipan Sharma, Srinivas Vooka, Maheedhar Jalasutram, Pranav Murthy (Google India Pvt. Ltd), Chieh-Jen Ku and Yanhan Zhu (Google LLC)",
-              "4.2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha (SanDisk India Pvt Ltd)",
+              "4.2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha (Sandisk India Pvt Ltd)",
               "4.3: A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets Hanumant Tuntoni (Synopsys), Hillol Maity (Nvidia), Sreenu Kakanuri, Peter Wohl, Parthajit Bhattacharya, Bruce Xue and Geguang Miao (Synopsys)",
               "4.4: Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG Rahul Bhattacharya (IIT(ISM) Dhanbad)"
             ],
@@ -456,7 +456,7 @@ export const agendaDays: AgendaDay[] = [
             title: "Industry Session 2",
             items: [
               "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava",
-              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High Speed Flash Interface IOs",
+              "Talk 4: Gopikrishna Siddula (Sandisk) : Testing High Speed Flash Interface IOs",
               "Talk 5: Tessolve"
             ],
           },

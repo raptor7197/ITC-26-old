@@ -253,7 +253,7 @@ export default function SponsorsPage() {
                 url: "https://www.ti.com/",
               },
               {
-                name: "SanDisk",
+                name: "Sandisk",
                 src: "/images/sandisk1.png",
                 url: "https://www.sandisk.com/en-in",
               },

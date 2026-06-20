@@ -258,11 +258,11 @@ export default function AgendaSchedule() {
     const safeTitle = title.toLowerCase();
 
     // Check Tutorials
-    const tutorialMatch = tutorialsData.find(
+        const tutorialMatch = tutorialsData.find(
       (t) =>
-        t.title &&
-        (t.title.toLowerCase() === safeTitle ||
-          safeTitle.includes(t.title.toLowerCase())),
+        (t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))) ||
+        (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
+        (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
     );
     if (tutorialMatch) return tutorialMatch as ModalData;
 
@@ -728,21 +728,24 @@ export default function AgendaSchedule() {
                                           {session.items.map(
                                             (item: string, idx: number) => {
                                               const itemMatch = getMatchData(item);
+                                              const isTutorialTile = activeId === "tutorials" && session.title !== "ITC-at-ITC";
+                                              const isItemClickable = itemMatch && !isTutorialTile;
+                                              
                                               return (
                                                 <div
                                                   key={idx}
                                                   className={`flex items-start gap-2 text-[12px] font-normal leading-[1.3] ${
-                                                    itemMatch
+                                                    isItemClickable
                                                       ? "text-sky-300 cursor-pointer hover:text-white transition-colors"
-                                                      : "text-[#a3b8cc]"
+                                                      : isTutorialTile ? "text-sky-300" : "text-[#a3b8cc]"
                                                   }`}
                                                   onClick={(e) => {
-                                                    if (itemMatch) {
+                                                    if (isItemClickable) {
                                                       e.stopPropagation();
                                                       handleTileClick(item);
                                                     }
                                                   }}
-                                                  {...(itemMatch ? { "title": "Click to read more details" } : {})}
+                                                  {...(isItemClickable ? { "title": "Click to read more details" } : {})}
                                                 >
                                                   {["day1", "day2"].includes(activeId)
                                                     ? ICONS.bullet
