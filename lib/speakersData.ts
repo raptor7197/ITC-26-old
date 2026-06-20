@@ -163,7 +163,7 @@ export const tutorialsData = [
     },
     {
       name: "Raseena K A",
-      affiliation: "Senior Engineer",
+      affiliation: "Senior Engineer, Marvell",
       bio: "Raseena K A is a Senior Engineer specializing in DFT implementation, scan architectures, and post-silicon debug for complex SoCs. Her experience includes the development of IJTAG-based infrastructures, scan dump enablement, clock and OCC interactions, and customized debug solutions tailored to mission-mode applications.\n\nThrough her work on silicon bring-up and debug using advanced scan and test methodologies, she has developed strong expertise in practical debug execution and validation workflows. Her hands-on experience provides valuable perspectives on implementing efficient, scalable, and reliable scan dump solutions for modern semiconductor systems.",
       image: "/images/tutorials/tut_497_2.png",
     },
