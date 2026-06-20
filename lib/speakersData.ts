@@ -157,7 +157,7 @@ export const tutorialsData = [
   authors: [
     {
       name: "Sreekanth G Pai",
-      affiliation: "Senior Principal Engineer",
+      affiliation: "Senior Principal Engineer, Marvell",
       bio: "Sreekanth G Pai is a Senior Principal Engineer with extensive experience in Design-for-Test, scan architectures, IJTAG infrastructures, and post-silicon debug methodologies for complex SoCs. Throughout his career, he has led and contributed to multiple large-scale silicon programs, developing expertise in TAP customization, mission-mode debug techniques, and Tessent-based DFT implementations.\n\nHis work in enabling robust observability, debuggability, and secure access mechanisms across advanced validation and test environments has provided him with deep insight into the challenges of modern post-silicon debug. This experience makes him well positioned to discuss scalable IJTAG-based approaches for mission-mode scan dump and advanced debug architectures.",
       image: "/images/tutorials/tut_497_1.png",
     },
@@ -249,13 +249,13 @@ export const tutorialsData = [
   authors: [
     {
       name: "Rajesh Kumar Tiwari",
-      affiliation: "Director of Engineering at Qualcomm India",
+      affiliation: "Director of Engineering, Qualcomm India",
       bio: "Rajesh Kumar Tiwari is Director of Engineering at Qualcomm India, with over 22 years of experience in semiconductor design and Design-for-Test technologies. Over the course of his career at Qualcomm and Texas Instruments, he has led the development of advanced DFT architectures, in-system BIST solutions, and test methodologies across mobile, compute, and automotive platforms. He is also an active contributor to the semiconductor test community through his involvement with IEEE initiatives and technical innovations.\n\nHis extensive experience in deploying self-test and safety-focused DFT solutions for complex SoCs has given him deep insight into the challenges of achieving functional safety in modern automotive systems. This expertise positions him uniquely to discuss the evolving role of self-test technologies in enabling ISO 26262-compliant semiconductor designs.",
       image: "/images/tutorials/tut_525_1.jpg",
     },
     {
       name: "Mohammed Zuber P Malek",
-      affiliation: "Senior Staff Engineer and Manager at Qualcomm India",
+      affiliation: "Senior Staff Engineer and Manager, Qualcomm India",
       bio: "Mohammed Zuber P Malek is a Senior Staff Engineer and Manager at Qualcomm India with more than 17 years of experience in Design-for-Testability. Having contributed to over twenty successful chip tape-outs, he has developed extensive expertise across in-system BIST, scan synthesis, ATPG, low-power testing, TestSTA, and RTL-level DFT integration. He currently leads Qualcomm's Auto-DFT methodology and TestSTA initiatives, driving scalable and robust test solutions for advanced SoC programs.\n\nHis work in architecting automated DFT methodologies and self-test infrastructures for complex silicon platforms has provided him with valuable insight into the intersection of functional safety, diagnostics, and test automation. This experience enables him to offer practical perspectives on leveraging self-test technologies to meet the reliability and compliance requirements of next-generation automotive systems.",
       image: "/images/tutorials/tut_525_2.png",
     },
@@ -292,25 +292,25 @@ export const tutorialsData = [
   authors: [
     {
       name: "Shamitha Rao",
-      affiliation: "Director of Solutions Engineering at Synopsys",
+      affiliation: "Director of Solutions Engineering, Synopsys",
       bio: "Shamitha Rao is Director of Solutions Engineering at Synopsys, where she leads customer engagements for the TestMAX product portfolio. With more than 20 years of experience spanning DFT architecture, implementation, silicon validation, and test solutions, she has held key roles at Synopsys, Intel, Siemens EDA, STMicroelectronics, and Wipro. Her contributions to semiconductor test technology have been recognized through multiple technical publications, conference presentations, and industry awards.\n\nHer extensive experience across the semiconductor lifecycle\u2014from design and test architecture to silicon bring-up and manufacturing\u2014provides her with a unique perspective on how advanced analytics can be leveraged to improve product quality, yield learning, and test efficiency in modern semiconductor ecosystems.",
       image: "/images/tutorials/tut_531_1.png",
     },
     {
       name: "Shrestha Hota",
-      affiliation: "Staff Solutions Engineer at Synopsys",
+      affiliation: "Staff Solutions Engineer, Synopsys",
       bio: "Shrestha Hota is a Staff Solutions Engineer at Synopsys with over a decade of experience in semiconductor manufacturing analytics and yield engineering. She specializes in architecting analytics frameworks that enable yield optimization, root-cause analysis, and operational efficiency across high-volume manufacturing environments. Her work focuses on deploying advanced analytics platforms that transform complex manufacturing data into actionable insights.\n\nThrough her leadership in customer engagements and data-driven manufacturing initiatives, she has developed deep expertise in applying analytics to solve real-world semiconductor production challenges. This experience positions her at the forefront of modern yield engineering and intelligent manufacturing solutions.",
       image: "/images/tutorials/tut_531_2.png",
     },
     {
       name: "Navya Rastogi",
-      affiliation: "Staff Applications Engineer at Synopsys",
+      affiliation: "Staff Applications Engineer, Synopsys",
       bio: "Navya Rastogi is a Staff Applications Engineer at Synopsys with expertise spanning semiconductor process engineering, yield analysis, fabrication technologies, and data science. Prior to joining Synopsys, she gained experience in both the semiconductor capital equipment industry and at Amazon, bringing a multidisciplinary perspective to advanced manufacturing analytics. She holds a PhD in Nanoscience from the Indian Institute of Science.\n\nHer background across semiconductor processes, yield engineering, and data-driven problem solving provides her with valuable insight into the application of analytics for improving manufacturing performance and product quality in advanced semiconductor technologies.",
       image: "/images/tutorials/tut_531_3.png",
     },
     {
       name: "Soumya Mital",
-      affiliation: "Staff Engineer at Qualcomm",
+      affiliation: "Staff Engineer, Qualcomm",
       bio: "Soumya Mital is a Staff Engineer at Qualcomm specializing in AI-driven diagnostic intelligence for next-generation semiconductor platforms. His work focuses on developing scalable frameworks that automate failure analysis and transform complex diagnostic data into actionable engineering insights, accelerating silicon development and deployment. He holds a PhD from Carnegie Mellon University and is an alumnus of IIT Roorkee.\n\nHis expertise at the intersection of semiconductor diagnostics, artificial intelligence, and large-scale data analysis has enabled him to drive innovative approaches to yield learning and quality improvement. This experience provides him with a unique perspective on how advanced analytics and AI are reshaping semiconductor manufacturing and test methodologies.",
       image: "/images/tutorials/tut_531_4.png",
     },
@@ -341,20 +341,20 @@ export const tutorialsData = [
   authors: [
     {
       name: "Lokapriya Balakrishnan",
-      affiliation: "Test Engineer at Caliber Interconnect Solutions",
+      affiliation: "Test Engineer, Caliber Interconnect Solutions",
       bio: "Lokapriya Balakrishnan is a Test Engineer at Caliber Interconnect Solutions with over seven years of experience in semiconductor testing and ATE interface hardware development. Her work spans turnkey load board and probe card design, signal and power integrity optimization, device testing, and tester platform conversion projects. In addition to her technical contributions, she has successfully led engineering teams in delivering high-quality hardware solutions within demanding development schedules.\n\nHer experience across both hardware development and semiconductor validation provides her with a unique perspective on the challenges of designing scalable, high-performance ATE solutions. This expertise enables her to bridge the gap between hardware architecture, test requirements, and manufacturing realities.",
       image: "/images/tutorials/tut_504_1.png",
     },
     {
       name: "Senthilkumar Dhamodharan",
       affiliation:
-        "Director of Semiconductor Test Engineering at Caliber Interconnect Solutions",
+        "Director of Semiconductor Test Engineering, Caliber Interconnect Solutions",
       bio: "Senthilkumar Dhamodharan is Director of Semiconductor Test Engineering at Caliber Interconnect Solutions, where he leads large-scale test engineering operations spanning SoC, PMIC, Digital, Mixed-Signal, and RF products. With more than 19 years of experience at industry leaders including Qualcomm, AMD, and NXP, he has played a significant role in advancing semiconductor test methodologies, engineering strategy, and intellectual property development.\n\nHis extensive experience managing complex validation programs and building high-performance engineering teams has given him deep insight into scalable test infrastructure and hardware development. This perspective makes him uniquely positioned to address the challenges of creating efficient, reusable ATE architectures for modern semiconductor products.",
       image: "/images/tutorials/tut_504_2.png",
     },
     {
       name: "Vaishnavi",
-      affiliation: "Senior Test Engineer at Caliber Interconnect Solutions",
+      affiliation: "Senior Test Engineer, Caliber Interconnect Solutions",
       bio: "Vaishnavi is a Senior Test Engineer at Caliber Interconnect Solutions with over a decade of experience in testing SoC, Mixed-Signal, and RF devices across both bench and ATE environments. Currently leading Caliber's RF team, she has developed strong expertise in device characterization, validation methodologies, and high-performance test execution.\n\nHer extensive hands-on experience across multiple semiconductor domains provides valuable insight into the practical challenges of ATE deployment and validation. This background enables her to contribute a real-world perspective on designing scalable hardware solutions that improve efficiency, reliability, and test coverage.",
       image: "/images/tutorials/tut_504_3.png",
     },

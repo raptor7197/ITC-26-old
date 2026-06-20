@@ -296,6 +296,15 @@ export default function AgendaSchedule() {
     );
     if (panelMatch) return panelMatch as ModalData;
 
+    // Check for explicit paper/talk formats (Team X:, ART X:, X.X:, Talk X:)
+    const paperRegex = /^(team \d+:|art\d+:?|\d+\.\d+:|talk\s*\d+:?|hackathon opening remarks)/i;
+    if (paperRegex.test(safeTitle)) {
+      return {
+        name: title,
+        comingSoon: true,
+      };
+    }
+
     // Check Distinguished Addresses
     const daMatch = distinguishedAddressesData.find(
       (da) =>
@@ -319,15 +328,6 @@ export default function AgendaSchedule() {
             ))),
     );
     if (showcaseMatch) return showcaseMatch as ModalData;
-
-    // Check for explicit paper/talk formats (Team X:, ART X:, X.X:, Talk X:)
-    const paperRegex = /^(team \d+:|art\d+:?|\d+\.\d+:|talk\s*\d+:?|hackathon opening remarks)/i;
-    if (paperRegex.test(safeTitle)) {
-      return {
-        name: title,
-        comingSoon: true,
-      };
-    }
 
     // --- FALLBACK FOR PRESENTATIONS ---
     const nonPresentationKeywords = [
