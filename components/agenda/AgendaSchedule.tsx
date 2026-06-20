@@ -259,6 +259,12 @@ export default function AgendaSchedule() {
     if (!title || title.trim() === "") return null;
     const safeTitle = title.toLowerCase();
 
+    // Check Keynotes
+    const keynoteMatch = keynoteSpeakers.find((k) =>
+      safeTitle.includes(k.name.toLowerCase()) && safeTitle.includes('keynote')
+    );
+    if (keynoteMatch) return keynoteMatch as ModalData;
+
     // Check Tutorials
     const tutorialMatch = tutorialsData.find(
       (t) =>
@@ -267,12 +273,6 @@ export default function AgendaSchedule() {
         (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
     );
     if (tutorialMatch) return tutorialMatch as ModalData;
-
-    // Check Keynotes
-    const keynoteMatch = keynoteSpeakers.find((k) =>
-      safeTitle.includes(k.name.toLowerCase()) && safeTitle.includes('keynote')
-    );
-    if (keynoteMatch) return keynoteMatch as ModalData;
 
     // Check Industry Speakers (match name in title or items)
     const industryMatch = industrySpeakers.find(
