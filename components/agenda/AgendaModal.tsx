@@ -88,7 +88,7 @@ export default function AgendaModal({
         <div className="relative z-10 flex-1 overflow-y-auto p-6 sm:p-8 pt-0 custom-scrollbar">
           {data.comingSoon ? (
             <div className="w-full bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center text-center shadow-lg">
-              <h2 className="font-black text-2xl sm:text-4xl tracking-tight mb-2 md:mb-3 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
+              <h2 className="font-black text-2xl sm:text-4xl tracking-tight mb-2 md:mb-3 text-white">
                 {data.name}
               </h2>
               {data.affiliation && (
@@ -111,7 +111,7 @@ export default function AgendaModal({
                 <div className="flex flex-col w-full">
                   {/* Tutorial Title */}
                   <div className="mb-8 text-center md:text-left">
-                    <h2 className="font-black text-2xl sm:text-4xl md:text-[42px] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md leading-tight">
+                    <h2 className="font-black text-2xl sm:text-4xl md:text-[42px] tracking-tight text-white leading-tight">
                       {data.title}
                     </h2>
                   </div>
@@ -134,7 +134,7 @@ export default function AgendaModal({
 
                           {/* Content */}
                           <div className="flex-1 flex flex-col justify-start items-center sm:items-start text-center sm:text-left pt-1">
-                            <h3 className="font-black text-xl sm:text-3xl tracking-tight mb-1 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
+                            <h3 className="font-black text-xl sm:text-3xl tracking-tight mb-1 text-white">
                               {author.name}
                             </h3>
                             {author.affiliation && (
@@ -184,7 +184,7 @@ export default function AgendaModal({
 
                     {/* Content */}
                     <div className="flex-1 flex flex-col justify-start items-center sm:items-start text-center sm:text-left pt-1">
-                      <h2 className="font-black text-2xl sm:text-4xl md:text-[42px] tracking-tight mb-1 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
+                      <h2 className="font-black text-2xl sm:text-4xl md:text-[42px] tracking-tight mb-1 text-white">
                         {data.name}
                       </h2>
                       {data.affiliation && (
@@ -193,7 +193,7 @@ export default function AgendaModal({
                         </p>
                       )}
                       {data.title && (
-                        <h3 className="text-sm sm:text-lg md:text-xl font-bold uppercase mb-4 text-white leading-snug tracking-wide drop-shadow-sm">
+                        <h3 className="text-sm sm:text-lg md:text-xl font-bold uppercase mb-4 text-white leading-snug tracking-wide">
                           {data.title}
                         </h3>
                       )}
