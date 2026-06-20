@@ -182,7 +182,7 @@ export default function CallForSponsors() {
                     "5 Tutorial Invitations",
                     "50% discount on Exhibit booth price",
                   ]}
-                />
+                /> 
                 <SponsorRow
                   tier="Fellowship Program"
                   slots="7"

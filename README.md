@@ -2,7 +2,7 @@
 
 Official website for the 10th IEEE International Test Conference INDIA - An initiative towards India's semiconductor ecosystem.
 
-## 🚀 Features
+## 🚀 Feature
 
 - **Next.js 16** with App Router and React 19
 - **Firebase Authentication** with Google OAuth
@@ -14,7 +14,7 @@ Official website for the 10th IEEE International Test Conference INDIA - An init
 - **Responsive Design** with Tailwind CSS
 - **TypeScript** for type safety
 
-## 📋 Prerequisites
+## 📋 Prerequisite
 
 - Node.js 18+ and npm
 - Firebase project with Authentication, Firestore, and Storage enabled
