@@ -11,6 +11,7 @@ import {
   panelsData,
   distinguishedAddressesData,
   industryShowcaseData,
+  postersData,
 } from "@/lib/speakersData";
 import AgendaModal, { ModalData } from "./AgendaModal";
 
@@ -329,6 +330,18 @@ export default function AgendaSchedule() {
     );
     if (showcaseMatch) return showcaseMatch as ModalData;
 
+    // Check Posters
+    const posterMatch = postersData.find(
+      (p) =>
+        p.name &&
+        (safeTitle.includes(p.name.toLowerCase()) ||
+          (items &&
+            items.some((item) =>
+              item.toLowerCase().includes(p.name.toLowerCase()),
+            ))),
+    );
+    if (posterMatch) return posterMatch as ModalData;
+
     // --- FALLBACK FOR PRESENTATIONS ---
     const nonPresentationKeywords = [
       "registration",
@@ -344,9 +357,8 @@ export default function AgendaSchedule() {
       "closing",
       "inauguration",
       "tttc workshop",
-      "poster session",
       "distinguished address",
-      "itc-at-itc*",
+      "itc-at-itc",
       "talk1",
       "talk2",
       "talk3",
@@ -784,7 +796,7 @@ export default function AgendaSchedule() {
                                           {session.items.map(
                                             (item: string, idx: number) => {
                                               const itemMatch = getMatchData(item);
-                                              const isTutorialTile = activeId === "tutorials" && session.title !== "ITC-at-ITC*";
+                                              const isTutorialTile = activeId === "tutorials" && session.title !== "ITC-at-ITC";
                                               const isItemClickable = itemMatch && !isTutorialTile;
                                               
                                               const isPanel = item.toLowerCase().startsWith("panel:");
@@ -840,11 +852,6 @@ export default function AgendaSchedule() {
                                         <div className="flex items-center gap-1.5 text-xs font-semibold text-sky-400 mt-auto pt-2">
                                           {ICONS.location}
                                           <span>{session.location}</span>
-                                        </div>
-                                      )}
-                                      {session.title.startsWith("ITC-at-ITC") && (
-                                        <div className="text-xs sm:text-sm text-sky-200 mt-2 font-bold italic border-t border-white/10 pt-3">
-                                          *invite only session
                                         </div>
                                       )}
                                     </div>

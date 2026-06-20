@@ -402,3 +402,6 @@ export const industryShowcaseData = [
   { id: 1, name: "Teradyne", comingSoon: true },
   { id: 2, name: "Advantest", comingSoon: true }
 ];
+export const postersData = [
+  { id: 0, name: "Poster Session", affiliation: "Location: ENTRANCE LOBBY", comingSoon: true }
+];
