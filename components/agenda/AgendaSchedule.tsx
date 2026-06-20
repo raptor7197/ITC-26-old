@@ -663,7 +663,7 @@ export default function AgendaSchedule() {
                                   {slot.title}
                                 </div>
                                 {slot.subtitle && (
-                                  <div className="text-xs sm:text-sm text-sky-200 mt-1.5">
+                                  <div className="text-sm sm:text-base font-semibold text-sky-200 mt-1.5">
                                     {slot.subtitle}
                                   </div>
                                 )}
@@ -734,8 +734,13 @@ export default function AgendaSchedule() {
                                     <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
                                       <div>
                                         <div className="font-bold text-white text-base sm:text-lg">
-                                          {session.title}
+                                          Distinguished Address
                                         </div>
+                                        {session.title.replace(/^Distinguished Address:?\s*/i, "") && (
+                                          <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5">
+                                            {session.title.replace(/^Distinguished Address:?\s*/i, "")}
+                                          </div>
+                                        )}
                                       </div>
                                       {session.location && (
                                         <div className="flex items-center justify-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-sky-400">
