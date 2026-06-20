@@ -259,6 +259,15 @@ export default function AgendaSchedule() {
     if (!title || title.trim() === "") return null;
     const safeTitle = title.toLowerCase();
 
+    // Check Tutorials
+    const tutorialMatch = tutorialsData.find(
+      (t) =>
+        (t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))) ||
+        (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
+        (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
+    );
+    if (tutorialMatch) return tutorialMatch as ModalData;
+
     // Check Keynotes
     const keynoteMatch = keynoteSpeakers.find((k) =>
       safeTitle.includes(k.name.toLowerCase()) && safeTitle.includes('keynote')
@@ -334,15 +343,6 @@ export default function AgendaSchedule() {
       };
     }
 
-    // Check Tutorials
-    const tutorialMatch = tutorialsData.find(
-      (t) =>
-        (t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))) ||
-        (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
-        (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
-    );
-    if (tutorialMatch) return tutorialMatch as ModalData;
-
     // --- FALLBACK FOR PRESENTATIONS ---
     const nonPresentationKeywords = [
       "registration",
@@ -389,7 +389,7 @@ export default function AgendaSchedule() {
   const activeDay = agendaDays.find((d) => d.id === activeId) ?? agendaDays[0];
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto text-white flex flex-col relative py-4 sm:py-6 md:py-8">
+    <div className="w-full max-w-[1400px] mx-auto text-white flex flex-col relative py-4 sm:py-6 md:p-8">
       {/* Top Section */}
       <div className="relative z-10 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         {/* LEFT: Title and Tabs */}
@@ -418,7 +418,7 @@ export default function AgendaSchedule() {
         </div>
 
         {/* MIDDLE: Active Day Title (connected via dashed line) */}
-        <div className="flex items-start gap-6 flex-1 min-w-[300px]">
+        <div className="flex items-start gap-6 flex-1 min-w-[300px] md:justify-end">
           {/* Connector Graphic from Title to Details */}
           <div className="hidden md:flex flex-col justify-end pb-2 relative h-[100px] w-[40px]">
             {/* The dot */}
@@ -428,8 +428,11 @@ export default function AgendaSchedule() {
             <div className="absolute top-[42.5px] left-[40px] h-[50px] border-l-2 border-dotted border-sky-400"></div>
           </div>
 
-          <div className="flex flex-col pl-4 md:pl-0 mt-6 md:mt-0 max-w-[calc(100vw-32px)]">
+          <div className="flex flex-col pl-4 md:pl-0 mt-6 md:mt-0 max-w-[calc(100vw-32px)] md:items-end md:text-right">
             <div className="flex items-center gap-2 mb-2">
+              <span className="text-[13px] font-bold tracking-widest text-sky-400 uppercase">
+                {activeDay.label}
+              </span>
               <svg
                 className="w-5 h-5 text-sky-400"
                 fill="none"
@@ -443,9 +446,6 @@ export default function AgendaSchedule() {
                   d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              <span className="text-[13px] font-bold tracking-widest text-sky-400 uppercase">
-                {activeDay.label}
-              </span>
             </div>
             <h2
               className={`font-black tracking-wider text-white mb-1 ${activeDay.subtitle === "Tutorials & Industry Test Challenge" ? "text-xl sm:text-[24px]" : "text-2xl sm:text-[28px]"}`}
