@@ -259,6 +259,14 @@ export default function AgendaSchedule() {
     if (!title || title.trim() === "") return null;
     const safeTitle = title.toLowerCase();
 
+    // Check for explicit paper formats (X.X:, Team X:, ART X:) first to avoid false positive author matches
+    if (/^(team \d+:|art\d+:?|\d+\.\d+:)/i.test(safeTitle)) {
+      return {
+        name: title,
+        comingSoon: true,
+      };
+    }
+
     // Check Keynotes
     const keynoteMatch = keynoteSpeakers.find((k) =>
       safeTitle.includes(k.name.toLowerCase()) && safeTitle.includes('keynote')
@@ -334,9 +342,9 @@ export default function AgendaSchedule() {
     );
     if (posterMatch) return posterMatch as ModalData;
 
-    // Check for explicit paper/talk formats (Team X:, ART X:, X.X:, Talk X:)
-    const paperRegex = /^(team \d+:|art\d+:?|\d+\.\d+:|talk\s*\d+:?|hackathon opening remarks)/i;
-    if (paperRegex.test(safeTitle)) {
+    // Check for explicit talk formats (Talk X:, Hackathon Opening Remarks)
+    const talkRegex = /^(talk\s*\d+:?|hackathon opening remarks)/i;
+    if (talkRegex.test(safeTitle)) {
       return {
         name: title,
         comingSoon: true,
