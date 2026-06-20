@@ -258,18 +258,9 @@ export default function AgendaSchedule() {
   const getMatchData = (title: string, items?: string[]): ModalData | null => {
     const safeTitle = title.toLowerCase();
 
-    // Check Tutorials
-        const tutorialMatch = tutorialsData.find(
-      (t) =>
-        (t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))) ||
-        (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
-        (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
-    );
-    if (tutorialMatch) return tutorialMatch as ModalData;
-
     // Check Keynotes
     const keynoteMatch = keynoteSpeakers.find((k) =>
-      safeTitle.includes(k.name.toLowerCase()),
+      safeTitle.includes(k.name.toLowerCase()) && safeTitle.includes('keynote')
     );
     if (keynoteMatch) return keynoteMatch as ModalData;
 
@@ -296,15 +287,6 @@ export default function AgendaSchedule() {
             ))),
     );
     if (panelMatch) return panelMatch as ModalData;
-
-    // Check for explicit paper/talk formats (Team X:, ART X:, X.X:, Talk X:)
-    const paperRegex = /^(team \d+:|art\d+:?|\d+\.\d+:|talk\s*\d+:?|hackathon opening remarks)/i;
-    if (paperRegex.test(safeTitle)) {
-      return {
-        name: title,
-        comingSoon: true,
-      };
-    }
 
     // Check Distinguished Addresses
     const daMatch = distinguishedAddressesData.find(
@@ -341,6 +323,24 @@ export default function AgendaSchedule() {
             ))),
     );
     if (posterMatch) return posterMatch as ModalData;
+
+    // Check for explicit paper/talk formats (Team X:, ART X:, X.X:, Talk X:)
+    const paperRegex = /^(team \d+:|art\d+:?|\d+\.\d+:|talk\s*\d+:?|hackathon opening remarks)/i;
+    if (paperRegex.test(safeTitle)) {
+      return {
+        name: title,
+        comingSoon: true,
+      };
+    }
+
+    // Check Tutorials
+    const tutorialMatch = tutorialsData.find(
+      (t) =>
+        (t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))) ||
+        (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
+        (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
+    );
+    if (tutorialMatch) return tutorialMatch as ModalData;
 
     // --- FALLBACK FOR PRESENTATIONS ---
     const nonPresentationKeywords = [
@@ -388,22 +388,22 @@ export default function AgendaSchedule() {
   const activeDay = agendaDays.find((d) => d.id === activeId) ?? agendaDays[0];
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto text-white flex flex-col relative p-4 md:p-8">
+    <div className="w-full max-w-[1400px] mx-auto text-white flex flex-col relative py-4 sm:py-6 md:py-8">
       {/* Top Section */}
       <div className="relative z-10 mb-8 flex flex-col md:flex-row md:items-end justify-between gap-6">
         {/* LEFT: Title and Tabs */}
         <div className="flex flex-col gap-6 w-full max-w-[500px]">
-          <h1 className="text-4xl sm:text-5xl md:text-[56px] font-bold tracking-tight text-white uppercase font-poppins">
+          <h1 className="text-3xl sm:text-5xl md:text-[56px] font-bold tracking-tight text-white uppercase font-poppins text-center md:text-left">
             PROGRAM AGENDA
           </h1>
-          <div className="flex flex-wrap gap-4 mt-2">
+          <div className="flex w-full overflow-x-auto no-scrollbar gap-2 sm:gap-3 md:gap-4 mt-2 pb-2 md:-mx-0 md:px-0 md:flex-wrap md:pb-0 justify-between md:justify-start">
             {agendaDays.map((day) => {
               const active = day.id === activeId;
               return (
                 <button
                   key={day.id}
                   onClick={() => setActiveId(day.id)}
-                  className={`rounded-[30px] px-8 py-[10px] text-[15px] font-bold transition-all duration-300 min-w-[120px] ${
+                  className={`flex-1 md:flex-none rounded-[30px] py-[10px] px-2 sm:px-4 md:px-8 text-[13px] sm:text-[15px] md:min-w-[120px] font-bold transition-all duration-300 ${
                     active
                       ? "border border-[#00b0f0] bg-[#0055ff] text-white shadow-[0_0_15px_rgba(0,176,240,0.6)]"
                       : "border border-[#23426b] bg-[#09152b] text-[#8fa7c7] hover:border-[#3a68a3] hover:text-white"
@@ -427,7 +427,7 @@ export default function AgendaSchedule() {
             <div className="absolute top-[42.5px] left-[40px] h-[50px] border-l-2 border-dotted border-sky-400"></div>
           </div>
 
-          <div className="flex flex-col pl-4 md:pl-0 mt-8 md:mt-0">
+          <div className="flex flex-col pl-4 md:pl-0 mt-6 md:mt-0 max-w-[calc(100vw-32px)]">
             <div className="flex items-center gap-2 mb-2">
               <svg
                 className="w-5 h-5 text-sky-400"
@@ -447,7 +447,7 @@ export default function AgendaSchedule() {
               </span>
             </div>
             <h2
-              className={`font-black tracking-wider text-white mb-1 whitespace-nowrap ${activeDay.subtitle === "Tutorials & Industry Test Challenge" ? "text-[24px]" : "text-[28px]"}`}
+              className={`font-black tracking-wider text-white mb-1 ${activeDay.subtitle === "Tutorials & Industry Test Challenge" ? "text-xl sm:text-[24px]" : "text-2xl sm:text-[28px]"}`}
             >
               {activeDay.subtitle}
             </h2>
@@ -508,7 +508,11 @@ export default function AgendaSchedule() {
       </div>
 
       {/* Main Table Container */}
-      <div className="relative rounded-[8px] bg-[#071325]/90 overflow-x-auto shadow-lg">
+      <div className="relative rounded-xl md:rounded-[8px] bg-gradient-to-br from-white/[0.02] to-transparent backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/10 group">
+        
+        {/* Right Scroll Indicator for Mobile */}
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#071325] to-transparent z-20 pointer-events-none md:hidden opacity-80" />
+
         {/* Subtle grid pattern background matching the reference */}
         <div
           className="absolute inset-0 pointer-events-none opacity-20"
@@ -519,11 +523,11 @@ export default function AgendaSchedule() {
           }}
         ></div>
 
-        <div className="relative z-10 w-full overflow-x-auto">
+        <div className="relative z-10 w-full overflow-x-auto custom-scrollbar">
           <table className="w-full table-fixed border-collapse text-sm min-w-[880px]">
             <thead>
               <tr>
-                <th className="border-2 border-white/20 bg-[#0c2242] p-2 sm:p-4 text-center w-[120px] sm:w-[150px]">
+                <th className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-4 text-center w-[120px] sm:w-[150px]">
                   <span className="text-[13px] font-black tracking-widest text-white uppercase">
                     TIME
                   </span>
@@ -535,7 +539,7 @@ export default function AgendaSchedule() {
                   return (
                     <th
                       key={venue}
-                      className={`border-2 border-white/20 ${style.bgHeader} p-3 text-left w-1/4`}
+                      className={`border-2 border-white/10 ${style.bgHeader} p-2 sm:p-3 text-left w-1/4`}
                     >
                       <div className="flex items-center gap-3">
                         {style.icon}
@@ -584,7 +588,7 @@ export default function AgendaSchedule() {
 
                     return (
                       <tr key={`slot-${index}`}>
-                        <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center whitespace-nowrap">
+                        <td className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-3 text-center whitespace-nowrap">
                           <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
                             {ICONS.clock}
                             <span className="text-xs font-medium text-sky-100">
@@ -594,9 +598,9 @@ export default function AgendaSchedule() {
                         </td>
                         <td
                           colSpan={colsToSpan}
-                          className="border-2 border-white/20 bg-transparent p-3 text-center"
+                          className="border-2 border-white/10 bg-transparent p-2 sm:p-3 text-center"
                         >
-                          <div className="flex items-center justify-center gap-3 bg-[#03152d] border border-white/20 rounded-xl mx-2 py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+                          <div className="flex items-center justify-center gap-2 sm:gap-3 bg-[#03152d] border border-white/10 rounded-xl mx-0 sm:mx-2 py-2 sm:py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
                             {isRegistration
                               ? ICONS.user
                               : slot.title.toLowerCase().includes("lunch")
@@ -627,7 +631,7 @@ export default function AgendaSchedule() {
 
                   const trContent = (
                     <tr key={`slot-${index}`}>
-                      <td className="border-2 border-white/20 bg-[#0c2242] p-3 text-center align-top whitespace-nowrap">
+                      <td className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-3 text-center align-top whitespace-nowrap">
                         <div className="flex flex-col items-center gap-1 text-sky-100 mt-2">
                           {ICONS.clock}
                           <span className="text-xs font-medium text-sky-100">
@@ -642,12 +646,12 @@ export default function AgendaSchedule() {
                       {slot.kind === "single" ? (
                         <td
                           colSpan={singleColsToSpan}
-                          className={`border-2 border-white/20 bg-transparent p-3 ${getMatchData(slot.title) ? "cursor-pointer hover:bg-white/5 transition-colors" : ""}`}
+                          className={`border-2 border-white/10 bg-transparent p-2 sm:p-3 ${getMatchData(slot.title) ? "cursor-pointer hover:bg-white/5 transition-colors" : ""}`}
                           onClick={() => handleTileClick(slot.title)}
                           {...(getMatchData(slot.title) ? { "title": "Click to read more details" } : {})}
                         >
                           {slot.variant === "keynote" ? (
-                            <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
+                            <div className="bg-gradient-to-b from-[#03152d] to-[#041d3d] border border-white/10 rounded-[6px] p-3 sm:p-5 h-full shadow-[0_4px_12px_rgba(0,0,0,0.2)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px] hover:border-white/20 transition-colors">
                               <div>
                                 <div className="font-bold text-white text-base sm:text-lg">
                                   Keynote Address
@@ -669,7 +673,7 @@ export default function AgendaSchedule() {
                               )}
                             </div>
                           ) : (
-                            <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
+                            <div className="bg-gradient-to-b from-[#03152d] to-[#041d3d] border border-white/10 rounded-[6px] p-3 sm:p-5 h-full shadow-[0_4px_12px_rgba(0,0,0,0.2)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px] hover:border-white/20 transition-colors">
                               <div>
                                 <div className="font-bold text-white text-base sm:text-lg">
                                   {slot.title}
@@ -725,8 +729,8 @@ export default function AgendaSchedule() {
                                 rowSpan={rowSpan}
                                 className={
                                   isParallelBreak
-                                    ? "border-2 border-white/20 bg-transparent p-3 text-center align-middle"
-                                    : `border-2 border-white/20 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title, session.items) ? "cursor-pointer hover:brightness-110 transition-all" : ""}`
+                                    ? "border-2 border-white/10 bg-transparent p-2 sm:p-3 text-center align-middle"
+                                    : `border-2 border-white/10 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title, session.items) ? "cursor-pointer hover:brightness-110 active:scale-[0.98] transition-all duration-200" : ""}`
                                 }
                                 onClick={() =>
                                   session &&
@@ -736,14 +740,14 @@ export default function AgendaSchedule() {
                               >
                                 {session ? (
                                   isParallelBreak ? (
-                                    <div className="flex items-center justify-center gap-3 bg-[#03152d] border border-white/20 rounded-xl mx-2 py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] h-full min-h-[50px]">
+                                    <div className="flex items-center justify-center gap-2 sm:gap-3 bg-[#03152d] border border-white/10 rounded-xl mx-0 sm:mx-2 py-2 sm:py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] h-full min-h-[50px]">
                                       {session.title.toLowerCase().includes("lunch") ? ICONS.lunch : ICONS.coffee}
                                       <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
                                         {session.title}
                                       </span>
                                     </div>
                                   ) : session.title.toLowerCase().includes("distinguished address") ? (
-                                    <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
+                                    <div className="bg-gradient-to-b from-[#03152d] to-[#041d3d] border border-white/10 rounded-[6px] p-3 sm:p-5 h-full shadow-[0_4px_12px_rgba(0,0,0,0.2)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px] hover:border-white/20 transition-colors">
                                       <div>
                                         <div className="font-bold text-white text-base sm:text-lg">
                                           Distinguished Address
@@ -762,7 +766,7 @@ export default function AgendaSchedule() {
                                       )}
                                     </div>
                                   ) : session.title.toLowerCase().startsWith("panel:") ? (
-                                    <div className="bg-[#03152d] border border-white/20 rounded-[6px] p-4 sm:p-5 h-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px]">
+                                    <div className="bg-gradient-to-b from-[#03152d] to-[#041d3d] border border-white/10 rounded-[6px] p-3 sm:p-5 h-full shadow-[0_4px_12px_rgba(0,0,0,0.2)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px] hover:border-white/20 transition-colors">
                                       <div>
                                         <div className="font-bold text-white text-base sm:text-lg">
                                           Panel Discussion
@@ -804,8 +808,8 @@ export default function AgendaSchedule() {
                                               return isPanel ? (
                                                 <div
                                                   key={idx}
-                                                  className={`mt-3 mb-1 bg-[#03152d] border-l-4 border-sky-400 rounded-r-lg p-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] ${
-                                                    isItemClickable ? "cursor-pointer hover:bg-[#062044] transition-colors" : ""
+                                                  className={`mt-3 mb-1 bg-[#03152d] border-l-4 border-sky-400 rounded-r-lg p-2 sm:p-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] ${
+                                                    isItemClickable ? "cursor-pointer hover:bg-[#062044] active:scale-[0.98] transition-all duration-200" : ""
                                                   }`}
                                                   onClick={(e) => {
                                                     if (isItemClickable) {

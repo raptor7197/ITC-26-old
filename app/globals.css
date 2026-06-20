@@ -45,6 +45,37 @@ main {
   --font-black-ops-one: var(--font-black-ops-one);
 }
 
+@layer utilities {
+  .px-page {
+    padding-left: calc(5% + 4px);
+    padding-right: calc(5% + 4px);
+  }
+  @media (min-width: 640px) {
+    .px-page {
+      padding-left: calc(4% + 4px);
+      padding-right: calc(4% + 4px);
+    }
+  }
+  @media (min-width: 768px) {
+    .px-page {
+      padding-left: calc(3% + 4px);
+      padding-right: calc(3% + 4px);
+    }
+  }
+  @media (min-width: 1024px) {
+    .px-page {
+      padding-left: calc(2.5% + 4px);
+      padding-right: calc(2.5% + 4px);
+    }
+  }
+  @media (min-width: 1280px) {
+    .px-page {
+      padding-left: calc(2.25% + 4px);
+      padding-right: calc(2.25% + 4px);
+    }
+  }
+}
+
 html {
   overflow-x: hidden;
   width: 100%;

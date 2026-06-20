@@ -43,7 +43,7 @@ export default function AgendaModal({
   if (!isOpen || !data) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex justify-center items-center p-4 sm:p-6 sm:pt-[100px] pointer-events-none">
+    <div className="fixed inset-0 z-[9999] flex justify-center items-end sm:items-center p-0 sm:p-6 sm:pt-[100px] pointer-events-none">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/60 backdrop-blur-md transition-opacity pointer-events-auto"
@@ -52,7 +52,7 @@ export default function AgendaModal({
 
       {/* Modal Content */}
       <div
-        className="relative bg-[#071325] border-2 border-[#00b0f0]/30 rounded-[24px] shadow-[0_0_40px_rgba(0,176,240,0.2)] w-full max-w-[900px] flex flex-col overflow-hidden max-h-[80vh] pointer-events-auto mt-4 sm:mt-10"
+        className="relative bg-[#071325] border-t-2 sm:border-2 border-[#00b0f0]/30 rounded-t-3xl sm:rounded-[24px] shadow-[0_-10px_40px_rgba(0,176,240,0.15)] sm:shadow-[0_0_40px_rgba(0,176,240,0.2)] w-full max-w-[900px] flex flex-col overflow-hidden max-h-[90vh] sm:max-h-[80vh] pointer-events-auto"
         role="dialog"
         aria-modal="true"
       >
@@ -67,7 +67,7 @@ export default function AgendaModal({
         ></div>
 
         {/* Header / Close Button */}
-        <div className="relative z-10 flex justify-end p-4 sm:p-6 pb-0 shrink-0">
+        <div className="sticky top-0 z-20 flex justify-end p-4 sm:p-6 pb-2 shrink-0 bg-gradient-to-b from-[#071325] via-[#071325]/90 to-transparent">
           <button
             onClick={onClose}
             className="text-white/60 hover:text-white hover:bg-white/10 rounded-full p-2 transition-colors"
@@ -87,17 +87,17 @@ export default function AgendaModal({
         {/* Scrollable Body */}
         <div className="relative z-10 flex-1 overflow-y-auto p-6 sm:p-8 pt-0 custom-scrollbar">
           {data.comingSoon ? (
-            <div className="w-full bg-[#0b284e]/60 border border-[#00b0f0]/40 rounded-lg p-10 flex flex-col items-center justify-center text-center shadow-lg backdrop-blur-sm">
-              <h2 className="font-black text-3xl sm:text-4xl tracking-tight mb-2 text-white drop-shadow-md">
+            <div className="w-full bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-10 flex flex-col items-center justify-center text-center shadow-lg">
+              <h2 className="font-black text-2xl sm:text-4xl tracking-tight mb-2 md:mb-3 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
                 {data.name}
               </h2>
               {data.affiliation && (
-                <p className="text-[#00b0f0] font-bold text-lg sm:text-xl tracking-wide mb-6">
+                <p className="text-[#00b0f0] font-bold text-base sm:text-xl tracking-wide mb-5 sm:mb-6">
                   {data.affiliation}
                 </p>
               )}
-              <div className="h-[2px] w-24 bg-[#00b0f0]/50 mb-6 rounded-full"></div>
-              <p className="text-[#caddf0] font-bold text-lg tracking-widest uppercase flex items-center gap-3">
+              <div className="h-[2px] w-16 sm:w-24 bg-[#00b0f0]/50 mb-5 sm:mb-6 rounded-full"></div>
+              <p className="text-[#caddf0] font-bold text-[13px] sm:text-[15px] tracking-widest uppercase flex items-center gap-2 sm:gap-3">
                 <svg className="w-6 h-6 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -111,7 +111,7 @@ export default function AgendaModal({
                 <div className="flex flex-col w-full">
                   {/* Tutorial Title */}
                   <div className="mb-8 text-center md:text-left">
-                    <h2 className="font-black text-3xl sm:text-4xl md:text-[42px] tracking-tight text-white drop-shadow-md leading-tight">
+                    <h2 className="font-black text-2xl sm:text-4xl md:text-[42px] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md leading-tight">
                       {data.title}
                     </h2>
                   </div>
@@ -134,16 +134,16 @@ export default function AgendaModal({
 
                           {/* Content */}
                           <div className="flex-1 flex flex-col justify-start items-center sm:items-start text-center sm:text-left pt-1">
-                            <h3 className="font-black text-2xl sm:text-3xl tracking-tight mb-1 text-white drop-shadow-md">
+                            <h3 className="font-black text-xl sm:text-3xl tracking-tight mb-1 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
                               {author.name}
                             </h3>
                             {author.affiliation && (
-                              <p className="text-[#00b0f0] font-bold text-base sm:text-lg mb-4 tracking-wide">
+                              <p className="text-[#00b0f0] font-bold text-sm sm:text-lg mb-4 tracking-wide">
                                 {author.affiliation}
                               </p>
                             )}
                             {author.bio && (
-                              <div className="text-[#a0b0c0] text-[15px] leading-relaxed mb-4 text-justify space-y-3">
+                              <div className="text-[#a0b0c0] text-[14px] sm:text-[15px] leading-relaxed mb-4 text-justify space-y-3">
                                 {author.bio.split("\n").map((p, i) => <p key={i}>{p}</p>)}
                               </div>
                             )}
@@ -155,7 +155,7 @@ export default function AgendaModal({
 
                   {/* Abstract */}
                   {data.abstract && (
-                    <div className="text-[#caddf0] text-[15px] leading-relaxed text-justify space-y-3 bg-[#0b284e]/60 p-6 rounded-lg border border-white/10 shadow-md">
+                    <div className="text-[#caddf0] text-[14px] sm:text-[15px] leading-relaxed text-justify space-y-3 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-6 rounded-2xl border border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
                       <div className="text-white font-black text-lg mb-4 uppercase tracking-widest flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#00b0f0] shadow-[0_0_8px_#00b0f0]"></span>
                         Abstract
@@ -170,32 +170,35 @@ export default function AgendaModal({
                   <div className="flex flex-col sm:flex-row gap-8 sm:gap-10 mb-8 items-start">
                     {/* Photo */}
                     {data.image && (
-                      <div className="flex-shrink-0 mx-auto sm:mx-0 w-[200px] sm:w-[240px]">
-                        <img
-                          src={data.image}
-                          alt={data.name}
-                          className="w-full h-auto rounded-md shadow-md"
-                        />
+                      <div className="flex-shrink-0 mx-auto sm:mx-0 w-[160px] sm:w-[240px] relative">
+                        <div className="absolute -inset-2 bg-gradient-to-br from-[#00b0f0]/30 to-transparent rounded-2xl blur-lg opacity-50"></div>
+                        <div className="relative rounded-2xl overflow-hidden border border-[#00b0f0]/30 shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-10 w-full bg-[#0b284e]">
+                          <img
+                            src={data.image}
+                            alt={data.name}
+                            className="w-full h-auto object-cover"
+                          />
+                        </div>
                       </div>
                     )}
 
                     {/* Content */}
                     <div className="flex-1 flex flex-col justify-start items-center sm:items-start text-center sm:text-left pt-1">
-                      <h2 className="font-black text-3xl sm:text-4xl md:text-[42px] tracking-tight mb-1 text-white drop-shadow-md">
+                      <h2 className="font-black text-2xl sm:text-4xl md:text-[42px] tracking-tight mb-1 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
                         {data.name}
                       </h2>
                       {data.affiliation && (
-                        <p className="text-[#00b0f0] font-bold text-lg sm:text-xl mb-4 tracking-wide">
+                        <p className="text-[#00b0f0] font-bold text-base sm:text-xl mb-4 tracking-wide">
                           {data.affiliation}
                         </p>
                       )}
                       {data.title && (
-                        <h3 className="text-base sm:text-lg md:text-xl font-bold uppercase mb-4 text-white leading-snug tracking-wide drop-shadow-sm">
+                        <h3 className="text-sm sm:text-lg md:text-xl font-bold uppercase mb-4 text-white leading-snug tracking-wide drop-shadow-sm">
                           {data.title}
                         </h3>
                       )}
                       {data.description && (
-                        <p className="text-[#a0b0c0] text-[15px] sm:text-[16px] leading-relaxed text-justify">
+                        <p className="text-[#a0b0c0] text-[14px] sm:text-[16px] leading-relaxed text-justify">
                           {data.description}
                         </p>
                       )}
@@ -204,7 +207,7 @@ export default function AgendaModal({
 
                   {/* Bio */}
                   {data.bio && (
-                    <div className="text-[#caddf0] text-[15px] sm:text-[16px] leading-relaxed text-justify space-y-4 bg-[#0b284e]/60 p-6 sm:p-8 rounded-lg border border-white/10 mt-2">
+                    <div className="text-[#caddf0] text-[14px] sm:text-[16px] leading-relaxed text-justify space-y-4 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/5 mt-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
                       {Array.isArray(data.bio) ? (
                         data.bio.map((paragraph, i) => (
                           <p key={i}>
