@@ -385,8 +385,7 @@ export const distinguishedAddressesData = [
 export const panelsData = [
   { id: 0, title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?", affiliation: "Moderator: Sameer Chillarige", comingSoon: true },
   { id: 1, title: "India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges", affiliation: "Moderator: Gaurav Bhargava", comingSoon: true },
-  { id: 2, title: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?", affiliation: "Moderator: Kamlesh Pandey", comingSoon: true },
-  { id: 3, title: "The Economics of Test: Where Should We Spend the Budget?", affiliation: "Moderator: Navin Bishnoi", comingSoon: true }
+  { id: 2, title: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?", affiliation: "Moderator: Kamlesh Pandey", comingSoon: true }
 ];
 
 export const industryShowcaseData = [
