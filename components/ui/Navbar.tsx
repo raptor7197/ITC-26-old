@@ -21,6 +21,7 @@ const navLinks = [
       { name: "Panels", href: "/panels" },
       { name: "Tutorials", href: "/tutorials" },
       { name: "Posters", href: "/posters" },
+      { name: "Exhibits", href: "/exhibits" },
     ],
   },
   { name: "REGISTRATION", href: "/registration" },

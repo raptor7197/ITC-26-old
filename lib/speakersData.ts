@@ -405,3 +405,8 @@ export const industryShowcaseData = [
 export const postersData = [
   { id: 0, name: "Poster Session", affiliation: "Location: ENTRANCE LOBBY", comingSoon: true }
 ];
+
+export const exhibitsData = [
+  { id: 0, name: "Exhibit Zone", affiliation: "Location: Grand Victoria 1 & 2", comingSoon: true }
+];
+

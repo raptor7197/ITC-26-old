@@ -305,7 +305,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "Distinguished Address: Arojit Roychowdhury, Sr. Director of Technology, Qualcomm",
+            title: "Distinguished Address: Arojit Roychowdhury, Qualcomm",
             colSpan: 3,
             location: "Grand Victoria 1 & 2",
           },
@@ -317,7 +317,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "Distinguished Address: Don Chan, Vice President, Cadence",
+            title: "Distinguished Address: Don Chan, Cadence",
             colSpan: 3,
             location: "Grand Victoria 1 & 2",
           },
@@ -408,9 +408,9 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Industry Session 1",
             items: [
-              "Talk 1: Jayashree Saxena, Vice President – Semiconductor DFT, Anora Labs",
-              "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Senior Member Technical Staff, Texas Instruments",
-              "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Director of Engineering, Marvell"
+              "Talk 1: Jayashree Saxena, Anora Labs",
+              "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Texas Instruments",
+              "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Marvell"
             ],
           },
           {
