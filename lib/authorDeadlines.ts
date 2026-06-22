@@ -8,7 +8,7 @@ export const authorDeadlines = {
   cftTutorial: endOfDay(2026, 4, 15),
   posters: endOfDay(2026, 4, 15),
   workshopProposal: endOfDay(2026, 5, 31),
-  fellowshipApplication: endOfDay(2026, 6, 26),
+  fellowshipApplication: endOfDay(2026, 7, 2),
   hackathonRound1: endOfDay(2026, 5, 31),
 } as const;
 

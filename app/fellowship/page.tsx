@@ -44,7 +44,7 @@ const applicationProcessPoints = [
 
 const importantDates = [
   { event: "Call for Fellowship Applications", date: "20 April 2026" },
-  { event: "Last date for submitting application", date: "22 June 2026", oldDate: "7 May 2026" },
+  { event: "Last date for submitting application", date: "2 July 2026", oldDate: "22 June 2026" },
   {
     event: "Round 1 Notification for award of fellowship",
     date: "20 May 2026",
