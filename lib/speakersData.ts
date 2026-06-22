@@ -73,7 +73,7 @@ export const industrySpeakers = [
   {
     id: 0,
     name: "Jayashree Saxena",
-    affiliation: "Vice President \u2013 Semiconductor DFT, Anora Labs",
+    affiliation: "Anora Labs",
     comingSoon: true,
   },
   {
@@ -385,8 +385,8 @@ export const tutorialsData = [
   }];
 
 export const distinguishedAddressesData = [
-  { id: 0, name: "Arojit Roychowdhury", affiliation: "Sr. Director of Technology, Qualcomm", comingSoon: true },
-  { id: 1, name: "Don Chan", affiliation: "Vice President, Cadence", comingSoon: true },
+  { id: 0, name: "Arojit Roychowdhury", affiliation: "Qualcomm", comingSoon: true },
+  { id: 1, name: "Don Chan", affiliation: "Cadence", comingSoon: true },
   { id: 2, name: "Teradyne", comingSoon: true },
   { id: 3, name: "Advantest", comingSoon: true }
 ];
