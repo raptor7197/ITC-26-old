@@ -12,6 +12,7 @@ import {
   distinguishedAddressesData,
   industryShowcaseData,
   postersData,
+  exhibitsData,
 } from "@/lib/speakersData";
 import AgendaModal, { ModalData } from "./AgendaModal";
 
@@ -341,6 +342,18 @@ export default function AgendaSchedule() {
             ))),
     );
     if (posterMatch) return posterMatch as ModalData;
+
+    // Check Exhibits
+    const exhibitMatch = exhibitsData.find(
+      (e) =>
+        e.name &&
+        (safeTitle.includes(e.name.toLowerCase()) ||
+          (items &&
+            items.some((item) =>
+              item.toLowerCase().includes(e.name.toLowerCase()),
+            ))),
+    );
+    if (exhibitMatch) return exhibitMatch as ModalData;
 
     // Check for explicit talk formats (Talk X:, Hackathon Opening Remarks)
     const talkRegex = /^(talk\s*\d+:?|hackathon opening remarks)/i;
