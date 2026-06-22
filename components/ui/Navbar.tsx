@@ -214,7 +214,14 @@ export default function Navbar() {
                       <Link
                         key={item.name}
                         href={item.href}
-                        onClick={closeMobileMenu}
+                        onClick={(e) => {
+                          if (pathname === item.href) {
+                            e.preventDefault();
+                            window.location.href = item.href;
+                          } else {
+                            closeMobileMenu();
+                          }
+                        }}
                         className="block px-8 py-3 font-poppins text-[15px] font-medium text-gray-200 hover:bg-white/10 hover:text-white sm:text-base"
                       >
                         {item.name}
@@ -226,7 +233,14 @@ export default function Navbar() {
             ) : (
               <Link
                 href={link.href!}
-                onClick={closeMobileMenu}
+                onClick={(e) => {
+                  if (pathname === link.href) {
+                    e.preventDefault();
+                    window.location.href = link.href;
+                  } else {
+                    closeMobileMenu();
+                  }
+                }}
                 className="flex min-h-[48px] touch-manipulation items-center border-b border-white/20 px-4 py-3.5 font-poppins text-base font-bold text-white transition-colors hover:bg-white/10 active:bg-white/20 sm:py-4 sm:text-lg"
               >
                 {link.name}
@@ -316,6 +330,12 @@ export default function Navbar() {
                         <Link
                           key={item.name}
                           href={item.href}
+                          onClick={(e) => {
+                            if (pathname === item.href) {
+                              e.preventDefault();
+                              window.location.href = item.href;
+                            }
+                          }}
                           className="whitespace-nowrap px-6 py-3 font-poppins text-sm font-medium text-white hover:bg-white/10"
                         >
                           {item.name}
@@ -327,6 +347,12 @@ export default function Navbar() {
               ) : (
                 <Link
                   href={link.href!}
+                  onClick={(e) => {
+                    if (pathname === link.href) {
+                      e.preventDefault();
+                      window.location.href = link.href;
+                    }
+                  }}
                   className="whitespace-nowrap font-poppins text-[15px] font-bold uppercase tracking-wide text-white transition-colors hover:text-gray-200 lg:text-[16px]"
                 >
                   {link.name}

@@ -171,14 +171,11 @@ export default function AgendaModal({
                     {/* Photo */}
                     {data.image && (
                       <div className="flex-shrink-0 mx-auto sm:mx-0 w-[160px] sm:w-[240px] relative">
-                        <div className="absolute -inset-2 bg-gradient-to-br from-[#00b0f0]/30 to-transparent rounded-2xl blur-lg opacity-50"></div>
-                        <div className="relative rounded-2xl overflow-hidden border border-[#00b0f0]/30 shadow-[0_8px_32px_rgba(0,0,0,0.5)] z-10 w-full bg-[#0b284e]">
-                          <img
-                            src={data.image}
-                            alt={data.name}
-                            className="w-full h-auto object-cover"
-                          />
-                        </div>
+                        <img
+                          src={data.image}
+                          alt={data.name}
+                          className="w-full h-auto object-cover"
+                        />
                       </div>
                     )}
 
