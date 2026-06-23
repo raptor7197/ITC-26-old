@@ -383,6 +383,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "single",
         time: "10:00 AM – 10:30 AM",
         title: "Keynote: Nilanjan Mukherjee (Siemens)",
+        subtitle: "Built-in Intelligence- Leveraging Advanced DFT for Silicon Health monitoring",
         location: "Grand Victoria 1 & 2",
         variant: "keynote",
       },

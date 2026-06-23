@@ -51,6 +51,7 @@ export const keynoteSpeakers = [
     id: 5.5,
     name: "Nilanjan Mukherjee",
     affiliation: "Siemens",
+    title: "Built-in Intelligence- Leveraging Advanced DFT for Silicon Health monitoring",
     comingSoon: true,
   },
   {
