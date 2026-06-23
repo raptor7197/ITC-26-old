@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 export type ModalData = {
   name?: string;
@@ -97,12 +98,34 @@ export default function AgendaModal({
                 </p>
               )}
               <div className="h-[2px] w-16 sm:w-24 bg-[#00b0f0]/50 mb-5 sm:mb-6 rounded-full"></div>
-              <p className="text-[#caddf0] font-bold text-[13px] sm:text-[15px] tracking-widest uppercase flex items-center gap-2 sm:gap-3">
-                <svg className="w-6 h-6 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                More details coming soon
-              </p>
+              
+              {data.name?.includes("Exhibit") ? (
+                <Link href="/exhibits" className="group relative overflow-hidden bg-white/5 hover:bg-[#00b0f0]/20 border border-white/10 hover:border-[#00b0f0]/50 transition-all duration-300 rounded-xl px-6 py-4 flex items-center gap-4 cursor-pointer w-full max-w-md mx-auto">
+                  <div className="bg-[#00b0f0]/20 p-2.5 rounded-lg text-[#00b0f0] group-hover:scale-110 transition-transform duration-300 shrink-0">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-white font-bold text-[15px] group-hover:text-[#38bdf8] transition-colors">
+                      Floor Map
+                    </span>
+                    <span className="text-[#a0b0c0] text-[13px]">
+                      Click here to view venue layout and booths
+                    </span>
+                  </div>
+                  <svg className="w-5 h-5 text-[#00b0f0] opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all ml-auto shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              ) : (
+                <p className="text-[#caddf0] font-bold text-[13px] sm:text-[15px] tracking-widest uppercase flex items-center gap-2 sm:gap-3">
+                  <svg className="w-6 h-6 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  More details coming soon
+                </p>
+              )}
             </div>
           ) : (
             <>
