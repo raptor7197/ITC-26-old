@@ -36,13 +36,23 @@ export default function Exhibits() {
       <PageHeader title="EXHIBITS" />
       <div className="w-full max-w-[1100px] flex flex-col mx-auto px-page mt-8">
 
+        {/* Mobile Orientation Hint */}
+        <div className="md:hidden flex items-center justify-center gap-3 bg-[#103e63]/50 border border-[#38bdf8]/30 rounded-xl p-4 mb-6 text-[#e2e8f0] text-sm shadow-lg">
+          <svg className="w-5 h-5 text-[#38bdf8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          </svg>
+          <span>For the best map experience, rotate your device to landscape.</span>
+        </div>
+
         {/* Pixel-Perfect Classic Map Container */}
-        <div className="w-full overflow-x-auto custom-scrollbar mb-16 bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300">
-          <div className="min-w-[1000px] w-full p-8">
-            <svg viewBox="0 0 1100 450" className="w-full h-auto">
+        <div className="relative w-full mb-16 group">
+          
+          <div className="w-full overflow-x-auto exhibits-scrollbar bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300 pb-2">
+            <div className="min-w-[1000px] w-full p-8 mx-auto min-h-[450px] flex items-center justify-center">
+              <svg viewBox="0 0 1100 450" className="w-full h-auto drop-shadow-xl">
               {/* 1. Base Paths (Clean, delicate lines) */}
-              <path d="M 10 230 L 760 230 L 760 140 L 1095 140" fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
-              <path d="M 10 380 L 840 380 L 840 220 L 1095 220" fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
+              <path d="M 10 230 L 754 230 A 6 6 0 0 0 760 224 L 760 146 A 6 6 0 0 1 766 140 L 1095 140" fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
+              <path d="M 10 380 L 834 380 A 6 6 0 0 0 840 374 L 840 226 A 6 6 0 0 1 846 220 L 1095 220" fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
               <line x1="390" y1="230" x2="390" y2="270" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
               <line x1="390" y1="380" x2="390" y2="340" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
 
@@ -61,17 +71,17 @@ export default function Exhibits() {
 
               {/* 2. Rooms (Extremely subtle fill, clean borders) */}
               {/* Grand Victoria Ballroom */}
-              <rect x="30" y="50" width="340" height="180" fill="#38bdf8" fillOpacity="0.03" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
+              <path d="M 30 230 L 370 230 L 370 56 A 6 6 0 0 0 364 50 L 36 50 A 6 6 0 0 0 30 56 Z" fill="#38bdf8" fillOpacity="0.03" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
               <line x1="40" y1="70" x2="40" y2="210" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
               <line x1="360" y1="70" x2="360" y2="210" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
               
               {/* Arabic & Robusta */}
-              <rect x="445" y="90" width="260" height="140" fill="#38bdf8" fillOpacity="0.03" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
+              <path d="M 445 230 L 705 230 L 705 96 A 6 6 0 0 0 699 90 L 451 90 A 6 6 0 0 0 445 96 Z" fill="#38bdf8" fillOpacity="0.03" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
               <line x1="455" y1="110" x2="455" y2="210" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
               <line x1="695" y1="110" x2="695" y2="210" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
 
               {/* Brainbox */}
-              <rect x="855" y="240" width="224" height="120" fill="#38bdf8" fillOpacity="0.03" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
+              <rect x="855" y="240" width="224" height="120" rx="6" ry="6" fill="#38bdf8" fillOpacity="0.03" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
               <line x1="865" y1="260" x2="865" y2="340" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
               <line x1="1069" y1="260" x2="1069" y2="340" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
 
@@ -103,9 +113,9 @@ export default function Exhibits() {
               <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABIC & ROBUSTA</text>
 
               {/* Brainbox Text */}
-              <text x="967" y="275" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">LEVEL 1</text>
-              <text x="967" y="295" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">TECHNICAL SESSIONS</text>
-              <text x="967" y="320" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">BRAINBOX</text>
+              <text x="967" y="283" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">LEVEL 1</text>
+              <text x="967" y="303" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">TECHNICAL SESSIONS</text>
+              <text x="967" y="328" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">BRAINBOX</text>
 
               {/* Banquet Entrance Text */}
               <text x="970" y="185" fill="#38bdf8" fontSize="14" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.15em">
@@ -172,6 +182,7 @@ export default function Exhibits() {
               })()}
             </svg>
           </div>
+        </div>
         </div>
 
         {/* Exhibitor Directory Title */}
@@ -247,6 +258,25 @@ export default function Exhibits() {
         </div>
 
       </div>
+
+      {/* CSS to permanently show the scrollbar on mobile devices */}
+      <style dangerouslySetInnerHTML={{__html: `
+        .exhibits-scrollbar::-webkit-scrollbar {
+          height: 8px;
+          -webkit-appearance: none;
+        }
+        .exhibits-scrollbar::-webkit-scrollbar-track {
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 4px;
+        }
+        .exhibits-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(56, 189, 248, 0.4);
+          border-radius: 4px;
+        }
+        .exhibits-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(56, 189, 248, 0.7);
+        }
+      `}} />
     </main>
   );
 }
