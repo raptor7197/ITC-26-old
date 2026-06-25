@@ -17,6 +17,11 @@ export default function DistinguishedAddresses() {
                   {speaker.affiliation}
                 </p>
               )}
+              {speaker.title && (
+                <h3 className="text-base sm:text-lg md:text-[20px] font-bold uppercase mb-4 md:mb-5 text-white leading-snug tracking-wide drop-shadow-sm max-w-3xl">
+                  {speaker.title}
+                </h3>
+              )}
               <div className="h-[2px] w-12 sm:w-16 bg-[#00b0f0]/50 mb-4 md:mb-5 rounded-full"></div>
               <p className="text-[#caddf0] font-bold text-[12px] sm:text-[14px] md:text-base tracking-widest uppercase flex items-center gap-2 sm:gap-3">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">

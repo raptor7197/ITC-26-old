@@ -485,6 +485,38 @@ export default function AgendaSchedule() {
                         {slot.subtitle}
                       </p>
                     )}
+                    {slot.items && slot.items.length > 0 && (
+                      <div className="flex flex-col gap-4 mt-2">
+                        {slot.items.map((item, idx) => {
+                          const isClickable = getMatchData(item);
+                          const parts = item.split("| Topic :");
+                          const topic = parts[1] ? parts[1].trim() : null;
+                          const speaker = parts[0].replace(/^Distinguished Address:?\s*/i, "").trim();
+
+                          return (
+                            <div 
+                              key={idx}
+                              className={`flex flex-col ${isClickable ? "cursor-pointer active:scale-[0.98]" : ""}`}
+                              onClick={(e) => {
+                                if (isClickable) {
+                                  e.stopPropagation();
+                                  handleTileClick(item);
+                                }
+                              }}
+                            >
+                              {topic && (
+                                <div className="text-[12px] font-semibold text-sky-200 uppercase mb-0.5 leading-snug">
+                                  {topic}
+                                </div>
+                              )}
+                              <div className="text-[12px] text-[#a3b8cc]">
+                                {speaker}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
                     {slot.location && (
                       <div className="flex items-center gap-1.5 text-[11px] text-slate-400 mt-1.5 pt-2 border-t border-white/5">
                         {ICONS.location}
@@ -547,12 +579,17 @@ export default function AgendaSchedule() {
                                   {isDA ? "Distinguished Address" : "Panel Discussion"}
                                 </div>
                               </div>
-                              <h3 className="text-[14px] font-bold text-white leading-[1.3]">
+                              <h3 className="text-[15px] font-bold text-white leading-[1.3]">
                                 {session.title.replace(
                                   /^(Distinguished Address:?|Panel:)\s*/i,
                                   "",
                                 )}
                               </h3>
+                              {session.subtitle && (
+                                <p className="text-[12px] text-sky-200/80 font-medium">
+                                  {session.subtitle}
+                                </p>
+                              )}
                             </>
                           ) : (
                             <>
@@ -951,7 +988,7 @@ export default function AgendaSchedule() {
                               )}
                             </div>
                           ) : (
-                            <div className="bg-gradient-to-b from-[#03152d] to-[#041d3d] border border-white/10 rounded-[6px] p-3 sm:p-5 h-full shadow-[0_4px_12px_rgba(0,0,0,0.2)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px] hover:border-white/20 transition-colors">
+                            <div className="bg-gradient-to-b from-[#03152d] to-[#041d3d] border border-white/10 rounded-[6px] p-3 sm:p-5 h-full shadow-[0_4px_12px_rgba(0,0,0,0.2)] flex flex-col justify-center items-center text-center min-h-[100px] hover:border-white/20 transition-colors pointer-events-none">
                               <div>
                                 <div className="font-bold text-white text-base sm:text-lg">
                                   {slot.title}
@@ -962,8 +999,43 @@ export default function AgendaSchedule() {
                                   </div>
                                 )}
                               </div>
+                              
+                              {slot.items && slot.items.length > 0 && (
+                                <div className="flex flex-col gap-5 mt-4 w-full px-2 sm:px-4">
+                                  {slot.items.map((item, idx) => {
+                                    const isClickable = getMatchData(item);
+                                    const parts = item.split("| Topic :");
+                                    const topic = parts[1] ? parts[1].trim() : null;
+                                    const speaker = parts[0].replace(/^Distinguished Address:?\s*/i, "").trim();
+
+                                    return (
+                                      <div 
+                                        key={idx}
+                                        className={`flex flex-col items-center pointer-events-auto ${isClickable ? "cursor-pointer hover:brightness-125 transition-all" : ""}`}
+                                        onClick={(e) => {
+                                          if (isClickable) {
+                                            e.stopPropagation();
+                                            handleTileClick(item);
+                                          }
+                                        }}
+                                        {...(isClickable ? { title: "Click to read more details" } : {})}
+                                      >
+                                        {topic && (
+                                          <div className="text-sm sm:text-base font-semibold text-sky-200 mt-1.5 uppercase leading-tight">
+                                            {topic}
+                                          </div>
+                                        )}
+                                        <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5">
+                                          {speaker}
+                                        </div>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              )}
+
                               {slot.location && (
-                                <div className="flex items-center justify-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-sky-400">
+                                <div className="flex items-center justify-center gap-1.5 mt-5 text-xs sm:text-sm font-semibold text-sky-400">
                                   {ICONS.location}
                                   <span>{slot.location}</span>
                                 </div>
@@ -1030,6 +1102,11 @@ export default function AgendaSchedule() {
                                         <div className="font-bold text-white text-base sm:text-lg">
                                           Distinguished Address
                                         </div>
+                                        {session.subtitle && (
+                                          <div className="text-sm sm:text-base font-semibold text-sky-200 mt-1.5">
+                                            {session.subtitle}
+                                          </div>
+                                        )}
                                         {session.title.replace(/^Distinguished Address:?\s*/i, "") && (
                                           <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5">
                                             {session.title.replace(/^Distinguished Address:?\s*/i, "")}
@@ -1082,6 +1159,7 @@ export default function AgendaSchedule() {
                                               const isItemClickable = itemMatch && !isTutorialTile;
                                               
                                               const isPanel = item.toLowerCase().startsWith("panel:");
+                                              const isDAItem = item.toLowerCase().startsWith("distinguished address:");
 
                                               return isPanel ? (
                                                 <div
@@ -1103,6 +1181,38 @@ export default function AgendaSchedule() {
                                                   <div className="text-[13px] font-medium leading-[1.4] text-white">
                                                     {item.replace(/^Panel:\s*/i, "")}
                                                   </div>
+                                                </div>
+                                              ) : isDAItem ? (
+                                                <div
+                                                  key={idx}
+                                                  className={`mt-3 mb-1 bg-[#03152d] border-l-4 border-sky-400 rounded-r-lg p-2 sm:p-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] ${
+                                                    isItemClickable ? "cursor-pointer hover:bg-[#062044] active:scale-[0.98] transition-all duration-200" : ""
+                                                  }`}
+                                                  onClick={(e) => {
+                                                    if (isItemClickable) {
+                                                      e.stopPropagation();
+                                                      handleTileClick(item);
+                                                    }
+                                                  }}
+                                                  {...(isItemClickable ? { "title": "Click to read more details" } : {})}
+                                                >
+                                                  <div className="text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-1.5">
+                                                    Distinguished Address
+                                                  </div>
+                                                  {item.includes("| Topic :") ? (
+                                                    <>
+                                                      <div className="text-[11px] font-semibold text-sky-200 mb-1 leading-[1.3] uppercase">
+                                                        {item.split("| Topic :")[1].trim()}
+                                                      </div>
+                                                      <div className="text-[13px] font-medium leading-[1.4] text-white">
+                                                        {item.split("| Topic :")[0].replace(/^Distinguished Address:?\s*/i, "").trim()}
+                                                      </div>
+                                                    </>
+                                                  ) : (
+                                                    <div className="text-[13px] font-medium leading-[1.4] text-white">
+                                                      {item.replace(/^Distinguished Address:?\s*/i, "").trim()}
+                                                    </div>
+                                                  )}
                                                 </div>
                                               ) : (
                                                 <div

@@ -21,13 +21,14 @@ export type ParallelSession = {
 
 export type AgendaSlot =
   | {
-    kind: "single";
-    time: string;
-    title: string;
-    subtitle?: string;
-    location?: string;
-    variant?: AgendaSlotVariant;
-  }
+      kind: "single";
+      time: string;
+      title: string;
+      subtitle?: string;
+      location?: string;
+      variant?: AgendaSlotVariant;
+      items?: string[];
+    }
   | {
     kind: "parallel";
     time: string;
@@ -300,40 +301,15 @@ export const agendaDays: AgendaDay[] = [
         ],
       },
       {
-        kind: "parallel",
-        time: "04:00 PM – 04:25 PM",
-        sessions: [
-          {
-            hall: "Grand Victoria 1",
-            title: "Distinguished Address: Arojit Roychowdhury, Qualcomm",
-            colSpan: 3,
-            location: "Grand Victoria 1 & 2",
-          },
-        ],
-      },
-      {
-        kind: "parallel",
-        time: "04:25 PM – 04:50 PM",
-        sessions: [
-          {
-            hall: "Grand Victoria 1",
-            title: "Distinguished Address: Don Chan, Cadence",
-            colSpan: 3,
-            location: "Grand Victoria 1 & 2",
-          },
-        ],
-      },
-      {
-        kind: "parallel",
-        time: "04:50 PM – 05:15 PM",
-        sessions: [
-          {
-            hall: "Grand Victoria 1",
-            title: "Distinguished Address: Teradyne",
-            colSpan: 3,
-            location: "Grand Victoria 1 & 2",
-          },
-        ],
+        kind: "single",
+        time: "04:00 PM – 05:15 PM",
+        title: "Distinguished Addresses",
+        location: "Grand Victoria",
+        items: [
+          "Distinguished Address: Arojit Roychowdhury, Qualcomm",
+          "Distinguished Address: Don Chan, Cadence | Topic : FROM POINT TOOLS TO AGENTIC AI: HOW EDA HAS IMPACTED THE SEMICONDUCTOR INDUSTRY",
+          "Distinguished Address: Alpa Sood, Teradyne | Topic : THE CRITICAL ROLE OF TEST STRATEGY IN INDIA'S SEMICONDUCTOR GROWTH"
+        ]
       },
       {
         kind: "single",
@@ -508,7 +484,8 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "Distinguished Address: Advantest",
+            title: "Distinguished Address: Rajesh Vaddempudi, MD Advantest India",
+            subtitle: "THE INTELLIGENT SILICON ERA: REDEFINING SEMICONDUCTOR TEST THROUGH INNOVATION, AI, AND COLLABORATION",
             colSpan: 3,
             location: "Grand Victoria 1 & 2",
           },

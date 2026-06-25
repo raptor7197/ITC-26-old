@@ -387,9 +387,9 @@ export const tutorialsData = [
 
 export const distinguishedAddressesData = [
   { id: 0, name: "Arojit Roychowdhury", affiliation: "Qualcomm", comingSoon: true },
-  { id: 1, name: "Don Chan", affiliation: "Cadence", comingSoon: true },
-  { id: 2, name: "Teradyne", comingSoon: true },
-  { id: 3, name: "Advantest", comingSoon: true }
+  { id: 1, name: "Don Chan", affiliation: "Cadence", title: "FROM POINT TOOLS TO AGENTIC AI: HOW EDA HAS IMPACTED THE SEMICONDUCTOR INDUSTRY", comingSoon: true },
+  { id: 2, name: "Alpa Sood", affiliation: "Teradyne", title: "THE CRITICAL ROLE OF TEST STRATEGY IN INDIA'S SEMICONDUCTOR GROWTH", comingSoon: true },
+  { id: 3, name: "Rajesh Vaddempudi", affiliation: "MD Advantest India", title: "THE INTELLIGENT SILICON ERA: REDEFINING SEMICONDUCTOR TEST THROUGH INNOVATION, AI, AND COLLABORATION", comingSoon: true }
 ];
 
 export const panelsData = [

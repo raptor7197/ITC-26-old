@@ -96,9 +96,14 @@ export default function AgendaModal({
                 {data.name}
               </h2>
               {data.affiliation && (
-                <p className="text-[#00b0f0] font-bold text-base sm:text-xl tracking-wide mb-5 sm:mb-6">
+                <p className="text-[#00b0f0] font-bold text-base sm:text-xl tracking-wide mb-4 sm:mb-5">
                   {data.affiliation}
                 </p>
+              )}
+              {data.title && (
+                <h3 className="text-sm sm:text-base md:text-[18px] font-bold uppercase mb-4 sm:mb-5 text-white leading-snug tracking-wide drop-shadow-sm max-w-3xl">
+                  {data.title}
+                </h3>
               )}
               <div className="h-[2px] w-16 sm:w-24 bg-[#00b0f0]/50 mb-5 sm:mb-6 rounded-full"></div>
               
