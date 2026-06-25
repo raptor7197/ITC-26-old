@@ -390,6 +390,12 @@ export default function AgendaSchedule() {
       "dinner",
       "no activity planned",
       "industry showcase",
+      "technical track",
+      "industry session",
+      "special session",
+      "art track",
+      "poster session",
+      "sessions"
     ];
     if (nonPresentationKeywords.some((kw) => safeTitle.includes(kw))) {
       return null;
@@ -1080,13 +1086,14 @@ export default function AgendaSchedule() {
                                 className={
                                   isParallelBreak
                                     ? "border-2 border-white/10 bg-transparent p-2 sm:p-3 text-center align-middle"
-                                    : `border-2 border-white/10 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title, session.items) ? "cursor-pointer hover:brightness-110 active:scale-[0.98] transition-all duration-200" : ""}`
+                                    : `border-2 border-white/10 ${style ? style.bgCell : "bg-[#09224f] text-white"} p-3 sm:p-5 align-top break-words ${session && getMatchData(session.title) ? "cursor-pointer hover:brightness-110 active:scale-[0.98] transition-all duration-200" : ""}`
                                 }
-                                onClick={() =>
-                                  session &&
-                                  handleTileClick(session.title, session.items)
-                                }
-                                {...(session && getMatchData(session.title, session.items) ? { "title": "Click to read more details" } : {})}
+                                onClick={(e) => {
+                                  if (session && getMatchData(session.title)) {
+                                    handleTileClick(session.title, session.items);
+                                  }
+                                }}
+                                {...(session && getMatchData(session.title) ? { "title": "Click to read more details" } : {})}
                               >
                                 {session ? (
                                   isParallelBreak ? (
