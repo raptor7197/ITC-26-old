@@ -21,14 +21,14 @@ export type ParallelSession = {
 
 export type AgendaSlot =
   | {
-      kind: "single";
-      time: string;
-      title: string;
-      subtitle?: string;
-      location?: string;
-      variant?: AgendaSlotVariant;
-      items?: string[];
-    }
+    kind: "single";
+    time: string;
+    title: string;
+    subtitle?: string;
+    location?: string;
+    variant?: AgendaSlotVariant;
+    items?: string[];
+  }
   | {
     kind: "parallel";
     time: string;
@@ -312,36 +312,17 @@ export const agendaDays: AgendaDay[] = [
         ]
       },
       {
-        kind: "parallel",
+        kind: "single",
         time: "05:15 PM – 05:30 PM",
-        sessions: [
-          {
-            hall: "Grand Victoria 1",
-            title: "Closing Remarks",
-            subtitle: "General Co-Chairs, ITC India 2026",
-            location: "Grand Victoria",
-            colSpan: 3,
-          },
-          {
-            hall: "Brain Box",
-            title: "No Activity Planned",
-          }
-        ],
+        title: "Closing Remarks",
+        subtitle: "General Co-Chairs, ITC India 2026",
+        location: "Grand Victoria",
+        variant: "plenary",
       },
       {
-        kind: "parallel",
+        kind: "break",
         time: "05:30 PM – 06:30 PM",
-        sessions: [
-          {
-            hall: "Grand Victoria 1",
-            title: "BREAK",
-            colSpan: 3,
-          },
-          {
-            hall: "Brain Box",
-            title: "No Activity Planned",
-          }
-        ],
+        title: "BREAK",
       },
 
     ],
@@ -522,7 +503,8 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "Panel: Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets? Moderator: Kamlesh Pandey",
+            title: "Panel: Kamlesh Pandey",
+            subtitle: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?",
             colSpan: 3,
             location: "Grand Victoria",
           },
