@@ -4,30 +4,52 @@ import PageHeader from "@/components/ui/PageHeader";
 import React, { useState } from "react";
 
 const exhibitors = [
-  { id: 1, company: "Qualcomm" },
-  { id: 2, company: "Caliber Interconnect" },
-  { id: 3, company: "Caliber Interconnect" },
-  { id: 4, company: "Siemens" },
-  { id: 5, company: "Siemens" },
-  { id: 6, company: "Google" },
-  { id: 7, company: "Google" },
-  { id: 8, company: "Cadence" },
-  { id: 9, company: "Synopsys" },
-  { id: 10, company: "Amazon" },
-  { id: 11, company: "Solitontech" },
-  { id: 12, company: "Solitontech" },
-  { id: 13, company: "Mirafra" },
-  { id: 14, company: "Mirafra" },
-  { id: 15, company: "Tessolve" },
-  { id: 16, company: "Tessolve" },
-  { id: 17, company: "Anora" },
-  { id: 18, company: "Advantest" },
-  { id: 19, company: "Maven Silicon" },
-  { id: 20, company: "Marvell" },
+  { id: "1", company: "Cadence" },
+  { id: "2", company: "Caliber Interconnect" },
+  { id: "3", company: "Caliber Interconnect" },
+  { id: "4", company: "Siemens" },
+  { id: "5", company: "Siemens" },
+  { id: "6", company: "Google" },
+  { id: "7", company: "Google" },
+  { id: "8", company: "Qualcomm" },
+  { id: "9", company: "Synopsys" },
+  { id: "10", company: "Amazon" },
+  { id: "11", company: "Solitontech" },
+  { id: "12", company: "Solitontech" },
+  { id: "13", company: "Mirafra" },
+  { id: "14", company: "Mirafra" },
+  { id: "15", company: "Tessolve" },
+  { id: "16", company: "Tessolve" },
+  { id: "17", company: "Anora" },
+  { id: "17A", company: "Anora" },
+  { id: "18", company: "Advantest" },
+  { id: "19", company: "Maven Silicon" },
+  { id: "20", company: "Marvell" },
 ];
 
 export default function Exhibits() {
-  const [hoveredBooth, setHoveredBooth] = useState<number | null>(null);
+  const [hoveredBooth, setHoveredBooth] = useState<string | null>(null);
+
+  const getBoothX = (id: string) => {
+    const left1 = ["1", "2", "3"];
+    const left2 = ["4", "5", "6", "7", "8", "9"];
+    const mid = ["10", "11", "12", "13", "14", "15", "16", "17", "17A", "18"];
+    const right = ["19", "20"];
+
+    if (left1.includes(id)) {
+      return 30.5 + left1.indexOf(id) * 36.5;
+    }
+    if (left2.includes(id)) {
+      return 156 + left2.indexOf(id) * 36.5;
+    }
+    if (mid.includes(id)) {
+      return 405 + mid.indexOf(id) * 34;
+    }
+    if (right.includes(id)) {
+      return 755 + right.indexOf(id) * 36.5;
+    }
+    return 0;
+  };
 
   const activeExhibitor = exhibitors.find(e => e.id === hoveredBooth);
 
@@ -110,7 +132,7 @@ export default function Exhibits() {
 
               {/* Arabica & Robusta Text */}
               <text x="575" y="150" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">TECHNICAL SESSIONS</text>
-              <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABICA & ROBUSTA</text>
+              <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABIC & ROBUSTA</text>
 
               {/* Brainbox Text */}
               <text x="967" y="283" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">LEVEL 1</text>
@@ -124,12 +146,7 @@ export default function Exhibits() {
 
               {/* 5. Minimalist Booths */}
               {exhibitors.map((ex) => {
-                let x = 0;
-                if (ex.id >= 1 && ex.id <= 3) x = 30.5 + (ex.id - 1) * 36.5;
-                else if (ex.id >= 4 && ex.id <= 9) x = 156 + (ex.id - 4) * 36.5;
-                else if (ex.id >= 10 && ex.id <= 18) x = 410.5 + (ex.id - 10) * 36.1;
-                else if (ex.id >= 19 && ex.id <= 20) x = 752 + (ex.id - 19) * 36.1;
-
+                const x = getBoothX(ex.id);
                 const isHovered = hoveredBooth === ex.id;
 
                 return (
@@ -150,7 +167,7 @@ export default function Exhibits() {
                     <text 
                       x="16" y="21" 
                       fill={isHovered ? "#000000" : "#e2e8f0"} 
-                      fontSize="12" fontWeight="600" fontFamily="inherit" textAnchor="middle" 
+                      fontSize={ex.id === "17A" ? "10" : "12"} fontWeight="600" fontFamily="inherit" textAnchor="middle" 
                       className="transition-colors duration-200"
                     >
                       {ex.id}
@@ -161,12 +178,7 @@ export default function Exhibits() {
 
               {/* 6. Tooltip (Flat, minimal) */}
               {activeExhibitor && (() => {
-                let x = 0;
-                if (activeExhibitor.id >= 1 && activeExhibitor.id <= 3) x = 30.5 + (activeExhibitor.id - 1) * 36.5;
-                else if (activeExhibitor.id >= 4 && activeExhibitor.id <= 9) x = 156 + (activeExhibitor.id - 4) * 36.5;
-                else if (activeExhibitor.id >= 10 && activeExhibitor.id <= 18) x = 410.5 + (activeExhibitor.id - 10) * 36.1;
-                else if (activeExhibitor.id >= 19 && activeExhibitor.id <= 20) x = 752 + (activeExhibitor.id - 19) * 36.1;
-
+                const x = getBoothX(activeExhibitor.id);
                 const textLen = Math.max(activeExhibitor.company.length * 8, 80);
 
                 return (
@@ -194,7 +206,7 @@ export default function Exhibits() {
         
         {/* Desktop Layout: Two Columns */}
         <div className="hidden md:flex w-full gap-8 flex-row">
-          {/* Table 1: Booths 1-10 */}
+          {/* Table 1: Booths 1-9 */}
           <div className="flex-1 bg-[#103e63] rounded-xl overflow-hidden shadow-lg border border-[#184872]">
             <table className="w-full text-left text-sm m-0">
               <thead className="bg-[#145688]">
@@ -204,7 +216,7 @@ export default function Exhibits() {
                 </tr>
               </thead>
               <tbody>
-                {exhibitors.slice(0, 10).map((e) => (
+                {exhibitors.slice(0, 9).map((e) => (
                   <tr key={e.id} className="border-t border-[#184872]">
                     <td className="px-6 py-4 font-medium text-[#e2e8f0]">{e.company}</td>
                     <td className="px-6 py-4 text-center text-[#e2e8f0] font-bold">{e.id}</td>
@@ -214,7 +226,7 @@ export default function Exhibits() {
             </table>
           </div>
 
-          {/* Table 2: Booths 11-20 */}
+          {/* Table 2: Booths 10-20 */}
           <div className="flex-1 bg-[#103e63] rounded-xl overflow-hidden shadow-lg border border-[#184872]">
             <table className="w-full text-left text-sm m-0">
               <thead className="bg-[#145688]">
@@ -224,7 +236,7 @@ export default function Exhibits() {
                 </tr>
               </thead>
               <tbody>
-                {exhibitors.slice(10, 20).map((e) => (
+                {exhibitors.slice(9).map((e) => (
                   <tr key={e.id} className="border-t border-[#184872]">
                     <td className="px-6 py-4 font-medium text-[#e2e8f0]">{e.company}</td>
                     <td className="px-6 py-4 text-center text-[#e2e8f0] font-bold">{e.id}</td>
