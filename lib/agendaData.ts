@@ -165,7 +165,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "single",
         time: "09:30 AM – 10:00 AM",
         title: "Keynote: Yervant Zorian (Synopsys)",
-        subtitle: "Designing Chiplets & 3DIC for Quality & Reliability",
+        subtitle: "Designing Chiplets and 3DIC for Quality and Reliability",
         location: "Grand Victoria",
         variant: "keynote",
       },
@@ -307,7 +307,7 @@ export const agendaDays: AgendaDay[] = [
         location: "Grand Victoria",
         items: [
           "Distinguished Address: Arojit Roychowdhury, Qualcomm",
-          "Distinguished Address: Don Chan, Cadence | Topic : FROM POINT TOOLS TO AGENTIC AI: HOW EDA HAS IMPACTED THE SEMICONDUCTOR INDUSTRY",
+          "Distinguished Address: Don Chan, Cadence | Topic : From Point Tools to Agentic AI: How EDA has Impacted the Semiconductor Industry",
           "Distinguished Address: Alpa Sood, Teradyne | Topic : THE CRITICAL ROLE OF TEST STRATEGY IN INDIA'S SEMICONDUCTOR GROWTH"
         ]
       },

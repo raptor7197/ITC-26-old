@@ -3,8 +3,14 @@ export const keynoteSpeakers = [
     id: 0,
     name: "Yervant Zorian",
     affiliation: "Synopsys",
-    title: "Designing Chiplets & 3DIC for Quality & Reliability",
-    comingSoon: true,
+    title: "Designing Chiplets and 3DIC for Quality and Reliability",
+    description:
+      "As semiconductor innovation moves beyond traditional transistor scaling, chiplet-based architectures and 3D integrated circuits are emerging as the foundation of next-generation computing systems. While these technologies enable unprecedented levels of performance, scalability, and heterogeneous integration, they also introduce new challenges in test, quality, reliability, and lifecycle management. This keynote explores the design methodologies, DFT strategies, and reliability frameworks required to ensure robust, high-quality chiplet and 3DIC systems, highlighting the critical role of advanced test technologies in enabling the future of semiconductor integration.",
+    bio: [
+      "Dr. Yervant Zorian is President of Synopsys Armenia, Chief Architect and Fellow at Synopsys, and one of the world's foremost pioneers in semiconductor test, Built-In Self-Test (BIST), Design-for-Test (DFT), and Electronic Design Automation (EDA). Over a distinguished career spanning industry, academia, and standards development, he has held leadership positions at Synopsys, Virage Logic, LogicVision, and AT&T Bell Laboratories. He currently serves as President of the IEEE Test Technology Technical Council (TTTC) and founded the IEEE 1500 Standardization Working Group.",
+      "A pioneer of modern BIST methodologies, Dr. Zorian has fundamentally shaped semiconductor test architectures and international DFT standards through more than 40 U.S. patents, four books, and over 350 technical publications. A recipient of numerous prestigious honors, including the IEEE Industrial Pioneer Award for his contributions to BIST and the IEEE TTTC Lifetime Contribution Award, he continues to be a leading voice driving innovation in semiconductor test, reliability, and advanced system integration.",
+    ],
+    image: "/images/Yervant-zorion.png",
   },
   {
     id: 1,
@@ -387,7 +393,18 @@ export const tutorialsData = [
 
 export const distinguishedAddressesData = [
   { id: 0, name: "Arojit Roychowdhury", affiliation: "Qualcomm", comingSoon: true },
-  { id: 1, name: "Don Chan", affiliation: "Cadence", title: "FROM POINT TOOLS TO AGENTIC AI: HOW EDA HAS IMPACTED THE SEMICONDUCTOR INDUSTRY", comingSoon: true },
+  { 
+    id: 1, 
+    name: "Don Chan", 
+    affiliation: "Cadence", 
+    title: "From Point Tools to Agentic AI: How EDA has Impacted the Semiconductor Industry",
+    description: "Electronic Design Automation (EDA) has been the driving force behind decades of semiconductor innovation, enabling engineers to design increasingly complex chips while sustaining the pace of Moore's Law. As transistor scaling approaches its physical limits, the industry is transitioning toward heterogeneous chiplet-based architectures, 3D integration, and AI-driven design methodologies. This talk explores the evolution of EDA from traditional point tools to intelligent, agentic AI workflows, highlighting how advances in design technology co-optimization, DFT methodologies, and AI-assisted automation are reshaping semiconductor design. Attendees will gain insights into the next generation of EDA technologies that will power future innovations in high-performance computing and artificial intelligence.",
+    bio: [
+      "Don Chan is Vice President of Research and Development at Cadence, where he leads the Foundry organization and drives strategic partnerships across the global semiconductor ecosystem. He oversees technology enablement, process certification, and customer support for advanced semiconductor nodes while also leading marketing and business development for Cadence's Digital and Signoff product portfolio. Throughout his career, he has led key R&D initiatives spanning 3D-IC, Conformal, Modus, and Stratus technologies, and previously held leadership positions at Synopsys and Fujitsu Micro.",
+      "His extensive experience in semiconductor design enablement, foundry collaboration, and advanced EDA technologies has provided him with a unique perspective on the evolution of chip design methodologies. By working closely with foundries, customers, and global R&D teams to deliver next-generation design solutions, Don is uniquely positioned to discuss how agentic AI, heterogeneous integration, and intelligent EDA workflows are transforming the future of semiconductor design."
+    ],
+    image: "/images/don-chan.jpg"
+  },
   { id: 2, name: "Alpa Sood", affiliation: "Teradyne", title: "THE CRITICAL ROLE OF TEST STRATEGY IN INDIA'S SEMICONDUCTOR GROWTH", comingSoon: true },
   { id: 3, name: "Rajesh Vaddempudi", affiliation: "MD Advantest India", title: "THE INTELLIGENT SILICON ERA: REDEFINING SEMICONDUCTOR TEST THROUGH INNOVATION, AI, AND COLLABORATION", comingSoon: true }
 ];
