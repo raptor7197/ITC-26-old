@@ -29,15 +29,18 @@ export default function AgendaModal({
   onClose: () => void;
   data: ModalData | null;
 }) {
-  // Prevent scrolling on body when modal is open
+  // Prevent scrolling on body and html when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
     return () => {
       document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     };
   }, [isOpen]);
 

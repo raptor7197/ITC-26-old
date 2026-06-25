@@ -75,7 +75,7 @@ export default function Exhibits() {
               <line x1="40" y1="70" x2="40" y2="210" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
               <line x1="360" y1="70" x2="360" y2="210" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
               
-              {/* Arabic & Robusta */}
+              {/* Arabica & Robusta */}
               <path d="M 445 230 L 705 230 L 705 96 A 6 6 0 0 0 699 90 L 451 90 A 6 6 0 0 0 445 96 Z" fill="#38bdf8" fillOpacity="0.03" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
               <line x1="455" y1="110" x2="455" y2="210" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
               <line x1="695" y1="110" x2="695" y2="210" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" strokeDasharray="4 4" />
@@ -108,9 +108,9 @@ export default function Exhibits() {
                 GRAND VICTORIA BALLROOM 1 & 2
               </text>
 
-              {/* Arabic & Robusta Text */}
+              {/* Arabica & Robusta Text */}
               <text x="575" y="150" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">TECHNICAL SESSIONS</text>
-              <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABIC & ROBUSTA</text>
+              <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABICA & ROBUSTA</text>
 
               {/* Brainbox Text */}
               <text x="967" y="283" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">LEVEL 1</text>
