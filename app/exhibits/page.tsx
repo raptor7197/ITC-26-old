@@ -132,7 +132,7 @@ export default function Exhibits() {
 
               {/* Arabica & Robusta Text */}
               <text x="575" y="150" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">TECHNICAL SESSIONS</text>
-              <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABIC & ROBUSTA</text>
+              <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABICA & ROBUSTA</text>
 
               {/* Brainbox Text */}
               <text x="967" y="283" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">LEVEL 1</text>
