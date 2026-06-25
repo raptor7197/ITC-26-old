@@ -1139,6 +1139,25 @@ export default function AgendaSchedule() {
                                         </div>
                                       )}
                                     </div>
+                                  ) : session.title.toLowerCase().includes("closing remarks") ? (
+                                    <div className="bg-gradient-to-b from-[#03152d] to-[#041d3d] border border-white/10 rounded-[6px] p-3 sm:p-5 h-full shadow-[0_4px_12px_rgba(0,0,0,0.2)] flex flex-col justify-center items-center text-center min-h-[100px] hover:border-white/20 transition-colors pointer-events-none">
+                                      <div>
+                                        <div className="font-bold text-white text-base sm:text-lg">
+                                          {session.title}
+                                        </div>
+                                        {session.subtitle && (
+                                          <div className="text-sm sm:text-base font-semibold text-sky-200 mt-1.5">
+                                            {session.subtitle}
+                                          </div>
+                                        )}
+                                      </div>
+                                      {session.location && (
+                                        <div className="flex items-center justify-center gap-1.5 mt-3 text-xs sm:text-sm font-semibold text-sky-400">
+                                          {ICONS.location}
+                                          <span>{session.location}</span>
+                                        </div>
+                                      )}
+                                    </div>
                                   ) : (
                                   <div className="flex flex-col h-full">
                                     <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">

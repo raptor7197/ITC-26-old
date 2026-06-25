@@ -296,7 +296,7 @@ export const agendaDays: AgendaDay[] = [
             hall: "Brain Box",
             title: "Poster Session",
             location: "ENTRANCE LOBBY",
-            rowSpan: 4,
+            rowSpan: 2,
           },
         ],
       },
@@ -312,17 +312,36 @@ export const agendaDays: AgendaDay[] = [
         ]
       },
       {
-        kind: "single",
+        kind: "parallel",
         time: "05:15 PM – 05:30 PM",
-        title: "Closing Remarks",
-        subtitle: "General Co-Chairs, ITC India 2026",
-        location: "Grand Victoria",
-        variant: "plenary",
+        sessions: [
+          {
+            hall: "Grand Victoria 1",
+            title: "Closing Remarks",
+            subtitle: "General Co-Chairs, ITC India 2026",
+            location: "Grand Victoria",
+            colSpan: 3,
+          },
+          {
+            hall: "Brain Box",
+            title: "No Activity Planned",
+          }
+        ],
       },
       {
-        kind: "break",
+        kind: "parallel",
         time: "05:30 PM – 06:30 PM",
-        title: "BREAK",
+        sessions: [
+          {
+            hall: "Grand Victoria 1",
+            title: "BREAK",
+            colSpan: 3,
+          },
+          {
+            hall: "Brain Box",
+            title: "No Activity Planned",
+          }
+        ],
       },
 
     ],
