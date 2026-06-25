@@ -158,7 +158,7 @@ export const agendaDays: AgendaDay[] = [
         time: "09:00 AM – 09:30 AM",
         title: "Conference Inauguration",
         subtitle: "General Co-Chair, ITC India 2026 (Opening Remarks, Conference Highlights, Lamp Lighting by Chief Guests)",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "plenary",
       },
       {
@@ -166,7 +166,7 @@ export const agendaDays: AgendaDay[] = [
         time: "09:30 AM – 10:00 AM",
         title: "Keynote: Yervant Zorian (Synopsys)",
         subtitle: "Designing Chiplets & 3DIC for Quality & Reliability",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "keynote",
       },
       {
@@ -174,7 +174,7 @@ export const agendaDays: AgendaDay[] = [
         time: "10:00 AM – 10:30 AM",
         title: "Keynote: Subhashish Mitra (Stanford University)",
         subtitle: "Silent Data corruption by 10x Test Escapes Threatens Reliable computing",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "keynote",
       },
       {
@@ -182,14 +182,14 @@ export const agendaDays: AgendaDay[] = [
         time: "10:30 AM – 11:00 AM",
         title: "Keynote: Senthilkumar Dhamodharan (Caliber Interconnect)",
         subtitle: "SI Complexity to AI Revolution: India’s Silicon Leap 2047",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "keynote",
       },
       {
         kind: "single",
         time: "11:00 AM – 11:05 AM",
         title: "Exhibit Zone Inauguration",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "special",
       },
       {
@@ -316,7 +316,7 @@ export const agendaDays: AgendaDay[] = [
         time: "05:15 PM – 05:30 PM",
         title: "Closing Remarks",
         subtitle: "General Co-Chairs, ITC India 2026",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "plenary",
       },
       {
@@ -344,7 +344,7 @@ export const agendaDays: AgendaDay[] = [
         time: "09:00 AM – 09:30 AM",
         title: "Welcome / Day 1 Summary",
         subtitle: "General Co-Chair, ITC India 2026",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "plenary",
       },
       {
@@ -352,7 +352,7 @@ export const agendaDays: AgendaDay[] = [
         time: "09:30 AM – 10:00 AM",
         title: "Keynote: Jeff Rearick (AMD)",
         subtitle: "AI IN TEST: FEAR IT OR HARNESS IT",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "keynote",
       },
       {
@@ -360,7 +360,7 @@ export const agendaDays: AgendaDay[] = [
         time: "10:00 AM – 10:30 AM",
         title: "Keynote: Nilanjan Mukherjee (Siemens)",
         subtitle: "Built-in Intelligence- Leveraging Advanced DFT for Silicon Health monitoring",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "keynote",
       },
       {
@@ -368,7 +368,7 @@ export const agendaDays: AgendaDay[] = [
         time: "10:30 AM – 11:00 AM",
         title: "Keynote: Bizhan Delgoshaei (Google)",
         subtitle: "From Silent Patient to Self-Healing Silicon: The Four Evolutionary Stages of DFT in Mass Production.",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "keynote",
       },
       {
@@ -487,7 +487,7 @@ export const agendaDays: AgendaDay[] = [
             title: "Distinguished Address: Rajesh Vaddempudi, MD Advantest India",
             subtitle: "THE INTELLIGENT SILICON ERA: REDEFINING SEMICONDUCTOR TEST THROUGH INNOVATION, AI, AND COLLABORATION",
             colSpan: 3,
-            location: "Grand Victoria 1 & 2",
+            location: "Grand Victoria",
           },
           {
             hall: "Brain Box",
@@ -505,7 +505,7 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Panel: Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets? Moderator: Kamlesh Pandey",
             colSpan: 3,
-            location: "Grand Victoria 1 & 2",
+            location: "Grand Victoria",
           },
         ],
       },
@@ -514,7 +514,7 @@ export const agendaDays: AgendaDay[] = [
         time: "05:30 PM – 06:00 PM",
         title: "Closing Ceremony | Awards and Valedictory Session",
         subtitle: "General Co-Chair, ITC India 2026",
-        location: "Grand Victoria 1 & 2",
+        location: "Grand Victoria",
         variant: "plenary",
       },
     ],

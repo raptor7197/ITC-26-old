@@ -320,7 +320,7 @@ export const members15: Member[] = [
 export const members16: Member[] = [
   {
     id: 42,
-    link: "#",
+    link: "https://www.linkedin.com/in/adit-d-singh-30201035/",
     img: "p22.png",
     name: "Prof. Adit Singh",
     comp: "Auburn University, USA",
@@ -357,7 +357,7 @@ export const members16: Member[] = [
                },
                {
                  id: 45,
-                 link: "#",
+                 link: "https://www.linkedin.com/in/scott-davidson-a1a4b26/",
                  img: "p47.png",
                  name: "Scott Davidson",
                  comp: "Retired Computer Scientist, USA",
@@ -423,7 +423,7 @@ export const members17: Member[] = [
   },
   {
   id: 35,
-  link: "#",
+  link: "https://www.linkedin.com/in/scott-davidson-a1a4b26/",
   img: "p47.png",
   name: "Scott Davidson",
   comp: "Retired Computer Scientist, USA",
