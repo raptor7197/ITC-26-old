@@ -12,9 +12,9 @@ export default function Posters() {
               <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight mb-2 md:mb-3 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
                 {poster.name}
               </h2>
-              {poster.affiliation && (
+              {poster.title && (
                 <p className="text-[#00b0f0] font-bold text-sm sm:text-base md:text-[18px] tracking-wide mb-4 md:mb-5">
-                  {poster.affiliation}
+                  {poster.title}
                 </p>
               )}
               <div className="h-[2px] w-12 sm:w-16 bg-[#00b0f0]/50 mb-4 md:mb-5 rounded-full"></div>
