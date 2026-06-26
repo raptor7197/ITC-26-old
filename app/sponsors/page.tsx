@@ -81,7 +81,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/siemens.png"
                   alt="Siemens"
-                  className="h-24 md:h-32 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="h-24 md:h-32 object-contain transition-transform duration-500 scale-[1.3] group-hover:scale-[1.45]"
                 />
               </div>
 

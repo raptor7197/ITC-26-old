@@ -3,8 +3,8 @@
 import React from "react";
 
 const MARQUEE_ITEMS = [
-  'Closed: Paper, Poster, Tutorial Submissions & Fellowship Applications',
-  'Upcoming: Hackathon Round 1 Results (10th-15th June 2026); Hackathon Round 2 Submission (10th July 2026)',
+  'Early Bird Registration: Closes 30 June 2026 (Extended for IEEE Members to 21 July 2026)',
+  'Upcoming: Hackathon Round 2 Submission (10th July 2026)',
 ];
 
 export default function UpdatesMarquee() {
