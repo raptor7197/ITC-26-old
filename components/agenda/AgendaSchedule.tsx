@@ -497,7 +497,7 @@ export default function AgendaSchedule() {
                           const isClickable = getMatchData(item);
                           const parts = item.split("| Topic :");
                           const topic = parts[1] ? parts[1].trim() : null;
-                          const speaker = parts[0].replace(/^Distinguished Address:?\s*/i, "").trim();
+                          const speaker = parts[0].replace(/^(Distinguished Address:?|Keynote:?)\s*/i, "").trim();
 
                           return (
                             <div 
@@ -1012,7 +1012,7 @@ export default function AgendaSchedule() {
                                     const isClickable = getMatchData(item);
                                     const parts = item.split("| Topic :");
                                     const topic = parts[1] ? parts[1].trim() : null;
-                                    const speaker = parts[0].replace(/^Distinguished Address:?\s*/i, "").trim();
+                                    const speaker = parts[0].replace(/^(Distinguished Address:?|Keynote:?)\s*/i, "").trim();
 
                                     return (
                                       <div 

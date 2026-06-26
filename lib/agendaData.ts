@@ -163,27 +163,14 @@ export const agendaDays: AgendaDay[] = [
       },
       {
         kind: "single",
-        time: "09:30 AM – 10:00 AM",
-        title: "Keynote: Yervant Zorian (Synopsys)",
-        subtitle: "Designing Chiplets and 3DIC for Quality and Reliability",
+        time: "09:30 AM – 11:00 AM",
+        title: "Keynote Addresses",
         location: "Grand Victoria",
-        variant: "keynote",
-      },
-      {
-        kind: "single",
-        time: "10:00 AM – 10:30 AM",
-        title: "Keynote: Subhashish Mitra (Stanford University)",
-        subtitle: "Silent Data corruption by 10x Test Escapes Threatens Reliable computing",
-        location: "Grand Victoria",
-        variant: "keynote",
-      },
-      {
-        kind: "single",
-        time: "10:30 AM – 11:00 AM",
-        title: "Keynote: Senthilkumar Dhamodharan (Caliber Interconnect)",
-        subtitle: "SI Complexity to AI Revolution: India’s Silicon Leap 2047",
-        location: "Grand Victoria",
-        variant: "keynote",
+        items: [
+          "Keynote: Yervant Zorian (Synopsys) | Topic : Designing Chiplets and 3DIC for Quality and Reliability",
+          "Keynote: Subhashish Mitra (Stanford University) | Topic : Silent Data corruption by 10x Test Escapes Threatens Reliable computing",
+          "Keynote: Senthilkumar Dhamodharan (Caliber Interconnect) | Topic : SI Complexity to AI Revolution: India’s Silicon Leap 2047"
+        ]
       },
       {
         kind: "single",
@@ -349,27 +336,14 @@ export const agendaDays: AgendaDay[] = [
       },
       {
         kind: "single",
-        time: "09:30 AM – 10:00 AM",
-        title: "Keynote: Jeff Rearick (AMD)",
-        subtitle: "AI IN TEST: FEAR IT OR HARNESS IT",
+        time: "09:30 AM – 11:00 AM",
+        title: "Keynote Addresses",
         location: "Grand Victoria",
-        variant: "keynote",
-      },
-      {
-        kind: "single",
-        time: "10:00 AM – 10:30 AM",
-        title: "Keynote: Nilanjan Mukherjee (Siemens)",
-        subtitle: "Built-in Intelligence- Leveraging Advanced DFT for Silicon Health monitoring",
-        location: "Grand Victoria",
-        variant: "keynote",
-      },
-      {
-        kind: "single",
-        time: "10:30 AM – 11:00 AM",
-        title: "Keynote: Bizhan Delgoshaei (Google)",
-        subtitle: "From Silent Patient to Self-Healing Silicon: The Four Evolutionary Stages of DFT in Mass Production.",
-        location: "Grand Victoria",
-        variant: "keynote",
+        items: [
+          "Keynote: Jeff Rearick (AMD) | Topic : AI in Test: Fear it or harness it",
+          "Keynote: Nilanjan Mukherjee (Siemens) | Topic : Built-in Intelligence - Leveraging Advanced DFT for Silicon Health monitoring",
+          "Keynote: Bizhan Delgoshaei (Google) | Topic : From Silent Patient to Self-Healing Silicon: The Four Evolutionary Stages of DFT in Mass Production"
+        ]
       },
       {
         kind: "break",
