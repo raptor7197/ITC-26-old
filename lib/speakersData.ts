@@ -394,7 +394,6 @@ export const tutorialsData = [
         affiliation: "Qualcomm",
         bio: "Soumya Mital is a Staff Engineer at Qualcomm specializing in AI-driven diagnostic intelligence for next-generation semiconductor platforms. His work focuses on developing scalable frameworks that automate failure analysis and transform complex diagnostic data into actionable engineering insights, accelerating silicon development and deployment. He holds a PhD from Carnegie Mellon University and is an alumnus of IIT Roorkee.\n\nHis expertise at the intersection of semiconductor diagnostics, artificial intelligence, and large-scale data analysis has enabled him to drive innovative approaches to yield learning and quality improvement. This experience provides him with a unique perspective on how advanced analytics and AI are reshaping semiconductor manufacturing and test methodologies.",
         image: "/images/tutorials/tut_531_4.png",
-        imageClassName: "object-[center_10%] scale-[0.85]",
       },
     ],
     status: "ready",
