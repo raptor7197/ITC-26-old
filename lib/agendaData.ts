@@ -484,8 +484,8 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "Distinguished Address: Rajesh Vaddempudi, MD Advantest India",
-            subtitle: "THE INTELLIGENT SILICON ERA: REDEFINING SEMICONDUCTOR TEST THROUGH INNOVATION, AI, AND COLLABORATION",
+            title: "Distinguished Address: Arojit Roychowdhury (Qualcomm)",
+            subtitle: "",
             colSpan: 3,
             location: "Grand Victoria",
           },
