@@ -205,27 +205,27 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Technical Track 1: 3D IC and Chiplet Testing",
             items: [
-              "1.1: RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP Hilay Patel, Naman Kalra and Jaynarayan T Tudu (IIT Tirupati)",
-              "1.2: A Methodology for Robust Testing of Through Glass Vias (TGV) on Glass Substrate-based 3D Chiplets Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati) and Binod Kumar (IIT Jodhpur)",
-              "1.3: Cost Aware Sector Symmetry and Wafer Cutting Methods for 3D ICs with Heterogeneous Defects Tanusree Kaibartta, Saksham Jha, Digvijay Anand Anand (IITISM Dhanbad) and Debesh Das (Jadavpur University)"
+              "1.1: RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP - Hilay Patel, Naman Kalra and Jaynarayan T Tudu (IIT Tirupati)",
+              "1.2: A Methodology for Robust Testing of Through Glass Vias (TGV) on Glass Substrate-based 3D Chiplets - Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati) and Binod Kumar (IIT Jodhpur)",
+              "1.3: Cost Aware Sector Symmetry and Wafer Cutting Methods for 3D ICs with Heterogeneous Defects - Tanusree Kaibartta, Saksham Jha, Digvijay Anand Anand (IITISM Dhanbad) and Debesh Das (Jadavpur University)"
             ],
           },
           {
             hall: "Grand Victoria 2",
             title: "Technical Track 2: Hardware Security and Trojan Detection",
             items: [
-              "2.1: Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs Prasanth Viswanathan Pillai, Varshashree Kottadamane, Ramakrishna Pidaparthi, Rohit Chaudhari, Sivareddy Maramreddy, Naveen Kothuri, Narendra Ravilla and Labeeb K (Texas Instruments India)",
-              "2.2: Test Pattern-Driven Detection of Hardware Trojans Using Switching Activity Analysis in FPGA-Based Systems Kannan S J, Chinakaku Lakshmi Prasanna and Sobhit Saxena (Lovely Professional University)",
-              "2.3: STAMP: Statistical Trojan Attribution via Multi-class Power-trace analysis Senthilkumar Dhamodharan, Sinthanai Selvi G, Karthika R and Abirami Vinayagamoorthy (Caliber Interconnects)"
+              "2.1: Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs - Prasanth Viswanathan Pillai, Varshashree Kottadamane, Ramakrishna Pidaparthi, Rohit Chaudhari, Sivareddy Maramreddy, Naveen Kothuri, Narendra Ravilla and Labeeb K (Texas Instruments India)",
+              "2.2: Test Pattern-Driven Detection of Hardware Trojans Using Switching Activity Analysis in FPGA-Based Systems - Kannan S J, Chinakaku Lakshmi Prasanna and Sobhit Saxena (Lovely Professional University)",
+              "2.3: STAMP: Statistical Trojan Attribution via Multi-class Power-trace analysis - Senthilkumar Dhamodharan, Sinthanai Selvi G, Karthika R and Abirami Vinayagamoorthy (Caliber Interconnects)"
             ],
           },
           {
             hall: "Arabica & Robusta",
             title: "Technical Track 3: Pre-Silicon Verification and Debug",
             items: [
-              "3.1: Comprehensive Coverage Framework for LPDDR6 Feature Validation: Navigating Complex Modes and Reducing the Verification Closure Gap Dharini Subashchandran, Gruhesh Patel, Meghna Ahuja and Shyam Sharma (Cadence Design Systems India)",
-              "3.2: A Novel Verification Method for Debug Tracing-in Close Chassis System Maneesh Pandey and Madhav Lekkala (Intel Technology)",
-              "3.3: Assertion Based Formal Verification of AES 128 Crypto Core Shivang Sharma (DRDO, SAG), Vineeth Jaisal (IIT Jodhpur) and Prashant Singh (DRDO, SAG)"
+              "3.1: Comprehensive Coverage Framework for LPDDR6 Feature Validation: Navigating Complex Modes and Reducing the Verification Closure Gap - Dharini Subashchandran, Gruhesh Patel, Meghna Ahuja and Shyam Sharma (Cadence Design Systems India)",
+              "3.2: A Novel Verification Method for Debug Tracing-in Close Chassis System - Maneesh Pandey and Madhav Lekkala (Intel Technology)",
+              "3.3: Assertion Based Formal Verification of AES 128 Crypto Core - Shivang Sharma (DRDO, SAG), Vineeth Jaisal (IIT Jodhpur) and Prashant Singh (DRDO, SAG)"
             ],
           },
           {
@@ -249,30 +249,30 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Technical Track 4: Advances in DFT and ATPG",
             items: [
-              "4.1: Physically Aware Weighted Fault Model : A new paradigm in testing Sandipan Sharma, Srinivas Vooka, Maheedhar Jalasutram, Pranav Murthy (Google India Pvt. Ltd), Chieh-Jen Ku and Yanhan Zhu (Google LLC)",
-              "4.2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha (Sandisk India Pvt Ltd)",
-              "4.3: A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets Hanumant Tuntoni (Synopsys), Hillol Maity (Nvidia), Sreenu Kakanuri, Peter Wohl, Parthajit Bhattacharya, Bruce Xue and Geguang Miao (Synopsys)",
-              "4.4: Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG Rahul Bhattacharya (IIT(ISM) Dhanbad)"
+              "4.1: Physically Aware Weighted Fault Model : A new paradigm in testing - Sandipan Sharma, Srinivas Vooka, Maheedhar Jalasutram, Pranav Murthy (Google India Pvt. Ltd), Chieh-Jen Ku and Yanhan Zhu (Google LLC)",
+              "4.2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration - Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha (Sandisk India Pvt Ltd)",
+              "4.3: A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets - Hanumant Tuntoni (Synopsys), Hillol Maity (Nvidia), Sreenu Kakanuri, Peter Wohl, Parthajit Bhattacharya, Bruce Xue and Geguang Miao (Synopsys)",
+              "4.4: Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG - Rahul Bhattacharya (IIT(ISM) Dhanbad)"
             ],
           },
           {
             hall: "Grand Victoria 2",
             title: "Technical Track 5: AI and Machine Learning Applications",
             items: [
-              "5.1: Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design Senthilkumar Dhamodharan, Loka Priya, Dyaneswaran Priya and Karthika R (Caliber Interconnects)",
-              "5.2: AI-Driven IP Configuration Optimization for Post-Silicon Validation Akhilesh Tiwary, Maneesh Kumar Pandey, Nihar Chaniyara (Intel Technology India Pvt Ltd) and Utsav Banerjee (IISC Bangalore)",
-              "5.3: T-MAP: A Cross-Platform AI driven Test-Program Metadata Analysis Tool for Digital Coverage, Force, limit and Range Verification Kaushik Chakravorty, Dundapa Sankapal, Vishal Rohilla, Sudhish Raj Gj, Pratyush Dargan and Robert Cook (Texas Instruments)",
-              "5.4: Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection Kalyana Sundaram Chandran and Senthilkumar Dhamodharan (Caliber Interconnects)"
+              "5.1: Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design - Senthilkumar Dhamodharan, Loka Priya, Dyaneswaran Priya and Karthika R (Caliber Interconnects)",
+              "5.2: AI-Driven IP Configuration Optimization for Post-Silicon Validation - Akhilesh Tiwary, Maneesh Kumar Pandey, Nihar Chaniyara (Intel Technology India Pvt Ltd) and Utsav Banerjee (IISC Bangalore)",
+              "5.3: T-MAP: A Cross-Platform AI driven Test-Program Metadata Analysis Tool for Digital Coverage, Force, limit and Range Verification - Kaushik Chakravorty, Dundapa Sankapal, Vishal Rohilla, Sudhish Raj Gj, Pratyush Dargan and Robert Cook (Texas Instruments)",
+              "5.4: Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection - Kalyana Sundaram Chandran and Senthilkumar Dhamodharan (Caliber Interconnects)"
             ],
           },
           {
             hall: "Arabica & Robusta",
             title: "Technical Track 6: Secure IJTAG and Access Control",
             items: [
-              "6.1: State-Isolated Scan - A Secure Low-Power Scan Architecture C.P. Ravikumar (Vinyana Tech) and Kushal C. (Sykatiya Technologies)",
-              "6.2: eFPGA-Enabled Dynamic Access Control for Secure IEEE 1687 (IJTAG) Networks Anshul Raghavendra Katti, Anekait Thampi, Manish Nagaraju and Sudeendra Kumar K (PES University)",
-              "6.3: Design of a SAT-Resilient IJTAG Architecture for Secure and Scalable On-Chip Instrument Access Saravanan P, Dharani Sree K, Jothika K, Nivashini S and Sivaprabha Sri Pl (PSG College of Technology)",
-              "6.4: PQC-Based Secure Access Manager for IJTAG Network (ART Paper) Prajwal G S Basavaraj, Abhinav S, Arun Kumar N, Sudeendra Kumar (PES University, Bangalore)"
+              "6.1: State-Isolated Scan - A Secure Low-Power Scan Architecture - C.P. Ravikumar (Vinyana Tech) and Kushal C. (Sykatiya Technologies)",
+              "6.2: eFPGA-Enabled Dynamic Access Control for Secure IEEE 1687 (IJTAG) Networks - Anshul Raghavendra Katti, Anekait Thampi, Manish Nagaraju and Sudeendra Kumar K (PES University)",
+              "6.3: Design of a SAT-Resilient IJTAG Architecture for Secure and Scalable On-Chip Instrument Access - Saravanan P, Dharani Sree K, Jothika K, Nivashini S and Sivaprabha Sri Pl (PSG College of Technology)",
+              "6.4: PQC-Based Secure Access Manager for IJTAG Network (ART Paper) - Prajwal G S Basavaraj, Abhinav S, Arun Kumar N, Sudeendra Kumar (PES University, Bangalore)"
             ],
           },
           {
@@ -416,28 +416,28 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 2",
             title: "Technical Track 7: ATE and Hardware Test Methods",
             items: [
-              "7.1: Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test Sujith Thomas, Siva Elango S, Dinesh Sharma and Mathangi Raghuraman (Sandisk India Device Design Center Private Limited)",
-              "7.2: Polynomial Regression Based Qualitative Assessment of Automated Test Equipment Calibration Anand Venkatachalam (University of Stuttgart), Ernst Aderholz (Infineon Technologies AG,Munich), Matthias Sauer, Simon Schweizer, Matthias Werner (Advantest Europe GmbH) and Ilia Polian (University of Stuttgart)",
-              "7.3: A Novel Plug-In Module Architecture for Extending Automatic Test Equipment Capability to Wireless Testing of Pin-Less Semiconductor Devices Sathiyapriya Krishnamoorthy, Manoj Pachaiyan and Senthilkumar Dhamodharan (Caliber Interconnects)"
+              "7.1: Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test - Sujith Thomas, Siva Elango S, Dinesh Sharma and Mathangi Raghuraman (Sandisk India Device Design Center Private Limited)",
+              "7.2: Polynomial Regression Based Qualitative Assessment of Automated Test Equipment Calibration - Anand Venkatachalam (University of Stuttgart), Ernst Aderholz (Infineon Technologies AG,Munich), Matthias Sauer, Simon Schweizer, Matthias Werner (Advantest Europe GmbH) and Ilia Polian (University of Stuttgart)",
+              "7.3: A Novel Plug-In Module Architecture for Extending Automatic Test Equipment Capability to Wireless Testing of Pin-Less Semiconductor Devices - Sathiyapriya Krishnamoorthy, Manoj Pachaiyan and Senthilkumar Dhamodharan (Caliber Interconnects)"
             ],
           },
           {
             hall: "Arabica & Robusta",
             title: "Technical Track 8: Silicon Reliability and Lifecycle Management",
             items: [
-              "8.1: Unified Compact Health and Aging Models for Manufacturing to In-Field Silicon Quality and Reliability Management Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota (Synopsys)",
-              "8.2: Reliability Refining Next Generation UV Cured Conformal Coatings under Harsh Environment Testing Aurkie Ray, Cole Sandvold, Andi Duffy, Bethany Turner, Saskia Hogan, Phil Kinner, Christopher Allen and Anna Lifton (Macdermid Alpha Electronics Solutions)",
-              "8.3: Design and Context Aware Embedded Monitor Analytics Through High-Volume Algorithmics and Explainable AI Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota (Synopsys)"
+              "8.1: Unified Compact Health and Aging Models for Manufacturing to In-Field Silicon Quality and Reliability Management - Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota (Synopsys)",
+              "8.2: Reliability Refining Next Generation UV Cured Conformal Coatings under Harsh Environment Testing - Aurkie Ray, Cole Sandvold, Andi Duffy, Bethany Turner, Saskia Hogan, Phil Kinner, Christopher Allen and Anna Lifton (Macdermid Alpha Electronics Solutions)",
+              "8.3: Design and Context Aware Embedded Monitor Analytics Through High-Volume Algorithmics and Explainable AI - Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota (Synopsys)"
             ],
           },
           {
             hall: "Brain Box",
             title: "ART Track 1",
             items: [
-              "ART1: A Unified Fault Detection and Repair Framework for Memristor-Based Non-Volatile Memories Aryan Anand and Vishal Gupta (VIT)",
-              "ART2: Towards Secure IoT: A Lightweight PUF-Based Proximity-Aware Authentication Protocol for Resource-Constrained IoT Devices, Abdulla Syed, Navya Sri Tulluru and Mounika Mellamarthi (SRM University)",
-              "ART3: Functional Safety Testing of On-Chip Cache Memories, Siyana Bijju, Simi Sukamaran and Tripti S Warrier (Cochin University of Science and Technology)",
-              "ART4: Assertion-Centric UVM Verification of a Fault-Injectable 32-bit RISC-V ALU–IFU Subsystem, Divyanshi Sharma and Sandeep Patel (MANIT Bhopal)"
+              "ART1: A Unified Fault Detection and Repair Framework for Memristor-Based Non-Volatile Memories - Aryan Anand and Vishal Gupta (VIT)",
+              "ART2: Towards Secure IoT: A Lightweight PUF-Based Proximity-Aware Authentication Protocol for Resource-Constrained IoT Devices - Abdulla Syed, Navya Sri Tulluru and Mounika Mellamarthi (SRM University)",
+              "ART3: Functional Safety Testing of On-Chip Cache Memories - Siyana Bijju, Simi Sukamaran and Tripti S Warrier (Cochin University of Science and Technology)",
+              "ART4: Assertion-Centric UVM Verification of a Fault-Injectable 32-bit RISC-V ALU–IFU Subsystem - Divyanshi Sharma and Sandeep Patel (MANIT Bhopal)"
             ],
           },
         ],
@@ -465,20 +465,20 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 2",
             title: "Technical Track 9: Memory Test and MBIST Methodologies",
             items: [
-              "9.1: Physical Design Aware Verification Methodology for Closing Coverage Gaps in SharedBus MBIST Shivam Tulsyan, Mayank Parasrampuria, Prachi Sinha, Vasudevan Pillai A and Maheedhar Jalasutram (Google India)",
-              "9.2: Constraint-Based Functional Testing of Encrypted Memory Systems Ravikumar C.P. (Vinyana Tech)",
-              "9.3: Enabling EDA Automation for HBM Testing Using A Plug-n-Play DFT Interface Quoc Phan, Anshuman Chandra (Siemens EDA), Bartosz Zelek (Poznań University of Technology), Barbara Działowska, Marta Stępniewska and Jonathan Gaudet (Siemens EDA)",
-              "9.4: Enhancements in Memory Test for improved diagnosability and comprehensive multi-bank test Prachi Sinha, Veerabhadrarao Vasa, Shivam Tulsyan and Mayank Parasrampuria (Google LLC)"
+              "9.1: Physical Design Aware Verification Methodology for Closing Coverage Gaps in SharedBus MBIST - Shivam Tulsyan, Mayank Parasrampuria, Prachi Sinha, Vasudevan Pillai A and Maheedhar Jalasutram (Google India)",
+              "9.2: Constraint-Based Functional Testing of Encrypted Memory Systems - Ravikumar C.P. (Vinyana Tech)",
+              "9.3: Enabling EDA Automation for HBM Testing Using A Plug-n-Play DFT Interface - Quoc Phan, Anshuman Chandra (Siemens EDA), Bartosz Zelek (Poznań University of Technology), Barbara Działowska, Marta Stępniewska and Jonathan Gaudet (Siemens EDA)",
+              "9.4: Enhancements in Memory Test for improved diagnosability and comprehensive multi-bank test - Prachi Sinha, Veerabhadrarao Vasa, Shivam Tulsyan and Mayank Parasrampuria (Google LLC)"
             ],
           },
           {
             hall: "Arabica & Robusta",
             title: "Technical Track 10: Post-Silicon Validation, Silicon Fixes, and Low-Power DFT",
             items: [
-              "10.1: A novel hardware design for effective supply voltage glitch injection Asmita Mohapatra, Antony Varghese and Ashok Kumar (Infineon Technologies India Pvt. Ltd.)",
-              "10.2: Validation Methodology to Characterize Absolute Propagation Delay, Delay variation over temperature and Programmable Delay of 1ps DNL step in Wideband RF Buffers upto 12.8GHz Harish Ramesh, Jason Xavier and Pranav Kumar (Texas Instruments)",
-              "10.3: DFT-Enhanced Spare Cell Architecture for Scan-Integrated ECO and Leakage Optimization in SoCs Pramod Gayakwad, Raghavendra H D, Chandhramohan K P, Khushboo Rathore, Vishwanath Kunchigi, Vamsi Krishna Oliveti and Santhosh Kamatam (NXP)",
-              "10.4: Hybrid Power Gating: Hardware Trio Framework based ATPG for Low-Power Scan (TRC Paper) Darshan V, Karthikeyan Soundararajan, Vivek Roopchand, Arul Karthick Kumar and Praveen Raghuraman (Qualcomm India Private Limited)"
+              "10.1: A novel hardware design for effective supply voltage glitch injection - Asmita Mohapatra, Antony Varghese and Ashok Kumar (Infineon Technologies India Pvt. Ltd.)",
+              "10.2: Validation Methodology to Characterize Absolute Propagation Delay, Delay variation over temperature and Programmable Delay of 1ps DNL step in Wideband RF Buffers upto 12.8GHz - Harish Ramesh, Jason Xavier and Pranav Kumar (Texas Instruments)",
+              "10.3: DFT-Enhanced Spare Cell Architecture for Scan-Integrated ECO and Leakage Optimization in SoCs - Pramod Gayakwad, Raghavendra H D, Chandhramohan K P, Khushboo Rathore, Vishwanath Kunchigi, Vamsi Krishna Oliveti and Santhosh Kamatam (NXP)",
+              "10.4: Hybrid Power Gating: Hardware Trio Framework based ATPG for Low-Power Scan (TRC Paper) - Darshan V, Karthikeyan Soundararajan, Vivek Roopchand, Arul Karthick Kumar and Praveen Raghuraman (Qualcomm India Private Limited)"
             ],
           },
           {
@@ -486,11 +486,11 @@ export const agendaDays: AgendaDay[] = [
             title: "ART Track 2",
             items: [
               "Hackathon Opening Remarks",
-              "Team 1: A Fault Model for Guided-Wave Optical Interconnects in Die-to-Die Architectures Sanjay S. Subramaniam, Shaun Sebastian, Nishanth M., Gouri S. Nair (Indian Institute of Information Technology Kottayam, India)",
-              "Team 2: Cross-Layer Degradation-Aware Fault Modeling and Adaptive Test Generation for FeFET Non-Volatile Memories Aashish Niranjan Barathykannan, Akhilesh M., Shanganidhi K. N., Dinesh Babu A. (SRM Institute of Science and Technology, Vadapalani Campus, India)",
-              "Team 3: Functional Fault Modeling for MAC-Based CNN Accelerators M R Harsha, Vanshika Kavi and Suresh G Kini (KLE Technological University)",
-              "Team 4: Fault Primitive Taxonomy and MARCH-ReRAM: A Comprehensive Test Framework for Resistive RAM Arrays Addressing Manufacturing Defects and In Field Reliability Degradation Gawtam P and Maithreyan S (Indian Institute of Information Technology Kottayam, India)",
-              "Team 5: Observability-Based Functional Fault Modeling for RISC-V Processors Alan Paul, Niranjan K S, Kevin Jose and Adithya R Prabhu (Indian Institute of Information Technology Kottayam, India)"
+              "Team 1: A Fault Model for Guided-Wave Optical Interconnects in Die-to-Die Architectures - Sanjay S. Subramaniam, Shaun Sebastian, Nishanth M., Gouri S. Nair (Indian Institute of Information Technology Kottayam, India)",
+              "Team 2: Cross-Layer Degradation-Aware Fault Modeling and Adaptive Test Generation for FeFET Non-Volatile Memories - Aashish Niranjan Barathykannan, Akhilesh M., Shanganidhi K. N., Dinesh Babu A. (SRM Institute of Science and Technology, Vadapalani Campus, India)",
+              "Team 3: Functional Fault Modeling for MAC-Based CNN Accelerators - M R Harsha, Vanshika Kavi and Suresh G Kini (KLE Technological University)",
+              "Team 4: Fault Primitive Taxonomy and MARCH-ReRAM: A Comprehensive Test Framework for Resistive RAM Arrays Addressing Manufacturing Defects and In Field Reliability Degradation - Gawtam P and Maithreyan S (Indian Institute of Information Technology Kottayam, India)",
+              "Team 5: Observability-Based Functional Fault Modeling for RISC-V Processors - Alan Paul, Niranjan K S, Kevin Jose and Adithya R Prabhu (Indian Institute of Information Technology Kottayam, India)"
             ],
           },
         ],
