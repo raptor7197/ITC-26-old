@@ -154,7 +154,7 @@ export default function AgendaModal({
                         <div key={idx} className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
                           {/* Photo */}
                           {author.image && (
-                            <div className="flex-shrink-0 mx-auto sm:mx-0 w-[140px] sm:w-[160px]">
+                            <div className="flex-shrink-0 mx-auto sm:mx-0 w-[140px] sm:w-[160px] mt-2 sm:mt-4">
                               <img
                                 src={author.image}
                                 alt={author.name}
@@ -201,7 +201,7 @@ export default function AgendaModal({
                   <div className="flex flex-col sm:flex-row gap-8 sm:gap-10 mb-8 items-start">
                     {/* Photo */}
                     {data.image && (
-                      <div className="flex-shrink-0 mx-auto sm:mx-0 w-[160px] sm:w-[240px] relative">
+                      <div className="flex-shrink-0 mx-auto sm:mx-0 w-[160px] sm:w-[240px] relative mt-2 sm:mt-4">
                         <img
                           src={data.image}
                           alt={data.name}

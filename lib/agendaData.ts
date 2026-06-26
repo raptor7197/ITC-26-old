@@ -295,7 +295,7 @@ export const agendaDays: AgendaDay[] = [
         items: [
           "Distinguished Address: Alpa Sood (Teradyne) | Topic : The critical role of Test Strategy in India's Semiconductor Growth",
           "Distinguished Address: Don Chan (Cadence) | Topic : From Point Tools to Agentic AI: How EDA has impacted Semiconductor Industry",
-          "Distinguished Address: Rajesh Vaddempudi (Advantest) | Topic : The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration"
+          "Distinguished Address: Rajesh Vaddempudi (Advantest, India) | Topic : The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration"
         ]
       },
       {
@@ -341,7 +341,7 @@ export const agendaDays: AgendaDay[] = [
         location: "Grand Victoria",
         items: [
           "Keynote: Jeff Rearick (AMD) | Topic : AI in Test: Fear it or harness it",
-          "Keynote: Nilanjan Mukherjee (Siemens) | Topic : Built-in Intelligence - Leveraging Advanced DFT for Silicon Health monitoring",
+          "Keynote: Nilanjan Mukherjee (Siemens) | Topic : Built-in Intelligence – Leveraging Advanced DFT for Silicon Health Monitoring",
           "Keynote: Bizhan Delgoshaei (Google) | Topic : From Silent Patient to Self-Healing Silicon: The Four Evolutionary Stages of DFT in Mass Production"
         ]
       },

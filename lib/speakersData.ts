@@ -10,7 +10,7 @@ export const keynoteSpeakers = [
       "Dr. Yervant Zorian is President of Synopsys Armenia, Chief Architect and Fellow at Synopsys, and one of the world's foremost pioneers in semiconductor test, Built-In Self-Test (BIST), Design-for-Test (DFT), and Electronic Design Automation (EDA). Over a distinguished career spanning industry, academia, and standards development, he has held leadership positions at Synopsys, Virage Logic, LogicVision, and AT&T Bell Laboratories. He currently serves as President of the IEEE Test Technology Technical Council (TTTC) and founded the IEEE 1500 Standardization Working Group.",
       "A pioneer of modern BIST methodologies, Dr. Zorian has fundamentally shaped semiconductor test architectures and international DFT standards through more than 40 U.S. patents, four books, and over 350 technical publications. A recipient of numerous prestigious honors, including the IEEE Industrial Pioneer Award for his contributions to BIST and the IEEE TTTC Lifetime Contribution Award, he continues to be a leading voice driving innovation in semiconductor test, reliability, and advanced system integration.",
     ],
-    image: "/images/Yervant-zorion.png",
+    image: "/images/Yervant_Zorian.png",
   },
   {
     id: 1,
@@ -57,8 +57,13 @@ export const keynoteSpeakers = [
     id: 5.5,
     name: "Nilanjan Mukherjee",
     affiliation: "Siemens",
-    title: "Built-in Intelligence- Leveraging Advanced DFT for Silicon Health monitoring",
-    comingSoon: true,
+    title: "Built-in Intelligence – Leveraging Advanced DFT for Silicon Health Monitoring",
+    description:
+      "As semiconductor technologies continue to evolve, ensuring silicon quality, reliability, and long-term health has become increasingly challenging. Modern designs require test methodologies that extend beyond manufacturing to enable continuous monitoring throughout the product lifecycle. This talk explores how advanced Design-for-Test (DFT) infrastructures provide the foundation for comprehensive silicon health monitoring, integrating on-chip intelligence, diagnostics, and lifecycle analytics to improve test quality, reduce cost, and enhance reliability from manufacturing through field deployment.",
+    bio: [
+      "Nilanjan Mukherjee is Vice President of Software Engineering for Tessent Silicon Lifecycle Solutions at Siemens EDA, where he leads the development of advanced technologies spanning the complete silicon lifecycle, from design through field operation. A globally recognized expert in semiconductor test and diagnostics, he has pioneered innovations in test compression, Logic BIST, Memory BIST, low-power DFT, in-field testing, and silicon lifecycle management. His contributions include foundational work on EDT/TestKompress, VersaPoint Test Points, Observation Scan Technology, low-power hybrid EDT/Logic BIST, and packetized scan-based in-field testing.",
+      "His work has significantly advanced the industry's approach to DFT, silicon diagnostics, and predictive health monitoring through the integration of on-chip sensing and data analytics. Holding over 60 U.S. patents, authoring more than 100 technical publications, and receiving numerous prestigious awards, including the IEEE Donald O. Pederson Outstanding Paper Award, the ITC Most Significant Paper Award, and multiple Best Paper Awards, Nilanjan continues to be a leading voice shaping the future of intelligent test and silicon lifecycle management.",
+    ],
   },
   {
     id: 6,
@@ -402,10 +407,10 @@ export const distinguishedAddressesData = [
       "Don Chan is Vice President of Research and Development at Cadence, where he leads the Foundry organization and drives strategic partnerships across the global semiconductor ecosystem. He oversees technology enablement, process certification, and customer support for advanced semiconductor nodes while also leading marketing and business development for Cadence's Digital and Signoff product portfolio. Throughout his career, he has led key R&D initiatives spanning 3D-IC, Conformal, Modus, and Stratus technologies, and previously held leadership positions at Synopsys and Fujitsu Micro.",
       "His extensive experience in semiconductor design enablement, foundry collaboration, and advanced EDA technologies has provided him with a unique perspective on the evolution of chip design methodologies. By working closely with foundries, customers, and global R&D teams to deliver next-generation design solutions, Don is uniquely positioned to discuss how agentic AI, heterogeneous integration, and intelligent EDA workflows are transforming the future of semiconductor design."
     ],
-    image: "/images/don-chan.jpg"
+    image: "/images/Don-Chan.png"
   },
   { id: 2, name: "Alpa Sood", affiliation: "Teradyne", title: "The critical role of Test Strategy in India's Semiconductor Growth", comingSoon: true },
-  { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true }
+  { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest, India", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true }
 ];
 
 export const panelsData = [
