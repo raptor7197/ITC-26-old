@@ -406,7 +406,7 @@ export const distinguishedAddressesData = [
     image: "/images/don-chan.jpg"
   },
   { id: 2, name: "Alpa Sood", affiliation: "Teradyne", title: "THE CRITICAL ROLE OF TEST STRATEGY IN INDIA'S SEMICONDUCTOR GROWTH", comingSoon: true },
-  { id: 3, name: "Rajesh Vaddempudi", affiliation: "MD Advantest India", title: "THE INTELLIGENT SILICON ERA: REDEFINING SEMICONDUCTOR TEST THROUGH INNOVATION, AI, AND COLLABORATION", comingSoon: true }
+  { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest India", title: "THE INTELLIGENT SILICON ERA: REDEFINING SEMICONDUCTOR TEST THROUGH INNOVATION, AI, AND COLLABORATION", comingSoon: true }
 ];
 
 export const panelsData = [
