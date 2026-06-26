@@ -79,7 +79,9 @@ export default function SponsorMarquee() {
                   <img
                     src={sponsor.src}
                     alt={sponsor.name}
-                    className="max-h-full max-w-full object-contain transition-transform duration-500 hover:scale-110"
+                    className={`max-h-full max-w-full object-contain transition-transform duration-500 hover:scale-110 ${
+                      sponsor.name === "Siemens" ? "scale-125" : ""
+                    }`}
                   />
                 </div>
               </div>
