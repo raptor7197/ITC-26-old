@@ -192,7 +192,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Ashwini Shankar",
             title: "Technical Track 1: 3D IC and Chiplet Testing",
             items: [
               "1.1: RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP - Hilay Patel, Naman Kalra and Jaynarayan T Tudu (IIT Tirupati)",
@@ -202,17 +202,17 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Grand Victoria 2",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Rajit Karmakar",
             title: "Technical Track 2: Hardware Security and Trojan Detection",
             items: [
-              "2.1: Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs - Prasanth Viswanathan Pillai, Varshashree Kottadamane, Ramakrishna Pidaparthi, Rohit Chaudhari, Sivareddy Maramreddy, Naveen Kothuri, Narendra Ravilla and Labeeb K (Texas Instruments India)",
+              "2.1: Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs - Prasanth Viswanathan Pillai, Varshashree Kottadamane, Saya Goud Langadi, Labeeb K, Naveen Kothuri, Narendra Ravilla, Ramakrishna Pidaparthi, Rohit Chaudhari and Sivareddy Maramreddy (Texas Instruments India)",
               "2.2: Test Pattern-Driven Detection of Hardware Trojans Using Switching Activity Analysis in FPGA-Based Systems - Kannan S J, Chinakaku Lakshmi Prasanna and Sobhit Saxena (Lovely Professional University)",
               "2.3: STAMP: Statistical Trojan Attribution via Multi-class Power-trace analysis - Senthilkumar Dhamodharan, Sinthanai Selvi G, Karthika R and Abirami Vinayagamoorthy (Caliber Interconnects)"
             ],
           },
           {
             hall: "Arabica & Robusta",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Manivannan Ethiraj",
             title: "Technical Track 3: Pre-Silicon Verification and Debug",
             items: [
               "3.1: Comprehensive Coverage Framework for LPDDR6 Feature Validation: Navigating Complex Modes and Reducing the Verification Closure Gap - Dharini Subashchandran, Gruhesh Patel, Meghna Ahuja and Shyam Sharma (Cadence Design Systems India)",
@@ -239,33 +239,33 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Nikila Krishnamoorthy",
             title: "Technical Track 4: Advances in DFT and ATPG",
             items: [
               "4.1: Physically Aware Weighted Fault Model : A new paradigm in testing - Sandipan Sharma, Srinivas Vooka, Maheedhar Jalasutram, Pranav Murthy (Google India Pvt. Ltd), Chieh-Jen Ku and Yanhan Zhu (Google LLC)",
               "4.2: Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration - Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha (Sandisk India Pvt Ltd)",
               "4.3: A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets - Hanumant Tuntoni (Synopsys), Hillol Maity (Nvidia), Sreenu Kakanuri, Peter Wohl, Parthajit Bhattacharya, Bruce Xue and Geguang Miao (Synopsys)",
-              "4.4: Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG - Rahul Bhattacharya (IIT(ISM) Dhanbad)"
+              "4.4: Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG - Manish Kumar, Isha Dubey, Priyajit Bhattacharya and Rahul Bhattacharya (IIT(ISM) Dhanbad)"
             ],
           },
           {
             hall: "Grand Victoria 2",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Mudasir Kawoosa",
             title: "Technical Track 5: AI and Machine Learning Applications",
             items: [
-              "5.1: Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design - Senthilkumar Dhamodharan, Loka Priya, Dyaneswaran Priya and Karthika R (Caliber Interconnects)",
+              "5.1: Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design - Senthilkumar Dhamodharan, Lokapriya B, Dyaneswaran A, Karthika R and Lokendran S (Caliber Interconnects)",
               "5.2: AI-Driven IP Configuration Optimization for Post-Silicon Validation - Akhilesh Tiwary, Maneesh Kumar Pandey, Nihar Chaniyara (Intel Technology India Pvt Ltd) and Utsav Banerjee (IISC Bangalore)",
               "5.3: T-MAP: A Cross-Platform AI driven Test-Program Metadata Analysis Tool for Digital Coverage, Force, limit and Range Verification - Kaushik Chakravorty, Dundapa Sankapal, Vishal Rohilla, Sudhish Raj Gj, Pratyush Dargan and Robert Cook (Texas Instruments)",
-              "5.4: Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection - Kalyana Sundaram Chandran and Senthilkumar Dhamodharan (Caliber Interconnects)"
+              "5.4: Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection - Kalyana Sundaram Chandran, Senthilkumar Dhamodharan and Sindhu Mathy S (Caliber Interconnects)"
             ],
           },
           {
             hall: "Arabica & Robusta",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Srijesh Parambath",
             title: "Technical Track 6: Secure IJTAG and Access Control",
             items: [
               "6.1: State-Isolated Scan - A Secure Low-Power Scan Architecture - C.P. Ravikumar (Vinyana Tech) and Kushal C. (Sykatiya Technologies)",
-              "6.2: eFPGA-Enabled Dynamic Access Control for Secure IEEE 1687 (IJTAG) Networks - Anshul Raghavendra Katti, Anekait Thampi, Manish Nagaraju and Sudeendra Kumar K (PES University)",
+              "6.2: eFPGA-Enabled Dynamic Access Control for Secure IEEE 1687 (IJTAG) Networks - Anekait Thampi, Anshul Raghavendra Katti, Manish Nagaraju and Sudeendra Kumar K (PES University)",
               "6.3: Design of a SAT-Resilient IJTAG Architecture for Secure and Scalable On-Chip Instrument Access - Saravanan P, Dharani Sree K, Jothika K, Nivashini S and Sivaprabha Sri Pl (PSG College of Technology)",
               "6.4: PQC-Based Secure Access Manager for IJTAG Network (ART Paper) - Prajwal G S Basavaraj, Abhinav S, Arun Kumar N, Sudeendra Kumar (PES University, Bangalore)"
             ],
@@ -373,7 +373,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Grand Victoria 2",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Veejaye Panayadian",
             title: "Technical Track 7: ATE and Hardware Test Methods",
             items: [
               "7.1: Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test - Sujith Thomas, Siva Elango S, Dinesh Sharma and Mathangi Raghuraman (Sandisk India Device Design Center Private Limited)",
@@ -383,7 +383,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Arabica & Robusta",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Sreekanth G Pai",
             title: "Technical Track 8: Silicon Reliability and Lifecycle Management",
             items: [
               "8.1: Unified Compact Health and Aging Models for Manufacturing to In-Field Silicon Quality and Reliability Management - Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota (Synopsys)",
@@ -424,7 +424,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Grand Victoria 2",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Ankit Garg",
             title: "Technical Track 9: Memory Test and MBIST Methodologies",
             items: [
               "9.1: Physical Design Aware Verification Methodology for Closing Coverage Gaps in SharedBus MBIST - Shivam Tulsyan, Mayank Parasrampuria, Prachi Sinha, Vasudevan Pillai A and Maheedhar Jalasutram (Google India)",
@@ -435,10 +435,10 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Arabica & Robusta",
-            sessionChair: "Session Chair: TBD",
+            sessionChair: "Session Chair: Sreenu Kakunuri",
             title: "Technical Track 10: Post-Silicon Validation, Silicon Fixes, and Low-Power DFT",
             items: [
-              "10.1: A novel hardware design for effective supply voltage glitch injection - Asmita Mohapatra, Antony Varghese and Ashok Kumar (Infineon Technologies India Pvt. Ltd.)",
+              "10.1: A novel hardware design for effective supply voltage glitch injection - Antony Varghese, Ashok Kumar and Asmita Mohapatra (Infineon Technologies India Pvt. Ltd.)",
               "10.2: Validation Methodology to Characterize Absolute Propagation Delay, Delay variation over temperature and Programmable Delay of 1ps DNL step in Wideband RF Buffers upto 12.8GHz - Harish Ramesh, Jason Xavier and Pranav Kumar (Texas Instruments)",
               "10.3: DFT-Enhanced Spare Cell Architecture for Scan-Integrated ECO and Leakage Optimization in SoCs - Pramod Gayakwad, Raghavendra H D, Chandhramohan K P, Khushboo Rathore, Vishwanath Kunchigi, Vamsi Krishna Oliveti and Santhosh Kamatam (NXP)",
               "10.4: Hybrid Power Gating: Hardware Trio Framework based ATPG for Low-Power Scan (TRC Paper) - Darshan V, Karthikeyan Soundararajan, Vivek Roopchand, Arul Karthick Kumar and Praveen Raghuraman (Qualcomm India Private Limited)"

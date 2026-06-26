@@ -723,7 +723,7 @@ export default function AgendaSchedule() {
           <h1 className="text-[56px] font-bold tracking-tight text-white uppercase font-poppins text-left">
             PROGRAM AGENDA
           </h1>
-          <div className="flex w-full overflow-x-auto no-scrollbar gap-4 mt-2 px-0 flex-wrap pb-0 justify-start">
+          <div className="flex w-full overflow-visible gap-4 mt-2 px-0 flex-wrap pb-4 justify-start">
             {agendaDays.map((day) => {
               const active = day.id === activeId;
               return (

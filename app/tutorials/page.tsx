@@ -26,11 +26,11 @@ export default function Tutorials() {
             {/* Tutorial Title & ID */}
             <div className={`text-center md:text-left flex flex-col items-center md:items-start ${isExpanded ? 'mb-6' : 'mb-4 md:mb-6'}`}>
               {tutorial.title ? (
-                <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md leading-tight max-w-[1000px]">
+                <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight text-white leading-tight max-w-[1000px]">
                   {tutorial.title}
                 </h2>
               ) : (
-                <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight text-white/50 drop-shadow-md leading-tight italic">
+                <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight text-white/50 leading-tight italic">
                   Title Pending
                 </h2>
               )}
@@ -81,7 +81,7 @@ export default function Tutorials() {
                     {/* Content */}
                     <div className="flex-1 flex flex-col justify-start items-center md:items-start text-center md:text-left pt-1 h-full">
                       {/* Name */}
-                      <h3 className="font-black text-lg sm:text-xl md:text-[28px] tracking-tight mb-1 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
+                      <h3 className="font-black text-lg sm:text-xl md:text-[28px] tracking-tight mb-1 text-white">
                         {author.name}
                       </h3>
 

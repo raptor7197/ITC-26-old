@@ -6,6 +6,7 @@ export interface Speaker {
   description?: string;
   bio?: string[];
   image?: string;
+  imageClassName?: string;
   comingSoon?: boolean;
   authors?: any[];
 }
@@ -23,6 +24,7 @@ export const keynoteSpeakers = [
       "A pioneer of modern BIST methodologies, Dr. Zorian has fundamentally shaped semiconductor test architectures and international DFT standards through more than 40 U.S. patents, four books, and over 350 technical publications. A recipient of numerous prestigious honors, including the IEEE Industrial Pioneer Award for his contributions to BIST and the IEEE TTTC Lifetime Contribution Award, he continues to be a leading voice driving innovation in semiconductor test, reliability, and advanced system integration.",
     ],
     image: "/images/Yervant_Zorian.png",
+    imageClassName: "object-[60%_10%] scale-[1.03]",
   },
   {
     id: 1,
@@ -37,6 +39,7 @@ export const keynoteSpeakers = [
       "His extensive work with academia, industry, and national semiconductor initiatives has provided him with unique insights into the reliability challenges facing next-generation computing systems, making him a leading voice on the future of trustworthy and resilient computing.",
     ],
     image: "/images/keynote/Subhasish-Mitra.png",
+    imageClassName: "object-[center_10%] scale-[1.03]",
   },
   {
     id: 2,
@@ -50,6 +53,7 @@ export const keynoteSpeakers = [
       "His industry experience, combined with ongoing research in AI/ML applications for post-silicon validation, provides him with a unique perspective on how intelligent testing and AI-driven innovation can shape the future of the semiconductor industry.",
     ],
     image: "/images/keynote/senthilkumar-photo.png",
+    imageClassName: "object-[center_10%]",
   },
 
   {
@@ -64,6 +68,7 @@ export const keynoteSpeakers = [
       "Jeff's day job of looking just far enough into the future of test and debug and validation to keep a steady stream of innovations coming down the pipeline to intercept ever-advancing AMD products keeps him at the forefront of emerging trends, including the epochal disruption that AI has brought to our field.",
     ],
     image: "/images/keynote/jeff_rearick_2024.png",
+    imageClassName: "object-[30%_30%]",
   },
   {
     id: 5.5,
@@ -77,6 +82,7 @@ export const keynoteSpeakers = [
       "His work has significantly advanced the industry's approach to DFT, silicon diagnostics, and predictive health monitoring through the integration of on-chip sensing and data analytics. Holding over 60 U.S. patents, authoring more than 100 technical publications, and receiving numerous prestigious awards, including the IEEE Donald O. Pederson Outstanding Paper Award, the ITC Most Significant Paper Award, and multiple Best Paper Awards, Nilanjan continues to be a leading voice shaping the future of intelligent test and silicon lifecycle management.",
     ],
     image: "/images/keynote/Nilanjan_Mukherjee.png",
+    imageClassName: "object-[20%_20%]",
   },
   {
     id: 6,
@@ -91,6 +97,7 @@ export const keynoteSpeakers = [
       "Through leadership roles at Google, Apple, and Altera, he has gained deep expertise in silicon manufacturing, quality engineering, and operational excellence. His extensive industry experience provides him with valuable insights into the evolving role of Design for Testability (DFT) in enabling reliable, scalable, and increasingly intelligent semiconductor systems.",
     ],
     image: "/images/keynote/bizhan_delgoshaei.png",
+    imageClassName: "object-[40%_10%]",
   },
 ];
 
@@ -113,6 +120,7 @@ export const industrySpeakers = [
       "As Post-Silicon Validation & Test Manager for the High-Speed ADC group, Nithin has developed deep expertise in addressing the challenges of analog performance variability, test cost, and design complexity. His extensive experience with high-speed pipelined ADCs, sigma-delta ADCs, and intelligent calibration methodologies provides him with unique insights into the growing role of built-in intelligence in enabling robust, high-performance analog systems.",
     ],
     image: "/images/keynote/nithin_Gopinath.png",
+    imageClassName: "object-center",
   },
   {
     id: 2,
@@ -127,6 +135,7 @@ export const industrySpeakers = [
       "His expertise spans the entire silicon lifecycle, from DFT architecture and verification to post-silicon validation, test development, and ATE bring-up. With deep experience in advanced test methodologies, multi-die systems, and high-performance computing platforms, Nikhil brings valuable insights into how Design-for-Test is evolving to address the challenges of hyperscale AI infrastructure and system-level integration.",
     ],
     image: "/images/keynote/nikhil.png",
+    imageClassName: "object-center",
   },
   {
     id: 3,
@@ -143,7 +152,8 @@ export const industrySpeakers = [
       "Anand Muthaiah is Senior Vice President and Head of the COE and Post Silicon Business Unit at Tessolve, bringing over 31 years of experience in semiconductor testing. An expert in digital, analog, and mixed-signal test methodologies, he has built extensive expertise in post-silicon validation and high-volume manufacturing across a broad range of semiconductor products. He holds an M.S. in Electrical Engineering from the University of South Florida and has held key technical and leadership positions at Cyrix Semiconductor, LTX Corporation, Intel Technologies, and Tessolve.",
       "His decades of experience spanning semiconductor test engineering, post-silicon validation, and production test have given him deep insight into the challenges of delivering high-quality, manufacturable silicon at scale. Combining strong technical expertise with strategic leadership, Anand continues to drive innovation in advanced semiconductor testing and post-silicon engineering for next-generation devices."
     ],
-    image: "/images/Anand_Muttaiah.png"
+    image: "/images/Anand_Muttaiah.png",
+    imageClassName: "object-center"
   }
 ];
 
@@ -156,9 +166,10 @@ export const tutorialsData = [
     authors: [
       {
         name: "Vishal Diwan",
-        affiliation: "Digital Design Manager, Texas Instruments",
+        affiliation: "Texas Instruments",
         bio: "Vishal Diwan is a Digital Design Manager and Member Group Technical Staff at Texas Instruments, where he leads the DFT team for the ASM Business Unit. With over 13 years of experience in Design-for-Test methodologies, he has developed deep expertise across scan architectures, test automation, and advanced DFT implementation strategies for semiconductor products. He holds a Master's degree in Electrical Engineering from IIT Bombay and has contributed extensively to the field through multiple patents, technical publications, and presentations at industry conferences.\n\nHis experience in developing efficient DFT solutions for cost-sensitive, high-volume semiconductor products has given him valuable insight into the trade-offs between test quality, silicon area, test time, and manufacturing cost. This practical perspective enables him to provide a comprehensive view of how innovative DFT methodologies can help deliver reliable MCUs while meeting the aggressive cost targets demanded by today's semiconductor industry.",
         image: "/images/tutorials/tut_529_1.png",
+        imageClassName: "object-center",
       },
     ],
     status: "ready",
@@ -171,7 +182,7 @@ export const tutorialsData = [
     authors: [
       {
         name: "Dr. Chandan Karfa",
-        affiliation: "Associate Professor, IIT Guwahati",
+        affiliation: "IIT Guwahati",
         bio: "Dr. Chandan Karfa is an Associate Professor in the Department of Computer Science and Engineering at IIT Guwahati, where his research spans electronic design automation, formal verification, hardware security, high-level synthesis, and formal methods. Prior to joining academia, he spent five years as a Senior R&D Engineer at Synopsys, gaining valuable industry experience in semiconductor design automation. A prolific researcher, he has authored more than eighty publications in leading international journals and conferences and has been recognized with several prestigious honors, including the Google India Research Award, Google Silicon Research Awards, Qualcomm Faculty Award, and multiple innovation and best paper awards.\n\nHis unique combination of academic research and industrial experience provides him with deep insight into both the challenges and opportunities facing modern semiconductor design flows. Through his work at the intersection of EDA, formal methods, and AI-driven automation, Dr. Karfa brings a forward-looking perspective on how LLMs can transform VLSI design, verification, and test while enhancing the productivity of the next generation of semiconductor engineers.",
         image: "/images/tutorials/tut_521_1.png",
       },
@@ -187,13 +198,13 @@ export const tutorialsData = [
     authors: [
       {
         name: "Sreekanth G Pai",
-        affiliation: "Senior Principal Engineer, Marvell",
+        affiliation: "Marvell",
         bio: "Sreekanth G Pai is a Senior Principal Engineer with extensive experience in Design-for-Test, scan architectures, IJTAG infrastructures, and post-silicon debug methodologies for complex SoCs. Throughout his career, he has led and contributed to multiple large-scale silicon programs, developing expertise in TAP customization, mission-mode debug techniques, and Tessent-based DFT implementations.\n\nHis work in enabling robust observability, debuggability, and secure access mechanisms across advanced validation and test environments has provided him with deep insight into the challenges of modern post-silicon debug. This experience makes him well positioned to discuss scalable IJTAG-based approaches for mission-mode scan dump and advanced debug architectures.",
         image: "/images/tutorials/tut_497_1.png",
       },
       {
         name: "Raseena K A",
-        affiliation: "Senior Engineer, Marvell",
+        affiliation: "Marvell",
         bio: "Raseena K A is a Senior Engineer specializing in DFT implementation, scan architectures, and post-silicon debug for complex SoCs. Her experience includes the development of IJTAG-based infrastructures, scan dump enablement, clock and OCC interactions, and customized debug solutions tailored to mission-mode applications.\n\nThrough her work on silicon bring-up and debug using advanced scan and test methodologies, she has developed strong expertise in practical debug execution and validation workflows. Her hands-on experience provides valuable perspectives on implementing efficient, scalable, and reliable scan dump solutions for modern semiconductor systems.",
         image: "/images/tutorials/tut_497_2.png",
       },
@@ -206,8 +217,32 @@ export const tutorialsData = [
     abstract: "More info coming soon.",
     authors: [
       {
-        name: "Binod Kumar, Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati), Jyotirmoy Saikia and Sagar Kumar (Cadence)",
-        affiliation: "",
+        name: "Binod Kumar",
+        affiliation: "IIT Jodhpur",
+        bio: "",
+        image: ""
+      },
+      {
+        name: "Manisha Kumari",
+        affiliation: "IIT Jodhpur",
+        bio: "",
+        image: ""
+      },
+      {
+        name: "Jaynarayan T Tudu",
+        affiliation: "IIT Tirupati",
+        bio: "",
+        image: ""
+      },
+      {
+        name: "Jyotirmoy Saikia",
+        affiliation: "Cadence",
+        bio: "",
+        image: ""
+      },
+      {
+        name: "Sagar Kumar",
+        affiliation: "Cadence",
         bio: "",
         image: ""
       }
@@ -222,15 +257,17 @@ export const tutorialsData = [
     authors: [
       {
         name: "Maheedhar Jalasutram",
-        affiliation: "Google Silicon Team",
+        affiliation: "Google",
         bio: "Maheedhar Jalasutram leads DFT Architecture within Google's Silicon team, where he is responsible for developing scalable test architectures that balance quality, coverage, and test cost for advanced mobile SoCs. Throughout his career, including leadership roles at Google and Texas Instruments, he has driven innovations in concurrent testing, design-for-debug, high-speed test methodologies, and system-level test enablement.\n\nHis extensive experience spanning DFT architecture, validation, and production test has provided him with deep insight into the challenges of delivering high-quality silicon at scale. This expertise enables him to offer a unique perspective on how test methodologies can be integrated across the entire product lifecycle to improve both quality and manufacturing efficiency.",
         image: "/images/tutorials/tut_533_1.png",
+        imageClassName: "object-[center_10%] scale-[1.1]",
       },
       {
         name: "Chiehjen (Jeren) Ku",
         affiliation: "Google",
         bio: "Chiehjen (Jeren) Ku leads the Foundry, Assembly Process, and Yield Engineering team within Google's Custom Silicon Operations organization. He oversees manufacturing operations, yield improvement, process optimization, quality management, and product ramp activities for Google's custom silicon programs. Prior to Google, he held leadership positions at Intel and TSMC, focusing on advanced semiconductor process technologies, including FinFET and Gate-All-Around transistor development.\n\nHis experience across process technology development, manufacturing operations, and yield engineering has given him a comprehensive understanding of how design, fabrication, and production data interact to influence product quality. This background provides valuable insight into building closed-loop methodologies that accelerate yield learning and production readiness.",
         image: "/images/tutorials/tut_533_2.png",
+        imageClassName: "object-[center_25%] scale-[1.15]",
       },
       {
         name: "Daejin Shin",
@@ -262,8 +299,21 @@ export const tutorialsData = [
     abstract: "More info coming soon.",
     authors: [
       {
-        name: "Lee Harrison, Andy Hughes and Peter Orlando (Siemens EDA)",
-        affiliation: "",
+        name: "Lee Harrison",
+        affiliation: "Siemens EDA",
+        bio: "",
+        image: "/images/tutorials/tut_487_1.png",
+        imageClassName: "object-[center_60%] scale-105"
+      },
+      {
+        name: "Andy Hughes",
+        affiliation: "Siemens EDA",
+        bio: "",
+        image: ""
+      },
+      {
+        name: "Peter Orlando",
+        affiliation: "Siemens EDA",
         bio: "",
         image: ""
       }
@@ -279,13 +329,13 @@ export const tutorialsData = [
     authors: [
       {
         name: "Rajesh Kumar Tiwari",
-        affiliation: "Director of Engineering, Qualcomm India",
+        affiliation: "Qualcomm India",
         bio: "Rajesh Kumar Tiwari is Director of Engineering at Qualcomm India, with over 22 years of experience in semiconductor design and Design-for-Test technologies. Over the course of his career at Qualcomm and Texas Instruments, he has led the development of advanced DFT architectures, in-system BIST solutions, and test methodologies across mobile, compute, and automotive platforms. He is also an active contributor to the semiconductor test community through his involvement with IEEE initiatives and technical innovations.\n\nHis extensive experience in deploying self-test and safety-focused DFT solutions for complex SoCs has given him deep insight into the challenges of achieving functional safety in modern automotive systems. This expertise positions him uniquely to discuss the evolving role of self-test technologies in enabling ISO 26262-compliant semiconductor designs.",
         image: "/images/tutorials/tut_525_1.jpg",
       },
       {
         name: "Mohammed Zuber P Malek",
-        affiliation: "Senior Staff Engineer and Manager, Qualcomm India",
+        affiliation: "Qualcomm India",
         bio: "Mohammed Zuber P Malek is a Senior Staff Engineer and Manager at Qualcomm India with more than 17 years of experience in Design-for-Testability. Having contributed to over twenty successful chip tape-outs, he has developed extensive expertise across in-system BIST, scan synthesis, ATPG, low-power testing, TestSTA, and RTL-level DFT integration. He currently leads Qualcomm's Auto-DFT methodology and TestSTA initiatives, driving scalable and robust test solutions for advanced SoC programs.\n\nHis work in architecting automated DFT methodologies and self-test infrastructures for complex silicon platforms has provided him with valuable insight into the intersection of functional safety, diagnostics, and test automation. This experience enables him to offer practical perspectives on leveraging self-test technologies to meet the reliability and compliance requirements of next-generation automotive systems.",
         image: "/images/tutorials/tut_525_2.png",
       },
@@ -304,6 +354,7 @@ export const tutorialsData = [
         affiliation: "Siemens EDA",
         bio: "Lee Harrison is Director of Product Marketing within Siemens Tessent Division, bringing over 25 years of experience in Design-for-Test technologies and semiconductor test solutions. Throughout his career, he has worked extensively with Tessent DFT products, focusing on emerging requirements in functional safety, security, automotive electronics, and high-performance computing applications. His efforts have helped ensure that evolving customer needs are translated into scalable and effective DFT methodologies.\n\nHis extensive experience working at the intersection of semiconductor design, test, safety, and reliability has provided him with valuable insights into the industry's transition toward more intelligent and integrated test solutions. This perspective enables him to address the growing importance of packetized scan architectures and in-system testing in modern semiconductor products.",
         image: "/images/tutorials/tut_487_1.png",
+        imageClassName: "object-[center_60%] scale-105",
       },
       {
         name: "Peter VanDenBosch",
@@ -322,27 +373,28 @@ export const tutorialsData = [
     authors: [
       {
         name: "Shamitha Rao",
-        affiliation: "Director of Solutions Engineering, Synopsys",
+        affiliation: "Synopsys",
         bio: "Shamitha Rao is Director of Solutions Engineering at Synopsys, where she leads customer engagements for the TestMAX product portfolio. With more than 20 years of experience spanning DFT architecture, implementation, silicon validation, and test solutions, she has held key roles at Synopsys, Intel, Siemens EDA, STMicroelectronics, and Wipro. Her contributions to semiconductor test technology have been recognized through multiple technical publications, conference presentations, and industry awards.\n\nHer extensive experience across the semiconductor lifecycle\u2014from design and test architecture to silicon bring-up and manufacturing\u2014provides her with a unique perspective on how advanced analytics can be leveraged to improve product quality, yield learning, and test efficiency in modern semiconductor ecosystems.",
         image: "/images/tutorials/tut_531_1.png",
       },
       {
         name: "Shrestha Hota",
-        affiliation: "Staff Solutions Engineer, Synopsys",
+        affiliation: "Synopsys",
         bio: "Shrestha Hota is a Staff Solutions Engineer at Synopsys with over a decade of experience in semiconductor manufacturing analytics and yield engineering. She specializes in architecting analytics frameworks that enable yield optimization, root-cause analysis, and operational efficiency across high-volume manufacturing environments. Her work focuses on deploying advanced analytics platforms that transform complex manufacturing data into actionable insights.\n\nThrough her leadership in customer engagements and data-driven manufacturing initiatives, she has developed deep expertise in applying analytics to solve real-world semiconductor production challenges. This experience positions her at the forefront of modern yield engineering and intelligent manufacturing solutions.",
         image: "/images/tutorials/tut_531_2.png",
       },
       {
         name: "Navya Rastogi",
-        affiliation: "Staff Applications Engineer, Synopsys",
+        affiliation: "Synopsys",
         bio: "Navya Rastogi is a Staff Applications Engineer at Synopsys with expertise spanning semiconductor process engineering, yield analysis, fabrication technologies, and data science. Prior to joining Synopsys, she gained experience in both the semiconductor capital equipment industry and at Amazon, bringing a multidisciplinary perspective to advanced manufacturing analytics. She holds a PhD in Nanoscience from the Indian Institute of Science.\n\nHer background across semiconductor processes, yield engineering, and data-driven problem solving provides her with valuable insight into the application of analytics for improving manufacturing performance and product quality in advanced semiconductor technologies.",
         image: "/images/tutorials/tut_531_3.png",
       },
       {
         name: "Soumya Mital",
-        affiliation: "Staff Engineer, Qualcomm",
+        affiliation: "Qualcomm",
         bio: "Soumya Mital is a Staff Engineer at Qualcomm specializing in AI-driven diagnostic intelligence for next-generation semiconductor platforms. His work focuses on developing scalable frameworks that automate failure analysis and transform complex diagnostic data into actionable engineering insights, accelerating silicon development and deployment. He holds a PhD from Carnegie Mellon University and is an alumnus of IIT Roorkee.\n\nHis expertise at the intersection of semiconductor diagnostics, artificial intelligence, and large-scale data analysis has enabled him to drive innovative approaches to yield learning and quality improvement. This experience provides him with a unique perspective on how advanced analytics and AI are reshaping semiconductor manufacturing and test methodologies.",
         image: "/images/tutorials/tut_531_4.png",
+        imageClassName: "object-[center_10%] scale-[0.85]",
       },
     ],
     status: "ready",
@@ -358,6 +410,7 @@ export const tutorialsData = [
         affiliation: "Auburn University",
         bio: "Adit D. Singh is the Godbold Endowed Chair in Electrical and Computer Engineering at Auburn University and a globally recognized authority in VLSI test, reliability, and semiconductor quality. Over a distinguished academic and research career spanning more than four decades, he has made pioneering contributions to defect-based testing, adaptive testing, and statistical methods for integrated circuit validation. A Life Fellow of IEEE, he has authored more than 300 technical publications, holds internationally licensed patents, and has served in numerous leadership roles across the global semiconductor test community.\n\nHis extensive research, industry collaborations, and deep involvement in advancing test methodologies have provided him with unparalleled insight into the challenges of test escapes and timing-related failures in modern semiconductor devices. Combining rigorous academic research with practical industry perspectives, he brings a uniquely authoritative view on improving test effectiveness and ensuring reliable operation of increasingly complex integrated circuits.",
         image: "/images/tutorials/tut_534_1.png",
+        imageClassName: "object-[center_40%]",
       },
     ],
     status: "ready",
@@ -371,20 +424,21 @@ export const tutorialsData = [
     authors: [
       {
         name: "Lokapriya Balakrishnan",
-        affiliation: "Test Engineer, Caliber Interconnect Solutions",
+        affiliation: "Caliber Interconnect Solutions",
         bio: "Lokapriya Balakrishnan is a Test Engineer at Caliber Interconnect Solutions with over seven years of experience in semiconductor testing and ATE interface hardware development. Her work spans turnkey load board and probe card design, signal and power integrity optimization, device testing, and tester platform conversion projects. In addition to her technical contributions, she has successfully led engineering teams in delivering high-quality hardware solutions within demanding development schedules.\n\nHer experience across both hardware development and semiconductor validation provides her with a unique perspective on the challenges of designing scalable, high-performance ATE solutions. This expertise enables her to bridge the gap between hardware architecture, test requirements, and manufacturing realities.",
         image: "/images/tutorials/tut_504_1.png",
       },
       {
         name: "Senthilkumar Dhamodharan",
         affiliation:
-          "Vice President, Caliber Interconnect Solutions",
+          "Caliber Interconnect Solutions",
         bio: "Senthilkumar Dhamodharan is Vice President, Silicon Validation & Test Engineering at Caliber Interconnect Solutions Pvt Ltd, where he leads large-scale test engineering operations spanning SoC, PMIC, Digital, Mixed-Signal, and RF products. With more than 19 years of experience at industry leaders including Qualcomm, AMD, and NXP, he has played a significant role in advancing semiconductor test methodologies, engineering strategy, and intellectual property development.\n\nHis extensive experience managing complex validation programs and building high-performance engineering teams has given him deep insight into scalable test infrastructure and hardware development. This perspective makes him uniquely positioned to address the challenges of creating efficient, reusable ATE architectures for modern semiconductor products.",
-        image: "/images/tutorials/tut_504_2.png",
+        image: "/images/senthilkumar.jpg",
+        imageClassName: "object-[center_10%]",
       },
       {
         name: "Vaishnavi",
-        affiliation: "Senior Test Engineer, Caliber Interconnect Solutions",
+        affiliation: "Caliber Interconnect Solutions",
         bio: "Vaishnavi is a Senior Test Engineer at Caliber Interconnect Solutions with over a decade of experience in testing SoC, Mixed-Signal, and RF devices across both bench and ATE environments. Currently leading Caliber's RF team, she has developed strong expertise in device characterization, validation methodologies, and high-performance test execution.\n\nHer extensive hands-on experience across multiple semiconductor domains provides valuable insight into the practical challenges of ATE deployment and validation. This background enables her to contribute a real-world perspective on designing scalable hardware solutions that improve efficiency, reliability, and test coverage.",
         image: "/images/tutorials/tut_504_3.png",
       },
@@ -415,29 +469,31 @@ export const tutorialsData = [
   }];
 
 export const distinguishedAddressesData = [
-  { 
-    id: 1, 
-    name: "Don Chan", 
-    affiliation: "Cadence", 
+  {
+    id: 1,
+    name: "Don Chan",
+    affiliation: "Cadence",
     title: "From Point Tools to Agentic AI: How EDA has impacted Semiconductor Industry",
     description: "Electronic Design Automation (EDA) has been the driving force behind decades of semiconductor innovation, enabling engineers to design increasingly complex chips while sustaining the pace of Moore's Law. As transistor scaling approaches its physical limits, the industry is transitioning toward heterogeneous chiplet-based architectures, 3D integration, and AI-driven design methodologies. This talk explores the evolution of EDA from traditional point tools to intelligent, agentic AI workflows, highlighting how advances in design technology co-optimization, DFT methodologies, and AI-assisted automation are reshaping semiconductor design. Attendees will gain insights into the next generation of EDA technologies that will power future innovations in high-performance computing and artificial intelligence.",
     bio: [
       "Don Chan is Vice President of Research and Development at Cadence, where he leads the Foundry organization and drives strategic partnerships across the global semiconductor ecosystem. He oversees technology enablement, process certification, and customer support for advanced semiconductor nodes while also leading marketing and business development for Cadence's Digital and Signoff product portfolio. Throughout his career, he has led key R&D initiatives spanning 3D-IC, Conformal, Modus, and Stratus technologies, and previously held leadership positions at Synopsys and Fujitsu Micro.",
       "His extensive experience in semiconductor design enablement, foundry collaboration, and advanced EDA technologies has provided him with a unique perspective on the evolution of chip design methodologies. By working closely with foundries, customers, and global R&D teams to deliver next-generation design solutions, Don is uniquely positioned to discuss how agentic AI, heterogeneous integration, and intelligent EDA workflows are transforming the future of semiconductor design."
     ],
-    image: "/images/Don-Chan.png"
+    image: "/images/Don-Chan.png",
+    imageClassName: "object-top scale-105"
   },
-  { 
-    id: 2, 
-    name: "Alpa Sood", 
-    affiliation: "Teradyne", 
-    title: "The Critical Role of Test Strategy in India's Semiconductor Growth", 
+  {
+    id: 2,
+    name: "Alpa Sood",
+    affiliation: "Teradyne",
+    title: "The Critical Role of Test Strategy in India's Semiconductor Growth",
     description: "As India accelerates its ambitions of becoming a global semiconductor hub, developing a robust test ecosystem is emerging as a strategic priority. Advanced test methodologies are essential not only for ensuring product quality and reliability but also for strengthening manufacturing capabilities, enabling supply chain resilience, and enhancing global competitiveness. This talk explores the pivotal role of test strategy in building a sustainable semiconductor ecosystem, highlighting the importance of collaboration between industry, government, and academia to support India's vision of becoming a leading semiconductor nation.",
     bio: [
       "Alpa is Country Manager for India at Teradyne, bringing over 15 years of experience across business, policy, and government affairs. Throughout her career, she has worked closely with the Government of India and various state governments to foster the growth and innovation of the semiconductor ecosystem, building strong partnerships between the public and private sectors that create opportunities for businesses, entrepreneurs, and the broader industry.",
       "Prior to joining Teradyne, Alpa led government affairs, legal, and strategic policy engagement at Marvell India, where she developed deep expertise in navigating complex industry landscapes. Her extensive background in bridging public and private sector relationships makes her a driving force in shaping India's semiconductor future."
     ],
-    image: "/images/Alpa-Sood.png"
+    image: "/images/Alpa-Sood.png",
+    imageClassName: "object-[40%_10%]"
   },
   { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest, India", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true }
 ];
@@ -454,7 +510,126 @@ export const industryShowcaseData = [
   { id: 2, name: "Advantest", comingSoon: true }
 ];
 export const postersData = [
-  { id: 0, name: "Poster Session", affiliation: "Location: ENTRANCE LOBBY", comingSoon: true }
+  {
+    id: '13',
+    title: 'Securing Design for Testability: Multi Layered Hardware Validation with Butterfly PUF',
+    name: 'Keyur Mahant and Mitulbhai Kansagara'
+  },
+  {
+    id: '41',
+    title: 'A Process-Aware Multi-Task U-Net Framework for Mixed Wafer Defect Localisation and Diagnosis in Semiconductor Manufacturing',
+    name: 'Venkatesh Kanago, Yashaswini Gadad and Sujithkumar Malaghan'
+  },
+  {
+    id: '51',
+    title: 'Bluetooth BLE FW based Test Methodology on ATE',
+    name: 'Sai Sumanth Muppavarapu and Christina Kichenamourty'
+  },
+  {
+    id: '54',
+    title: 'Concurrent Functional Intelligence During Structural Test Using Selective Hierarchical Core Scan Bypass in Field-Deployable SLM IP',
+    name: 'Hitesh Pradhan, Godithi Lakshmi Aruna Santhi, Rohit Mate, Sujit Panda and Vikas Gadi'
+  },
+  {
+    id: '82',
+    title: 'Leveraging Generative Artificial Intelligence for Automated Test Equipment (ATE) Test Program Generation in Semiconductor Validation and Production',
+    name: 'Govarthanam Krishnasamy'
+  },
+  {
+    id: '125',
+    title: 'DRAC: A Dynamic Reconfigurable ATE Core for Extending Tester Capability in High-Resolution Data Converter Testing',
+    name: 'Manoj Pachaiyan and Senthilkumar Dhamodharan'
+  },
+  {
+    id: '144',
+    title: 'ATE-AMFE: Automated Multi-Platform Feasibility Engine',
+    name: 'Venkatraman Sivagnanam, Naveena Natarajan, Jaikrishnan Balakrishnan and Senthilkumar Dhamodharan'
+  },
+  {
+    id: '146',
+    title: 'Data-Driven Post-Silicon Validation Framework for High Bandwidth Memory in 2.5D Integration: Adaptive Stress Testing and Hierarchical Fault Isolation',
+    name: 'Jaya Surya Moorthy, Kalyana Sundaram Chandran and Senthilkumar Dhamodharan'
+  },
+  {
+    id: '175',
+    title: 'Enabling Robust IEEE 1687 Interoperability in Heterogeneous IJTAG Networks through SIB Adaptor Architectures',
+    name: 'Vistrita Tyagi, Kshitij Kulshreshtha, Amihay Rabenu and Manish Arora'
+  },
+  {
+    id: '196',
+    title: 'Virtual Emulation Ecosystem for Rapid Pre Silicon Validation',
+    name: 'V N Sivakumar Avvaru, Srinivasan Arulanandam and Harini Sriram'
+  },
+  {
+    id: '210',
+    title: 'A Shift-Left Framework for Automated RTL-Level Correction of Testability Violations to Improve Stuck-At and Transition Fault Coverage',
+    name: 'Sunny Kumar, Yeturi Om Sasankar and Philemon Daniel'
+  },
+  {
+    id: '223',
+    title: 'Smart Test Line Selection for Pre- and Post-Silicon Validation: Leveraging AI for Enhanced Efficiency',
+    name: 'Ashwani Kumar, Trupti Joshi, Vishal B Bhogade and Hemanthkumar Sivaraj'
+  },
+  {
+    id: '226',
+    title: 'Scalable Fanin-Fanout Analysis Using Precomputed Reconvergence Data for DFT Verification',
+    name: 'Tushar Jeevan, Chandan Kumar, Meetu Agarwal and Suraj Kashyap'
+  },
+  {
+    id: '233',
+    title: 'A Cache‑Resident Linux Framework for System‑Level Validation on Enterprise‑Class Processors',
+    name: 'Manish Mukul, Madhavan Srinivasan, Mahesh Salgaonkar and Aditya Gupta'
+  },
+  {
+    id: '240',
+    title: 'HBM - Case study on a modern complex SOC with multi-die',
+    name: 'Padmini Prakash and Pradip Kapure'
+  },
+  {
+    id: '305',
+    title: 'A Weighted Hierarchical Approach to Testpoint Configuration driving Efficient and Optimized DFT Convergence',
+    name: 'Krunal Siddhapathak and Tathagat Biswas'
+  },
+  {
+    id: '315',
+    title: 'Protection of PUF Architectures Against Machine Learning Attacks Using Differential Privacy',
+    name: 'Ravi Bandla and Venkata Sreekanth Balijabudda'
+  },
+  {
+    id: '343',
+    title: 'Detecting Crosstalk-Induced Static Noise Defects Using a Customized ATPG Test Flow',
+    name: 'Siddarth Ambhorkar, Vevekanenda Gonugunta, Ramesh Chandel, Gaurav Mattey, Daniel Tille, Aneri Jain, Naveen Kumar M, Nithin Radhakrishna Pillai and Aditya Girish'
+  },
+  {
+    id: '351',
+    title: 'Navigating the Intricacies of Clock Domain Crossing: The Role of Unified Power Format',
+    name: 'Meghana L, Sravan Kumar Challa, Leela Krishna Thota and Narendra Kumar Napa'
+  },
+  {
+    id: '362',
+    title: 'A Novel Test Point Insertion Methodology for Enhanced Test Efficiency and Improved Design Quality',
+    name: 'Pervez Garg, Parth Kadiya and Pavithra K'
+  },
+  {
+    id: '369',
+    title: 'In System Test – Driven Memory Initialization for Improved Reliability in Multimode SoCs',
+    name: 'Salome Packiavathy, Venkatesh Vandrangi, Suraj Muzhayil Chathoth and Gevorg Torjyan'
+  },
+  {
+    id: '389',
+    title: 'An FPGA-Coordinated Validation Framework for Digital DUTs with DC and Protocol Testing for First Silicon Bring Up',
+    name: 'Senthilkumar Dhamodharan, Sreeram V.R., Dyaneswaran Anguraj, Swetha Kumar and Shahana Balamurugan'
+  },
+  {
+    id: '406',
+    title: 'Pattern Count Optimization and Test Cost Reduction Using TSO.ai for ATPG',
+    name: 'Jai Sehgal, Aditi Bahuguna, Peeyush Bhatnagar, Sruthi Nanduru, Theo Toulas and Prakyath Madadi'
+  },
+  {
+    id: '511',
+    title: 'A Functionally Self-Testable RISC-V Processor Using a Custom Test Instruction Set',
+    name: 'Satyam Kuar and Jaynarayan T Tudu'
+  }
 ];
 
 export const exhibitsData = [

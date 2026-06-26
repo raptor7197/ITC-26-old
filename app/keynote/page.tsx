@@ -28,7 +28,7 @@ export default function Keynote() {
           <div key={speaker.id} className="relative flex flex-col w-full">
             {speaker.comingSoon ? (
               <div className="w-full bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-8 md:p-10 flex flex-col items-center justify-center text-center shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300">
-                <h2 className="font-black text-xl sm:text-2xl md:text-[42px] tracking-tight mb-1 md:mb-2 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
+                <h2 className="font-black text-xl sm:text-2xl md:text-[42px] tracking-tight mb-1 md:mb-2 text-white">
                   {speaker.name}
                 </h2>
                 {speaker.affiliation && (
@@ -37,7 +37,7 @@ export default function Keynote() {
                   </p>
                 )}
                 {speaker.title && (
-                  <h3 className="text-base sm:text-lg md:text-[20px] font-bold uppercase mb-3 md:mb-4 text-white leading-snug tracking-wide drop-shadow-sm max-w-3xl">
+                  <h3 className="text-base sm:text-lg md:text-[20px] font-bold uppercase mb-3 md:mb-4 text-white leading-snug tracking-wide max-w-3xl">
                     {speaker.title}
                   </h3>
                 )}
@@ -82,7 +82,7 @@ export default function Keynote() {
                   {/* RIGHT: Content */}
                   <div className="flex-1 flex flex-col justify-start items-center md:items-start text-center md:text-left pt-1 md:pt-2 px-2 sm:px-6 md:px-0 w-full">
                     {/* Speaker Name */}
-                    <h2 className="font-black text-2xl sm:text-3xl md:text-[42px] tracking-tight mb-1 md:mb-2 text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-sky-200 drop-shadow-md">
+                    <h2 className="font-black text-2xl sm:text-3xl md:text-[42px] tracking-tight mb-1 md:mb-2 text-white">
                       {speaker.name}
                     </h2>
 
@@ -95,7 +95,7 @@ export default function Keynote() {
 
                     {/* Talk Title */}
                     {speaker.title && (
-                      <h3 className="text-base sm:text-lg md:text-[20px] font-bold uppercase mb-2 md:mb-3 text-white leading-snug tracking-wide max-w-[850px] drop-shadow-sm">
+                      <h3 className="text-base sm:text-lg md:text-[20px] font-bold uppercase mb-2 md:mb-3 text-white leading-snug tracking-wide max-w-[850px]">
                         {speaker.title}
                       </h3>
                     )}
