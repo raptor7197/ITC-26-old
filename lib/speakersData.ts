@@ -64,6 +64,7 @@ export const keynoteSpeakers = [
       "Nilanjan Mukherjee is Vice President of Software Engineering for Tessent Silicon Lifecycle Solutions at Siemens EDA, where he leads the development of advanced technologies spanning the complete silicon lifecycle, from design through field operation. A globally recognized expert in semiconductor test and diagnostics, he has pioneered innovations in test compression, Logic BIST, Memory BIST, low-power DFT, in-field testing, and silicon lifecycle management. His contributions include foundational work on EDT/TestKompress, VersaPoint Test Points, Observation Scan Technology, low-power hybrid EDT/Logic BIST, and packetized scan-based in-field testing.",
       "His work has significantly advanced the industry's approach to DFT, silicon diagnostics, and predictive health monitoring through the integration of on-chip sensing and data analytics. Holding over 60 U.S. patents, authoring more than 100 technical publications, and receiving numerous prestigious awards, including the IEEE Donald O. Pederson Outstanding Paper Award, the ITC Most Significant Paper Award, and multiple Best Paper Awards, Nilanjan continues to be a leading voice shaping the future of intelligent test and silicon lifecycle management.",
     ],
+    image: "/images/keynote/Nilanjan_Mukherjee.png",
   },
   {
     id: 6,
