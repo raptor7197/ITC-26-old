@@ -306,9 +306,9 @@ export const agendaDays: AgendaDay[] = [
         title: "Distinguished Addresses",
         location: "Grand Victoria",
         items: [
-          "Distinguished Address: Arojit Roychowdhury, Qualcomm",
-          "Distinguished Address: Don Chan, Cadence | Topic : From Point Tools to Agentic AI: How EDA has Impacted the Semiconductor Industry",
-          "Distinguished Address: Alpa Sood, Teradyne | Topic : THE CRITICAL ROLE OF TEST STRATEGY IN INDIA'S SEMICONDUCTOR GROWTH"
+          "Distinguished Address: Alpa Sood (Teradyne) | Topic : The critical role of Test Strategy in India's Semiconductor Growth",
+          "Distinguished Address: Don Chan (Cadence) | Topic : From Point Tools to Agentic AI: How EDA has impacted Semiconductor Industry",
+          "Distinguished Address: Rajesh Vaddempudi (Advantest) | Topic : The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration"
         ]
       },
       {

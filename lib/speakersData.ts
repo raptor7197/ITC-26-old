@@ -392,12 +392,11 @@ export const tutorialsData = [
   }];
 
 export const distinguishedAddressesData = [
-  { id: 0, name: "Arojit Roychowdhury", affiliation: "Qualcomm", comingSoon: true },
   { 
     id: 1, 
     name: "Don Chan", 
     affiliation: "Cadence", 
-    title: "From Point Tools to Agentic AI: How EDA has Impacted the Semiconductor Industry",
+    title: "From Point Tools to Agentic AI: How EDA has impacted Semiconductor Industry",
     description: "Electronic Design Automation (EDA) has been the driving force behind decades of semiconductor innovation, enabling engineers to design increasingly complex chips while sustaining the pace of Moore's Law. As transistor scaling approaches its physical limits, the industry is transitioning toward heterogeneous chiplet-based architectures, 3D integration, and AI-driven design methodologies. This talk explores the evolution of EDA from traditional point tools to intelligent, agentic AI workflows, highlighting how advances in design technology co-optimization, DFT methodologies, and AI-assisted automation are reshaping semiconductor design. Attendees will gain insights into the next generation of EDA technologies that will power future innovations in high-performance computing and artificial intelligence.",
     bio: [
       "Don Chan is Vice President of Research and Development at Cadence, where he leads the Foundry organization and drives strategic partnerships across the global semiconductor ecosystem. He oversees technology enablement, process certification, and customer support for advanced semiconductor nodes while also leading marketing and business development for Cadence's Digital and Signoff product portfolio. Throughout his career, he has led key R&D initiatives spanning 3D-IC, Conformal, Modus, and Stratus technologies, and previously held leadership positions at Synopsys and Fujitsu Micro.",
@@ -405,8 +404,8 @@ export const distinguishedAddressesData = [
     ],
     image: "/images/don-chan.jpg"
   },
-  { id: 2, name: "Alpa Sood", affiliation: "Teradyne", title: "THE CRITICAL ROLE OF TEST STRATEGY IN INDIA'S SEMICONDUCTOR GROWTH", comingSoon: true },
-  { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest India", title: "THE INTELLIGENT SILICON ERA: REDEFINING SEMICONDUCTOR TEST THROUGH INNOVATION, AI, AND COLLABORATION", comingSoon: true }
+  { id: 2, name: "Alpa Sood", affiliation: "Teradyne", title: "The critical role of Test Strategy in India's Semiconductor Growth", comingSoon: true },
+  { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true }
 ];
 
 export const panelsData = [
