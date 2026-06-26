@@ -56,7 +56,7 @@ export default function Exhibits() {
   return (
     <main className="relative min-h-screen w-full font-sans text-white box-border pt-[70px] md:pt-[120px] pb-24">
       <PageHeader title="EXHIBITS" />
-      <div className="w-full max-w-[1100px] flex flex-col mx-auto px-page mt-8">
+      <div className="w-full max-w-[1050px] flex flex-col mx-auto px-page mt-8">
 
         {/* Mobile Orientation Hint */}
         <div className="md:hidden flex items-center justify-center gap-3 bg-[#103e63]/50 border border-[#38bdf8]/30 rounded-xl p-4 mb-6 text-[#e2e8f0] text-sm shadow-lg">
@@ -70,7 +70,7 @@ export default function Exhibits() {
         <div className="relative w-full mb-16 group">
           
           <div className="w-full overflow-x-auto exhibits-scrollbar bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300 pb-2">
-            <div className="min-w-[1000px] w-full p-8 mx-auto min-h-[450px] flex items-center justify-center">
+            <div className="min-w-[900px] w-full p-8 mx-auto min-h-[380px] flex items-center justify-center">
               <svg viewBox="0 0 1100 450" className="w-full h-auto drop-shadow-xl">
               {/* 1. Base Paths (Clean, delicate lines) */}
               <path d="M 10 230 L 754 230 A 6 6 0 0 0 760 224 L 760 146 A 6 6 0 0 1 766 140 L 1095 140" fill="none" stroke="#38bdf8" strokeWidth="1.5" strokeOpacity="0.6" />
