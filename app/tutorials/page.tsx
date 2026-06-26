@@ -50,7 +50,7 @@ export default function Tutorials() {
                 {tutorial.authors.map((author, idx) => (
                   <div
                     key={idx}
-                    className="flex flex-col md:flex-row gap-5 sm:gap-6 md:gap-8 items-center md:items-start"
+                    className="flex flex-col md:flex-row gap-5 sm:gap-6 md:gap-8 items-center"
                   >
                     {/* Photo */}
                     {author.image && (

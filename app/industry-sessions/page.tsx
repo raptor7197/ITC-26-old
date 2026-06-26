@@ -60,7 +60,7 @@ export default function IndustrySessions() {
             ) : (
               <div className="flex flex-col w-full bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-8 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300">
                 {/* TOP ROW: Photo + Info */}
-                <div className="flex flex-col md:flex-row gap-5 sm:gap-8 md:gap-10 mb-2 md:mb-6 items-center md:items-start">
+                <div className="flex flex-col md:flex-row gap-5 sm:gap-8 md:gap-10 mb-2 md:mb-6 items-center">
                   {/* LEFT: Photo */}
                   {speaker.image && (
                     <div

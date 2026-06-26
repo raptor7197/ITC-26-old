@@ -151,7 +151,7 @@ export default function AgendaModal({
                   {data.authors && data.authors.length > 0 && (
                     <div className="flex flex-col gap-10 mb-8">
                       {data.authors.map((author, idx) => (
-                        <div key={idx} className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-start">
+                        <div key={idx} className="flex flex-col sm:flex-row gap-6 sm:gap-8 items-center">
                           {/* Photo */}
                           {author.image && (
                             <div className="flex-shrink-0 mx-auto sm:mx-0 w-[140px] sm:w-[160px] mt-2 sm:mt-4">
@@ -198,7 +198,7 @@ export default function AgendaModal({
               ) : (
                 /* KEYNOTE / INDUSTRY SESSION MODE */
                 <div className="flex flex-col w-full">
-                  <div className="flex flex-col sm:flex-row gap-8 sm:gap-10 mb-8 items-start">
+                  <div className="flex flex-col sm:flex-row gap-8 sm:gap-10 mb-8 items-center">
                     {/* Photo */}
                     {data.image && (
                       <div className="flex-shrink-0 mx-auto sm:mx-0 w-[160px] sm:w-[240px] relative mt-2 sm:mt-4">

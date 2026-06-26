@@ -124,8 +124,13 @@ export const industrySpeakers = [
   },
   {
     id: 4,
-    name: "Tessolve",
-    comingSoon: true,
+    name: "Anand Muthaiah",
+    affiliation: "Tessolve",
+    bio: [
+      "Anand Muthaiah is Senior Vice President and Head of the COE and Post Silicon Business Unit at Tessolve, bringing over 31 years of experience in semiconductor testing. An expert in digital, analog, and mixed-signal test methodologies, he has built extensive expertise in post-silicon validation and high-volume manufacturing across a broad range of semiconductor products. He holds an M.S. in Electrical Engineering from the University of South Florida and has held key technical and leadership positions at Cyrix Semiconductor, LTX Corporation, Intel Technologies, and Tessolve.",
+      "His decades of experience spanning semiconductor test engineering, post-silicon validation, and production test have given him deep insight into the challenges of delivering high-quality, manufacturable silicon at scale. Combining strong technical expertise with strategic leadership, Anand continues to drive innovation in advanced semiconductor testing and post-silicon engineering for next-generation devices."
+    ],
+    image: "/images/Anand_Muttaiah.png"
   }
 ];
 
@@ -409,7 +414,18 @@ export const distinguishedAddressesData = [
     ],
     image: "/images/Don-Chan.png"
   },
-  { id: 2, name: "Alpa Sood", affiliation: "Teradyne", title: "The critical role of Test Strategy in India's Semiconductor Growth", comingSoon: true },
+  { 
+    id: 2, 
+    name: "Alpa Sood", 
+    affiliation: "Teradyne", 
+    title: "The Critical Role of Test Strategy in India's Semiconductor Growth", 
+    description: "As India accelerates its ambitions of becoming a global semiconductor hub, developing a robust test ecosystem is emerging as a strategic priority. Advanced test methodologies are essential not only for ensuring product quality and reliability but also for strengthening manufacturing capabilities, enabling supply chain resilience, and enhancing global competitiveness. This talk explores the pivotal role of test strategy in building a sustainable semiconductor ecosystem, highlighting the importance of collaboration between industry, government, and academia to support India's vision of becoming a leading semiconductor nation.",
+    bio: [
+      "Alpa is Country Manager for India at Teradyne, bringing over 15 years of experience across business, policy, and government affairs. Throughout her career, she has worked closely with the Government of India and various state governments to foster the growth and innovation of the semiconductor ecosystem, building strong partnerships between the public and private sectors that create opportunities for businesses, entrepreneurs, and the broader industry.",
+      "Prior to joining Teradyne, Alpa led government affairs, legal, and strategic policy engagement at Marvell India, where she developed deep expertise in navigating complex industry landscapes. Her extensive background in bridging public and private sector relationships makes her a driving force in shaping India's semiconductor future."
+    ],
+    image: "/images/Alpa-Sood.png"
+  },
   { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest, India", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true }
 ];
 
