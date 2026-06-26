@@ -11,6 +11,7 @@ export type AgendaSlotVariant =
 
 export type ParallelSession = {
   subtitle?: string;
+  sessionChair?: string;
   hall: string;
   title: string;
   items?: string[];
@@ -191,6 +192,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 1: 3D IC and Chiplet Testing",
             items: [
               "1.1: RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP - Hilay Patel, Naman Kalra and Jaynarayan T Tudu (IIT Tirupati)",
@@ -200,6 +202,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Grand Victoria 2",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 2: Hardware Security and Trojan Detection",
             items: [
               "2.1: Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs - Prasanth Viswanathan Pillai, Varshashree Kottadamane, Ramakrishna Pidaparthi, Rohit Chaudhari, Sivareddy Maramreddy, Naveen Kothuri, Narendra Ravilla and Labeeb K (Texas Instruments India)",
@@ -209,6 +212,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Arabica & Robusta",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 3: Pre-Silicon Verification and Debug",
             items: [
               "3.1: Comprehensive Coverage Framework for LPDDR6 Feature Validation: Navigating Complex Modes and Reducing the Verification Closure Gap - Dharini Subashchandran, Gruhesh Patel, Meghna Ahuja and Shyam Sharma (Cadence Design Systems India)",
@@ -235,6 +239,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 4: Advances in DFT and ATPG",
             items: [
               "4.1: Physically Aware Weighted Fault Model : A new paradigm in testing - Sandipan Sharma, Srinivas Vooka, Maheedhar Jalasutram, Pranav Murthy (Google India Pvt. Ltd), Chieh-Jen Ku and Yanhan Zhu (Google LLC)",
@@ -245,6 +250,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Grand Victoria 2",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 5: AI and Machine Learning Applications",
             items: [
               "5.1: Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design - Senthilkumar Dhamodharan, Loka Priya, Dyaneswaran Priya and Karthika R (Caliber Interconnects)",
@@ -255,6 +261,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Arabica & Robusta",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 6: Secure IJTAG and Access Control",
             items: [
               "6.1: State-Isolated Scan - A Secure Low-Power Scan Architecture - C.P. Ravikumar (Vinyana Tech) and Kushal C. (Sykatiya Technologies)",
@@ -366,6 +373,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Grand Victoria 2",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 7: ATE and Hardware Test Methods",
             items: [
               "7.1: Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test - Sujith Thomas, Siva Elango S, Dinesh Sharma and Mathangi Raghuraman (Sandisk India Device Design Center Private Limited)",
@@ -375,6 +383,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Arabica & Robusta",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 8: Silicon Reliability and Lifecycle Management",
             items: [
               "8.1: Unified Compact Health and Aging Models for Manufacturing to In-Field Silicon Quality and Reliability Management - Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota (Synopsys)",
@@ -415,6 +424,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Grand Victoria 2",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 9: Memory Test and MBIST Methodologies",
             items: [
               "9.1: Physical Design Aware Verification Methodology for Closing Coverage Gaps in SharedBus MBIST - Shivam Tulsyan, Mayank Parasrampuria, Prachi Sinha, Vasudevan Pillai A and Maheedhar Jalasutram (Google India)",
@@ -425,6 +435,7 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Arabica & Robusta",
+            sessionChair: "Session Chair: TBD",
             title: "Technical Track 10: Post-Silicon Validation, Silicon Fixes, and Low-Power DFT",
             items: [
               "10.1: A novel hardware design for effective supply voltage glitch injection - Asmita Mohapatra, Antony Varghese and Ashok Kumar (Infineon Technologies India Pvt. Ltd.)",

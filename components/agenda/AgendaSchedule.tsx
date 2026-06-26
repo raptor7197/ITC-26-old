@@ -607,6 +607,11 @@ export default function AgendaSchedule() {
                                   {session.subtitle}
                                 </div>
                               )}
+                              {session.sessionChair && (
+                                <div className="text-[13px] text-sky-300 font-semibold">
+                                  {session.sessionChair}
+                                </div>
+                              )}
                               {session.items && session.items.length > 0 && (
                                 <div className="flex flex-col gap-1.5 mt-1">
                                   {session.items.map((item: string, idx: number) => {
@@ -1159,6 +1164,11 @@ export default function AgendaSchedule() {
                                     {session.subtitle && (
                                       <div className="text-xs sm:text-sm text-sky-200 mt-[-8px] mb-4 font-bold italic">
                                         {session.subtitle}
+                                      </div>
+                                    )}
+                                    {session.sessionChair && (
+                                      <div className="text-xs sm:text-[15px] text-sky-300 mt-[-8px] mb-4 font-bold">
+                                        {session.sessionChair}
                                       </div>
                                     )}
                                     <div className="mt-auto pt-3 flex flex-col gap-3">

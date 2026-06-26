@@ -1,12 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { distinguishedAddressesData as speakers } from "@/lib/speakersData";
+import { distinguishedAddressesData, Speaker } from "@/lib/speakersData";
 import Image from "next/image";
 
 import PageHeader from "@/components/ui/PageHeader";
 
 export default function DistinguishedAddresses() {
+  const speakers: Speaker[] = distinguishedAddressesData;
   const [expandedSpeakers, setExpandedSpeakers] = useState<Record<string, boolean>>({});
 
   const toggleSpeaker = (id: string | number) => {

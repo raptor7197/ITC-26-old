@@ -1,3 +1,15 @@
+export interface Speaker {
+  id: number | string;
+  name?: string;
+  title?: string;
+  affiliation?: string;
+  description?: string;
+  bio?: string[];
+  image?: string;
+  comingSoon?: boolean;
+  authors?: any[];
+}
+
 export const keynoteSpeakers = [
   {
     id: 0,

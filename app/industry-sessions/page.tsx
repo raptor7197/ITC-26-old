@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { industrySpeakers as speakers } from "@/lib/speakersData";
+import { industrySpeakers, Speaker } from "@/lib/speakersData";
 import Image from "next/image";
 import PageHeader from "@/components/ui/PageHeader";
 
 export default function IndustrySessions() {
+  const speakers: Speaker[] = industrySpeakers;
   const [expandedSpeakers, setExpandedSpeakers] = useState<Record<string, boolean>>({});
 
   const toggleSpeaker = (id: string | number) => {
