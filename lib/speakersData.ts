@@ -494,7 +494,8 @@ export const distinguishedAddressesData = [
     image: "/images/Alpa-Sood.png",
     imageClassName: "object-[40%_10%]"
   },
-  { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest, India", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true }
+  { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest, India", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true },
+  { id: 4, name: "Arojit Roychowdhury", affiliation: "Qualcomm", comingSoon: true }
 ];
 
 export const panelsData = [

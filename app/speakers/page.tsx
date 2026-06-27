@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import {
   keynoteSpeakers,
@@ -8,7 +7,6 @@ import {
   tutorialsData,
   distinguishedAddressesData,
 } from "@/lib/speakersData";
-import AgendaModal, { ModalData } from "@/components/agenda/AgendaModal";
 
 // Extract tutorial speakers from tutorialsData and group their tutorials
 const tutorialSpeakersMap = new Map<string, any>();
@@ -47,12 +45,9 @@ const sections = [
   { title: "Tutorial Speakers", data: tutorialSpeakers },
 ];
 
-const SpeakerCard = ({ speaker, onClick }: { speaker: any; onClick: () => void }) => {
+const SpeakerCard = ({ speaker }: { speaker: any }) => {
   return (
-    <div 
-      onClick={onClick}
-      className="w-[300px] md:w-[360px] min-h-[380px] md:min-h-[420px] border border-white/20 rounded-lg p-8 flex flex-col items-center bg-[#03396c]/50 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:border-white/40 hover:scale-105 transition-all duration-300 group cursor-pointer"
-    >
+    <div className="w-[300px] md:w-[360px] min-h-[380px] md:min-h-[420px] border border-white/20 rounded-lg p-8 flex flex-col items-center bg-[#03396c]/50 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:border-white/40 hover:scale-105 transition-all duration-300 group">
       <div className="relative w-40 h-40 md:w-56 md:h-56 mb-8 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-white/30 transition-colors bg-white/5 flex items-center justify-center">
         {speaker.image ? (
           <Image
@@ -76,31 +71,12 @@ const SpeakerCard = ({ speaker, onClick }: { speaker: any; onClick: () => void }
         <p className="text-base md:text-lg text-gray-300 font-medium leading-snug">
           {speaker.affiliation}
         </p>
-        <div className="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-2 text-sky-400 text-xs sm:text-sm font-bold tracking-wide uppercase translate-y-2 group-hover:translate-y-0">
-          <span>Click to read more</span>
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
       </div>
     </div>
   );
 };
 
 export default function Speakers() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedSpeakerData, setSelectedSpeakerData] = useState<ModalData | null>(null);
-
-  const handleCardClick = (speaker: any, sectionTitle: string) => {
-    if (sectionTitle === "Tutorial Speakers") {
-      // Use the exact same data structure (the full tutorial object) as the Agenda page to preserve the layout with all co-authors
-      setSelectedSpeakerData(speaker.tutorials[0] as ModalData);
-    } else {
-      setSelectedSpeakerData(speaker as ModalData);
-    }
-    setIsModalOpen(true);
-  };
-
   return (
     <main className="min-h-screen overflow-hidden relative text-white font-poppins selection:bg-white/20">
       <div className="relative z-10 pt-[150px] pb-20 w-[85%] sm:w-[90%] md:w-full md:px-10 max-w-[1360px] mx-auto flex flex-col items-center">
@@ -123,7 +99,6 @@ export default function Speakers() {
                 <SpeakerCard 
                   key={speaker.id || speaker.name} 
                   speaker={speaker} 
-                  onClick={() => handleCardClick(speaker, section.title)}
                 />
               ))}
             </div>
@@ -136,12 +111,6 @@ export default function Speakers() {
           </div>
         ))}
       </div>
-
-      <AgendaModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        data={selectedSpeakerData}
-      />
     </main>
   );
 }
