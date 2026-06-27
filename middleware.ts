@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
+export const runtime = "edge";
+
 const protectedPaths = [
   "/dashboard",
   "/fellowship/application",
@@ -8,7 +10,7 @@ const protectedPaths = [
   "/admin/fellowship",
 ];
 
-export function proxy(request: NextRequest) {
+export default function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isProtected = protectedPaths.some(
     (path) => pathname === path || pathname.startsWith(path + "/"),
@@ -31,3 +33,11 @@ export function proxy(request: NextRequest) {
   return NextResponse.next();
 }
 
+export const config = {
+  matcher: [
+    "/dashboard/:path*",
+    "/fellowship/application/:path*",
+    "/fellowship/register/:path*",
+    "/admin/fellowship/:path*",
+  ],
+};
