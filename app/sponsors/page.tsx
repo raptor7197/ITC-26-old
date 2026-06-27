@@ -262,6 +262,11 @@ export default function SponsorsPage() {
                 src: "/images/committee/tessolve.png",
                 url: "https://www.tessolve.com/",
               },
+              {
+                name: "DeFT Semiconductors",
+                src: "/images/deft.png",
+                url: "https://www.deftsemi.com/"
+              }
             ].map((sponsor) => (
               <div
                 key={sponsor.name}
