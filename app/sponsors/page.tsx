@@ -36,7 +36,7 @@ export default function SponsorsPage() {
 
           <div className="flex flex-wrap justify-center gap-8">
             <div className="group relative w-full max-w-lg bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200 opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute inset-0 bg-white opacity-100 transition-opacity duration-300"></div>
 
               <div className="relative p-4 flex flex-col items-center justify-center min-h-[260px] text-center">
                 <div className="mb-6 transform group-hover:scale-110 transition-transform duration-500">
@@ -75,7 +75,7 @@ export default function SponsorsPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             <div className="group relative w-full max-w-md bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+              <div className="absolute inset-0 bg-white"></div>
 
               <div className="relative p-4 flex items-center justify-center min-h-[200px]">
                 <img
@@ -101,7 +101,7 @@ export default function SponsorsPage() {
             </div>
 
             <div className="group relative w-full max-w-md bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+              <div className="absolute inset-0 bg-white"></div>
 
               <div className="relative p-4 flex items-center justify-center min-h-[200px]">
                 <img
@@ -168,7 +168,7 @@ export default function SponsorsPage() {
                 key={sponsor.name}
                 className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+                <div className="absolute inset-0 bg-white"></div>
 
                 <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                   <img
@@ -205,7 +205,7 @@ export default function SponsorsPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             <div className="group relative w-4/5 max-w-md bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+              <div className="absolute inset-0 bg-white"></div>
 
               <div className="relative p-0 flex items-center justify-center min-h-[200px]">
                 <img
@@ -267,7 +267,7 @@ export default function SponsorsPage() {
                 key={sponsor.name}
                 className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+                <div className="absolute inset-0 bg-white"></div>
 
                 <div className="relative p-4 flex items-center justify-center min-h-[150px]">
                   <img
@@ -304,7 +304,7 @@ export default function SponsorsPage() {
           </div>
           <div className="flex flex-wrap justify-center gap-8">
             <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+              <div className="absolute inset-0 bg-white"></div>
 
               <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                 <img
@@ -329,7 +329,7 @@ export default function SponsorsPage() {
             </div>
 
             <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+              <div className="absolute inset-0 bg-white"></div>
 
               <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                 <img
@@ -354,7 +354,7 @@ export default function SponsorsPage() {
             </div>
 
             <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+              <div className="absolute inset-0 bg-white"></div>
 
               <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                 <img
@@ -379,7 +379,7 @@ export default function SponsorsPage() {
             </div>
 
             <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.05)] hover:shadow-[0_0_50px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-200"></div>
+              <div className="absolute inset-0 bg-white"></div>
 
               <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                 <img
