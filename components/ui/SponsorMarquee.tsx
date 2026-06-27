@@ -19,6 +19,7 @@ const sponsors = [
   { name: "Anora labs", src: "/images/anoralabs.png", category: "Silver" },
   { name: "Marvel", src: "/images/marvell-logo.svg", category: "Bronze" },
   { name: "Sandisk", src: "/images/sandisk1.png", category: "Bronze" },
+  { name: "DeFT Semiconductors", src: "/images/deft.png", category: "Bronze"},
   {
     name: "Texas Instruments",
     src: "/images/texasinstruments.png",
