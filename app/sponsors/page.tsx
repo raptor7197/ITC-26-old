@@ -43,7 +43,7 @@ export default function SponsorsPage() {
                   <img
                     src="/images/caliberinterconnect.png"
                     alt="Caliber Interconnect"
-                    className="h-12 md:h-16 object-contain"
+                    className="max-h-16 md:max-h-20 w-auto max-w-[85%] object-contain"
                   />
                 </div>
 
@@ -81,7 +81,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/siemens.png"
                   alt="Siemens"
-                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="max-h-16 sm:max-h-24 md:max-h-32 w-auto max-w-[75%] md:max-w-[85%] object-contain transition-transform duration-500 md:scale-[1.3] group-hover:scale-[1.1] md:group-hover:scale-[1.45]"
                 />
               </div>
 
@@ -107,7 +107,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/google.png"
                   alt="Google"
-                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="max-h-16 md:max-h-20 w-auto max-w-[80%] md:max-w-[90%] object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
@@ -174,7 +174,7 @@ export default function SponsorsPage() {
                   <img
                     src={sponsor.src}
                     alt={sponsor.name}
-                    className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                    className="max-h-12 md:max-h-16 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                     <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
@@ -211,7 +211,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/anoralabs.png"
                   alt="Anora labs"
-                  className="h-16 md:h-20 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="max-h-16 md:max-h-20 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
@@ -278,7 +278,7 @@ export default function SponsorsPage() {
                   <img
                     src={sponsor.src}
                     alt={sponsor.name}
-                    className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                    className="max-h-12 md:max-h-16 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                     <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
@@ -315,7 +315,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/ieeeblr.png"
                   alt="IEEE Bangalore Section"
-                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="max-h-12 md:max-h-16 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                   <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
@@ -340,7 +340,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/IESA.jpg"
                   alt="IESA"
-                  className="h-20 md:h-28 w-full object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="max-h-20 md:max-h-28 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                   <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
@@ -365,7 +365,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/TTTC.png"
                   alt="TTTC"
-                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="max-h-12 md:max-h-16 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                   <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
@@ -390,7 +390,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/VLSI.jpg"
                   alt="VLSI Society of India"
-                  className="h-20 md:h-24 w-full object-contain transition-transform duration-500 group-hover:scale-110 mt-4"
+                  className="max-h-20 md:max-h-24 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110 mt-4"
                 />
                 <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                   <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
