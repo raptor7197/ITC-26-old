@@ -35,15 +35,15 @@ export default function SponsorsPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
-            <div className="group relative w-full max-w-lg bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+            <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
               <div className="absolute inset-0 bg-white opacity-100 transition-opacity duration-300"></div>
 
-              <div className="relative p-4 flex flex-col items-center justify-center min-h-[260px] text-center">
+              <div className="relative p-6 flex flex-col items-center justify-center min-h-[150px] text-center">
                 <div className="mb-6 transform group-hover:scale-110 transition-transform duration-500">
                   <img
                     src="/images/caliberinterconnect.png"
                     alt="Caliber Interconnect"
-                    className="h-16 md:h-20 object-contain"
+                    className="h-12 md:h-16 object-contain"
                   />
                 </div>
 
@@ -74,14 +74,14 @@ export default function SponsorsPage() {
             <div className="h-[1px] bg-gradient-to-l from-transparent to-gray-400 w-16 md:w-32"></div>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-            <div className="group relative w-full max-w-md bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+            <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
               <div className="absolute inset-0 bg-white"></div>
 
-              <div className="relative p-4 flex items-center justify-center min-h-[200px]">
+              <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                 <img
                   src="/images/siemens.png"
                   alt="Siemens"
-                  className="h-24 md:h-32 object-contain transition-transform duration-500 scale-[1.3] group-hover:scale-[1.45]"
+                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
@@ -100,14 +100,14 @@ export default function SponsorsPage() {
               ></a>
             </div>
 
-            <div className="group relative w-full max-w-md bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+            <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
               <div className="absolute inset-0 bg-white"></div>
 
-              <div className="relative p-4 flex items-center justify-center min-h-[200px]">
+              <div className="relative p-6 flex items-center justify-center min-h-[150px]">
                 <img
                   src="/images/google.png"
                   alt="Google"
-                  className="h-16 md:h-20 object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="h-12 md:h-16 object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
@@ -199,7 +199,7 @@ export default function SponsorsPage() {
           <div className="flex items-center justify-center gap-4 mb-8">
             <div className="h-[1px] bg-gradient-to-r from-transparent to-gray-400 w-16 md:w-32"></div>
             <h2 className="text-xl md:text-2xl font-bold text-center text-gray-300 font-space-grotesk tracking-wide uppercase px-4">
-              Silver Sponsor
+              Silver Sponsors
             </h2>
             <div className="h-[1px] bg-gradient-to-l from-transparent to-gray-400 w-16 md:w-32"></div>
           </div>
@@ -265,8 +265,8 @@ export default function SponsorsPage() {
               {
                 name: "DeFT Semiconductors",
                 src: "/images/deft.png",
-                url: "https://www.deftsemi.com/"
-              }
+                url: "https://www.deftsemi.com/",
+              },
             ].map((sponsor) => (
               <div
                 key={sponsor.name}

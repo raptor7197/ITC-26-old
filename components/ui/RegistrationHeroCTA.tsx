@@ -126,12 +126,12 @@ export default function RegistrationHeroCTA({
           <span className="hero-register-btn-text">Register Now</span>
         </Link>
         <Link
-          href="/speakers"
+          href="/agenda"
           role="button"
-          title="View Our Speakers"
+          title="View Agenda"
           className="font-poppins font-bold text-[15px] leading-[1.2] tracking-[0.08em] uppercase px-[36px] h-[46px] rounded-[6px] border-none text-[#0b284e] bg-[#6aaff1] hover:bg-[#5da5e9] transition-all duration-300 shrink-0 inline-flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.2)] box-border"
         >
-          <span className="hero-register-btn-text">Our Speakers</span>
+          <span className="hero-register-btn-text">Agenda</span>
         </Link>
       </div>
     );
