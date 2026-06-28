@@ -81,7 +81,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/siemens.png"
                   alt="Siemens"
-                  className="max-h-16 sm:max-h-24 md:max-h-32 w-auto max-w-[75%] md:max-w-[85%] object-contain transition-transform duration-500 md:scale-[1.3] group-hover:scale-[1.1] md:group-hover:scale-[1.45]"
+                  className="mx-auto max-h-20 sm:max-h-24 md:max-h-32 w-auto max-w-[85%] object-contain transition-transform duration-500 scale-[1.3] md:scale-125 group-hover:scale-[1.45] md:group-hover:scale-[1.4]"
                 />
               </div>
 
@@ -107,7 +107,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/google.png"
                   alt="Google"
-                  className="max-h-16 md:max-h-20 w-auto max-w-[80%] md:max-w-[90%] object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="mx-auto max-h-20 md:max-h-28 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110 mt-5"
                 />
               </div>
 
@@ -174,7 +174,11 @@ export default function SponsorsPage() {
                   <img
                     src={sponsor.src}
                     alt={sponsor.name}
-                    className="max-h-12 md:max-h-16 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
+                    className={`mx-auto w-auto max-w-[85%] object-contain transition-transform duration-500 ${
+                      ["Advantest"].includes(sponsor.name)
+                        ? "max-h-16 sm:max-h-20 md:max-h-24 scale-[1.3] group-hover:scale-[1.45]"
+                        : "max-h-12 md:max-h-16 group-hover:scale-110"
+                    }`}
                   />
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                     <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">
@@ -211,7 +215,7 @@ export default function SponsorsPage() {
                 <img
                   src="/images/anoralabs.png"
                   alt="Anora labs"
-                  className="max-h-16 md:max-h-20 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
+                  className="mx-auto max-h-16 md:max-h-20 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
 
@@ -278,7 +282,11 @@ export default function SponsorsPage() {
                   <img
                     src={sponsor.src}
                     alt={sponsor.name}
-                    className="max-h-12 md:max-h-16 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
+                    className={`mx-auto w-auto max-w-[85%] object-contain transition-transform duration-500 ${
+                      ["DeFT Semiconductors"].includes(sponsor.name)
+                        ? "max-h-16 sm:max-h-20 md:max-h-24 scale-[1.3] group-hover:scale-[1.45]"
+                        : "max-h-12 md:max-h-16 group-hover:scale-110"
+                    }`}
                   />
                   <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-4 left-1/2 -translate-x-1/2">
                     <span className="text-[#03396c] font-semibold text-xs tracking-widest uppercase border-b-2 border-[#03396c]">

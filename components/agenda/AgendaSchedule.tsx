@@ -275,12 +275,20 @@ export default function AgendaSchedule() {
     if (keynoteMatch) return keynoteMatch as ModalData;
 
     // Check Tutorials
-    const tutorialMatch = tutorialsData.find(
+    // First pass: Match strictly by title
+    let tutorialMatch = tutorialsData.find(
       (t) =>
-        (t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))) ||
-        (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
-        (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
+        t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()) || t.title.toLowerCase().includes(safeTitle))
     );
+    
+    // Second pass: Match by author if title doesn't match
+    if (!tutorialMatch) {
+      tutorialMatch = tutorialsData.find(
+        (t) =>
+          (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
+          (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
+      );
+    }
     if (tutorialMatch) return tutorialMatch as ModalData;
 
     // Check Industry Speakers (match name in title or items)
@@ -494,7 +502,7 @@ export default function AgendaSchedule() {
                     {slot.items && slot.items.length > 0 && (
                       <div className="flex flex-col gap-4 mt-2">
                         {slot.items.map((item, idx) => {
-                          const isClickable = getMatchData(item);
+                          const isClickable = getMatchData(slot.title, [item]);
                           const parts = item.split("| Topic :");
                           const topic = parts[1] ? parts[1].trim() : null;
                           const speaker = parts[0].replace(/^(Distinguished Address:?|Keynote:?)\s*/i, "").trim();
@@ -506,7 +514,7 @@ export default function AgendaSchedule() {
                               onClick={(e) => {
                                 if (isClickable) {
                                   e.stopPropagation();
-                                  handleTileClick(item);
+                                  handleTileClick(slot.title, [item]);
                                 }
                               }}
                             >
@@ -615,7 +623,7 @@ export default function AgendaSchedule() {
                               {session.items && session.items.length > 0 && (
                                 <div className="flex flex-col gap-1.5 mt-1">
                                   {session.items.map((item: string, idx: number) => {
-                                    const itemMatch = getMatchData(item);
+                                    const itemMatch = getMatchData(session.title, [item]);
                                     const isTutorialTile =
                                       activeId === "tutorials" && session.title !== "ITC-at-ITC";
                                     const isItemClickable = itemMatch && !isTutorialTile;
@@ -628,7 +636,7 @@ export default function AgendaSchedule() {
                                         onClick={(e) => {
                                           if (isItemClickable) {
                                             e.stopPropagation();
-                                            handleTileClick(item);
+                                            handleTileClick(session.title, [item]);
                                           }
                                         }}
                                       >
@@ -652,7 +660,7 @@ export default function AgendaSchedule() {
                                         onClick={(e) => {
                                           if (isItemClickable) {
                                             e.stopPropagation();
-                                            handleTileClick(item);
+                                            handleTileClick(session.title, [item]);
                                           }
                                         }}
                                       >
@@ -1014,7 +1022,7 @@ export default function AgendaSchedule() {
                               {slot.items && slot.items.length > 0 && (
                                 <div className="flex flex-col gap-5 mt-4 w-full px-2 sm:px-4">
                                   {slot.items.map((item, idx) => {
-                                    const isClickable = getMatchData(item);
+                                    const isClickable = getMatchData(slot.title, [item]);
                                     const parts = item.split("| Topic :");
                                     const topic = parts[1] ? parts[1].trim() : null;
                                     const speaker = parts[0].replace(/^(Distinguished Address:?|Keynote:?)\s*/i, "").trim();
@@ -1026,7 +1034,7 @@ export default function AgendaSchedule() {
                                         onClick={(e) => {
                                           if (isClickable) {
                                             e.stopPropagation();
-                                            handleTileClick(item);
+                                            handleTileClick(slot.title, [item]);
                                           }
                                         }}
                                         {...(isClickable ? { title: "Click to read more details" } : {})}
@@ -1176,7 +1184,7 @@ export default function AgendaSchedule() {
                                         <div className="space-y-[6px]">
                                           {session.items.map(
                                             (item: string, idx: number) => {
-                                              const itemMatch = getMatchData(item);
+                                              const itemMatch = getMatchData(session.title, [item]);
                                               const isTutorialTile = activeId === "tutorials" && session.title !== "ITC-at-ITC";
                                               const isItemClickable = itemMatch && !isTutorialTile;
                                               
@@ -1192,7 +1200,7 @@ export default function AgendaSchedule() {
                                                   onClick={(e) => {
                                                     if (isItemClickable) {
                                                       e.stopPropagation();
-                                                      handleTileClick(item);
+                                                      handleTileClick(session.title, [item]);
                                                     }
                                                   }}
                                                   {...(isItemClickable ? { "title": "Click to read more details" } : {})}
@@ -1213,7 +1221,7 @@ export default function AgendaSchedule() {
                                                   onClick={(e) => {
                                                     if (isItemClickable) {
                                                       e.stopPropagation();
-                                                      handleTileClick(item);
+                                                      handleTileClick(session.title, [item]);
                                                     }
                                                   }}
                                                   {...(isItemClickable ? { "title": "Click to read more details" } : {})}
@@ -1247,7 +1255,7 @@ export default function AgendaSchedule() {
                                                   onClick={(e) => {
                                                     if (isItemClickable) {
                                                       e.stopPropagation();
-                                                      handleTileClick(item);
+                                                      handleTileClick(session.title, [item]);
                                                     }
                                                   }}
                                                   {...(isItemClickable ? { "title": "Click to read more details" } : {})}
