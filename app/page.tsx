@@ -3,6 +3,7 @@ import UpdatesMarquee from "@/components/ui/UpdatesMarquee";
 import AboutUs from "@/components/ui/AboutUs";
 import Timeline from "@/components/ui/Timeline";
 import Testimonials from "@/components/ui/Testimonials";
+import SpeakersCarousel from "@/components/ui/SpeakersCarousel";
 import FAQ from "@/components/ui/FAQ";
 import Photos from "@/components/ui/Photos";
 import SponsorMarquee from "@/components/ui/SponsorMarquee";
@@ -18,6 +19,7 @@ export default function Home() {
         <AboutUs />
         {/*<Timeline />*/}
         <Testimonials />
+        <SpeakersCarousel />
         <FAQ />
         <Photos />
         <SponsorMarquee />

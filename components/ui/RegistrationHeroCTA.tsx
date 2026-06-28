@@ -116,7 +116,7 @@ export default function RegistrationHeroCTA({
 
   if (variant === "page") {
     return (
-      <div className={`${wrapperClass} flex flex-col sm:flex-row gap-4 sm:gap-5 items-center`}>
+      <div className={`${wrapperClass} flex flex-col sm:flex-row gap-4 sm:gap-5 items-center flex-wrap`}>
         <Link
           href="/registration"
           role="button"
@@ -128,10 +128,10 @@ export default function RegistrationHeroCTA({
         <Link
           href="/agenda"
           role="button"
-          title="View Agenda"
+          title="View Our Agenda"
           className="font-poppins font-bold text-[15px] leading-[1.2] tracking-[0.08em] uppercase px-[36px] h-[46px] rounded-[6px] border-none text-[#0b284e] bg-[#6aaff1] hover:bg-[#5da5e9] transition-all duration-300 shrink-0 inline-flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.2)] box-border"
         >
-          <span className="hero-register-btn-text">Agenda</span>
+          <span className="hero-register-btn-text">Our Agenda</span>
         </Link>
       </div>
     );

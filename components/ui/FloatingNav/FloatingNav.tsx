@@ -15,6 +15,7 @@ const sections = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About Us" },
   { id: "testimonials", label: "Testimonials" },
+  { id: "speakers-carousel", label: "Speakers" },
   { id: "faq", label: "FAQ" },
   { id: "photos", label: "Photos" },
 ];
