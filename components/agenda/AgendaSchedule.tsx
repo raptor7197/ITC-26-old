@@ -275,12 +275,15 @@ export default function AgendaSchedule() {
     if (keynoteMatch) return keynoteMatch as ModalData;
 
     // Check Tutorials
-    const tutorialMatch = tutorialsData.find(
-      (t) =>
-        (t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))) ||
-        (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
-        (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
-    );
+    const tutorialMatch =
+      tutorialsData.find(
+        t => t.title && (t.title.toLowerCase() === safeTitle || safeTitle.includes(t.title.toLowerCase()))
+      ) ??
+      tutorialsData.find(
+        t =>
+          (t.authors && t.authors.some(a => safeTitle.includes(a.name.toLowerCase()) || a.name.toLowerCase().includes(safeTitle))) ||
+          (items && items.some(item => t.authors && t.authors.some(a => item.toLowerCase().includes(a.name.toLowerCase()))))
+      );
     if (tutorialMatch) return tutorialMatch as ModalData;
 
     // Check Industry Speakers (match name in title or items)
