@@ -373,7 +373,7 @@ export const tutorialsData = [
     authors: [
       {
         name: "Shamitha Rao",
-        affiliation: "Synopsys",
+        affiliation: "Synopsys, India",
         bio: "Shamitha Rao is Director of Solutions Engineering at Synopsys, where she leads customer engagements for the TestMAX product portfolio. With more than 20 years of experience spanning DFT architecture, implementation, silicon validation, and test solutions, she has held key roles at Synopsys, Intel, Siemens EDA, STMicroelectronics, and Wipro. Her contributions to semiconductor test technology have been recognized through multiple technical publications, conference presentations, and industry awards.\n\nHer extensive experience across the semiconductor lifecycle\u2014from design and test architecture to silicon bring-up and manufacturing\u2014provides her with a unique perspective on how advanced analytics can be leveraged to improve product quality, yield learning, and test efficiency in modern semiconductor ecosystems.",
         image: "/images/tutorials/tut_531_1.png",
       },
