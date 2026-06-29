@@ -2,9 +2,17 @@
 
 import React from "react";
 
+import Link from 'next/link';
+
 const MARQUEE_ITEMS = [
-  'Early Bird Registration: Closes 30 June 2026 (Extended for IEEE Members to 21 July 2026)',
-  'Upcoming: Hackathon Round 2 Submission (10th July 2026)',
+  <span key="1">Early Bird Registration: Closes 30 June 2026 (Extended for IEEE Members to 21 July 2026)</span>,
+  <span key="2">Upcoming: Hackathon Round 2 Submission (10th July 2026)</span>,
+  <span key="3">
+    Round 1 Fellowship Selection Results are out!{' '}
+    <Link href="/fellowship/results" className="underline hover:text-white font-bold ml-1 text-sky-400">
+      Click here to check the list
+    </Link>
+  </span>
 ];
 
 export default function UpdatesMarquee() {

@@ -470,7 +470,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Grand Victoria 1",
             title: "Distinguished Address: Arojit Roychowdhury (Qualcomm)",
-            subtitle: "",
+            subtitle: "Semiconductor Test: A Product Perspective",
             colSpan: 3,
             location: "Grand Victoria",
           },

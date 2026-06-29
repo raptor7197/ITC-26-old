@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/ui/PageHeader";
 import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
 import { FellowshipApplicationSidebar } from "@/components/fellowship/FellowshipApplicationSidebar";
@@ -400,6 +401,25 @@ export default function FellowshipPage() {
 
           <div className="lg:col-span-1 relative">
             <FellowshipApplicationSidebar />
+
+            <section className="mt-6 bg-[#1a4b7c] p-5 md:p-6 rounded-lg border border-[#6aaff1]/50 shadow-lg">
+              <h3 className="text-xl font-bold mb-4 text-[#6aaff1] border-b border-[#6aaff1]/30 pb-2">
+                Round 1 Selection Results
+              </h3>
+              <div className="space-y-4">
+                <p className="text-sm text-gray-200">
+                  The Fellowship Committee is pleased to announce the candidates selected in Round 1.
+                </p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-white/10 flex flex-col gap-3">
+                <Link
+                  href="/fellowship/results"
+                  className="block w-full bg-[#6aaff1] hover:bg-[#6aaff1]/90 text-[#03396c] font-bold text-center py-3 rounded transition-colors"
+                >
+                  VIEW SELECTED CANDIDATES
+                </Link>
+              </div>
+            </section>
 
             <section className="mt-10 bg-white/5 p-5 md:p-8 rounded-lg border border-white/10 backdrop-blur-sm">
               <h3 className="text-2xl font-bold mb-6 border-b border-white/20 pb-2">
