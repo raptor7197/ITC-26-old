@@ -119,7 +119,7 @@ export const members5: Member[] = [
     link: "https://www.linkedin.com/in/shamitha-rao-989b4a9a/",
     img: "p57.png",
     name: "Shamitha Rao",
-    comp: "Synopsys Design, India",
+    comp: "Synopsys, India",
   }
 ];
 
