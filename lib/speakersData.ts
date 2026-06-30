@@ -106,7 +106,10 @@ export const industrySpeakers = [
     id: 0,
     name: "Jayashree Saxena",
     affiliation: "Anora Labs",
-    comingSoon: true,
+    title: "A Day in the Life of a DFT Engineer - Can Agents Help?",
+    bio: [
+      "Jayashree Saxena has over 30 years of experience in Design-for-test. She currently holds the title of Vice President, Semiconductor DFT at Anora LLC. Prior to joining Anora in 2013, Jayashree spent close to 20 years at Texas Instruments. Jayashree holds a Master of Engineering in Electrical Communication Engineering from the Indian Institute of Science, Bangalore and a Ph.D in Electrical and Computer Engineering from the University of Massachusetts at Amherst."
+    ]
   },
   {
     id: 1,
