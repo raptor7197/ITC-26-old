@@ -146,8 +146,10 @@ export const industrySpeakers = [
     name: "Gopikrishna Siddula",
     affiliation: "SanDisk",
     title: "Testing High Speed Flash Interface IOs",
+    description: "As flash memory technologies continue to deliver higher bandwidth and lower latency, the design and validation of high-speed interface I/Os have become increasingly critical to ensuring reliable data transfer and system performance. Testing these interfaces presents unique challenges, including signal integrity, timing margins, and robustness under demanding operating conditions. This talk explores the methodologies and best practices for validating high-speed flash interface I/Os, highlighting the role of advanced test techniques in enabling reliable, high-performance memory systems for next-generation storage applications.",
     bio: [
-      "Gopikrishna Siddula has been part of the Mixed‑Signal IP team at SanDisk for over 12 years, specializing in high‑performance memory interface I/O design and integration. He holds an M.S. from IIIT Hyderabad and is an inventor on multiple US patents in high‑speed I/O design, ESD protection, and memory interface technologies. Outside of work, he enjoys travelling, photography, and movies."
+      "Gopikrishna Siddula has been a member of the Mixed-Signal IP team at SanDisk for over 12 years, specializing in the design and integration of high-performance memory interface I/Os. He holds an M.S. from IIIT Hyderabad and is an inventor on multiple U.S. patents covering high-speed I/O design, ESD protection, and memory interface technologies.",
+      "Through years of developing and integrating advanced memory interfaces, Gopikrishna has gained deep expertise in the challenges of achieving reliable, high-speed data communication. His experience in high-performance I/O design and innovation provides valuable insights into the testing methodologies required to ensure robust and efficient flash memory interfaces."
     ],
     image: "/images/gopikrishna_siddula.png",
     alternateImage: "/images/gopi_krishna_siddula_expanded.png",
@@ -508,9 +510,10 @@ export const distinguishedAddressesData = [
     name: "Rajesh Vaddempudi",
     affiliation: "Advantest, India",
     title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration",
+    description: "The semiconductor industry is entering an era where artificial intelligence, intelligent automation, and ecosystem collaboration are fundamentally reshaping test methodologies. As silicon complexity continues to increase, traditional approaches must evolve to deliver higher quality, faster time-to-market, and greater manufacturing efficiency. This talk explores how innovation in semiconductor test, combined with AI-driven intelligence and strong industry partnerships, is redefining the future of silicon validation, production, and lifecycle management, enabling the next generation of high-performance and reliable semiconductor products.",
     bio: [
-      "Rajesh Vaddempudi is the Managing Director of Advantest India and a seasoned semiconductor leader with 26 years of experience driving business growth, innovation, and operational excellence. His distinguished career spans Texas Instruments and Tessolve, where he built deep expertise in semiconductor test and product engineering. Rajesh has led the development of comprehensive test infrastructures including wafer sort, final test, qualification, and reliability labs, and has a proven track record of bringing complex, high‑value products to market while supporting customers through post‑silicon validation and production ramp.",
-      "At Advantest, he looks forward to collaborating across teams to further accelerate the company’s India growth and expand its R&D capabilities."
+      "Rajesh Vaddempudi is the Managing Director of Advantest India and a seasoned semiconductor leader with over 26 years of experience driving business growth, engineering innovation, and operational excellence. Throughout his career at Advantest, Texas Instruments, and Tessolve, he has developed deep expertise in semiconductor test, product engineering, and post-silicon validation, leading the establishment of advanced test infrastructures spanning wafer sort, final test, qualification, and reliability.",
+      "Having successfully guided complex semiconductor products from silicon validation through production ramp, Rajesh brings a comprehensive understanding of the technologies and collaborative strategies required to deliver high-quality products at scale. His leadership across engineering, manufacturing, and customer engagement provides a valuable perspective on how AI and innovation are transforming the future of semiconductor test."
     ],
     image: "/images/Rajesh_Vaddempudi.png",
     imageClassName: "object-[center_10%]"
