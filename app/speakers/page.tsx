@@ -49,9 +49,9 @@ const SpeakerCard = ({ speaker }: { speaker: any }) => {
   return (
     <div className="w-[300px] md:w-[360px] min-h-[380px] md:min-h-[420px] border border-white/20 rounded-lg p-8 flex flex-col items-center bg-[#03396c]/50 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:border-white/40 hover:scale-105 transition-all duration-300 group">
       <div className="relative w-40 h-40 md:w-56 md:h-56 mb-8 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-white/30 transition-colors bg-white/5 flex items-center justify-center">
-        {speaker.image ? (
+        {speaker.image || speaker.alternateImage ? (
           <Image
-            src={speaker.image}
+            src={speaker.alternateImage || speaker.image}
             alt={speaker.name || "Speaker"}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
