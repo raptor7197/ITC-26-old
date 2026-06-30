@@ -13,6 +13,7 @@ import {
   industryShowcaseData,
   postersData,
   exhibitsData,
+  technicalPapersData,
 } from "@/lib/speakersData";
 import AgendaModal, { ModalData } from "./AgendaModal";
 
@@ -260,17 +261,44 @@ export default function AgendaSchedule() {
     if (!title || title.trim() === "") return null;
     const safeTitle = title.toLowerCase();
 
+    // Check Technical Papers
+    const paperMatch = technicalPapersData.find(
+      (p) =>
+        p.name &&
+        (safeTitle.includes(p.name.toLowerCase()) ||
+          (items &&
+            items.some((item) =>
+              item.toLowerCase().includes(p.name.toLowerCase()),
+            ))),
+    );
+    if (paperMatch) return paperMatch as ModalData;
+
     // Check for explicit paper formats (X.X:, Team X:, ART X:) first to avoid false positive author matches
-    if (/^(team \d+:|art\d+:?|\d+\.\d+:)/i.test(safeTitle)) {
+    const paperRegex = /^(team \d+:|art\d+:?|\d+\.\d+:)/i;
+    if (paperRegex.test(safeTitle)) {
       return {
         name: title,
+        comingSoon: true,
+      };
+    }
+    const matchedPaperItem = items?.find((item) => paperRegex.test(item));
+    if (matchedPaperItem) {
+      return {
+        name: matchedPaperItem,
         comingSoon: true,
       };
     }
 
     // Check Keynotes
     const keynoteMatch = keynoteSpeakers.find((k) =>
-      safeTitle.includes(k.name.toLowerCase()) && safeTitle.includes('keynote')
+      (safeTitle.includes(k.name.toLowerCase()) ||
+        (items &&
+          items.some((item) =>
+            item.toLowerCase().includes(k.name.toLowerCase()),
+          ))) &&
+      (safeTitle.includes('keynote') ||
+        (items &&
+          items.some((item) => item.toLowerCase().includes('keynote'))))
     );
     if (keynoteMatch) return keynoteMatch as ModalData;
 
@@ -371,6 +399,21 @@ export default function AgendaSchedule() {
         comingSoon: true,
       };
     }
+    const matchedTalkItem = items?.find((item) => talkRegex.test(item));
+    if (matchedTalkItem) {
+      return {
+        name: matchedTalkItem,
+        comingSoon: true,
+      };
+    }
+
+    // Check for general Poster Session tile
+    if (safeTitle.includes("poster session") && !items) {
+      return {
+        name: "Poster Session",
+        comingSoon: true,
+      };
+    }
 
     // --- FALLBACK FOR PRESENTATIONS ---
     const nonPresentationKeywords = [
@@ -402,7 +445,6 @@ export default function AgendaSchedule() {
       "industry session",
       "special session",
       "art track",
-      "poster session",
       "sessions"
     ];
     if (nonPresentationKeywords.some((kw) => safeTitle.includes(kw))) {
@@ -545,7 +587,8 @@ export default function AgendaSchedule() {
                     const isParallelBreak = session.title.toLowerCase().includes("break");
                     const isDA = session.title.toLowerCase().includes("distinguished address");
                     const isPanel = session.title.toLowerCase().startsWith("panel:");
-                    const isClickable = getMatchData(session.title, session.items);
+                    const matchItems = session.subtitle ? [...(session.items || []), session.subtitle] : session.items;
+                    const isClickable = getMatchData(session.title, matchItems);
                     const indicatorColor = getTrackIndicatorColor(session.hall);
 
                     if (isParallelBreak) {
@@ -574,7 +617,7 @@ export default function AgendaSchedule() {
                         key={sIdx}
                         className={`relative bg-[#09152b] border border-[#1a304f] rounded-[14px] p-4 shadow-lg flex flex-col gap-1.5 overflow-hidden ${isClickable ? "cursor-pointer active:scale-[0.98] active:border-sky-500/50 transition-all" : ""}`}
                         onClick={() =>
-                          isClickable && handleTileClick(session.title, session.items)
+                          isClickable && handleTileClick(session.title, matchItems)
                         }
                       >
                         {/* Aesthetic Side Glow Indicator */}

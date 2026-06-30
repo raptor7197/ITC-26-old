@@ -106,7 +106,10 @@ export const industrySpeakers = [
     id: 0,
     name: "Jayashree Saxena",
     affiliation: "Anora Labs",
-    comingSoon: true,
+    title: "A Day in the Life of a DFT Engineer - Can Agents Help?",
+    bio: [
+      "Jayashree Saxena has over 30 years of experience in Design-for-test. She currently holds the title of Vice President, Semiconductor DFT at Anora LLC. Prior to joining Anora in 2013, Jayashree spent close to 20 years at Texas Instruments. Jayashree holds a Master of Engineering in Electrical Communication Engineering from the Indian Institute of Science, Bangalore and a Ph.D in Electrical and Computer Engineering from the University of Massachusetts at Amherst."
+    ]
   },
   {
     id: 1,
@@ -495,7 +498,19 @@ export const distinguishedAddressesData = [
     imageClassName: "object-[40%_10%]"
   },
   { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest, India", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true },
-  { id: 4, name: "Arojit Roychowdhury", affiliation: "Qualcomm", comingSoon: true }
+  {
+    id: 4,
+    name: "Arojit Roychowdhury",
+    affiliation: "Qualcomm",
+    title: "Semiconductor Test: A Product Perspective",
+    description: "As semiconductor products evolve from ultra-low-power edge devices to high-performance computing platforms, meeting increasingly stringent targets for power, performance, area, cost, and quality has become a defining industry challenge. Semiconductor test plays a pivotal role in bridging design and manufacturing by enabling high yield, product quality, and rapid time-to-market. This talk presents a product-centric perspective on semiconductor test, highlighting its growing importance in delivering reliable, scalable, and manufacturable silicon for high-volume production.",
+    bio: [
+      "Arojit Roychowdhury is Senior Director of Technology at Qualcomm India, where he leads chipset engineering for Snapdragon-based mobile platforms from concept through high-volume production. With over two decades of experience in semiconductor product development, he has held leadership roles across SoC design, architecture, and customer engineering at Qualcomm, Texas Instruments, and Intel. He holds an M.Tech in Electronic Systems from IIT Bombay and a Bachelor's degree in Electronics from the University of Mumbai.",
+      "Having led multiple generations of high-volume semiconductor products from concept to commercialization, Arojit has firsthand experience in balancing engineering innovation with manufacturability, quality, and market demands. His product development perspective offers valuable insights into how semiconductor test serves as a critical enabler of product success, ensuring robust quality, accelerated production readiness, and sustained customer satisfaction."
+    ],
+    image: "/images/Arojit-Roychowdhury.png",
+    imageClassName: "object-[50%_15%] scale-[1.05]"
+  }
 ];
 
 export const panelsData = [
@@ -636,3 +651,355 @@ export const exhibitsData = [
   { id: 0, name: "Exhibit Zone", affiliation: "Location: Grand Victoria 1 & 2", comingSoon: true }
 ];
 
+export const technicalPapersData = [
+  {
+    "name": "RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP",
+    "title": "RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP",
+    "authors": [
+      {
+        "name": "Hilay Patel, Naman Kalra and Jaynarayan T Tudu"
+      }
+    ],
+    "abstract": "Three-dimensional stacked ICs introduce new Design-for-Test (DfT) challenges due to high power density, routing congestion, and cross-tier connectivity constraints. In this work We propose 3D Joint-Scan, a tier-aware DfT architecture that extends the 2D Joint-scan framework to multi-tier 3D ICs and integrates reinforcement-learning-based (RL) physical-design optimization. Each tier combines clustered P-serial (MSS) and Prandom (PRAS) scan structures with dual MISRs. We introduce RL driven scan flip-flops clustering in each layer to learn an optimal configuration to jointly minimize routing congestion and wire length while keeping the test power, test time, and data volume unchanged as base line. Experiments on scaled ISCAS89 benchmarks validate the proposed formulation to be efficient in dealing with routing congestion and area optimization. The design for test parameters such as test time, data volume, and test power are constrained within the given limits. The experimental results show the routing congestion reduction by 38% compared to the base line 2D and 3D JScan architecture. The complete 4-tier design is fully synthesized and place-and-routed in 65 nm technology with a maximum area reduction of 20% compared to baseline."
+  },
+  {
+    "name": "A Methodology for Robust Testing of Through Glass Vias (TGV) on Glass Substrate-based 3D Chiplets",
+    "title": "A Methodology for Robust Testing of Through Glass Vias (TGV) on Glass Substrate-based 3D Chiplets",
+    "authors": [
+      {
+        "name": "Manisha Kumari, Jaynarayan T Tudu and Binod Kumar"
+      }
+    ],
+    "abstract": "The continued performance pull from the next generation application is driving newer packaging technology to keep up with More-than-Moore performance requirement. Glass substrate-based packaging for the 3D/2.5D chiplet SiP (system in package) is a promising solution which is already in the production pipeline. For 3D/2.5D chiplet packaging technology, through glass vias (TGVs) play a crucial role to interconnect the packaging layers. This layer formation process requires KnownGood-X for substrate, interposer and redistribution layer (RDL). In this work, we address the problem of electrical testing of TGVs for early Known-Good-RDL and Known-Good-Interposer decision. We propose a two-dimensional daisy-chain (2D2C) algorithm and fault localization methodology to test for resistive defects. The experimental results indicate that the proposed methodology detects defects and isolates the defective TGV with a detection rate> 93.3 -100%. Additionally, the experimental results demonstrate 77.4%-100% fault localization."
+  },
+  {
+    "name": "Cost Aware Sector Symmetry and Wafer Cutting Methods for 3D ICs with Heterogeneous Defects",
+    "title": "Cost Aware Sector Symmetry and Wafer Cutting Methods for 3D ICs with Heterogeneous Defects",
+    "authors": [
+      {
+        "name": "Tanusree Kaibartta, Saksham Jha, Digvijay Anand Anand and Debesh Das"
+      }
+    ],
+    "abstract": "In the growing field of semiconductor technology three dimensional ICS plays a pivotal role due to their potential for enhanced device performance and reduced footprint. However, wafer on wafer stacking faces the challenge of low compound yield due to defect accumulation across layers. To resolve this issue a comprehensive cost analysis is proposed which considers manufacturing, testing and packaging expenses across all stacking layers. In this regard a sector-based wafer manipulation method (SSC4)(where rotationally symmetric wafers are divided into four identical sectors and optimally aligned to improve stacking yield) was introduced. Based on that foundation, this work introduces an extended cost model that incorporates pattern-dependent wafer premiums\u2014accounting for differences in defect quality by assigning varying cost multipliers to different wafer types. This enables finer-grained analysis of stacking decisions in heterogeneous wafer scenarios, where mixing patterns introduce trade-offs between cost and yield."
+  },
+  {
+    "name": "Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs",
+    "title": "Innovative Memory Interconnect Architecture: Setting New Standards for Security, Safety and Performance in Real-Time Control MCUs",
+    "authors": [
+      {
+        "name": "Prasanth Viswanathan Pillai, Varshashree Kottadamane, Saya Goud Langadi, Labeeb K, Naveen Kothuri, Narendra Ravilla, Ramakrishna Pidaparthi, Rohit Chaudhari and Sivareddy Maramreddy"
+      }
+    ],
+    "abstract": "This paper presents an innovative memory interconnect architecture for modern Microcontroller Units (MCUs), addressing the critical triad of performance, safety, and security requirements in embedded systems. The architecture incorporates advanced features including sophisticated control peripherals, non-volatile memory (NVM), static randomaccess memory (SRAM), and efficient interconnect topologies such as crossbar and hierarchical bus structures. Safety mechanisms like Error Correction Codes (ECC) and Memory Protection Units (MPUs) are integrated to ensure fault tolerance. Security features encompass secure boot processes, hardware-accelerated cryptographic engines, and robust access control mechanisms. The paper details the implementation of these features in an emerging real-time MCU platform, demonstrating how the architecture balances performance optimization with safety and security requirements while maintaining cost-effectiveness."
+  },
+  {
+    "name": "Test Pattern-Driven Detection of Hardware Trojans Using Switching Activity Analysis in FPGA-Based Systems",
+    "title": "Test Pattern-Driven Detection of Hardware Trojans Using Switching Activity Analysis in FPGA-Based Systems",
+    "authors": [
+      {
+        "name": "Kannan S J, Chinakaku Lakshmi Prasanna and Sobhit Saxena"
+      }
+    ],
+    "abstract": "Hardware Trojans (HTs) implanted at the RTL level have been identified as a significant security risk, as their low-probability triggering events make them difficult to detect through conventional functional test and ATPG methods. Current side-channel detection methods rely on reference chips, off-chip instrumentation, or computational overhead, making them impractical for field deployment. This paper proposes a synthesizable test pattern-driven detection method based on on-chip switching activity analysis. A parameterized test pattern generator is designed with dual modes: normal mode generates test patterns based on a Linear Feedback Shift Register (LFSR) for pseudo-random pattern testing, whereas test-driven mode generates deterministic test patterns for Trojan detection, ensuring detection of rare combinational, sequential FSMbased, and data leakage Trojan triggers. A cycle-accurate Hamming distance calculation module is used to calculate output divergence between consecutive cycles and compare it with a statistical reference value of six toggle counts. The synthesizability of the test pattern generator and detection logic was validated on a Xilinx Artix7 FPGA (XC7A35T-1CPG236C), achieving 100% detection of all three classes of HTs within 5-16 clock cycles, zero false positives within 6,400 random test cycles, a maximum frequency of 320 MHz, and a total overhead of 178 LUTs and 96 FFs"
+  },
+  {
+    "name": "STAMP: Statistical Trojan Attribution via Multi-class Power-trace analysis",
+    "title": "STAMP: Statistical Trojan Attribution via Multi-class Power-trace analysis",
+    "authors": [
+      {
+        "name": "Senthilkumar Dhamodharan, Sinthanai Selvi G, Karthika R and Abirami Vinayagamoorthy"
+      }
+    ],
+    "abstract": "The globalization of semiconductor supply chains has posed significant security threats. An attacker can place unauthorized modifications, known as Hardware Trojans (HTs), during the fabrication process or shipping. Once inside the system, the Trojan horses can compromise the secrecy of the keys, disable vital systems, or establish backdoors. The majority of the existing techniques can detect the presence of the Trojan but fail to detect the type of Trojan. This paper introduces an innovative system that is easy to comprehend, capable of detecting the type of Trojan present in the system. It utilizes 26 basic statistical attributes such as mean, standard deviation, maximum, minimum, skewness, and kurtosis from the power consumption patterns of the chip. The dataset consists of power and electromagnetic side-channel measurements of 12 AES Trojan horse benchmark designs (AEST400 to AES-T2000), from IEEE Dataport.The accuracy of the machine learning model, which is based on the XGBoost algorithm, in determining the type of Trojan present is around 77%, thus eliminating the need for a Golden Reference Chip. Furthermore,SHAP analysis is used to obtain a clear \u201cTrojan Fingerprint Map.\u201d The map illustrates precisely which features of the power signal make each type of Trojan unique, considering three different operating conditions. For the first time, this framework allows us to obtain a signal-level fingerprint for each Hardware Trojan variant. This can prove useful in targeted inspection, tracing the origins of the threat in the semiconductor supply chain"
+  },
+  {
+    "name": "Comprehensive Coverage Framework for LPDDR6 Feature Validation: Navigating Complex Modes and Reducing the Verification Closure Gap",
+    "title": "Comprehensive Coverage Framework for LPDDR6 Feature Validation: Navigating Complex Modes and Reducing the Verification Closure Gap",
+    "authors": [
+      {
+        "name": "Dharini Subashchandran, Gruhesh Patel, Meghna Ahuja and Shyam Sharma"
+      }
+    ],
+    "abstract": "LPDDR6\u2019s are a breakout DRAM with advanced features -Efficiency Mode, Meta Data on Data Bus, X6 Mode, System Meta Mode including carved-out memory, PRAC, dynamic frequency scaling just to name few - create complex verification challenges beyond traditional Commands, data, Timings, Registers, and DRAM state machine coverage. Feature interactions and configuration-dependent behaviors generate exponential scenario spaces that conventional approaches do not adequately address. This paper presents a feature-centric coverage framework employing Randomization to generate targeted bins across mode transitions, operating speeds, bus width, and density variations. Our coverage framework leverages some of the in-house AI tools to parse specifications and detect coverage gaps which are used for targeted testcase creation. This methodology significantly improves coverage closure and reduces manual effort, providing a scalable solution to validate complex next-generation memory protocols."
+  },
+  {
+    "name": "A Novel Verification Method for Debug Tracing-in Close Chassis System",
+    "title": "A Novel Verification Method for Debug Tracing-in Close Chassis System",
+    "authors": [
+      {
+        "name": "Maneesh Pandey and Madhav Lekkala"
+      }
+    ],
+    "abstract": "Design for Debug (DFD) plays a crucial role in postsilicon validation during silicon execution, serving as a pivotal phase in the system design cycle. This phase aims to capture design bugs that have escaped detection during the pre-silicon verification phase, particularly in modern complex System-onChip (SoC) designs. In the realm of pre-silicon simulation, DFD SoC presents a dual-faceted approach to validating the SoC, offering both open and closed-chassis debug platforms. In these platforms, trace data is collected at the General-Purpose Input/Output (GPIO) pins and via the GPIO pins to the I3C Bus Functional Model (BFM), respectively. Legacy simulation-based methods for pre-silicon validation have been inherently timeconsuming (3-5 days) due to the necessity of configuring multiple BFMs, such as Sideband and JTAG, within the verification environment. These methods often lead to significant delays and dependencies, complicating the verification process. To address these challenges, we propose a novel verification methodology for debugging trace data in a closed-chassis DFD SoC system. Our proposed methodology leverages the Sneak-Peek (SNPK) engine protocol and Test Access Port (TAP) to perform debugging and tracing of the original source data through the I3C BFM alone, eliminating the need for Sideband and JTAG BFMs. This approach significantly reduces the number of BFM dependencies in the closed-loop chassis debug system, streamlining the verification process and requiring only 1 day for testbench setup bring-up which further enhances efficiency, and effort in bringing up sideband network, validating it for connectivity issues are all a time consuming process, this can be avoided By implementing this alternative method, we aim to accelerate the overall validation cycle, improve deliverables, and contribute to a faster time-tomarket for complex SoC products. This methodology not only simplifies the configuration process but also ensures comprehensive tracing of debug data, making it a standalone, portable solution ready for deployment across various SoC project environments"
+  },
+  {
+    "name": "Assertion Based Formal Verification of AES 128 Crypto Core",
+    "title": "Assertion Based Formal Verification of AES 128 Crypto Core",
+    "authors": [
+      {
+        "name": "Shivang Sharma, Vineeth Jaisal and Prashant Singh"
+      }
+    ],
+    "abstract": "The Advanced Encryption Standard (AES) is a cryptographic symmetric key algorithm widely used in secure communication, storage devices, and embedded systems. Even a small RTL bug can compromise system security, making its correct implementation critical. This paper presents the formal verification of an open-source AES 128 encryption core using a System Verilog Assertions (SVA) based formal verification environment developed entirely from scratch. The verification environment attaches to the design under test via the System Verilog bind construct, requiring no modification to the underlying RTL. The environment is structured across four verification layers: FSM transition correctness, round register integrity, handshaking signal protocol and per-round datapath correctness. Formal verification provides mathematical guarantee of correctness for all possible states, whereas simulation-based approaches face difficulty in covering all input combination pairs of plaintext and keys. All assertions are formally proven, all cover properties are witnessed, and complete formal sign off is achieved with 100% observability coverage, 99.6% reachability coverage, and 100% sign-off coverage within 278 seconds of total CPU time, confirming mathematical correctness of the AES-128 implementation across every possible plaintext and key combination."
+  },
+  {
+    "name": "Physically Aware Weighted Fault Model : A new paradigm in testing",
+    "title": "Physically Aware Weighted Fault Model : A new paradigm in testing",
+    "authors": [
+      {
+        "name": "Sandipan Sharma, Srinivas Vooka, Maheedhar Jalasutram, Pranav Murthy, Chieh-Jen Ku and Yanhan Zhu"
+      }
+    ],
+    "abstract": "For past six decades, standard fault models such as Transition-Delay Faults (TDF) and Stuck-at Faults (SAF) have relied on uniform weighting for fault sites/nodes, despite the common knowledge among Design-For-Test (DFT) engineers that failure probabilities vary across different fault nodes. This reliance on imprecise mechanisms, driven by the historical absence of a scientific weighting methodology, explains the poor correlation between test coverage and physical metrics like yield loss or Defective-parts-per-million (DPPM). While cell-aware testing offers a partial solution, it remains limited by its lack of integration with real-world failure data and its failure to account for routing-related defects. To overcome these challenges, our paper introduces a novel Multi-Layer Perceptron (MLP) network model that utilizes feature correlation buildup to assign accurate failure weightages based on the actual physical parameters, such as metal routing length and total via counts, derived from Continue-on-Fail (CoF) ATE data. As the model is trained on increasing volumes of data, its ability to predict DPPM and fallout will improve, allowing for a more authentic representation of test coverage. Ultimately, this weighted approach enables the optimization of test processes by reducing pattern counts and prioritizing patterns based on their true defect-catching efficacy"
+  },
+  {
+    "name": "Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration",
+    "title": "Rethinking RTL DFT: A Discrete RTL Flow for Parallel DFT Integration",
+    "authors": [
+      {
+        "name": "Mohan Raj Gopal, Veejaye Panayadian and Kundan Jha"
+      }
+    ],
+    "abstract": "Shift-left DFT methodologies enable early insertion of test logic at the RTL stage, but conventional flows rely on DFT EDA tools to directly insert CODECs, TDRs, MBIST, scan routers, pin multiplexing, boundary scan, and TAP controllers into design RTL, enforcing serial workflows between design and DFT teams, resulting in high tool runtime, license usage, and intrusive design RTL modifications. This paper presents a discrete RTL DFT flow enabling true parallel development at two levels: design\u2013DFT team independence and concurrent wrapper development. Using script-based, modular grey-box abstractions\u2014TestWrap, MemWrap, and IPWrap\u2014 the approach decouples DFT integration from functional RTL and continuous tool invocation. A reusable multi-vendor codec library further reduces tool dependency across partitions and projects. Industrial validation across 50 measured design releases demonstrates an average DFT integration turnaround of 3 days, with a worst-case peak of 11 days, while maintaining functional correctness and achieving scalable, cost-efficient shift-left DFT integration in a representative internal deployment."
+  },
+  {
+    "name": "A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets",
+    "title": "A Novel Power-aware ATPG with Biaxial Transition Control for Extreme Low Power Targets",
+    "authors": [
+      {
+        "name": "Hanumant Tuntoni, Hillol Maity, Sreenu Kakanuri, Peter Wohl, Parthajit Bhattacharya, Bruce Xue and Geguang Miao"
+      }
+    ],
+    "abstract": "Aggressive power reduction during compressed scan test is a critical requirement for modern VLSI designs, yet it is fundamentally challenged by compression hardware that obstructs direct ATPG control over scan chain toggles. Prior art has focused on uni-axial power management, providing either horizontal control by freezing the decompressor to hold values across shift cycles, or vertical control by attempting to gate entire scan chains. These solutions, however, operate independently and are often tailored to specific power budgets, with horizontal control typically being more efficient for relaxed targets and vertical control for more stringent constraints. This paper introduces the first co-designed biaxial power control methodology for deterministic ATPG, featuring a novel decompressor architecture that overcomes these limitations. Our hardware enables simultaneous horizontal shift-holding and, direct vertical scan chain blocking through dedicated control registers. This architecture is driven by a tightly-coupled, power-aware ATPG algorithm that intelligently exploits both control mechanisms for highly granular toggle management. The methodology is enhanced by a \u2018shift-left\u2019 test generation strategy that embeds power-aware decisions directly into the fault-merging process. Experimental results on industrial designs show that, compared to a baseline uni-axial technique, our complete biaxial solution reduces pattern count by 3.03x, test cycles by 2.16x, and CPU time by 4.73x, while improving test coverage by 3.27%. These gains are achieved while robustly meeting aggressive power targets as low as 15% shift and 5% capture, demonstrating a significant advance in low-power test quality and efficiency."
+  },
+  {
+    "name": "Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG",
+    "title": "Differential Evolution with Fitness-and Position-Based Selection in Search of Best Test Pattern for Combinational ATPG",
+    "authors": [
+      {
+        "name": "Manish Kumar, Isha Dubey, Priyajit Bhattacharya and Rahul Bhattacharya"
+      }
+    ],
+    "abstract": "Evolutionary algorithms (EAs) are demonstrated to be time effective to identify the optimum test pattern with highest fault coverage in a wide search space of digital tests in VLSI circuits. This work focused on developing MATLAB based Automatic Test Pattern Generation (ATPG) framework to determine the optimal test pattern which can detect maximum number of stuck-at faults in combinational circuits using Fitness-and Position-Based Selection Differential Evolution (FPS-DE). In FPS-DE, the parent selection enhances convergence and diversity. The proposed method is evaluated using ITC\u201999 combinational benchmark circuits and contrasted with Genetic Algorithm (GA), Particle Swarm Optimization (PSO), and a well-known open-source ATPG tool, ATALANTA. The proposed methodology has been used to determine the appropriate mutation strategy for each type of benchmark circuit. Overall, the experimental results demonstrate that FPSDE can effectively generate high-quality test patterns for combinational ATPG"
+  },
+  {
+    "name": "Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design",
+    "title": "Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design",
+    "authors": [
+      {
+        "name": "Senthilkumar Dhamodharan, Lokapriya B, Dyaneswaran A, Karthika R and Lokendran S"
+      }
+    ],
+    "abstract": "Signal Integrity (SI) of critical high-speed paths is closely related to topological net connectivity, geometric trace routing morphology, multilayer dielectric stack up permittivity profiles, conductor loss tangent characteristics and via barrel parasitic structures. As high-speed integrated circuit design grows larger, SI simulation becomes computationally unaffordable and machine learning based SI prediction has been explored as a promising solution for freezing layout design without longer simulation hours. In this paper, we present an EDA tool independent, machine learning driven SI prediction framework utilizing heterogeneous Graph Neural Networks (GNNs) for rapid pre-manufacturing integrity assessment. By leveraging standardized PCB manufacturing databases such as ODB++, IPC-2581, and Gerber, the framework enables data extraction and model training from layouts generated by diverse EDA tools. Our methodology constructs attributed heterogeneous graphs encoding electrical adjacency, Euclidean spatial proximity and vertical reference plane coupling through typed edge relations. Thus, we propose a novel graph structure, TL Graph, to unify representations of transmission line structure and fine grained segment relations. Though this framework may require several iterations to achieve compliance, the time line penalty is minimal with sub 3 second inference enabling engineers to adjust layouts with negligible schedule impact versus several 100s of hour cycles. The proposed methodology significantly reduces the overall design time line by utilizing model based predictions in place of multiple iterative EM simulations during the initial design phase, with full wave simulations performed only for final board evaluation. The framework reduces design iterations by 73% and compresses development cycles by 1.8 weeks per platform. The scope of the future research work is also discussed towards the end of this paper."
+  },
+  {
+    "name": "AI-Driven IP Configuration Optimization for Post-Silicon Validation",
+    "title": "AI-Driven IP Configuration Optimization for Post-Silicon Validation",
+    "authors": [
+      {
+        "name": "Akhilesh Tiwary, Nihar Chaniyara, Utsav Banerjee and Maneesh Kumar Pandey"
+      }
+    ],
+    "abstract": "Post-silicon validation of configurable intellectual property suffers from a persistent configuration selection problem: the legal operating space grows rapidly with feature combinations, but actual silicon execution remains limited by platform availability, debug effort, and turnaround cost. In many industrial flows, configuration choice is still driven by manual expertise and retrospective coverage inspection, which makes it difficult to prioritize representative and corner-case scenarios systematically. This paper presents a machine-learning-driven framework for post-silicon IP configuration optimization. The method converts raw configuration descriptors into a behavior-oriented feature space, applies K-Means-family clustering and DBSCAN to identify dense and sparse operating regions, and produces a reduced yet diversity-preserving execution set for post-silicon testing. The workflow is organized as a three-layer system comprising data cleanup, clustering and evaluation, and inference. Progressive experiments show that feature-aware clustering materially improves planning quality: K-Means improves from a silhouette score of 0.3250 to 0.4480 across refinement stages, while DBSCAN improves from 0.0931 to 0.5451 with only about 0.3% noise in the final setting. The proposed framework reduces redundant postsilicon test cycles while preserving representative and high-risk configurations needed for effective validation"
+  },
+  {
+    "name": "T-MAP: A Cross-Platform AI driven Test-Program Metadata Analysis Tool for Digital Coverage, Force, limit and Range Verification",
+    "title": "T-MAP: A Cross-Platform AI driven Test-Program Metadata Analysis Tool for Digital Coverage, Force, limit and Range Verification",
+    "authors": [
+      {
+        "name": "Kaushik Chakravorty, Dundapa Sankapal, Vishal Rohilla, Sudhish Raj Gj, Pratyush Dargan and Robert Cook"
+      }
+    ],
+    "abstract": "Testers across the industry employ diverse digital/analog inputs and generate varied outputs, making a universal audit framework impractical. Automated audits of digital coverage, voltage settings, force conditions, and limit-vsclamp comparisons are becoming essential for every test program. T-MAP extracts input and output information to construct a metadata-analysis model that highlights coverage gaps, reduces manual effort, streamlines Git-PR reviews, and captures errors missed by human auditors. AI-driven analysis ensures scalability as automation scopes expand. The approach is fully agnostic to tester type, input format, and output interface, eliminating the maintenance overhead of platformspecific scripting and improving engineer adaptability across platforms"
+  },
+  {
+    "name": "Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection",
+    "title": "Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection",
+    "authors": [
+      {
+        "name": "Kalyana Sundaram Chandran, Senthilkumar Dhamodharan and Sindhu Mathy S"
+      }
+    ],
+    "abstract": "Neuromorphic Integrated Circuits (ICs) emulate biological neural systems through event-driven spike processing, enabling edge AI, robotics and cognitive computing. Post-silicon validation of these systems faces critical challenges due to absent on-chip debug infrastructure, limited observability into asynchronous spike-driven operations and large-scale synaptic connectivity. Non-Volatile Memory (NVM) synapses are prone to drift,wear-out and stuck faults that degrade inference accuracy. Existing approaches BIST, inference-based testing, and simulation struggle with intermittent faults arising from analog variability and asynchronous operation. This paper presents a hybrid data-driven framework combining structured BIST sequences, adaptive stress patterns and lightweight ML runtime monitors with hierarchical fault localization at neuron, synapse and network levels, correlating spike activity statistics, synaptic state inference and telemetry data. Silicon validation on a fabricated 28 nm CMOS neuromorphic processor (1024 LIF neurons, 50 chips, 5 fabrication lots) demonstrates 94.2% \u00b1 1.8% fault coverage, 92% diagnostic time reduction versus exhaustive scan and robust operation under 18% analog variation. Total overhead is 1.3% die area and 2.3% power significantly lower than DiagNNose with statistical significance versus BIST-only (p < 0.001), confirming scalable, resilient validation for mission-critical neuromorphic systems"
+  },
+  {
+    "name": "State-Isolated Scan - A Secure Low-Power Scan Architecture",
+    "title": "State-Isolated Scan - A Secure Low-Power Scan Architecture",
+    "authors": [
+      {
+        "name": "Ravikumar C.P., Kushal C."
+      }
+    ],
+    "abstract": "The number of flip-flops and gates in Systems-onChip is steadily increasing. Power dissipation during scan shift can exceed the limit imposed by the package, making the test destructive. Power droop resulting from high switching activity during scan test can result in errors, leading to a test-induced yield loss. Several authors have proposed techniques such as staggered scan to reduce scan shift power. Another technique is to add a series of logic gates that block the propagation of switching activity from scan registers into the combinational logic. Scan chains can compromise the security of circuits. A knowledgeable hacker can put the circuit in test mode and scan out sensitive information. In this paper, a technique called \u201cState Isolated Scan\u201d (SIS) is proposed, which addresses both the power issue as well as the security issue. SIS allows complete isolation of the state information during scan shift-in and shift-out operations, thereby eliminating the propagation of cell switching activity into the combinational logic. At the same time, a hacker does not get access to scan data through top-level pins, thereby making the test architecture secure."
+  },
+  {
+    "name": "eFPGA-Enabled Dynamic Access Control for Secure IEEE 1687 (IJTAG) Networks",
+    "title": "eFPGA-Enabled Dynamic Access Control for Secure IEEE 1687 (IJTAG) Networks",
+    "authors": [
+      {
+        "name": "Anekait Thampi, Anshul Raghavendra Katti, Manish Nagaraju and Sudeendra Kumar K"
+      }
+    ],
+    "abstract": "Modern System on Chip (SoC) designs integrate numerous embedded instruments for testing, debugging, postsilicon validation, and in-field monitoring. The IEEE 1687 (IJTAG) standard provides scalable access through a reconfigurable scan network of Segment Insertion Bits (SIBs), but this flexibility exposes internal resources to unauthorized access through the test infrastructure. Existing protection approaches rely on fixed hardware mechanisms, limiting adaptability across device lifecycle phases. This work proposes a secure IJTAG architecture integrating an eFPGA between the TAP and the IJTAG network as a reconfigurable security layer that controls instrument cluster connectivity through authenticated configuration, enabling lifecycle-aware isolation while preserving IJTAG flexibility. The architecture is evaluated on IJTAG benchmark networks to assess scalability."
+  },
+  {
+    "name": "Design of a SAT-Resilient IJTAG Architecture for Secure and Scalable On-Chip Instrument Access",
+    "title": "Design of a SAT-Resilient IJTAG Architecture for Secure and Scalable On-Chip Instrument Access",
+    "authors": [
+      {
+        "name": "Saravanan P, Dharani Sree K, Jothika K, Nivashini S, Sivaprabha Sri Pl"
+      }
+    ],
+    "abstract": "The IEEE P1687 Internal JTAG (IJTAG) provides a flexible infrastructure for accessing embedded on-chip instruments used for testing, debugging, and configuration in modern integrated circuits. However, the accessibility of IJTAG scan networks can expose internal circuit structures and sensitive data, making them vulnerable to attacks such as intellectual property theft, reverse engineering, and unauthorized instrument access. Conventional logic locking techniques provide limited protection since they can be compromised using de-obfuscation methods. To address these challenges, this paper proposes a SATresilient secure IJTAG architecture that integrates Fault-based Logic Locking (FLL) for Locked Segment Insertion Bits (LSIBs) with a hybrid Anti-SAT block employing multiplexer-based wire entanglement. The proposed design restricts unauthorized access to embedded instruments while increasing the complexity of key recovery. Experimental results demonstrate that increasing the key width significantly enlarges the key search space; A 16-bit key leaves 24,286 unresolved keys after 10 SAT solver iterations, making brute-force recovery impractical"
+  },
+  {
+    "name": "PQC-Based Secure Access Manager for IJTAG Network",
+    "title": "PQC-Based Secure Access Manager for IJTAG Network",
+    "authors": [
+      {
+        "name": "Sudeendra Kumar K, Prajwal G S Basavaraj, Abhinav S, Arun Kumar N"
+      }
+    ],
+    "abstract": "As the complexity of System-on-Chip (SoC) designs is increasing, the number of instruments embedded within the chip has also grown significantly. On the other hand, the flexibility provided by the IEEE 1687 standard has led to security issues such as unauthorized access, leakage of information contained in the scan chain, replay attacks, and misuse of the test interface. The existing security schemes for IJTAG are primarily based on conventional cryptographic techniques like RSA and lightweight ciphers. As these techniques are vulnerable and it is safe to migrate to post quantum ciphers even for the chip test security for the devices which have long utilization life especially in the automobiles and industrial control. This work addresses the security issues by developing a secure IJTAG access architecture based on lattice-based Post Quantum Cryptographic (PQC) techniques. The proposed solution is a combination of ML-KEM and ML-DSA for a secure IJTAG. ML-KEM is used for secure session key establishment. ML-DSA is used for authentication of test access requests and unlocking the Access Manager. In comparison to existing schemes, based on classical cryptographic schemes, the authorization time/access time of the proposed PQC based mechanism is high. The security analysis shows that, the proposed scheme is a countermeasure against brute-force and scan sniffing attacks on par with the existing solutions."
+  },
+  {
+    "name": "Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test",
+    "title": "Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test",
+    "authors": [
+      {
+        "name": "Mathangi Raghuraman, Dinesh Sharma, Siva Elango S, Sujith Thomas"
+      }
+    ],
+    "abstract": "During high-volume wafer sort on Automated Test Equipment (ATE), DC parametric measurements are frequently degraded by variable contact resistance at the probe needle-to-pad interface. While standard ATE Time Domain Reflectometry (TDR) calibration resolves edge-timing delays, and offline DC calibration effectively reduces static system resistance from the Parametric Measurement Unit and loadboard traces, these methods fail to account for dynamic, touchdown-dependent fluctuations in contact resistance. This uncompensated variance leads to false failures, excessive retesting, and significant yield loss. This paper proposes a real-time de-embedding methodology that dynamically measures the Total Path Resistance for every die. By isolating and compensating for the variable contact resistance component during active testing, the proposed method recovers true silicon performance without throughput penalty. Furthermore, this work introduces a novel spatial diagnostics framework for highvolume wafer test. By aggregating real-time path resistance data into 2-D wafer heatmaps, the system successfully isolates systematic mechanical degradation such as prober planarity tilt enabling data driven predictive hardware maintenance. Silicon validation across high-volume production devices demonstrates tightened measurement distributions, significant yield recovery, and improved probe card lifecycle management."
+  },
+  {
+    "name": "Polynomial Regression Based Qualitative Assessment of Automated Test Equipment Calibration",
+    "title": "Polynomial Regression Based Qualitative Assessment of Automated Test Equipment Calibration",
+    "authors": [
+      {
+        "name": "Matthias Werner, Simon Schweizer, Ilia Polian, Ernst Aderholz, Anand Venkatachalam, Matthias Sauer"
+      }
+    ],
+    "abstract": "In order to preserve measurement accuracy, Automatic Test Equipment (ATE) periodically generates ATE adjustment data as part of its periodic maintenance. Parametric current measurements involving analog and\ndigital instrumentation have been analyzed together with ATE adjustment data using polynomial regression. Key takeaway from this analysis done with CAN Transceiver measurements from multiple Advantest V93000 Tester using multiple test hardware is that degree of correlation between the measurement result and adjustment data varies from channel to channel and it is also dependent on the ATE measurement range. Additional insights on the process capability trend of parametric measurement involving tester channel that shows negative correlation along with time series plots of ATE adjustment data are provided with an aim to evaluate accuracy and drift beyond specification limits in order to derive more value from ATE instrumentation."
+  },
+  {
+    "name": "A Novel Plug-In Module Architecture for Extending Automatic Test Equipment Capability to Wireless Testing of Pin-Less Semiconductor Devices",
+    "title": "A Novel Plug-In Module Architecture for Extending Automatic Test Equipment Capability to Wireless Testing of Pin-Less Semiconductor Devices",
+    "authors": [
+      {
+        "name": "Sathiyapriya Krishnamoorthy, Manoj Pachaiyan, Senthilkumar Dhamodharan"
+      }
+    ],
+    "abstract": "Contactless integrated circuits are increasingly used in wireless identification, secure transactions, and short- range communication applications. Devices such as Near Field Communication (NFC), Radio Frequency Identification (RFID), smart cards, and secure identification modules operate through electromagnetic coupling using on-chip antenna structures, enabling power harvesting and bidirectional communication without dedicated electrical interfaces. However, production testers such as Advantest and Teradyne are primarily designed for electrical pin-based testing and do not natively support validation of contactless communication behavior. This work proposes a production- compatible wireless validation architecture that enables contactless device characterization within an automated production test environment. The proposed approach integrates a wireless interface on the load board consisting of a radio-frequency stimulus generator, protocol conversion layer, near-field coupling antenna, and signal demodulation receiver synchronized with the tester control framework. This enables automated carrier generation, command modulation, and capture of load-modulated responses from the device under test. Experimental validation was performed using NFC- enabled RFID tag devices across 120 samples. Carrier field detection showed reliable activation above 1.6 A/m, while RF power harvesting generated internal supply voltages between 2.4 V and 2.8 V. Load-modulated responses ranged from 180\u2013240 mV, enabling reliable demodulation and protocol decoding. Command-response operations, including Unique Identifier (UID) read, memory access, and anti-collision, achieved a bit error rate below 10\u207b\u2076 with an average communication latency of 3.2 \u00b5s and less than 4% device variation. Results showed over 96% correlation with conventional bench validation, demonstrating the feasibility of scalable production testing of contactless semiconductor devices."
+  },
+  {
+    "name": "Unified Compact Health and Aging Models for Manufacturing to In-Field Silicon Quality and Reliability Management",
+    "title": "Unified Compact Health and Aging Models for Manufacturing to In-Field Silicon Quality and Reliability Management",
+    "authors": [
+      {
+        "name": "Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota"
+      }
+    ],
+    "abstract": "Analytics of Silicon Lifecycle Management (SLM) monitors measurements provides the deep silicon metrics and insights required for the semiconductor lifecycle, from manufacturing test to in field operation. This paper presents a solution for preparing compact models from monitor measurements to compute health, aging, and remaining useful life (RUL) metrics. A lightweight autoencoder-based health signature provides robust anomaly detection under partial observability, while HTOL calibrated aging model maps measured degradation to circuit performance and RUL, scaled using mission profile acceleration. The compact models are managed and prepared during manufacturing testing and deployed for edge or in system inference, enabling continuous silicon health and reliability analytics at device and fleet levels."
+  },
+  {
+    "name": "Reliability Refining Next Generation UV Cured Conformal Coatings under Harsh Environment Testing",
+    "title": "Reliability Refining Next Generation UV Cured Conformal Coatings under Harsh Environment Testing",
+    "authors": [
+      {
+        "name": "Aurkie Ray, Cole Sandvold, Andi Duffy, Bethany Turner, Saskia Hogan, Phil Kinner, Christopher Allen and Anna Lifton"
+      }
+    ],
+    "abstract": "High reliability electronics pose a higher risk of failure due to the water film formation on the substrate surface\nwhen operating in harsh environments such as high temperature and high humidity. This has drawn attention to electronic industries. Typical electronic manufacturing processes potentially add ionic contamination to the substrate surface which could lead to failure in presence of high temperature and high humidity with a working bias voltage. These failures result in an increase of leakage currents, electrochemical migration and corrosion which further result in degradation in performance. To keep a check on these failures the use of conformal coating on the PCB is increasing with time. The electrochemical reliability inferred from the Surface Insulation Resistance (SIR) test helps to access the compatibility of conformal coatings with flux chemistries under harsh environment. This study was focused on assessing the effect of two different generations of UV curing conformal coating on protecting PCBs built with various solder pastes. The effect of solder paste chemistry, preconditioning of the boards before SIR testing (isothermal aging and pre thermocycling) was studied. A customized condensation test protocol is designed to create harsh environment to screen conformal coatings for their ability to withstand moisture ingress and protect the assembly from moisture-related failures such as corrosion and dendritic growth formations. Such study can result in improved electrical reliability and identify the optimal material set and process parameters for operation in harsh environments."
+  },
+  {
+    "name": "Design and Context Aware Embedded Monitor Analytics Through High-Volume Algorithmics and Explainable AI",
+    "title": "Design and Context Aware Embedded Monitor Analytics Through High-Volume Algorithmics and Explainable AI",
+    "authors": [
+      {
+        "name": "Dan Alexandrescu, Shubharthi Datta and Leela Krishna Thota"
+      }
+    ],
+    "abstract": "Silicon test results are highly dependent on operating voltage, temperature, and design intent, yet are often \ninterpreted without full context. This paper presents an approach that merges test measurements, operating conditions reported by embedded Silicon Lifecycle Management (SLM) voltage and temperature monitors, and design expectations to enable context aware interpretation of silicon results. Algorithms and explainable AI techniques guide engineers directly to the dominant contributors of misalignment, replacing manual chart inspection with automated, data driven insight generation, distinguishing process variability, systematic model to silicon correlation gaps, and true outlier parts and enabling data driven decisions across NPI, yield ramp, and highvolume manufacturing."
+  },
+  {
+    "name": "Physical Design Aware Verification Methodology for Closing Coverage Gaps in SharedBus MBIST",
+    "title": "Physical Design Aware Verification Methodology for Closing Coverage Gaps in SharedBus MBIST",
+    "authors": [
+      {
+        "name": "Shivam Tulsyan, Mayank Parasrampuria, Prachi Sinha, Vasudevan Pillai A and Maheedhar Jalasutram"
+      }
+    ],
+    "abstract": "The industry shift toward SharedBus MBIST architectures has successfully mitigated the Power,\nPerformance, and Area (PPA) bottlenecks associated with traditional embedded memory testing. However, reusing functional paths for testing introduces severe verification challenges, as conventional MBIST\nalgorithms often fail to detect intricate mapping errors like data-bus scrambling, tied-off data bits, and irregular address bits decoding. If left undetected, these discrepancies in implementation result in silent coverage gaps and ineffective memory repair mechanisms. This paper proposes a robust assertion-based RTL verification methodology specifically designed to close these gaps in SharedBus MBIST implementations. By deploying a\nWalking-0 pattern and continuous monitors across SharedBus and physical memory interfaces, the methodology enforces a strict set of verification rules. Experimental results validate this approach, demonstrating\nthe successful identification of critical implementation bugs across multiple vendor cores that escaped conventional verification.The paper concludes by proving that the overhead of this methodology is minimal and highly justified by the resulting improvements in silicon quality."
+  },
+  {
+    "name": "Constraint-Based Functional Testing of Encrypted Memory Systems",
+    "title": "Constraint-Based Functional Testing of Encrypted Memory Systems",
+    "authors": [
+      {
+        "name": "Ravikumar C.P."
+      }
+    ],
+    "abstract": "Encrypted memories which make use of encryption \nstandards such as AES-128 are becoming common in applications \nsuch as artificial intelligence, automotive/industrial electronics. \nConventional testing schemes, such as Marching Tests, are \ninadequate for testing of encrypted memories since they do not \ntest the encryption/decryption logic. Further, traditional tests \nread/write individual bits, whereas AES-128 standard encrypts \nchunks of 128 bits. This paper proposes test algorithms which \ncan be used both in field testing as well as in factory testing. The \nessential idea is to write magic squares (MS ) and read them \nback to verify that all properties of the magic square are intact. \nMS are very sensitive to a single error and a single error in \none of the bits can cause many constraints of the MS to fail. \nWe have developed a simulator to verify and benchmark the test \nalgorithm"
+  },
+  {
+    "name": "Enabling EDA Automation for HBM Testing Using A Plug-n-Play DFT Interface",
+    "title": "Enabling EDA Automation for HBM Testing Using A Plug-n-Play DFT Interface",
+    "authors": [
+      {
+        "name": "Quoc Phan, Anshuman Chandra, Bartosz Zelek, Barbara Dzia\u0142owska, Marta St\u0119pniewska and Jonathan Gaudet"
+      }
+    ],
+    "abstract": "High bandwidth memory (HBM) has emerged as \nthe primary high-speed memory in modern AI computing. It \nprovides an ultra-fast wide and power efficient data transfer for \nAI accelerators and graphics processing units (GPUs) using \ninnovative 3D stacking and advanced through-silicon-via (TSV) \ntechnology. However, HBM 3D stack presents significant test \nchallenges at both wafer-level and post package assembly. \nMemory cells inside each DRAM stack and the micro-bump \ninterconnect in the logic base die must be thoroughly tested to \nensure good quality and yield post bonding. In this paper, we \ndescribe an efficient package-level testing flow that enables \nseamless EDA tool automation for DFT insertion and pattern \ngeneration. We present the design of different components that \nenable plugging of the HBM interface to the IJTAG network \nand leverage an existing memory BIST controller for both \nmemory and interconnect test."
+  },
+  {
+    "name": "Enhancements in Memory Test for improved diagnosability and comprehensive multi-bank test",
+    "title": "Enhancements in Memory Test for improved diagnosability and comprehensive multi-bank test",
+    "authors": [
+      {
+        "name": "Prachi Sinha, Veerabhadrarao Vasa, Shivam Tulsyan and Mayank Parasrampuria"
+      }
+    ],
+    "abstract": "The scaling of System-on-Chip (SoC) architectures to \nsub-5nm nodes necessitates highly optimized custom memory \ndesigns. However, these layouts introduce unique physical defect \nmechanisms and coupling faults invisible to industry-standard \nMarch tests. This paper proposes a novel custom testing \nmethodology specifically engineered for multi-bank memory \narchitectures. By implementing a programmable, bank-aware \nBuilt-In Self-Test (BIST) architecture, the proposed solution \nenables concurrent multi-bank stressing to detect inter-bank \ncrosstalk while maintaining strict power-density limits through a \ncustom scheduling algorithm. This methodology provides a \nscalable framework for ensuring high reliability in \nperformance-critical silicon environments. While the multi-bank \nBIST identifies the presence of inter-bank coupling, physical \nlocalization in sub-5nm nodes requires non-invasive back-side \nanalysis. Our methodology includes a 'Diagnostic Mode' that \nallows the BIST to loop specific stress patterns, enabling Laser \nVoltage Probing (LVP) to capture high-resolution internal \nwaveforms. This synergy between custom BIST and optical \nprobing significantly reduces the Time-to-Yield (TTY) by \npinpointing the exact physical origin of marginal delay faults. \nSimulation results demonstrate the effectiveness of this approach \nin identifying complex inter-bank coupling and providing the \ndeterministic triggering required for failure analysis in advanced \nprocess nodes."
+  },
+  {
+    "name": "A novel hardware design for effective supply voltage glitch injection",
+    "title": "A novel hardware design for effective supply voltage glitch injection",
+    "authors": [
+      {
+        "name": "Antony Varghese, Ashok Kumar and Asmita Mohapatra"
+      }
+    ],
+    "abstract": "Supply Glitch Voltage Injection is one of the effective \ntechniques to analyse and validate a chip\u2019s performance and \nreliability in case of sudden changes in the supply. Conventional \nfunctional validation poses unique challenges owing to the \ndifficulty of creating these conditions. This paper elaborates on \nthese challenges and proposes a novel, cost-effective hardware \nsolution that facilitates functional validation of these circuits for \ndevices operating on a supply voltage range of 1.7V to 3.6V. The \nhardware can control the ramp rates of the generated glitch."
+  },
+  {
+    "name": "Validation Methodology to Characterize Absolute Propagation Delay, Delay variation over temperature and Programmable Delay of 1ps DNL step in Wideband RF Buffers upto 12.8GHz",
+    "title": "Validation Methodology to Characterize Absolute Propagation Delay, Delay variation over temperature and Programmable Delay of 1ps DNL step in Wideband RF Buffers upto 12.8GHz",
+    "authors": [
+      {
+        "name": "Harish Ramesh, Jason Xavier and Pranav Kumar"
+      }
+    ],
+    "abstract": "Wide Band RF Fanout Buffers is widely used in markets such as Wireless Infrastructure (Wireless Backhaul, 5G base station Beam forming applications), Aerospace & Defense (Phased Array Radar, Beam Forming), Test & Measurement. Modern Wideband RF Clock buffers and Synthesizers have provision to delay its output clock up to several picoseconds range with a step size of around 1picosecond. There are certain applications where programmable delay steps, propagation delay of buffers and channel to channel skew play a critical role in defining a system which require synchronized clocks across different channels. Customers always look out for min/max variation across PVT to budget their system accordingly. Therefore skew, propagation delay and its variations across temperature becomes a very critical parameter during the characterization phase. These measurements are very challenging and sensitive to setup variations, PCB interconnects, cables and measuring equipment. It also gets challenging at higher frequency where the delay range to be measured is greater than clock time period. In this paper measurement methodologies of Absolute propagation delay measurement, Propagation Delay Variation over temperature (Rate of change of delay with temperature) and Precise analog delay step measurements upto a resolution of 1ps are discussed in details with Si results"
+  },
+  {
+    "name": "DFT-Enhanced Spare Cell Architecture for Scan-Integrated ECO and Leakage Optimization in SoCs",
+    "title": "DFT-Enhanced Spare Cell Architecture for Scan-Integrated ECO and Leakage Optimization in SoCs",
+    "authors": [
+      {
+        "name": "Pramod Gayakwad, Raghavendra H D, Chandhramohan K P, Khushboo Rathore, Vishwanath Kunchigi, Vamsi Krishna Oliveti and Santhosh Kamatam"
+      }
+    ],
+    "abstract": "Advanced SoC designs increasingly rely on spare cells to enable post-layout and post-silicon engineering change orders (ECOs). However, conventional spare cell implementations are typically logic-only constructs that are neither scan-aware nor optimized for leakage and decoupling behavior, leading to test coverage challenges and unintended power penalties. This paper presents a DFT-enhanced spare cell module that integrates fullscan capability along with scan-controlled input-state enforcement to enable leakage reduction and effective decoupling utilization during inactive modes. The proposed architecture allows spare cells to be seamlessly incorporated into scan chains without perturbing existing DFT infrastructure, while simultaneously enabling their reuse as functional ECO resources. Analysis across representative design scenarios demonstrates that the proposed spare cell approach improves ECO readiness and scan integration with negligible area overhead and controlled leakage impact. The technique is particularly suitable for advanced technology nodes where unused logic contributes disproportionately to static power and reliability concerns. In representative design-level analysis, the method achieves up to ~98.9% stuck-at fault coverage for the spare module and demonstrates ~15% reduction in spare-logic leakage (~0.75 mW at SoC level)."
+  },
+  {
+    "name": "Hybrid Power Gating: Hardware Trio Framework based ATPG for Low-Power Scan (TRC Paper)",
+    "title": "Hybrid Power Gating: Hardware Trio Framework based ATPG for Low-Power Scan (TRC Paper)",
+    "authors": [
+      {
+        "name": "Praveen Raghuraman, Arul Karthick Kumar, Darshan V, Karthikeyan Soundararajan, Vivek Roopchand"
+      }
+    ],
+    "abstract": "State-of-the-art System-on-Chip (SoC) designs have evolved into highly complex, stacked architectures characterized by massive logic depth, small form factors, and stringent low-power requirements. The drastic scaling of design complexity and product features in cutting-edge SoCs introduces significant challenges, making structural testing using scan indispensable for determining design yield and robustness of a design. Due to recent spike in process node advancements in semiconductor industry, managing the power density during scan testing has become a critical bottleneck. To address these challenges, it is imperative to achieve high quality through test patterns that deliver stable results across different PVT conditions. Simultaneously, reducing the average unit cost and overall test cost requires optimized IR drop resistant test vector set for efficient sequential fault screening across blocks with minimal test time. Excessive switching activity during the ATPG phases lead to voltage droop (IR drop), causing artificial test failures and yield loss. Existing solutions, such as frequency throttling, EDA supported Low Toggle Vectors often result in unacceptable pattern count inflation or test time penalties. This paper addresses the challenges associated with achieving scan test power reduction in such advanced high density SoC designs."
+  }
+];

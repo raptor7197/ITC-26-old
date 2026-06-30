@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/ui/PageHeader";
 import { AuthorActionButton } from "@/components/ui/AuthorActionButton";
 import { FellowshipApplicationSidebar } from "@/components/fellowship/FellowshipApplicationSidebar";

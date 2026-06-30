@@ -366,7 +366,7 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Industry Session 1",
             items: [
-              "Talk 1: Jayashree Saxena, Anora Labs",
+              "Talk 1: A Day in the Life of a DFT Engineer - Can Agents Help?, Jayashree Saxena, Anora Labs",
               "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Texas Instruments",
               "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Marvell"
             ],
@@ -470,7 +470,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Grand Victoria 1",
             title: "Distinguished Address: Arojit Roychowdhury (Qualcomm)",
-            subtitle: "",
+            subtitle: "Semiconductor Test: A Product Perspective",
             colSpan: 3,
             location: "Grand Victoria",
           },

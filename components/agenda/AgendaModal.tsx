@@ -126,6 +126,26 @@ export default function AgendaModal({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
+              ) : data.name?.includes("Poster") ? (
+                <Link href="/posters" className="group relative overflow-hidden bg-white/5 hover:bg-[#00b0f0]/20 border border-white/10 hover:border-[#00b0f0]/50 transition-all duration-300 rounded-xl px-6 py-4 flex items-center gap-4 cursor-pointer w-full max-w-md mx-auto">
+                  <div className="bg-[#00b0f0]/20 p-2.5 rounded-lg text-[#00b0f0] group-hover:scale-110 transition-transform duration-300 shrink-0">
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v10a2 2 0 01-2 2z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 4v6h6" />
+                    </svg>
+                  </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-white font-bold text-[15px] group-hover:text-[#38bdf8] transition-colors">
+                      Explore Presentations
+                    </span>
+                    <span className="text-[#a0b0c0] text-[13px]">
+                      Discover poster presenters and their topics
+                    </span>
+                  </div>
+                  <svg className="w-5 h-5 text-[#00b0f0] opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all ml-auto shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
               ) : (
                 <p className="text-[#caddf0] font-bold text-[13px] sm:text-[15px] tracking-widest uppercase flex items-center gap-2 sm:gap-3">
                   <svg className="w-6 h-6 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
