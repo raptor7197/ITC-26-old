@@ -6,6 +6,7 @@ export interface Speaker {
   description?: string;
   bio?: string[];
   image?: string;
+  alternateImage?: string;
   imageClassName?: string;
   comingSoon?: boolean;
   authors?: any[];
@@ -143,9 +144,14 @@ export const industrySpeakers = [
   {
     id: 3,
     name: "Gopikrishna Siddula",
-    affiliation: "Sandisk",
+    affiliation: "SanDisk",
     title: "Testing High Speed Flash Interface IOs",
-    comingSoon: true,
+    bio: [
+      "Gopikrishna Siddula has been part of the Mixed‑Signal IP team at SanDisk for over 12 years, specializing in high‑performance memory interface I/O design and integration. He holds an M.S. from IIIT Hyderabad and is an inventor on multiple US patents in high‑speed I/O design, ESD protection, and memory interface technologies. Outside of work, he enjoys travelling, photography, and movies."
+    ],
+    image: "/images/gopikrishna_siddula.png",
+    alternateImage: "/images/gopi_krishna_siddula_expanded.png",
+    imageClassName: "object-center",
   },
   {
     id: 4,
@@ -360,10 +366,10 @@ export const tutorialsData = [
         imageClassName: "object-[center_60%] scale-105",
       },
       {
-        name: "Peter VanDenBosch",
+        name: "Peter Orlando",
         affiliation: "Siemens EDA",
-        bio: "Peter VanDenBosch is Product Director for Tessent Streaming Scan Network (SSN) and Tessent In-System Test (IST) at Siemens, where he has played a pivotal role in the development, deployment, and industry adoption of advanced structural test technologies. Since joining Siemens in 2018, he has helped define SSN implementation methodologies and guided numerous successful customer deployments, enabling significant reductions in test cost and test data volume.\n\nWith nearly three decades of experience in Design-for-Test and leadership roles across companies including Marvell, Micron Technology, STMicroelectronics, and LSI Logic, Peter has developed deep expertise in scan architectures, ATE integration, high-speed I/O-based test delivery, and in-field test applications. His hands-on involvement in shaping next-generation test methodologies gives him a unique perspective on how packetized scan and in-system test technologies are transforming semiconductor manufacturing and lifecycle management.",
-        image: "/images/tutorials/tut_487_2.png",
+        bio: "",
+        image: "",
       },
     ],
     status: "ready",
@@ -497,7 +503,18 @@ export const distinguishedAddressesData = [
     image: "/images/Alpa-Sood.png",
     imageClassName: "object-[40%_10%]"
   },
-  { id: 3, name: "Rajesh Vaddempudi", affiliation: "Advantest, India", title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration", comingSoon: true },
+  {
+    id: 3,
+    name: "Rajesh Vaddempudi",
+    affiliation: "Advantest, India",
+    title: "The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration",
+    bio: [
+      "Rajesh Vaddempudi is the Managing Director of Advantest India and a seasoned semiconductor leader with 26 years of experience driving business growth, innovation, and operational excellence. His distinguished career spans Texas Instruments and Tessolve, where he built deep expertise in semiconductor test and product engineering. Rajesh has led the development of comprehensive test infrastructures including wafer sort, final test, qualification, and reliability labs, and has a proven track record of bringing complex, high‑value products to market while supporting customers through post‑silicon validation and production ramp.",
+      "At Advantest, he looks forward to collaborating across teams to further accelerate the company’s India growth and expand its R&D capabilities."
+    ],
+    image: "/images/Rajesh_Vaddempudi.png",
+    imageClassName: "object-[center_10%]"
+  },
   {
     id: 4,
     name: "Arojit Roychowdhury",
