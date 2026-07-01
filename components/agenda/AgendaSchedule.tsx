@@ -626,7 +626,9 @@ export default function AgendaSchedule() {
                     const indicatorColor = getTrackIndicatorColor(session.hall);
                     
                     let mobileSessionChair = session.sessionChair;
-                    if (!mobileSessionChair && activeId === "tutorials") {
+                    const isSpecialEvent = session.title === "ITC-at-ITC" || session.title === "TTTC Workshop" || session.title === "";
+                    
+                    if (!mobileSessionChair && activeId === "tutorials" && !isSpecialEvent) {
                       for (const s of activeDay.slots) {
                         if (s.kind === "parallel") {
                           const match = s.sessions.find((x) => x.hall === session.hall && x.sessionChair);
@@ -697,17 +699,27 @@ export default function AgendaSchedule() {
                             </>
                           ) : (
                             <>
+                              {mobileSessionChair && (
+                                <div className="inline-flex items-center gap-1.5 mb-3 w-fit bg-white/[0.08] border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
+                                  <div className="bg-sky-400/20 rounded-full p-1">
+                                    <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                  </div>
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="text-[9px] font-black text-sky-300 uppercase tracking-widest mt-0.5">
+                                      CHAIR
+                                    </span>
+                                    <span className="text-[10px] font-bold text-white tracking-wide mt-0.5">
+                                      {mobileSessionChair.replace(/^Session\s*Chair:\s*/i, "")}
+                                    </span>
+                                  </div>
+                                </div>
+                              )}
                               <h3 className="text-[14px] font-bold text-white leading-[1.3]">
                                 {session.title}
                               </h3>
                               {session.subtitle && (
                                 <div className="text-[12px] text-sky-200/80 font-medium italic">
                                   {session.subtitle}
-                                </div>
-                              )}
-                              {mobileSessionChair && (
-                                <div className="text-[13px] text-sky-300 font-semibold">
-                                  {mobileSessionChair}
                                 </div>
                               )}
                               {session.items && session.items.length > 0 && (
@@ -960,6 +972,19 @@ export default function AgendaSchedule() {
                   const style = TRACK_STYLES[
                     venue as keyof typeof TRACK_STYLES
                   ] || { bgHeader: "bg-[#334155]", title: venue, icon: null };
+                  
+                  // Collect unique session chairs for this venue
+                  const chairs = new Set<string>();
+                  activeDay.slots.forEach((slot) => {
+                    if (slot.kind === "parallel") {
+                      const session = slot.sessions.find((s) => s.hall === venue);
+                      if (session && session.sessionChair) {
+                        chairs.add(session.sessionChair.replace(/^Session\s*Chair:\s*/i, ""));
+                      }
+                    }
+                  });
+                  const chairList = Array.from(chairs);
+
                   return (
                     <th
                       key={venue}
@@ -968,12 +993,27 @@ export default function AgendaSchedule() {
                       <div className="flex items-center gap-3">
                         {style.icon}
                         <div className="flex flex-col items-start">
-                          <span className="text-[11px] font-extrabold tracking-wider opacity-85 uppercase">
+                          <span className="text-[11px] font-extrabold tracking-wider opacity-85 uppercase leading-tight">
                             {style.title}
                           </span>
-                          <span className="text-[13px] font-black tracking-wider uppercase">
+                          <span className="text-[13px] font-black tracking-wider uppercase leading-tight mt-0.5">
                             {venue}
                           </span>
+                          {activeId === "tutorials" && chairList.length > 0 && (
+                            <div className="inline-flex items-center gap-1.5 mt-2 bg-white/[0.08] hover:bg-white/[0.12] transition-colors border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)] backdrop-blur-md">
+                              <div className="bg-sky-400/20 rounded-full p-1">
+                                <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-[9px] font-black text-sky-300 uppercase tracking-widest mt-0.5">
+                                  {chairList.length > 1 ? "CHAIRS" : "CHAIR"}
+                                </span>
+                                <span className="text-[10px] font-bold text-white tracking-wide mt-0.5">
+                                  {chairList.join(" & ")}
+                                </span>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </th>
@@ -1052,6 +1092,19 @@ export default function AgendaSchedule() {
                               else if (venue === "Arabica & Robusta") titleToUse = "TRACK 3 (B)";
                               else if (venue === "Brain Box") titleToUse = "";
 
+                              const chairs = new Set<string>();
+                              let foundLunch = false;
+                              activeDay.slots.forEach((s) => {
+                                if (s.title?.toLowerCase().includes("lunch")) foundLunch = true;
+                                if (foundLunch && s.kind === "parallel") {
+                                  const session = s.sessions.find((sess) => sess.hall === venue);
+                                  if (session && session.sessionChair) {
+                                    chairs.add(session.sessionChair.replace(/^Session\s*Chair:\s*/i, ""));
+                                  }
+                                }
+                              });
+                              const chairList = Array.from(chairs);
+
                               return (
                                 <td
                                   key={`subhead-${venue}`}
@@ -1061,13 +1114,28 @@ export default function AgendaSchedule() {
                                     {style.icon}
                                     <div className="flex flex-col items-start">
                                       {titleToUse && (
-                                        <span className="text-[11px] font-extrabold tracking-wider opacity-85 uppercase">
+                                        <span className="text-[11px] font-extrabold tracking-wider opacity-85 uppercase leading-tight">
                                           {titleToUse}
                                         </span>
                                       )}
-                                      <span className="text-[13px] font-black tracking-wider uppercase">
+                                      <span className="text-[13px] font-black tracking-wider uppercase leading-tight mt-0.5">
                                         {venue}
                                       </span>
+                                      {activeId === "tutorials" && chairList.length > 0 && (
+                                        <div className="inline-flex items-center gap-1.5 mt-2 bg-white/[0.08] hover:bg-white/[0.12] transition-colors border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)] backdrop-blur-md">
+                                          <div className="bg-sky-400/20 rounded-full p-1">
+                                            <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                          </div>
+                                          <div className="flex items-center gap-1.5">
+                                            <span className="text-[9px] font-black text-sky-300 uppercase tracking-widest mt-0.5">
+                                              {chairList.length > 1 ? "CHAIRS" : "CHAIR"}
+                                            </span>
+                                            <span className="text-[10px] font-bold text-white tracking-wide mt-0.5">
+                                              {chairList.join(" & ")}
+                                            </span>
+                                          </div>
+                                        </div>
+                                      )}
                                     </div>
                                   </div>
                                 </td>
@@ -1314,17 +1382,27 @@ export default function AgendaSchedule() {
                                     </div>
                                   ) : (
                                   <div className="flex flex-col h-full">
+                                    {activeId !== "tutorials" && session.sessionChair && (
+                                      <div className="inline-flex items-center gap-1.5 mb-3 w-fit bg-white/[0.08] hover:bg-white/[0.12] transition-colors border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)] backdrop-blur-md">
+                                        <div className="bg-sky-400/20 rounded-full p-1">
+                                          <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                          <span className="text-[9px] font-black text-sky-300 uppercase tracking-widest mt-0.5">
+                                            CHAIR
+                                          </span>
+                                          <span className="text-[10px] font-bold text-white tracking-wide mt-0.5">
+                                            {session.sessionChair.replace(/^Session\s*Chair:\s*/i, "")}
+                                          </span>
+                                        </div>
+                                      </div>
+                                    )}
                                     <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
                                       {session.title}
                                     </h4>
                                     {session.subtitle && (
                                       <div className="text-xs sm:text-sm text-sky-200 mt-[-8px] mb-4 font-bold italic">
                                         {session.subtitle}
-                                      </div>
-                                    )}
-                                    {session.sessionChair && (
-                                      <div className="text-xs sm:text-[15px] text-sky-300 mt-[-8px] mb-4 font-bold">
-                                        {session.sessionChair}
                                       </div>
                                     )}
                                     <div className="mt-auto pt-3 flex flex-col gap-3">
