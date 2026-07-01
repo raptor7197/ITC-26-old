@@ -449,7 +449,7 @@ export const tutorialsData = [
       {
         name: "Vaishnavi Saravanan",
         affiliation: "Caliber Interconnect Solutions",
-        bio: "Vaishnavi is a Senior Test Engineer at Caliber Interconnect Solutions with over a decade of experience in testing SoC, Mixed-Signal, and RF devices across both bench and ATE environments. Currently leading Caliber's RF team, she has developed strong expertise in device characterization, validation methodologies, and high-performance test execution.\n\nHer extensive hands-on experience across multiple semiconductor domains provides valuable insight into the practical challenges of ATE deployment and validation. This background enables her to contribute a real-world perspective on designing scalable hardware solutions that improve efficiency, reliability, and test coverage.",
+        bio: "Vaishnavi Saravanan is a Senior Test Engineer at Caliber Interconnect Solutions with over a decade of experience in testing SoC, Mixed-Signal, and RF devices across both bench and ATE environments. Currently leading Caliber's RF team, she has developed strong expertise in device characterization, validation methodologies, and high-performance test execution.\n\nHer extensive hands-on experience across multiple semiconductor domains provides valuable insight into the practical challenges of ATE deployment and validation. This background enables her to contribute a real-world perspective on designing scalable hardware solutions that improve efficiency, reliability, and test coverage.",
         image: "/images/tutorials/tut_504_3.png",
       },
     ],
