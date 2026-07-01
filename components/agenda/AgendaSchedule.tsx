@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import type { AgendaDay, AgendaSlot, ParallelSession } from "@/lib/agendaData";
 import { agendaDays, VENUES } from "@/lib/agendaData";
 
@@ -970,31 +970,71 @@ export default function AgendaSchedule() {
                     }
 
                     return (
-                      <tr key={`slot-${index}`}>
-                        <td className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-3 text-center whitespace-nowrap">
-                          <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
-                            {ICONS.clock}
-                            <span className="text-xs font-medium text-sky-100">
-                              {slot.time}
-                            </span>
-                          </div>
-                        </td>
-                        <td
-                          colSpan={colsToSpan}
-                          className="border-2 border-white/10 bg-transparent p-2 sm:p-3 text-center"
-                        >
-                          <div className="flex items-center justify-center gap-2 sm:gap-3 bg-[#03152d] border border-white/10 rounded-xl mx-0 sm:mx-2 py-2 sm:py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
-                            {isRegistration
-                              ? ICONS.user
-                              : slot.title.toLowerCase().includes("lunch")
-                                ? ICONS.lunch
-                                : ICONS.coffee}
-                            <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
-                              {slot.title}
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
+                      <Fragment key={`slot-${index}`}>
+                        <tr>
+                          <td className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-3 text-center whitespace-nowrap">
+                            <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
+                              {ICONS.clock}
+                              <span className="text-xs font-medium text-sky-100">
+                                {slot.time}
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            colSpan={colsToSpan}
+                            className="border-2 border-white/10 bg-transparent p-2 sm:p-3 text-center"
+                          >
+                            <div className="flex items-center justify-center gap-2 sm:gap-3 bg-[#03152d] border border-white/10 rounded-xl mx-0 sm:mx-2 py-2 sm:py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+                              {isRegistration
+                                ? ICONS.user
+                                : slot.title.toLowerCase().includes("lunch")
+                                  ? ICONS.lunch
+                                  : ICONS.coffee}
+                              <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
+                                {slot.title}
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                        {activeId === "tutorials" && slot.title.toLowerCase().includes("lunch") && (
+                          <tr>
+                            <td className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-4 text-center">
+                              <span className="text-[13px] font-black tracking-widest text-white uppercase">
+                                TIME
+                              </span>
+                            </td>
+                            {VENUES.map((venue) => {
+                              const style = TRACK_STYLES[venue as keyof typeof TRACK_STYLES] || { bgHeader: "bg-[#334155]", title: venue, icon: null };
+                              let titleToUse = style.title;
+                              if (venue === "Grand Victoria 1") titleToUse = "TRACK 1 (B)";
+                              else if (venue === "Grand Victoria 2") titleToUse = "TRACK 2 (B)";
+                              else if (venue === "Arabica & Robusta") titleToUse = "TRACK 3 (B)";
+                              else if (venue === "Brain Box") titleToUse = "";
+
+                              return (
+                                <td
+                                  key={`subhead-${venue}`}
+                                  className={`border-2 border-white/10 ${style.bgHeader} p-2 sm:p-3 text-left`}
+                                >
+                                  <div className="flex items-center gap-3">
+                                    {style.icon}
+                                    <div className="flex flex-col items-start">
+                                      {titleToUse && (
+                                        <span className="text-[11px] font-extrabold tracking-wider opacity-85 uppercase">
+                                          {titleToUse}
+                                        </span>
+                                      )}
+                                      <span className="text-[13px] font-black tracking-wider uppercase">
+                                        {venue}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        )}
+                      </Fragment>
                     );
                   }
 

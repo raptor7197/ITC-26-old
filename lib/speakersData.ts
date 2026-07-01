@@ -368,8 +368,8 @@ export const tutorialsData = [
         imageClassName: "object-[center_60%] scale-105",
       },
       {
-        name: "Peter Orlando",
-        affiliation: "Siemens EDA",
+        name: "Hagen Goller",
+        affiliation: "Advantest",
         bio: "",
         image: "",
       },
