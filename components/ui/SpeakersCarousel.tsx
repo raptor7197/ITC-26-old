@@ -70,10 +70,8 @@ function StaticGrid({ title, speakers }: { title: string; speakers: any[] }) {
             {row.map((speaker: any, index: number) => (
               <div key={`speaker-${speaker.id || index}`} className="flex flex-col items-center w-[120px] sm:w-[140px] md:w-[160px] lg:w-[180px]">
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 mb-4 sm:mb-5 group cursor-pointer">
-                  {/* Cyan offset ring */}
-                  <div className="absolute inset-0 rounded-full border-[3px] border-[#00d2ff] -translate-x-1.5 translate-y-1.5 transition-transform duration-300 group-hover:-translate-x-2 group-hover:translate-y-2"></div>
-                  {/* White ring + Image */}
-                  <div className="absolute inset-0 rounded-full border-[3px] border-white overflow-hidden bg-[#03396c] flex items-center justify-center z-10">
+                  {/* Blue ring + Image */}
+                  <div className="absolute inset-0 rounded-full border-[3px] border-[#00d2ff] overflow-hidden bg-[#00d2ff] flex items-center justify-center z-10">
                     {speaker.image ? (
                       <Image
                         src={speaker.image}
@@ -189,10 +187,8 @@ function SingleCarousel({ title, slides }: { title: string; slides: any[] }) {
             {slides.map((speaker, index) => (
               <div key={`speaker-${speaker.id || index}`} className="snap-start flex flex-col items-center px-1 sm:px-2 py-2 sm:py-4 w-full">
                 <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 mb-4 sm:mb-5 group cursor-pointer">
-                  {/* Cyan offset ring */}
-                  <div className="absolute inset-0 rounded-full border-[3px] border-[#00d2ff] -translate-x-1.5 translate-y-1.5 transition-transform duration-300 group-hover:-translate-x-2 group-hover:translate-y-2"></div>
-                  {/* White ring + Image */}
-                  <div className="absolute inset-0 rounded-full border-[3px] border-white overflow-hidden bg-[#03396c] flex items-center justify-center z-10">
+                  {/* Blue ring + Image */}
+                  <div className="absolute inset-0 rounded-full border-[3px] border-[#00d2ff] overflow-hidden bg-[#00d2ff] flex items-center justify-center z-10">
                     {speaker.image ? (
                       <Image
                         src={speaker.image}

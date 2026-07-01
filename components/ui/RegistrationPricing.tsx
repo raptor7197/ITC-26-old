@@ -67,23 +67,35 @@ type PricingRow = (typeof indianPricing)[number];
 function PriceCell({
   price,
   currency,
+  isEarlyBirdActive = false,
 }: {
   price: { regular: number; earlyBird: number } | null;
   currency: string;
+  isEarlyBirdActive?: boolean;
 }) {
   if (!price) {
     return <td className="p-3 text-center text-white/30">—</td>;
   }
+  
+  if (isEarlyBirdActive) {
+    return (
+      <td className="p-3 text-center">
+        <div className="text-white/50 line-through text-xs">
+          {currency}
+          {price.regular.toLocaleString()}
+        </div>
+        <div className="text-white font-semibold text-sm sm:text-base text-[#6aaff1]">
+          {currency}
+          {price.earlyBird.toLocaleString()}
+        </div>
+      </td>
+    );
+  }
+
   return (
-    <td className="p-3 text-center">
-      <div className="text-white/50 line-through text-xs">
-        {currency}
-        {price.regular.toLocaleString()}
-      </div>
-      <div className="text-white font-semibold text-sm sm:text-base">
-        {currency}
-        {price.earlyBird.toLocaleString()}
-      </div>
+    <td className="p-3 text-center text-white font-semibold text-sm sm:text-base">
+      {currency}
+      {price.regular.toLocaleString()}
     </td>
   );
 }
@@ -95,27 +107,24 @@ function EarlyBirdOffers() {
         Early Bird Offers
       </h3>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-        <div className="flex flex-col rounded-xl border border-[#6aaff1]/30 bg-white/5 p-5 sm:p-6">
-          <span className="mb-3 inline-block self-start rounded-full bg-[#6aaff1]/20 px-3 py-1 font-poppins text-xs font-bold uppercase tracking-wide text-[#6aaff1]">
-            Early Bird
+        <div className="flex flex-col rounded-xl border border-white/10 bg-white/5 p-5 sm:p-6 opacity-75">
+          <span className="mb-3 inline-block self-start rounded-full bg-white/10 px-3 py-1 font-poppins text-xs font-semibold uppercase tracking-wide text-white/50">
+            Closed
           </span>
-          <h4 className="font-poppins text-base sm:text-lg font-semibold text-white">
+          <h4 className="font-poppins text-base sm:text-lg font-semibold text-white/70">
             Non-IEEE Members
           </h4>
-          <p className="mt-1 font-poppins text-sm text-white/70">
+          <p className="mt-1 font-poppins text-sm text-white/50">
             Industry &amp; Academia delegates
           </p>
-          <p className="mt-4 font-poppins text-xs uppercase tracking-wide text-white/60">
-            Register by
+          <p className="mt-4 font-poppins text-xs uppercase tracking-wide text-white/40">
+            Deadline Passed
           </p>
-          <p className="font-angkor text-2xl sm:text-3xl font-bold leading-tight text-[#6aaff1]">
+          <p className="font-poppins text-xl sm:text-2xl font-bold leading-tight text-white/40">
             30 June 2026
           </p>
-          <p className="mt-3 font-poppins text-xs sm:text-sm text-white/60">
-            <span className="text-white/50 line-through">Regular</span>
-            <span className="mx-1.5 text-white/40">→</span>
-            <span className="font-semibold text-white">Early Bird</span> pricing
-            on all ticket types
+          <p className="mt-3 font-poppins text-xs sm:text-sm text-white/50">
+            Early bird registration has concluded. Regular pricing now applies.
           </p>
         </div>
 
@@ -162,10 +171,10 @@ function PricingTable({
       <p className="mb-3 font-poppins text-xs sm:text-sm text-white/60 text-center sm:text-left">
         <span className="text-white/50 line-through">Regular</span>
         <span className="mx-2 text-white/40">·</span>
-        <span className="font-semibold text-white">Early Bird</span>
+        <span className="font-semibold text-[#6aaff1]">Early Bird</span>
         <span className="text-white/50">
           {" "}
-          — strikethrough = regular price, bold = Early Bird price
+          — Extended exclusively for IEEE Members
         </span>
       </p>
       <div className="overflow-x-auto">
@@ -206,9 +215,9 @@ function PricingTable({
                   </span>
                 )}
               </td>
-              <PriceCell price={row.tutorialOnly} currency={currency} />
-              <PriceCell price={row.confOnly} currency={currency} />
-              <PriceCell price={row.tutorialConf} currency={currency} />
+              <PriceCell price={row.tutorialOnly} currency={currency} isEarlyBirdActive={isIeee} />
+              <PriceCell price={row.confOnly} currency={currency} isEarlyBirdActive={isIeee} />
+              <PriceCell price={row.tutorialConf} currency={currency} isEarlyBirdActive={isIeee} />
             </tr>
           );
           })}
@@ -309,36 +318,49 @@ export default function RegistrationPricing() {
           )}
 
           <div className="mt-6 pt-4 flex flex-col items-center justify-center gap-6">
-            <div className="w-full max-w-md border border-[#6aaff1]/30 rounded-lg bg-white/5 p-4">
-              <h3 className="text-base sm:text-lg font-semibold text-white text-center mb-3">
-                Bulk Registration
-              </h3>
-              <table className="w-full text-xs sm:text-sm border-collapse">
+            <div className="w-full max-w-md border border-[#6aaff1]/40 rounded-lg bg-[#022241]/40 p-5 mt-2">
+              <div className="flex items-center justify-between mb-4 border-b border-[#6aaff1]/20 pb-3">
+                <h3 className="text-base sm:text-lg font-semibold text-white">
+                  Bulk Registration
+                </h3>
+                <span className="text-xs font-medium text-[#6aaff1] bg-[#6aaff1]/10 px-2 py-1 rounded">
+                  Up to 25% Off
+                </span>
+              </div>
+              <table className="w-full text-sm sm:text-base border-collapse">
                 <thead>
-                  <tr className="border-b border-white/20 text-white/80">
-                    <th className="p-2 text-left">No. of Pax</th>
-                    <th className="p-2 text-right">Discount (%)</th>
+                  <tr className="border-b border-white/10 text-white/70">
+                    <th className="p-2 text-left font-medium">No. of Attendees</th>
+                    <th className="p-2 text-right font-medium">Discount</th>
                   </tr>
                 </thead>
-                <tbody className="text-white">
-                  <tr className="border-b border-white/10">
+                <tbody className="text-white/90">
+                  <tr className="border-b border-white/5">
                     <td className="p-2">5 - 10</td>
-                    <td className="p-2 text-right">10</td>
+                    <td className="p-2 text-right text-[#6aaff1]">10%</td>
                   </tr>
-                  <tr className="border-b border-white/10">
+                  <tr className="border-b border-white/5">
                     <td className="p-2">11 - 30</td>
-                    <td className="p-2 text-right">15</td>
+                    <td className="p-2 text-right text-[#6aaff1]">15%</td>
                   </tr>
-                  <tr className="border-b border-white/10">
+                  <tr className="border-b border-white/5">
                     <td className="p-2">31 - 40</td>
-                    <td className="p-2 text-right">20</td>
+                    <td className="p-2 text-right text-[#6aaff1]">20%</td>
                   </tr>
                   <tr>
                     <td className="p-2">&gt; 40</td>
-                    <td className="p-2 text-right">25</td>
+                    <td className="p-2 text-right text-[#6aaff1]">25%</td>
                   </tr>
                 </tbody>
               </table>
+              <div className="mt-4 pt-3 border-t border-white/5 text-center">
+                <p className="text-white/60 text-xs sm:text-sm">
+                  For queries, contact:{' '}
+                  <a href="mailto:register.itcindia@gmail.com" className="text-[#6aaff1] hover:underline">
+                    register.itcindia@gmail.com
+                  </a>
+                </p>
+              </div>
             </div>
 
             <EarlyBirdOffers />
