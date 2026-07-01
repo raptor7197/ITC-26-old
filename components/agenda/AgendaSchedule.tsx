@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import type { AgendaDay, AgendaSlot, ParallelSession } from "@/lib/agendaData";
 import { agendaDays, VENUES } from "@/lib/agendaData";
 
@@ -480,14 +480,29 @@ export default function AgendaSchedule() {
           <div className="absolute inset-0 bg-gradient-to-b from-sky-500/5 to-transparent pointer-events-none"></div>
           <div className="relative z-10 flex flex-col">
             {activeDay.slots.map((slot, index) => {
-          const isBreak =
-            slot.kind === "break" ||
-            (slot.kind === "single" && slot.variant === "registration");
-          const isSingle = slot.kind === "single" && slot.variant !== "registration";
-          const isParallel = slot.kind === "parallel";
+              const isBreak =
+                slot.kind === "break" ||
+                (slot.kind === "single" && slot.variant === "registration");
+              const isSingle = slot.kind === "single" && slot.variant !== "registration";
+              const isParallel = slot.kind === "parallel";
 
-          return (
-            <div key={`mob-slot-${index}`} className="flex flex-col mb-5 relative">
+              const spannedSessions = activeDay.slots
+                .slice(0, index)
+                .flatMap((prevSlot, prevIdx) => {
+                  if (prevSlot.kind === "parallel") {
+                    return prevSlot.sessions.filter((s) => s.rowSpan && s.rowSpan > index - prevIdx);
+                  }
+                  return [];
+                });
+
+              const sessionsToRender = [...((slot as any).sessions || []), ...spannedSessions];
+
+              if (isParallel && slot.sessions.every(session => !session.title || session.title.trim() === "")) {
+                return null;
+              }
+
+              return (
+                <div key={`mob-slot-${index}`} className="flex flex-col mb-5 relative">
               {/* Vertical connector line */}
               {index !== activeDay.slots.length - 1 && (
                 <div className="absolute left-1/2 -translate-x-1/2 top-10 bottom-[-40px] w-px bg-gradient-to-b from-sky-500/20 to-transparent pointer-events-none z-0"></div>
@@ -520,8 +535,12 @@ export default function AgendaSchedule() {
 
                 {isSingle && (
                   <div
-                    className={`bg-gradient-to-b from-[#0a1931] to-[#061124] border border-[#1e3a5f] rounded-[14px] p-4 shadow-xl flex flex-col gap-1.5 ${getMatchData(slot.title) ? "cursor-pointer active:scale-[0.98] active:border-sky-500/50 transition-all" : ""}`}
-                    onClick={() => handleTileClick(slot.title)}
+                    className={`bg-gradient-to-b from-[#0a1931] to-[#061124] border border-[#1e3a5f] rounded-[14px] p-4 shadow-xl flex flex-col gap-1.5 ${(!slot.items || slot.items.length === 0) && getMatchData(slot.title) ? "cursor-pointer active:scale-[0.98] active:border-sky-500/50 transition-all" : ""}`}
+                    onClick={() => {
+                      if (!slot.items || slot.items.length === 0) {
+                        handleTileClick(slot.title);
+                      }
+                    }}
                   >
                     {slot.variant === "keynote" && (
                       <div className="flex items-center gap-2 mb-0.5">
@@ -550,24 +569,37 @@ export default function AgendaSchedule() {
                           const speaker = parts[0].replace(/^(Distinguished Address:?|Keynote:?)\s*/i, "").trim();
 
                           return (
-                            <div 
-                              key={idx}
-                              className={`flex flex-col ${isClickable ? "cursor-pointer active:scale-[0.98]" : ""}`}
-                              onClick={(e) => {
-                                if (isClickable) {
-                                  e.stopPropagation();
-                                  handleTileClick(slot.title, [item]);
-                                }
-                              }}
-                            >
-                              {topic && (
-                                <div className="text-[12px] font-semibold text-sky-200 uppercase mb-0.5 leading-snug">
-                                  {topic}
+                            <div key={idx} className="flex flex-col">
+                              {topic ? (
+                                <>
+                                  <div 
+                                    className={`text-[12px] font-semibold text-sky-200 uppercase mb-0.5 leading-snug w-fit ${isClickable ? "cursor-pointer active:scale-[0.98]" : ""}`}
+                                    onClick={(e) => {
+                                      if (isClickable) {
+                                        e.stopPropagation();
+                                        handleTileClick(slot.title, [item]);
+                                      }
+                                    }}
+                                  >
+                                    {topic}
+                                  </div>
+                                  <div className="text-[12px] text-[#a3b8cc]">
+                                    {speaker}
+                                  </div>
+                                </>
+                              ) : (
+                                <div 
+                                  className={`text-[12px] ${isClickable ? "text-sky-200 font-semibold cursor-pointer active:scale-[0.98] w-fit" : "text-[#a3b8cc]"}`}
+                                  onClick={(e) => {
+                                    if (isClickable) {
+                                      e.stopPropagation();
+                                      handleTileClick(slot.title, [item]);
+                                    }
+                                  }}
+                                >
+                                  {speaker}
                                 </div>
                               )}
-                              <div className="text-[12px] text-[#a3b8cc]">
-                                {speaker}
-                              </div>
                             </div>
                           );
                         })}
@@ -582,14 +614,29 @@ export default function AgendaSchedule() {
                   </div>
                 )}
 
-                {isParallel &&
-                  slot.sessions.map((session, sIdx) => {
+                {sessionsToRender.length > 0 &&
+                  sessionsToRender.map((session: any, sIdx: number) => {
+                    if (!session.title || session.title.trim() === "") return null;
+                    
                     const isParallelBreak = session.title.toLowerCase().includes("break");
                     const isDA = session.title.toLowerCase().includes("distinguished address");
                     const isPanel = session.title.toLowerCase().startsWith("panel:");
                     const matchItems = session.subtitle ? [...(session.items || []), session.subtitle] : session.items;
                     const isClickable = getMatchData(session.title, matchItems);
                     const indicatorColor = getTrackIndicatorColor(session.hall);
+                    
+                    let mobileSessionChair = session.sessionChair;
+                    if (!mobileSessionChair && activeId === "tutorials") {
+                      for (const s of activeDay.slots) {
+                        if (s.kind === "parallel") {
+                          const match = s.sessions.find((x) => x.hall === session.hall && x.sessionChair);
+                          if (match) {
+                            mobileSessionChair = match.sessionChair;
+                            break;
+                          }
+                        }
+                      }
+                    }
 
                     if (isParallelBreak) {
                       return (
@@ -658,9 +705,9 @@ export default function AgendaSchedule() {
                                   {session.subtitle}
                                 </div>
                               )}
-                              {session.sessionChair && (
+                              {mobileSessionChair && (
                                 <div className="text-[13px] text-sky-300 font-semibold">
-                                  {session.sessionChair}
+                                  {mobileSessionChair}
                                 </div>
                               )}
                               {session.items && session.items.length > 0 && (
@@ -964,31 +1011,71 @@ export default function AgendaSchedule() {
                     }
 
                     return (
-                      <tr key={`slot-${index}`}>
-                        <td className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-3 text-center whitespace-nowrap">
-                          <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
-                            {ICONS.clock}
-                            <span className="text-xs font-medium text-sky-100">
-                              {slot.time}
-                            </span>
-                          </div>
-                        </td>
-                        <td
-                          colSpan={colsToSpan}
-                          className="border-2 border-white/10 bg-transparent p-2 sm:p-3 text-center"
-                        >
-                          <div className="flex items-center justify-center gap-2 sm:gap-3 bg-[#03152d] border border-white/10 rounded-xl mx-0 sm:mx-2 py-2 sm:py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
-                            {isRegistration
-                              ? ICONS.user
-                              : slot.title.toLowerCase().includes("lunch")
-                                ? ICONS.lunch
-                                : ICONS.coffee}
-                            <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
-                              {slot.title}
-                            </span>
-                          </div>
-                        </td>
-                      </tr>
+                      <Fragment key={`slot-${index}`}>
+                        <tr>
+                          <td className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-3 text-center whitespace-nowrap">
+                            <div className="flex flex-col items-center justify-center gap-1 text-sky-100">
+                              {ICONS.clock}
+                              <span className="text-xs font-medium text-sky-100">
+                                {slot.time}
+                              </span>
+                            </div>
+                          </td>
+                          <td
+                            colSpan={colsToSpan}
+                            className="border-2 border-white/10 bg-transparent p-2 sm:p-3 text-center"
+                          >
+                            <div className="flex items-center justify-center gap-2 sm:gap-3 bg-[#03152d] border border-white/10 rounded-xl mx-0 sm:mx-2 py-2 sm:py-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)]">
+                              {isRegistration
+                                ? ICONS.user
+                                : slot.title.toLowerCase().includes("lunch")
+                                  ? ICONS.lunch
+                                  : ICONS.coffee}
+                              <span className="text-[13px] font-bold tracking-[0.2em] uppercase text-sky-400">
+                                {slot.title}
+                              </span>
+                            </div>
+                          </td>
+                        </tr>
+                        {activeId === "tutorials" && slot.title.toLowerCase().includes("lunch") && (
+                          <tr>
+                            <td className="border-2 border-white/10 bg-[#0c2242] p-2 sm:p-4 text-center">
+                              <span className="text-[13px] font-black tracking-widest text-white uppercase">
+                                TIME
+                              </span>
+                            </td>
+                            {VENUES.map((venue) => {
+                              const style = TRACK_STYLES[venue as keyof typeof TRACK_STYLES] || { bgHeader: "bg-[#334155]", title: venue, icon: null };
+                              let titleToUse = style.title;
+                              if (venue === "Grand Victoria 1") titleToUse = "TRACK 1 (B)";
+                              else if (venue === "Grand Victoria 2") titleToUse = "TRACK 2 (B)";
+                              else if (venue === "Arabica & Robusta") titleToUse = "TRACK 3 (B)";
+                              else if (venue === "Brain Box") titleToUse = "";
+
+                              return (
+                                <td
+                                  key={`subhead-${venue}`}
+                                  className={`border-2 border-white/10 ${style.bgHeader} p-2 sm:p-3 text-left`}
+                                >
+                                  <div className="flex items-center gap-3">
+                                    {style.icon}
+                                    <div className="flex flex-col items-start">
+                                      {titleToUse && (
+                                        <span className="text-[11px] font-extrabold tracking-wider opacity-85 uppercase">
+                                          {titleToUse}
+                                        </span>
+                                      )}
+                                      <span className="text-[13px] font-black tracking-wider uppercase">
+                                        {venue}
+                                      </span>
+                                    </div>
+                                  </div>
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        )}
+                      </Fragment>
                     );
                   }
 
@@ -1023,9 +1110,13 @@ export default function AgendaSchedule() {
                       {slot.kind === "single" ? (
                         <td
                           colSpan={singleColsToSpan}
-                          className={`border-2 border-white/10 bg-transparent p-2 sm:p-3 ${getMatchData(slot.title) ? "cursor-pointer hover:bg-white/5 transition-colors" : ""}`}
-                          onClick={() => handleTileClick(slot.title)}
-                          {...(getMatchData(slot.title) ? { "title": "Click to read more details" } : {})}
+                          className={`border-2 border-white/10 bg-transparent p-2 sm:p-3 ${(!slot.items || slot.items.length === 0) && getMatchData(slot.title) ? "cursor-pointer hover:bg-white/5 transition-colors" : ""}`}
+                          onClick={() => {
+                            if (!slot.items || slot.items.length === 0) {
+                              handleTileClick(slot.title);
+                            }
+                          }}
+                          {...((!slot.items || slot.items.length === 0) && getMatchData(slot.title) ? { "title": "Click to read more details" } : {})}
                         >
                           {slot.variant === "keynote" ? (
                             <div className="bg-gradient-to-b from-[#03152d] to-[#041d3d] border border-white/10 rounded-[6px] p-3 sm:p-5 h-full shadow-[0_4px_12px_rgba(0,0,0,0.2)] pointer-events-none flex flex-col justify-center items-center text-center min-h-[100px] hover:border-white/20 transition-colors">
@@ -1071,25 +1162,39 @@ export default function AgendaSchedule() {
                                     const speaker = parts[0].replace(/^(Distinguished Address:?|Keynote:?)\s*/i, "").trim();
 
                                     return (
-                                      <div 
-                                        key={idx}
-                                        className={`flex flex-col items-center pointer-events-auto ${isClickable ? "cursor-pointer hover:brightness-125 transition-all" : ""}`}
-                                        onClick={(e) => {
-                                          if (isClickable) {
-                                            e.stopPropagation();
-                                            handleTileClick(slot.title, [item]);
-                                          }
-                                        }}
-                                        {...(isClickable ? { title: "Click to read more details" } : {})}
-                                      >
-                                        {topic && (
-                                          <div className="text-sm sm:text-base font-semibold text-sky-200 mt-1.5 uppercase leading-tight">
-                                            {topic}
+                                      <div key={idx} className="flex flex-col items-center pointer-events-auto">
+                                        {topic ? (
+                                          <>
+                                            <div 
+                                              className={`text-sm sm:text-base font-semibold text-sky-200 mt-1.5 uppercase leading-tight ${isClickable ? "cursor-pointer hover:brightness-125 transition-all" : ""}`}
+                                              onClick={(e) => {
+                                                if (isClickable) {
+                                                  e.stopPropagation();
+                                                  handleTileClick(slot.title, [item]);
+                                                }
+                                              }}
+                                              {...(isClickable ? { title: "Click to read more details" } : {})}
+                                            >
+                                              {topic}
+                                            </div>
+                                            <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5">
+                                              {speaker}
+                                            </div>
+                                          </>
+                                        ) : (
+                                          <div 
+                                            className={`text-xs sm:text-sm mt-1.5 ${isClickable ? "text-sky-200 font-semibold cursor-pointer hover:brightness-125 transition-all" : "text-[#a3b8cc]"}`}
+                                            onClick={(e) => {
+                                              if (isClickable) {
+                                                e.stopPropagation();
+                                                handleTileClick(slot.title, [item]);
+                                              }
+                                            }}
+                                            {...(isClickable ? { title: "Click to read more details" } : {})}
+                                          >
+                                            {speaker}
                                           </div>
                                         )}
-                                        <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5">
-                                          {speaker}
-                                        </div>
                                       </div>
                                     );
                                   })}

@@ -74,10 +74,10 @@ export const agendaDays: AgendaDay[] = [
         kind: "parallel",
         time: "09:15 AM – 10:45 AM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "Squeezing Quality into Cents: DFT Strategies for Low-cost MCUs", items: ["Vishal Diwan and Mudasir Kawoosa (Texas Instruments)"] },
-          { hall: "Grand Victoria 2", title: "LLM for VLSI Design, Automation and Test", items: ["Chandan Karfa (IIT Guwahati)"] },
-          { hall: "Arabica & Robusta", title: "Mission Mode Scan Dump Using IJTAG and TAP Customization: Architecture, Implementation, and Practical Considerations", items: ["Sreekanth G Pai and Raseena KA (Marvell)"] },
-          { hall: "Brain Box", title: "Testing Chiplet-Based 2.5D/3D ICs : An Academia/Industry perspective", items: ["Binod Kumar, Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati), Jyotirmoy Saikia and Sagar Kumar (Cadence)"] },
+          { hall: "Grand Victoria 1", sessionChair: "Session chair: Bharath Nandakumar", title: "Squeezing Quality into Cents: DFT Strategies for Low-cost MCUs", items: ["Vishal Diwan and Mudasir Kawoosa (Texas Instruments)"] },
+          { hall: "Grand Victoria 2", sessionChair: "Session chair: Rajit Karmakar", title: "LLM for VLSI Design, Automation and Test", items: ["Chandan Karfa (IIT Guwahati)"] },
+          { hall: "Arabica & Robusta", sessionChair: "Session chair: Rama Sireesha Arisetti", title: "Mission Mode Scan Dump Using IJTAG and TAP Customization: Architecture, Implementation, and Practical Considerations", items: ["Sreekanth G Pai and Raseena KA (Marvell)"] },
+          { hall: "Brain Box", sessionChair: "Session chair: Abhishek Chaudhary", title: "Testing Chiplet-Based 2.5D/3D ICs : An Academia/Industry perspective", items: ["Binod Kumar, Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati), Jyotirmoy Saikia and Sagar Kumar (Cadence)"] },
         ],
       },
       {
@@ -89,7 +89,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "parallel",
         time: "11:15 AM – 12:45 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "Closed Loop Test Engineering – From Design to Mass Production", items: ["Maheedhar Jalasutram (Google Silicon Team), Chiehjen (Jeren) Ku and Daejin Shin (Google)"] },
+          { hall: "Grand Victoria 1", title: "Closed Loop Test Engineering – From Design to Mass Production", items: ["Maheedhar Jalasutram, Jeren Ku and Daejin Shin (Google)"] },
           { hall: "Grand Victoria 2", title: "Machine Learning is Inevitable or Not: A DFT Designer’s View", items: ["Ankush Srivastava (Qualcomm)"] },
           { hall: "Arabica & Robusta", title: "Beyond Scan Dump: Why IEEE P2929 Enables True Scan State Extraction", items: ["Lee Harrison, Andy Hughes and Peter Orlando (Siemens EDA)"] },
           { hall: "Brain Box", title: "Testing Chiplet-Based 2.5D/3D ICs : An Academia/Industry perspective", items: ["Binod Kumar, Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati), Jyotirmoy Saikia and Sagar Kumar (Cadence)"] },
@@ -104,9 +104,9 @@ export const agendaDays: AgendaDay[] = [
         kind: "parallel",
         time: "01:45 PM – 03:15 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "Testing to Self Testing: Self Test Driven Functional Safety for ISO 26262 Compliant Automotive SoCs", items: ["Rajesh Kumar Tiwari and Mohammed Zuber P Malek (Qualcomm)"] },
-          { hall: "Grand Victoria 2", title: "The Seamless Integration of Packetized scan and In-system test with Advanced ATE Equipment", items: ["Lee Harrison and Peter Orlando (Siemens EDA)"] },
-          { hall: "Arabica & Robusta", title: "Advanced Test Data Analytics for Yield and Quality Improvement", items: ["Navya Rastogi, Shamitha Rao, Shrestha Hota (Synopsys) and Soumya Mittal (Qualcomm)"] },
+          { hall: "Grand Victoria 1", sessionChair: "Session chair: Bharath Nandakumar", title: "Testing to Self Testing: Self Test Driven Functional Safety for ISO 26262 Compliant Automotive SoCs", items: ["Rajesh Kumar Tiwari and Mohammed Zuber P Malek (Qualcomm)"] },
+          { hall: "Grand Victoria 2", sessionChair: "Session chair: Rajit Karmakar", title: "The Seamless Integration of Packetized scan and In-system test with Advanced ATE Equipment", items: ["Lee Harrison (Siemens EDA) and Hagen Goller (Advantest)"] },
+          { hall: "Arabica & Robusta", sessionChair: "Session chair: Rama Sireesha Arisetti", title: "Advanced Test Data Analytics for Yield and Quality Improvement", items: ["Navya Rastogi, Shamitha Rao, Shrestha Hota (Synopsys) and Soumya Mittal (Qualcomm)"] },
           { hall: "Brain Box", title: "ITC-at-ITC", subtitle: "invite only session", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige"], rowSpan: 4 },
         ],
       },
