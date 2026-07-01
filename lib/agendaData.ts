@@ -89,7 +89,7 @@ export const agendaDays: AgendaDay[] = [
         kind: "parallel",
         time: "11:15 AM – 12:45 PM",
         sessions: [
-          { hall: "Grand Victoria 1", title: "Closed Loop Test Engineering – From Design to Mass Production", items: ["Maheedhar Jalasutram (Google Silicon Team), Chiehjen (Jeren) Ku and Daejin Shin (Google)"] },
+          { hall: "Grand Victoria 1", title: "Closed Loop Test Engineering – From Design to Mass Production", items: ["Maheedhar Jalasutram, Jeren Ku and Daejin Shin (Google)"] },
           { hall: "Grand Victoria 2", title: "Machine Learning is Inevitable or Not: A DFT Designer’s View", items: ["Ankush Srivastava (Qualcomm)"] },
           { hall: "Arabica & Robusta", title: "Beyond Scan Dump: Why IEEE P2929 Enables True Scan State Extraction", items: ["Lee Harrison, Andy Hughes and Peter Orlando (Siemens EDA)"] },
           { hall: "Brain Box", title: "Testing Chiplet-Based 2.5D/3D ICs : An Academia/Industry perspective", items: ["Binod Kumar, Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati), Jyotirmoy Saikia and Sagar Kumar (Cadence)"] },
