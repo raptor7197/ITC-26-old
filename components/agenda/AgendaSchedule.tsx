@@ -486,6 +486,10 @@ export default function AgendaSchedule() {
           const isSingle = slot.kind === "single" && slot.variant !== "registration";
           const isParallel = slot.kind === "parallel";
 
+          if (isParallel && slot.sessions.every(session => !session.title || session.title.trim() === "")) {
+            return null;
+          }
+
           return (
             <div key={`mob-slot-${index}`} className="flex flex-col mb-5 relative">
               {/* Vertical connector line */}
@@ -584,6 +588,8 @@ export default function AgendaSchedule() {
 
                 {isParallel &&
                   slot.sessions.map((session, sIdx) => {
+                    if (!session.title || session.title.trim() === "") return null;
+                    
                     const isParallelBreak = session.title.toLowerCase().includes("break");
                     const isDA = session.title.toLowerCase().includes("distinguished address");
                     const isPanel = session.title.toLowerCase().startsWith("panel:");

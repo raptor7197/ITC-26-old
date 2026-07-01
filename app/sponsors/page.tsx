@@ -35,23 +35,21 @@ export default function SponsorsPage() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
-            <div className="group relative w-full max-w-xs bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
+            <div className="group relative w-full max-w-xs mx-auto bg-white rounded-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(106,175,241,0.3)] transition-all duration-500 transform hover:-translate-y-2">
               <div className="absolute inset-0 bg-white opacity-100 transition-opacity duration-300"></div>
 
-              <div className="relative p-6 flex flex-col items-center justify-center min-h-[150px] text-center">
-                <div className="mb-6 transform group-hover:scale-110 transition-transform duration-500">
-                  <img
-                    src="/images/caliberinterconnect.png"
-                    alt="Caliber Interconnect"
-                    className="max-h-16 md:max-h-20 w-auto max-w-[85%] object-contain"
-                  />
-                </div>
+              <div className="relative p-6 flex items-center justify-center min-h-[150px]">
+                <img
+                  src="/images/caliberinterconnect.png"
+                  alt="Caliber Interconnect"
+                  className="mx-auto max-h-16 md:max-h-20 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
 
-                <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-6">
-                  <span className="text-[#03396c] font-semibold text-sm tracking-widest uppercase border-b-2 border-[#03396c]">
-                    Visit Website
-                  </span>
-                </div>
+              <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-6 left-1/2 -translate-x-1/2">
+                <span className="text-[#03396c] font-semibold text-sm tracking-widest uppercase border-b-2 border-[#03396c]">
+                  Visit Website
+                </span>
               </div>
 
               <a
