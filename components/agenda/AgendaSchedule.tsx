@@ -1095,7 +1095,7 @@ export default function AgendaSchedule() {
                               const chairs = new Set<string>();
                               let foundLunch = false;
                               activeDay.slots.forEach((s) => {
-                                if (s.title?.toLowerCase().includes("lunch")) foundLunch = true;
+                                if ('title' in s && s.title?.toLowerCase().includes("lunch")) foundLunch = true;
                                 if (foundLunch && s.kind === "parallel") {
                                   const session = s.sessions.find((sess) => sess.hall === venue);
                                   if (session && session.sessionChair) {
