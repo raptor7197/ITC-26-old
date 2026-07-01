@@ -626,7 +626,9 @@ export default function AgendaSchedule() {
                     const indicatorColor = getTrackIndicatorColor(session.hall);
                     
                     let mobileSessionChair = session.sessionChair;
-                    if (!mobileSessionChair && activeId === "tutorials") {
+                    const isSpecialEvent = session.title === "ITC-at-ITC" || session.title === "TTTC Workshop" || session.title === "";
+                    
+                    if (!mobileSessionChair && activeId === "tutorials" && !isSpecialEvent) {
                       for (const s of activeDay.slots) {
                         if (s.kind === "parallel") {
                           const match = s.sessions.find((x) => x.hall === session.hall && x.sessionChair);
@@ -698,11 +700,18 @@ export default function AgendaSchedule() {
                           ) : (
                             <>
                               {mobileSessionChair && (
-                                <div className="flex items-center gap-1.5 mb-2 w-fit bg-sky-900/40 border border-sky-500/30 shadow-[0_2px_8px_rgba(0,176,240,0.15)] rounded-full px-2.5 py-1">
-                                  <svg className="w-3 h-3 text-sky-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                                  <span className="text-[10px] font-bold uppercase tracking-widest text-sky-300">
-                                    {mobileSessionChair.replace(/^Session\s*Chair:\s*/i, "Chair: ")}
-                                  </span>
+                                <div className="inline-flex items-center gap-1.5 mb-3 w-fit bg-white/[0.08] border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)]">
+                                  <div className="bg-sky-400/20 rounded-full p-1">
+                                    <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                  </div>
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="text-[9px] font-black text-sky-300 uppercase tracking-widest mt-0.5">
+                                      CHAIR
+                                    </span>
+                                    <span className="text-[10px] font-bold text-white tracking-wide mt-0.5">
+                                      {mobileSessionChair.replace(/^Session\s*Chair:\s*/i, "")}
+                                    </span>
+                                  </div>
                                 </div>
                               )}
                               <h3 className="text-[14px] font-bold text-white leading-[1.3]">
@@ -990,7 +999,7 @@ export default function AgendaSchedule() {
                           <span className="text-[13px] font-black tracking-wider uppercase leading-tight mt-0.5">
                             {venue}
                           </span>
-                          {chairList.length > 0 && (
+                          {activeId === "tutorials" && chairList.length > 0 && (
                             <div className="inline-flex items-center gap-1.5 mt-2 bg-white/[0.08] hover:bg-white/[0.12] transition-colors border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)] backdrop-blur-md">
                               <div className="bg-sky-400/20 rounded-full p-1">
                                 <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
@@ -1112,7 +1121,7 @@ export default function AgendaSchedule() {
                                       <span className="text-[13px] font-black tracking-wider uppercase leading-tight mt-0.5">
                                         {venue}
                                       </span>
-                                      {chairList.length > 0 && (
+                                      {activeId === "tutorials" && chairList.length > 0 && (
                                         <div className="inline-flex items-center gap-1.5 mt-2 bg-white/[0.08] hover:bg-white/[0.12] transition-colors border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)] backdrop-blur-md">
                                           <div className="bg-sky-400/20 rounded-full p-1">
                                             <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
@@ -1373,6 +1382,21 @@ export default function AgendaSchedule() {
                                     </div>
                                   ) : (
                                   <div className="flex flex-col h-full">
+                                    {activeId !== "tutorials" && session.sessionChair && (
+                                      <div className="inline-flex items-center gap-1.5 mb-3 w-fit bg-white/[0.08] hover:bg-white/[0.12] transition-colors border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)] backdrop-blur-md">
+                                        <div className="bg-sky-400/20 rounded-full p-1">
+                                          <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                        </div>
+                                        <div className="flex items-center gap-1.5">
+                                          <span className="text-[9px] font-black text-sky-300 uppercase tracking-widest mt-0.5">
+                                            CHAIR
+                                          </span>
+                                          <span className="text-[10px] font-bold text-white tracking-wide mt-0.5">
+                                            {session.sessionChair.replace(/^Session\s*Chair:\s*/i, "")}
+                                          </span>
+                                        </div>
+                                      </div>
+                                    )}
                                     <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
                                       {session.title}
                                     </h4>
