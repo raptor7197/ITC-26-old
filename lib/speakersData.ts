@@ -276,9 +276,9 @@ export const tutorialsData = [
         imageClassName: "object-[center_10%] scale-[1.1]",
       },
       {
-        name: "Chiehjen (Jeren) Ku",
+        name: "Jeren Ku",
         affiliation: "Google",
-        bio: "Chiehjen (Jeren) Ku leads the Foundry, Assembly Process, and Yield Engineering team within Google's Custom Silicon Operations organization. He oversees manufacturing operations, yield improvement, process optimization, quality management, and product ramp activities for Google's custom silicon programs. Prior to Google, he held leadership positions at Intel and TSMC, focusing on advanced semiconductor process technologies, including FinFET and Gate-All-Around transistor development.\n\nHis experience across process technology development, manufacturing operations, and yield engineering has given him a comprehensive understanding of how design, fabrication, and production data interact to influence product quality. This background provides valuable insight into building closed-loop methodologies that accelerate yield learning and production readiness.",
+        bio: "Jeren Ku leads the Foundry, Assembly Process, and Yield Engineering team within Google's Custom Silicon Operations organization. He oversees manufacturing operations, yield improvement, process optimization, quality management, and product ramp activities for Google's custom silicon programs. Prior to Google, he held leadership positions at Intel and TSMC, focusing on advanced semiconductor process technologies, including FinFET and Gate-All-Around transistor development.\n\nHis experience across process technology development, manufacturing operations, and yield engineering has given him a comprehensive understanding of how design, fabrication, and production data interact to influence product quality. This background provides valuable insight into building closed-loop methodologies that accelerate yield learning and production readiness.",
         image: "/images/tutorials/tut_533_2.png",
         imageClassName: "object-[center_25%] scale-[1.15]",
       },
