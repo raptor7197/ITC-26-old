@@ -194,8 +194,11 @@ export default function AgendaModal({
                               </p>
                             )}
                             {author.bio && (
-                              <div className="text-[#a0b0c0] text-[14px] sm:text-[15px] leading-relaxed mb-4 text-justify space-y-3">
-                                {author.bio.split("\n").map((p, i) => <p key={i}>{p}</p>)}
+                              <div className="text-[#a0b0c0] text-[15px] sm:text-[16px] leading-[1.8] mb-4 text-justify space-y-3">
+                                {author.bio.split(/\n\s*\n/).map((p, i) => {
+                                  const text = p.replace(/\n/g, ' ').trim();
+                                  return text ? <p key={i}>{text}</p> : null;
+                                })}
                               </div>
                             )}
                           </div>
@@ -206,12 +209,15 @@ export default function AgendaModal({
 
                   {/* Abstract */}
                   {data.abstract && (
-                    <div className="text-[#caddf0] text-[14px] sm:text-[15px] leading-relaxed text-justify space-y-3 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-6 rounded-2xl border border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                    <div className="text-[#caddf0] text-[15px] sm:text-[16px] leading-[1.8] text-justify space-y-3 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-6 rounded-2xl border border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
                       <div className="text-white font-black text-lg mb-4 uppercase tracking-widest flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#00b0f0] shadow-[0_0_8px_#00b0f0]"></span>
                         Abstract
                       </div>
-                      {data.abstract.split("\n").map((p, i) => p.trim() && <p key={i}>{p}</p>)}
+                      {data.abstract.split(/\n\s*\n/).map((p, i) => {
+                        const text = p.replace(/\n/g, ' ').trim();
+                        return text ? <p key={i}>{text}</p> : null;
+                      })}
                     </div>
                   )}
                 </div>
@@ -246,7 +252,7 @@ export default function AgendaModal({
                         </h3>
                       )}
                       {data.description && (
-                        <p className="text-[#a0b0c0] text-[14px] sm:text-[16px] leading-relaxed text-justify">
+                        <p className="text-[#a0b0c0] text-[15px] sm:text-[16px] leading-[1.8] text-justify">
                           {data.description}
                         </p>
                       )}
@@ -255,7 +261,7 @@ export default function AgendaModal({
 
                   {/* Bio */}
                   {data.bio && (
-                    <div className="text-[#caddf0] text-[14px] sm:text-[16px] leading-relaxed text-justify space-y-4 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/5 mt-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                    <div className="text-[#caddf0] text-[15px] sm:text-[16px] leading-[1.8] text-justify space-y-4 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-6 sm:p-8 rounded-2xl border border-white/5 mt-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
                       {Array.isArray(data.bio) ? (
                         data.bio.map((paragraph, i) => (
                           <p key={i}>

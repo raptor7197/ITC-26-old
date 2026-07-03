@@ -143,7 +143,7 @@ export default function Navbar() {
   };
 
   const mobileHeader = (
-    <header className="fixed inset-x-0 top-0 z-[9999] box-border w-full max-w-[100vw] border-b-2 border-white bg-[#03396c] lg:hidden">
+    <header className="fixed inset-x-0 top-0 z-[9999] box-border w-full max-w-[100vw] border-b-2 border-white bg-[#03396c] xl:hidden">
       <nav
         className="mx-auto flex h-14 w-full max-w-[100vw] items-center justify-between gap-3 px-3 sm:h-[60px] sm:px-4"
         aria-label="Mobile primary"
@@ -177,7 +177,7 @@ export default function Navbar() {
   const mobileMenuPanel = isMobileMenuOpen ? (
     <div
       id="mobile-nav-panel"
-      className="fixed inset-x-0 top-14 z-[9998] box-border max-h-[calc(100dvh-3.5rem)] w-full max-w-[100vw] overflow-y-auto border-b-2 border-white bg-[#03396c] shadow-lg sm:top-[60px] sm:max-h-[calc(100dvh-60px)] lg:hidden"
+      className="fixed inset-x-0 top-14 z-[9998] box-border max-h-[calc(100dvh-3.5rem)] w-full max-w-[100vw] overflow-y-auto border-b-2 border-white bg-[#03396c] shadow-lg sm:top-[60px] sm:max-h-[calc(100dvh-60px)] xl:hidden"
       role="dialog"
       aria-modal="true"
       aria-label="Navigation menu"
@@ -288,7 +288,7 @@ export default function Navbar() {
   const mobileMenuBackdrop = isMobileMenuOpen ? (
     <button
       type="button"
-      className="fixed inset-0 z-[9997] bg-black/40 lg:hidden"
+      className="fixed inset-0 z-[9997] bg-black/40 xl:hidden"
       aria-label="Close menu"
       onClick={closeMobileMenu}
     />
@@ -298,10 +298,10 @@ export default function Navbar() {
     <>
       {/* Desktop navigation */}
       <nav
-        className="fixed top-7 left-1/2 z-[100] hidden h-[68px] w-fit max-w-[calc(100vw-1.5rem)] -translate-x-1/2 flex-row items-center border-2 border-white bg-[#03396c]/40 px-7 backdrop-blur-md transition-all duration-300 lg:flex lg:px-10"
+        className="fixed top-7 left-1/2 z-[100] hidden h-[68px] w-fit max-w-[calc(100vw-1.5rem)] -translate-x-1/2 flex-row items-center border-2 border-white bg-[#03396c]/40 px-7 backdrop-blur-md transition-all duration-300 xl:flex xl:px-10"
         aria-label="Primary"
       >
-        <div className="flex h-full items-center gap-6 lg:gap-10">
+        <div className="flex h-full items-center gap-6 xl:gap-10">
           {navLinks.map((link) => (
             <div
               key={link.name}
@@ -309,7 +309,7 @@ export default function Navbar() {
             >
               {link.dropdown ? (
                 <div className="group relative flex h-full cursor-pointer items-center">
-                  <span className="flex items-center gap-1.5 font-poppins text-[15px] font-bold uppercase tracking-wide text-white transition-colors group-hover:text-gray-200 lg:text-[16px]">
+                  <span className="flex items-center gap-1.5 font-poppins text-[15px] font-bold uppercase tracking-wide text-white transition-colors group-hover:text-gray-200 xl:text-[16px]">
                     {link.name}
                     <svg
                       className="mt-0.5 h-4 w-4 transition-transform group-hover:rotate-180"
@@ -355,7 +355,7 @@ export default function Navbar() {
                       window.location.href = link.href;
                     }
                   }}
-                  className="whitespace-nowrap font-poppins text-[15px] font-bold uppercase tracking-wide text-white transition-colors hover:text-gray-200 lg:text-[16px]"
+                  className="whitespace-nowrap font-poppins text-[15px] font-bold uppercase tracking-wide text-white transition-colors hover:text-gray-200 xl:text-[16px]"
                 >
                   {link.name}
                 </Link>
@@ -367,7 +367,7 @@ export default function Navbar() {
           (pathname === "/fellowship" ||
             pathname === "/fellowship/register" ||
             pathname === "/dashboard") && (
-            <div className="ml-5 flex shrink-0 gap-2 border-l border-white/35 pl-5 lg:ml-8 lg:gap-3 lg:pl-8">
+            <div className="ml-5 flex shrink-0 gap-2 border-l border-white/35 pl-5 xl:ml-8 xl:gap-3 xl:pl-8">
               {(pathname === "/fellowship" ||
                 pathname === "/fellowship/register") && (
                 <button
@@ -401,7 +401,7 @@ export default function Navbar() {
         )}
 
       {/* Spacer so page content clears the fixed mobile header */}
-      <div className="h-14 shrink-0 lg:hidden sm:h-[60px]" aria-hidden />
+      <div className="h-14 shrink-0 xl:hidden sm:h-[60px]" aria-hidden />
     </>
   );
 }
