@@ -13,7 +13,7 @@ const MARQUEE_ITEMS = [
       Click here to check the list
     </Link>
   </span>,
-];
+]; 
 
 export default function UpdatesMarquee() {
   return (
