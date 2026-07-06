@@ -170,7 +170,7 @@ export const agendaDays: AgendaDay[] = [
         items: [
           "Keynote: Yervant Zorian (Synopsys) | Topic : Designing Chiplets and 3DIC for Quality and Reliability",
           "Keynote: Subhashish Mitra (Stanford University) | Topic : Silent Data corruption by 10x Test Escapes Threatens Reliable computing",
-          "Keynote: Senthilkumar Dhamodharan (Caliber Interconnect) | Topic : SI Complexity to AI Revolution: India’s Silicon Leap 2047"
+          "Keynote: Senthilkumar Dhamodharan (Caliber Interconnects) | Topic : SI Complexity to AI Revolution: India’s Silicon Leap 2047"
         ]
       },
       {

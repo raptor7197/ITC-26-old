@@ -45,12 +45,12 @@ export const keynoteSpeakers = [
   {
     id: 2,
     name: "Senthilkumar Dhamodharan",
-    affiliation: "Caliber Interconnect Solutions",
+    affiliation: "Caliber Interconnects",
     title: "SI Complexity to AI Revolution: India’s Silicon Leap 2047",
     description:
       "As artificial intelligence redefines the semiconductor landscape, intelligent testing, validation, and manufacturing have become essential enablers of innovation. This keynote explores how AI-driven methodologies, digital twins, and ecosystem collaboration can accelerate India’s semiconductor journey and strengthen its position in the global technology value chain.",
     bio: [
-      "Senthilkumar Dhamodharan is a semiconductor engineering leader with nearly two decades of experience in post-silicon validation and high-volume manufacturing testing across Digital, Mixed Signal, PMIC, and RF technologies. Having held leadership roles at Caliber Interconnect Solutions, Qualcomm, AMD, and NXP, he has developed deep expertise in semiconductor quality, reliability, and test engineering.",
+      "Senthilkumar Dhamodharan is a semiconductor engineering leader with nearly two decades of experience in post-silicon validation and high-volume manufacturing testing across Digital, Mixed Signal, PMIC, and RF technologies. Having held leadership roles at Caliber Interconnects, Qualcomm, AMD, and NXP, he has developed deep expertise in semiconductor quality, reliability, and test engineering.",
       "His industry experience, combined with ongoing research in AI/ML applications for post-silicon validation, provides him with a unique perspective on how intelligent testing and AI-driven innovation can shape the future of the semiconductor industry.",
     ],
     image: "/images/keynote/senthilkumar-photo.png",
@@ -436,22 +436,22 @@ export const tutorialsData = [
     authors: [
       {
         name: "Lokapriya Balakrishnan",
-        affiliation: "Caliber Interconnect Solutions",
-        bio: "Lokapriya Balakrishnan is a Test Engineer at Caliber Interconnect Solutions with over seven years of experience in semiconductor testing and ATE interface hardware development. Her work spans turnkey load board and probe card design, signal and power integrity optimization, device testing, and tester platform conversion projects. In addition to her technical contributions, she has successfully led engineering teams in delivering high-quality hardware solutions within demanding development schedules.\n\nHer experience across both hardware development and semiconductor validation provides her with a unique perspective on the challenges of designing scalable, high-performance ATE solutions. This expertise enables her to bridge the gap between hardware architecture, test requirements, and manufacturing realities.",
+        affiliation: "Caliber Interconnects",
+        bio: "Lokapriya Balakrishnan is a Test Engineer at Caliber Interconnects with over seven years of experience in semiconductor testing and ATE interface hardware development. Her work spans turnkey load board and probe card design, signal and power integrity optimization, device testing, and tester platform conversion projects. In addition to her technical contributions, she has successfully led engineering teams in delivering high-quality hardware solutions within demanding development schedules.\n\nHer experience across both hardware development and semiconductor validation provides her with a unique perspective on the challenges of designing scalable, high-performance ATE solutions. This expertise enables her to bridge the gap between hardware architecture, test requirements, and manufacturing realities.",
         image: "/images/tutorials/tut_504_1.png",
       },
       {
         name: "Senthilkumar Dhamodharan",
         affiliation:
-          "Caliber Interconnect Solutions",
-        bio: "Senthilkumar Dhamodharan is Vice President, Silicon Validation & Test Engineering at Caliber Interconnect Solutions Pvt Ltd, where he leads large-scale test engineering operations spanning SoC, PMIC, Digital, Mixed-Signal, and RF products. With more than 19 years of experience at industry leaders including Qualcomm, AMD, and NXP, he has played a significant role in advancing semiconductor test methodologies, engineering strategy, and intellectual property development.\n\nHis extensive experience managing complex validation programs and building high-performance engineering teams has given him deep insight into scalable test infrastructure and hardware development. This perspective makes him uniquely positioned to address the challenges of creating efficient, reusable ATE architectures for modern semiconductor products.",
+          "Caliber Interconnects",
+        bio: "Senthilkumar Dhamodharan is Vice President, Silicon Validation & Test Engineering at Caliber Interconnects, where he leads large-scale test engineering operations spanning SoC, PMIC, Digital, Mixed-Signal, and RF products. With more than 19 years of experience at industry leaders including Qualcomm, AMD, and NXP, he has played a significant role in advancing semiconductor test methodologies, engineering strategy, and intellectual property development.\n\nHis extensive experience managing complex validation programs and building high-performance engineering teams has given him deep insight into scalable test infrastructure and hardware development. This perspective makes him uniquely positioned to address the challenges of creating efficient, reusable ATE architectures for modern semiconductor products.",
         image: "/images/senthilkumar.jpg",
         imageClassName: "object-[center_10%]",
       },
       {
         name: "Vaishnavi Saravanan",
-        affiliation: "Caliber Interconnect Solutions",
-        bio: "Vaishnavi Saravanan is a Senior Test Engineer at Caliber Interconnect Solutions with over a decade of experience in testing SoC, Mixed-Signal, and RF devices across both bench and ATE environments. Currently leading Caliber's RF team, she has developed strong expertise in device characterization, validation methodologies, and high-performance test execution.\n\nHer extensive hands-on experience across multiple semiconductor domains provides valuable insight into the practical challenges of ATE deployment and validation. This background enables her to contribute a real-world perspective on designing scalable hardware solutions that improve efficiency, reliability, and test coverage.",
+        affiliation: "Caliber Interconnects",
+        bio: "Vaishnavi Saravanan is a Senior Test Engineer at Caliber Interconnects with over a decade of experience in testing SoC, Mixed-Signal, and RF devices across both bench and ATE environments. Currently leading Caliber's RF team, she has developed strong expertise in device characterization, validation methodologies, and high-performance test execution.\n\nHer extensive hands-on experience across multiple semiconductor domains provides valuable insight into the practical challenges of ATE deployment and validation. This background enables her to contribute a real-world perspective on designing scalable hardware solutions that improve efficiency, reliability, and test coverage.",
         image: "/images/tutorials/tut_504_3.png",
       },
     ],
