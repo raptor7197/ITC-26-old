@@ -419,7 +419,7 @@ export const agendaDays: AgendaDay[] = [
             items: [
               "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava",
               "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High Speed Flash Interface IOs",
-              "Talk 5: Anand Muthaiah (Tessolve)"
+              "Talk 5: Anand Muthaiah (Tessolve) : On-chip Intelligence Transforming IC Testing."
             ],
           },
           {
