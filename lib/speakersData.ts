@@ -53,7 +53,7 @@ export const keynoteSpeakers = [
       "Senthilkumar Dhamodharan is a semiconductor engineering leader with nearly two decades of experience in post-silicon validation and high-volume manufacturing testing across Digital, Mixed Signal, PMIC, and RF technologies. Having held leadership roles at Caliber Interconnects, Qualcomm, AMD, and NXP, he has developed deep expertise in semiconductor quality, reliability, and test engineering.",
       "His industry experience, combined with ongoing research in AI/ML applications for post-silicon validation, provides him with a unique perspective on how intelligent testing and AI-driven innovation can shape the future of the semiconductor industry.",
     ],
-    image: "/images/keynote/senthilkumar-photo.png",
+    image: "/images/keynote/senthilkumar (2).png",
     imageClassName: "object-[center_10%]",
   },
 
@@ -403,9 +403,9 @@ export const tutorialsData = [
         image: "/images/tutorials/tut_531_3.png",
       },
       {
-        name: "Soumya Mital",
+        name: "Soumya Mittal",
         affiliation: "Qualcomm",
-        bio: "Soumya Mital is a Staff Engineer at Qualcomm specializing in AI-driven diagnostic intelligence for next-generation semiconductor platforms. His work focuses on developing scalable frameworks that automate failure analysis and transform complex diagnostic data into actionable engineering insights, accelerating silicon development and deployment. He holds a PhD from Carnegie Mellon University and is an alumnus of IIT Roorkee.\n\nHis expertise at the intersection of semiconductor diagnostics, artificial intelligence, and large-scale data analysis has enabled him to drive innovative approaches to yield learning and quality improvement. This experience provides him with a unique perspective on how advanced analytics and AI are reshaping semiconductor manufacturing and test methodologies.",
+        bio: "Soumya Mittal is a Staff Engineer at Qualcomm specializing in AI-driven diagnostic intelligence for next-generation semiconductor platforms. His work focuses on developing scalable frameworks that automate failure analysis and transform complex diagnostic data into actionable engineering insights, accelerating silicon development and deployment. He holds a PhD from Carnegie Mellon University and is an alumnus of IIT Roorkee.\n\nHis expertise at the intersection of semiconductor diagnostics, artificial intelligence, and large-scale data analysis has enabled him to drive innovative approaches to yield learning and quality improvement. This experience provides him with a unique perspective on how advanced analytics and AI are reshaping semiconductor manufacturing and test methodologies.",
         image: "/images/tutorials/tut_531_4.png",
       },
     ],
@@ -445,7 +445,7 @@ export const tutorialsData = [
         affiliation:
           "Caliber Interconnects",
         bio: "Senthilkumar Dhamodharan is Vice President, Silicon Validation & Test Engineering at Caliber Interconnects Pvt Ltd, where he leads large-scale test engineering operations spanning SoC, PMIC, Digital, Mixed-Signal, and RF products. With more than 19 years of experience at industry leaders including Qualcomm, AMD, and NXP, he has played a significant role in advancing semiconductor test methodologies, engineering strategy, and intellectual property development.\n\nHis extensive experience managing complex validation programs and building high-performance engineering teams has given him deep insight into scalable test infrastructure and hardware development. This perspective makes him uniquely positioned to address the challenges of creating efficient, reusable ATE architectures for modern semiconductor products.",
-        image: "/images/senthilkumar.jpg",
+        image: "/images/senthilkumar (2).png",
         imageClassName: "object-[center_10%]",
       },
       {
