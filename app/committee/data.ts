@@ -242,7 +242,7 @@ export const members12: Member[] = [
   {
     id: 22,
     link: "https://www.linkedin.com/in/senthilkumar-dhamodharan/",
-    img: "senthilkumar (2).png",
+    img: "senthilkumar.png",
     name: "Senthilkumar Dhamodharan",
     comp: "Caliber Interconnects, India",
   }
@@ -271,7 +271,7 @@ export const members14: Member[] = [
   {
     id: 25,
     link: "https://www.linkedin.com/in/senthilkumar-dhamodharan/",
-    img: "senthilkumar (2).png",
+    img: "senthilkumar.png",
     name: "Senthilkumar Dhamodharan",
     comp: "Caliber Interconnects, India",
   },

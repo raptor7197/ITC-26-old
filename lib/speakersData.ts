@@ -53,7 +53,7 @@ export const keynoteSpeakers = [
       "Senthilkumar Dhamodharan is a semiconductor engineering leader with nearly two decades of experience in post-silicon validation and high-volume manufacturing testing across Digital, Mixed Signal, PMIC, and RF technologies. Having held leadership roles at Caliber Interconnects, Qualcomm, AMD, and NXP, he has developed deep expertise in semiconductor quality, reliability, and test engineering.",
       "His industry experience, combined with ongoing research in AI/ML applications for post-silicon validation, provides him with a unique perspective on how intelligent testing and AI-driven innovation can shape the future of the semiconductor industry.",
     ],
-    image: "/images/keynote/senthilkumar (2).png",
+    image: "/images/senthilkumar.png",
     imageClassName: "object-[center_10%]",
   },
 
@@ -445,7 +445,7 @@ export const tutorialsData = [
         affiliation:
           "Caliber Interconnects",
         bio: "Senthilkumar Dhamodharan is Vice President, Silicon Validation & Test Engineering at Caliber Interconnects, where he leads large-scale test engineering operations spanning SoC, PMIC, Digital, Mixed-Signal, and RF products. With more than 19 years of experience at industry leaders including Qualcomm, AMD, and NXP, he has played a significant role in advancing semiconductor test methodologies, engineering strategy, and intellectual property development.\n\nHis extensive experience managing complex validation programs and building high-performance engineering teams has given him deep insight into scalable test infrastructure and hardware development. This perspective makes him uniquely positioned to address the challenges of creating efficient, reusable ATE architectures for modern semiconductor products.",
-        image: "/images/senthilkumar.jpg",
+        image: "/images/senthilkumar.png",
         imageClassName: "object-[center_10%]",
       },
       {
