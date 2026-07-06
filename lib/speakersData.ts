@@ -444,8 +444,8 @@ export const tutorialsData = [
         name: "Senthilkumar Dhamodharan",
         affiliation:
           "Caliber Interconnects",
-        bio: "Senthilkumar Dhamodharan is Vice President, Silicon Validation & Test Engineering at Caliber Interconnects Pvt Ltd, where he leads large-scale test engineering operations spanning SoC, PMIC, Digital, Mixed-Signal, and RF products. With more than 19 years of experience at industry leaders including Qualcomm, AMD, and NXP, he has played a significant role in advancing semiconductor test methodologies, engineering strategy, and intellectual property development.\n\nHis extensive experience managing complex validation programs and building high-performance engineering teams has given him deep insight into scalable test infrastructure and hardware development. This perspective makes him uniquely positioned to address the challenges of creating efficient, reusable ATE architectures for modern semiconductor products.",
-        image: "/images/senthilkumar (2).png",
+        bio: "Senthilkumar Dhamodharan is Vice President, Silicon Validation & Test Engineering at Caliber Interconnects, where he leads large-scale test engineering operations spanning SoC, PMIC, Digital, Mixed-Signal, and RF products. With more than 19 years of experience at industry leaders including Qualcomm, AMD, and NXP, he has played a significant role in advancing semiconductor test methodologies, engineering strategy, and intellectual property development.\n\nHis extensive experience managing complex validation programs and building high-performance engineering teams has given him deep insight into scalable test infrastructure and hardware development. This perspective makes him uniquely positioned to address the challenges of creating efficient, reusable ATE architectures for modern semiconductor products.",
+        image: "/images/senthilkumar.jpg",
         imageClassName: "object-[center_10%]",
       },
       {
