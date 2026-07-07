@@ -1489,7 +1489,13 @@ export default function AgendaSchedule() {
                                                   {["day1", "day2"].includes(activeId)
                                                     ? ICONS.bullet
                                                     : ICONS.user}
-                                                  <span>{item}</span>
+                                                  <div className="flex-1 flex flex-col">
+                                                    {item.split("\n").map((line, i) => (
+                                                      <span key={i} className={i > 0 ? "text-[11.5px] text-[#a0b0c0] italic text-justify leading-relaxed block mt-1.5 pl-2 border-l-2 border-[#00b0f0]/30" : "block"}>
+                                                        {line}
+                                                      </span>
+                                                    ))}
+                                                  </div>
                                                 </div>
                                               );
                                             },

@@ -366,7 +366,7 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Industry Session 1",
             items: [
-              "Talk 1: A Day in the Life of a DFT Engineer - Can Agents Help?, Jayashree Saxena, Anora Labs",
+              "Talk 1: A Day in the Life of a DFT Engineer - Can Agents Help?, Jayashree Saxena, Anora Labs\nAbstract: Concepts such as scan and BIST have been routinely used in the industry for many decades. Nonetheless, the complexity of Design for Test (DFT) implementation continues to challenge us every day. This talk will provide a DFT Engineer’s view of the challenges and will highlight the exacting attention to detail required to implement DFT. In addition, the domain knowledge required to enable seamless integration with other parts of the design flow is a skill that is acquired over many years. While automation has made significant inroads to ease several of these challenges, there is still a lot that rests on individual skills and attention. Can we harness AI agents judiciously to understand the nuances of DFT implementation and help where the impact will be felt the most?",
               "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Texas Instruments",
               "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Marvell"
             ],
