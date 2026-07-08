@@ -252,9 +252,15 @@ export default function AgendaModal({
                         </h3>
                       )}
                       {data.description && (
-                        <p className="text-[#a0b0c0] text-[15px] sm:text-[16px] leading-[1.8] text-justify">
-                          {data.description}
-                        </p>
+                        <div className="mt-4 mb-2 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                          <div className="text-white font-black text-[15px] sm:text-[16px] mb-3 uppercase tracking-widest flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#00b0f0] shadow-[0_0_8px_#00b0f0]"></span>
+                            Abstract
+                          </div>
+                          <p className="text-[#a0b0c0] text-[14px] sm:text-[15px] leading-[1.8] text-justify">
+                            {data.description}
+                          </p>
+                        </div>
                       )}
                     </div>
                   </div>
