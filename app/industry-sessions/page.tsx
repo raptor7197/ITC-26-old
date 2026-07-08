@@ -111,9 +111,15 @@ export default function IndustrySessions() {
                     <div className={`${isExpanded ? 'flex' : 'hidden'} md:flex flex-col w-full mt-2`}>
                       {/* Talk Description */}
                       {speaker.description && (
-                        <p className="text-[#a0b0c0] text-[13px] sm:text-[14px] md:text-[16px] leading-relaxed mb-4 md:mb-6 text-justify max-w-[850px]">
-                          {speaker.description}
-                        </p>
+                        <div className="mb-4 md:mb-6 max-w-[850px] bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-5 sm:p-6 rounded-2xl border border-white/5 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
+                          <div className="text-white font-black text-[15px] sm:text-[16px] mb-3 uppercase tracking-widest flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#00b0f0] shadow-[0_0_8px_#00b0f0]"></span>
+                            Abstract
+                          </div>
+                          <p className="text-[#a0b0c0] text-[13px] sm:text-[14px] md:text-[16px] leading-relaxed text-justify">
+                            {speaker.description}
+                          </p>
+                        </div>
                       )}
                     </div>
                   </div>
