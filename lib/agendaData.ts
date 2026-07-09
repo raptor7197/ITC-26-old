@@ -223,7 +223,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Brain Box",
             title: "Special Session",
-            items: ["Industry Showcase 1", "Caliber (11:30 AM - 12:15 PM)", "Teradyne (12:15 PM - 01:00 PM)"],
+            items: ["Industry Showcase 1", "Advantest 1 (11:30 AM - 12:15 PM)", "Advantest 2 (12:15 PM - 01:00 PM)"],
           },
         ],
       },
@@ -273,7 +273,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Brain Box",
             title: "Special Session",
-            items: ["Industry Showcase 2", "Advantest (02:00 PM - 03:30 PM)"],
+            items: ["Industry Showcase 2", "Teradyne (02:00 PM - 02:45 PM)", "Caliber Interconnect (02:45 PM - 03:30 PM)"],
           },
         ],
       },
@@ -418,7 +418,7 @@ export const agendaDays: AgendaDay[] = [
             title: "Industry Session 2",
             items: [
               "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava",
-              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High Speed Flash Interface IOs",
+              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High-Speed NAND Flash Interface I/Os for Silicon Quality and Production Readiness.",
               "Talk 5: Anand Muthaiah (Tessolve) : On-chip Intelligence Transforming IC Testing."
             ],
           },
