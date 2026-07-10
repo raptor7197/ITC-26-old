@@ -91,7 +91,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           { hall: "Grand Victoria 1", title: "Closed Loop Test Engineering – From Design to Mass Production", items: ["Maheedhar Jalasutram, Jeren Ku and Daejin Shin (Google)"] },
           { hall: "Grand Victoria 2", title: "Machine Learning is Inevitable or Not: A DFT Designer’s View", items: ["Ankush Srivastava (Qualcomm)"] },
-          { hall: "Arabica & Robusta", title: "Beyond Scan Dump: Why IEEE P2929 Enables True Scan State Extraction", items: ["Lee Harrison, Andy Hughes and Peter Orlando (Siemens EDA)"] },
+          { hall: "Arabica & Robusta", title: "Beyond Scan Dump: Why IEEE P2929 Enables True Scan State Extraction", items: ["Andy Hughes (Siemens EDA)"] },
           { hall: "Brain Box", title: "Testing Chiplet-Based 2.5D/3D ICs : An Academia/Industry perspective", items: ["Binod Kumar, Manisha Kumari (IIT Jodhpur), Jaynarayan T Tudu (IIT Tirupati), Jyotirmoy Saikia and Sagar Kumar (Cadence)"] },
         ],
       },
@@ -120,7 +120,7 @@ export const agendaDays: AgendaDay[] = [
         time: "03:45 PM – 05:15 PM",
         sessions: [
           { hall: "Grand Victoria 1", title: "Understanding Test Escapes and the Limitations of Scan DFT Testing", items: ["Adit Singh (Auburn university)"] },
-          { hall: "Grand Victoria 2", title: "Scalable ATE Hardware Design: From Concept to Manufacturing with Reusable Architecture", items: ["Lokapriya B, Senthilkumar Dhamodharan and Vaishnavi Saravanan (Caliber Interconnects)"] },
+          { hall: "Grand Victoria 2", title: "Scalable ATE Hardware Design: From Concept to Manufacturing with Reusable Architecture", items: ["Lokapriya B, Senthilkumar Dhamodharan and Dyaneswaran Anguraj (Caliber Interconnects)"] },
           { hall: "Arabica & Robusta", title: "Customer Centric Post Silicon Validation Approach for System on Chip (SoC)", items: ["Ravishankar Manishankar and Siloni Pilani (Intel)"] },
         ],
       },
@@ -254,9 +254,9 @@ export const agendaDays: AgendaDay[] = [
             title: "Technical Track 5: AI and Machine Learning Applications",
             items: [
               "5.1: Signal Integrity Simulation Hour Optimization: A Novel AI Framework Using Minute-Scale SI Predictor in High-Speed Test Interface Hardware Design - Senthilkumar Dhamodharan, Lokapriya B, Dyaneswaran A, Karthika R and Lokendran S (Caliber Interconnects)",
-              "5.2: AI-Driven IP Configuration Optimization for Post-Silicon Validation - Akhilesh Tiwary, Maneesh Kumar Pandey, Nihar Chaniyara (Intel Technology India Pvt Ltd) and Utsav Banerjee (IISC Bangalore)",
+              "5.2: Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection - Kalyana Sundaram Chandran, Senthilkumar Dhamodharan and Sindhu Mathy S (Caliber Interconnects)",
               "5.3: T-MAP: A Cross-Platform AI driven Test-Program Metadata Analysis Tool for Digital Coverage, Force, limit and Range Verification - Kaushik Chakravorty, Dundapa Sankapal, Vishal Rohilla, Sudhish Raj Gj, Pratyush Dargan and Robert Cook (Texas Instruments)",
-              "5.4: Post-Silicon Validation of Neuromorphic SoCs: A Hybrid BIST and ML-Based Approach for NVM Synaptic Fault Detection - Kalyana Sundaram Chandran, Senthilkumar Dhamodharan and Sindhu Mathy S (Caliber Interconnects)"
+              "5.4: AI-Driven IP Configuration Optimization for Post-Silicon Validation - Akhilesh Tiwary, Maneesh Kumar Pandey, Nihar Chaniyara (Intel Technology India Pvt Ltd) and Utsav Banerjee (IISC Bangalore)"
             ],
           },
           {
