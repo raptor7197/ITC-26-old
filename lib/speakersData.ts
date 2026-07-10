@@ -188,6 +188,12 @@ export const tutorialsData = [
         image: "/images/tutorials/tut_529_1.png",
         imageClassName: "object-center",
       },
+      {
+        name: "Mudasir Kawoosa",
+        affiliation: "Texas Instruments",
+        bio: "Mudasir Kawoosa is a DFT Architect at Texas Instruments (India) Pvt. Ltd. in Bangalore, with fifteen years of industry experience. As a Senior Member of Technical Staff, he leads the centralized DFT team in Connectivity Business Unit driving transformative changes through innovative test solutions, expert silicon bring-up and widely adopted methodologies. Mudasir has architected DFT and test solutions for over fifteen complex System-on-Chip (SoC) programs. He holds master’s degree in electrical engineering from the Indian Institute of Technology, Madras, has published in several peer reviewed external conferences (and is also prolific in TI internal and other conferences), and holds eleven granted US patents. Through his work, he has established several innovative solutions in DFT, test and silicon debug, for a wide variety of chip architectures across several business units in TI, and continues to influence the EDA DFT roadmap.",
+        image: "/images/tutorials/tut_529_2.png",
+      },
     ],
     status: "ready",
   },
@@ -231,37 +237,37 @@ export const tutorialsData = [
   {
     id: "chiplet",
     title: "Testing Chiplet-Based 2.5D/3D ICs : An Academia/Industry perspective",
-    abstract: "More info coming soon.",
+    abstract: "The semiconductor industry is rapidly transitioning from monolithic System-on-Chip (SoC) designs to 2.5D and 3D multi-die architectures to meet the growing demands for higher performance, improved power efficiency, greater scalability, and faster time-to-market. While these advanced integration technologies offer significant system-level advantages, they also introduce unprecedented test and reliability challenges arising from heterogeneous integration, limited access to buried dies, complex die-to-die interconnects, and compounded yield loss across multiple stacked components. This tutorial provides a comprehensive overview of the testing methodologies for 2.5D and 3D integrated systems, covering the complete test flow from pre-bond and mid-bond testing to post-bond and system-level validation. Participants will learn about scalable Design-for-Test (DfT) architectures and standardized test access mechanisms that enable efficient delivery of test data through stacked dies while ensuring thorough validation of both individual dies and high-density die-to-die interconnects. Further, the tutorial also presents emerging AI-assisted testing methodologies for three-dimensional chiplet integration using micro-bump interconnects, where interface densities can reach thousands of connections per die. AI-based approaches for different types of interconnect defect detection and fault localization will be introduced, demonstrating how machine learning can significantly improve test quality and diagnostic accuracy for complex multi-die systems. Finally, the tutorial explores one of the latest advances in advanced packaging—glass substrate-based 2.5D/3D chiplet System-in-Package (SiP) technology. It discusses the unique testing challenges associated with Through Glass Vias (TGVs) and presents effective test strategies for ensuring the reliability and manufacturability of next-generation glass-based packages. Attendees will gain a practical understanding of state-of-the-art testing techniques, emerging AI-driven test solutions, and future trends that are shaping the test ecosystem for advanced 2.5D and 3D chiplet-based semiconductor systems.",
     authors: [
-      {
-        name: "Binod Kumar",
-        affiliation: "IIT Jodhpur",
-        bio: "",
-        image: ""
-      },
-      {
-        name: "Manisha Kumari",
-        affiliation: "IIT Jodhpur",
-        bio: "",
-        image: ""
-      },
-      {
-        name: "Jaynarayan T Tudu",
-        affiliation: "IIT Tirupati",
-        bio: "",
-        image: ""
-      },
       {
         name: "Jyotirmoy Saikia",
         affiliation: "Cadence",
-        bio: "",
-        image: ""
+        bio: "Jyotirmoy is a Software Architect in Modus DFT R&D of Cadence Design Systems where he leads iJTAG, 3DIC Test and Hierarchical Test. Jyotirmoy has 22 years of DFT experience in both EDA and Design. He is co-inventor of 9 US patents. Jyotirmoy did his M.Tech. in Computer Science & Engineering from IIT Kanpur.",
+        image: "/images/tutorials/tut_527_1.png"
       },
       {
         name: "Sagar Kumar",
         affiliation: "Cadence",
-        bio: "",
-        image: ""
+        bio: "Sagar works as a Principal Product Engineer in Modus DFT Software Solution group at Cadence Design Systems, Noida. His 8+ years of experience at Cadence involves working on multiple areas of DFT mainly including IJTAG, Hierarchical Test, Boundary Scan Verification and 3DIC. He holds two patents in his name. He received his M. Tech in VLSI Systems from VIT, Vellore.",
+        image: "/images/tutorials/tut_527_2.png"
+      },
+      {
+        name: "Dr. Binod Kumar",
+        affiliation: "IIT Jodhpur",
+        bio: "Dr. Binod Kumar earned his Ph.D. and Master's degrees in Electrical Engineering from IIT Bombay (IITB) in 2020, and holds a Bachelor's degree in Electronics & Communication Engineering from NIT Silchar. At IIT Jodhpur, he teaches courses including Embedded Systems, Digital Systems Laboratory, Hardware-Software Co-design, Formal Verification, Digital ASIC Design Lab, Processor Design, Network-on-Chip, and ML in VLSI CAD. He has been recognized with the Distinguished Teacher Award from IIT Jodhpur (September 2024) and the Qualcomm Faculty Award (April 2024). His research and teaching interests align closely with the DfT, verification, and CAD aspects of this tutorial.",
+        image: "/images/tutorials/tut_527_3.png"
+      },
+      {
+        name: "Dr. Jaynarayan T. Tudu",
+        affiliation: "IIT Tirupati",
+        bio: "Dr. Jaynarayan T. Tudu received his Ph.D. from the Indian Institute of Science (IISc), Bangalore. His research interests lie in Power-aware Computer Architecture and Digital VLSI Test and Verification, with a broader focus on Reliable and Energy-aware Computing Hardware. His current work spans Design-for-Testability (DfT), low-power test methodologies, post-silicon debug and diagnosis, fault-tolerant design, and CAD tools for next-generation AI hardware and intelligent computing systems. His research addresses the emerging challenges of dependability and energy efficiency in modern VLSI and AI accelerator platforms, from IoT edge nodes to high-performance processors.",
+        image: "/images/tutorials/tut_527_4.png"
+      },
+      {
+        name: "Manisha Kumari",
+        affiliation: "IIT Jodhpur",
+        bio: "Manisha Kumari is pursuing her Ph.D. in the Department of Electrical Engineering at IIT Jodhpur. Her research lies at the intersection of VLSI Testing and Electronic Design Automation (EDA), with a specific emphasis on 3D chiplet testing and Through-Glass Via (TGV) based interconnect testing. Her broader research interests include semiconductor test, reliability, and the emerging challenges associated with heterogeneous integration and advanced 3D packaging in modern VLSI systems.",
+        image: "/images/tutorials/tut_527_5.png"
       }
     ],
     status: "ready",
@@ -313,26 +319,13 @@ export const tutorialsData = [
   {
     id: "p2929",
     title: "Beyond Scan Dump: Why IEEE P2929 Enables True Scan State Extraction",
-    abstract: "More info coming soon.",
+    abstract: "This tutorial, will cover the details on the new and emerging IEEE P2929 standard and the technology that refines the process of doing a raw dump of scan data into an optimized accurate full functional post-silicon debug Scan state extraction",
     authors: [
-      {
-        name: "Lee Harrison",
-        affiliation: "Siemens EDA",
-        bio: "",
-        image: "/images/tutorials/tut_487_1.png",
-        imageClassName: "object-[center_60%] scale-105"
-      },
       {
         name: "Andy Hughes",
         affiliation: "Siemens EDA",
-        bio: "",
-        image: ""
-      },
-      {
-        name: "Peter Orlando",
-        affiliation: "Siemens EDA",
-        bio: "",
-        image: ""
+        bio: "Principal Product Engineer specializing in new technologies utilizing Tessent Streaming Scan Network.  Andy has over 25 years’ experience in DFT related product development, 10 years in direct chip design and a MS in Comp Eng from USC.  He recently joined the Tessent family in 2025 after 20 years at Cadence Design Systems and has been instrumental in bringing the Scan State Extraction product to market.  Andy is currently a member of the IEEE P2929 working group that is driving the Scan/Array Debug Standards.",
+        image: "/images/tutorials/tut_524_1.png"
       }
     ],
     status: "ready",
@@ -369,15 +362,15 @@ export const tutorialsData = [
       {
         name: "Lee Harrison",
         affiliation: "Siemens EDA",
-        bio: "Lee Harrison is Director of Product Marketing within Siemens Tessent Division, bringing over 25 years of experience in Design-for-Test technologies and semiconductor test solutions. Throughout his career, he has worked extensively with Tessent DFT products, focusing on emerging requirements in functional safety, security, automotive electronics, and high-performance computing applications. His efforts have helped ensure that evolving customer needs are translated into scalable and effective DFT methodologies.\n\nHis extensive experience working at the intersection of semiconductor design, test, safety, and reliability has provided him with valuable insights into the industry's transition toward more intelligent and integrated test solutions. This perspective enables him to address the growing importance of packetized scan architectures and in-system testing in modern semiconductor products.",
+        bio: "Lee Harrison is Director, Product Marketing, with Siemens Tessent Division. He has over 25 years of industry experience working with Siemens Tessent DFT products, with a focus on safety and security, Lee is working to ensure that current and future DFT requirements of Siemens's Automotive and HPC customers are understood and met. Lee Received his BEng in MicroElectronic Engineering from Brunel University London in 1996.",
         image: "/images/tutorials/tut_487_1.png",
-        imageClassName: "object-[center_60%] scale-105",
+        imageClassName: "object-[center_60%] scale-105"
       },
       {
         name: "Hagen Goller",
         affiliation: "Advantest",
-        bio: "",
-        image: "",
+        bio: "Hagen started his work career in 1997 and moved into Semiconductor Test in 2001. Since then, he has held various positions in Application Support, Marketing and R&D around the Advantest V93k ATE Platform. Currently he is a technical director in product marketing, looking into new test methodologies and solutions for both ATE and SLT.",
+        image: "/images/tutorials/tut_487_2.png",
       },
     ],
     status: "ready",
@@ -453,9 +446,9 @@ export const tutorialsData = [
         imageClassName: "object-[center_10%]",
       },
       {
-        name: "Vaishnavi Saravanan",
+        name: "Dyaneswaran Anguraj",
         affiliation: "Caliber Interconnects",
-        bio: "Vaishnavi Saravanan is a Senior Test Engineer at Caliber Interconnects with over a decade of experience in testing SoC, Mixed-Signal, and RF devices across both bench and ATE environments. Currently leading Caliber's RF team, she has developed strong expertise in device characterization, validation methodologies, and high-performance test execution.\n\nHer extensive hands-on experience across multiple semiconductor domains provides valuable insight into the practical challenges of ATE deployment and validation. This background enables her to contribute a real-world perspective on designing scalable hardware solutions that improve efficiency, reliability, and test coverage.",
+        bio: "Dyaneswaran Anguraj is currently serving as a Test Engineer at Caliber Interconnect Solutions and possesses over 19 years of diverse experience spanning both academia and the semiconductor industry, with deep expertise in PCB CAM, PCB design, and advanced semiconductor test engineering. He holds a Master’s degree in Applied Electronics and began his career with a focus on PCB design, specializing in layout development, signal integrity, and manufacturing support. He later transitioned into academia, serving as an Assistant Professor at reputed engineering institutions, where he mentored future engineers, led impactful research initiatives, and contributed to peer-reviewed publications. Currently, he works as a Test Engineer at Caliber Interconnects, where he focuses on the validation and characterization of digital, mixed-signal, and memory ICs. He has hands-on experience with leading ATE platforms supporting both engineering debug and high-volume production test development. His responsibilities include designing and executing comprehensive test plans, optimizing test coverage, automating test procedures, and delivering robust and efficient test solutions that meet stringent quality standards and time-to-market requirements.",
         image: "/images/tutorials/tut_504_3.png",
       },
     ],
