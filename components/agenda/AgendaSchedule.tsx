@@ -257,6 +257,12 @@ export default function AgendaSchedule() {
   const [activeId, setActiveId] = useState(agendaDays[0].id);
   const [selectedData, setSelectedData] = useState<ModalData | null>(null);
 
+  const isBestPaper = (itemName: string) => {
+    return technicalPapersData.some(
+      (p: any) => p.bestPaperNomination && p.name && itemName.includes(p.name)
+    );
+  };
+
   const getMatchData = (title: string, items?: string[]): ModalData | null => {
     if (!title || title.trim() === "") return null;
     const safeTitle = title.toLowerCase();
@@ -730,6 +736,7 @@ export default function AgendaSchedule() {
                                       activeId === "tutorials" && session.title !== "ITC-at-ITC";
                                     const isItemClickable = itemMatch && !isTutorialTile;
                                     const isItemPanel = item.toLowerCase().startsWith("panel:");
+                                    const isPaperBest = isBestPaper(item);
 
                                     return isItemPanel ? (
                                       <div
@@ -752,7 +759,11 @@ export default function AgendaSchedule() {
                                     ) : (
                                       <div
                                         key={idx}
-                                        className={`flex items-start gap-1.5 text-[12px] leading-[1.3] ${
+                                        className={`flex flex-col gap-1.5 text-[12px] leading-[1.3] ${
+                                          isPaperBest
+                                            ? "mt-2 mb-2 p-3 sm:p-4 bg-gradient-to-br from-white/[0.08] to-transparent backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative group"
+                                            : ""
+                                        } ${
                                           isItemClickable
                                             ? "text-sky-300 hover:text-white"
                                             : isTutorialTile
@@ -766,10 +777,20 @@ export default function AgendaSchedule() {
                                           }
                                         }}
                                       >
-                                        {["day1", "day2"].includes(activeId)
-                                          ? ICONS.bullet
-                                          : ICONS.user}
-                                        <span className="flex-1">{item}</span>
+                                        <div className="flex items-start gap-1.5 z-10">
+                                          <div className={isPaperBest ? "mt-0.5 ml-1" : ""}>
+                                            {["day1", "day2"].includes(activeId) ? ICONS.bullet : ICONS.user}
+                                          </div>
+                                          <span className="flex-1">{item}</span>
+                                        </div>
+                                        {isPaperBest && (
+                                          <div className="ml-0 sm:ml-5 z-10 mt-1">
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 backdrop-blur-sm border border-amber-500/20 text-amber-300 text-[9px] font-bold tracking-widest uppercase shadow-[0_4px_12px_rgba(245,158,11,0.15)]">
+                                              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                              Best Paper Nominee
+                                            </span>
+                                          </div>
+                                        )}
                                       </div>
                                     );
                                   })}
@@ -1416,6 +1437,7 @@ export default function AgendaSchedule() {
                                               
                                               const isPanel = item.toLowerCase().startsWith("panel:");
                                               const isDAItem = item.toLowerCase().startsWith("distinguished address:");
+                                              const isPaperBest = isBestPaper(item);
 
                                               return isPanel ? (
                                                 <div
@@ -1473,7 +1495,11 @@ export default function AgendaSchedule() {
                                               ) : (
                                                 <div
                                                   key={idx}
-                                                  className={`flex items-start gap-2 text-[12px] font-normal leading-[1.3] ${
+                                                  className={`flex flex-col gap-1.5 text-[12px] font-normal leading-[1.3] ${
+                                                    isPaperBest
+                                                      ? "mt-2 mb-2 p-3 sm:p-4 bg-gradient-to-br from-white/[0.08] to-transparent backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative group"
+                                                      : ""
+                                                  } ${
                                                     isItemClickable
                                                       ? "text-sky-300 cursor-pointer hover:text-white transition-colors"
                                                       : isTutorialTile ? "text-sky-300" : "text-[#a3b8cc]"
@@ -1486,10 +1512,20 @@ export default function AgendaSchedule() {
                                                   }}
                                                   {...(isItemClickable ? { "title": "Click to read more details" } : {})}
                                                 >
-                                                  {["day1", "day2"].includes(activeId)
-                                                    ? ICONS.bullet
-                                                    : ICONS.user}
-                                                  <span>{item}</span>
+                                                  <div className="flex items-start gap-2 z-10">
+                                                    <div className={isPaperBest ? "mt-0.5 ml-1" : ""}>
+                                                      {["day1", "day2"].includes(activeId) ? ICONS.bullet : ICONS.user}
+                                                    </div>
+                                                    <span className="flex-1">{item}</span>
+                                                  </div>
+                                                  {isPaperBest && (
+                                                    <div className="ml-0 sm:ml-6 z-10 mt-1">
+                                                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 backdrop-blur-sm border border-amber-500/20 text-amber-300 text-[9px] font-bold tracking-widest uppercase shadow-[0_4px_12px_rgba(245,158,11,0.15)]">
+                                                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                                        Best Paper Nominee
+                                                      </span>
+                                                    </div>
+                                                  )}
                                                 </div>
                                               );
                                             },
