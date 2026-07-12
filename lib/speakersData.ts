@@ -674,6 +674,7 @@ export const technicalPapersData = [
   {
     "name": "RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP",
     "title": "RL-Driven 3D Clustering of JScan Architecture with Routing and Area Optimization in Chiplet SiP",
+    "bestPaperNomination": true,
     "authors": [
       {
         "name": "Hilay Patel, Naman Kalra and Jaynarayan T Tudu"
@@ -684,6 +685,7 @@ export const technicalPapersData = [
   {
     "name": "A Methodology for Robust Testing of Through Glass Vias (TGV) on Glass Substrate-based 3D Chiplets",
     "title": "A Methodology for Robust Testing of Through Glass Vias (TGV) on Glass Substrate-based 3D Chiplets",
+    "bestPaperNomination": true,
     "authors": [
       {
         "name": "Manisha Kumari, Jaynarayan T Tudu and Binod Kumar"
@@ -884,6 +886,7 @@ export const technicalPapersData = [
   {
     "name": "Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test",
     "title": "Real-Time Path Resistance Compensation and Spatial Diagnostics for High-Volume Wafer Test",
+    "bestPaperNomination": true,
     "authors": [
       {
         "name": "Mathangi Raghuraman, Dinesh Sharma, Siva Elango S, Sujith Thomas"
@@ -904,6 +907,7 @@ export const technicalPapersData = [
   {
     "name": "A Novel Plug-In Module Architecture for Extending Automatic Test Equipment Capability to Wireless Testing of Pin-Less Semiconductor Devices",
     "title": "A Novel Plug-In Module Architecture for Extending Automatic Test Equipment Capability to Wireless Testing of Pin-Less Semiconductor Devices",
+    "bestPaperNomination": true,
     "authors": [
       {
         "name": "Sathiyapriya Krishnamoorthy, Manoj Pachaiyan, Senthilkumar Dhamodharan"
@@ -954,6 +958,7 @@ export const technicalPapersData = [
   {
     "name": "Constraint-Based Functional Testing of Encrypted Memory Systems",
     "title": "Constraint-Based Functional Testing of Encrypted Memory Systems",
+    "bestPaperNomination": true,
     "authors": [
       {
         "name": "Ravikumar C.P."
@@ -984,6 +989,7 @@ export const technicalPapersData = [
   {
     "name": "A novel hardware design for effective supply voltage glitch injection",
     "title": "A novel hardware design for effective supply voltage glitch injection",
+    "bestPaperNomination": true,
     "authors": [
       {
         "name": "Antony Varghese, Ashok Kumar and Asmita Mohapatra"

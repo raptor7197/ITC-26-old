@@ -257,6 +257,12 @@ export default function AgendaSchedule() {
   const [activeId, setActiveId] = useState(agendaDays[0].id);
   const [selectedData, setSelectedData] = useState<ModalData | null>(null);
 
+  const isBestPaper = (itemName: string) => {
+    return technicalPapersData.some(
+      (p: any) => p.bestPaperNomination && p.name && itemName.includes(p.name)
+    );
+  };
+
   const getMatchData = (title: string, items?: string[]): ModalData | null => {
     if (!title || title.trim() === "") return null;
     const safeTitle = title.toLowerCase();
@@ -730,6 +736,7 @@ export default function AgendaSchedule() {
                                       activeId === "tutorials" && session.title !== "ITC-at-ITC";
                                     const isItemClickable = itemMatch && !isTutorialTile;
                                     const isItemPanel = item.toLowerCase().startsWith("panel:");
+                                    const isPaperBest = isBestPaper(item);
 
                                     return isItemPanel ? (
                                       <div
@@ -752,7 +759,11 @@ export default function AgendaSchedule() {
                                     ) : (
                                       <div
                                         key={idx}
-                                        className={`flex items-start gap-1.5 text-[12px] leading-[1.3] ${
+                                        className={`flex flex-col gap-1.5 text-[12px] leading-[1.3] ${
+                                          isPaperBest
+                                            ? "mt-2 mb-2 p-3 sm:p-4 bg-gradient-to-br from-white/[0.08] to-transparent backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative group"
+                                            : ""
+                                        } ${
                                           isItemClickable
                                             ? "text-sky-300 hover:text-white"
                                             : isTutorialTile
@@ -766,10 +777,20 @@ export default function AgendaSchedule() {
                                           }
                                         }}
                                       >
-                                        {["day1", "day2"].includes(activeId)
-                                          ? ICONS.bullet
-                                          : ICONS.user}
-                                        <span className="flex-1">{item}</span>
+                                        <div className="flex items-start gap-1.5 z-10">
+                                          <div className={isPaperBest ? "mt-0.5 ml-1" : ""}>
+                                            {["day1", "day2"].includes(activeId) ? ICONS.bullet : ICONS.user}
+                                          </div>
+                                          <span className="flex-1">{item}</span>
+                                        </div>
+                                        {isPaperBest && (
+                                          <div className="ml-0 sm:ml-5 z-10 mt-1">
+                                            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 backdrop-blur-sm border border-amber-500/20 text-amber-300 text-[9px] font-bold tracking-widest uppercase shadow-[0_4px_12px_rgba(245,158,11,0.15)]">
+                                              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                              Best Paper Nominee
+                                            </span>
+                                          </div>
+                                        )}
                                       </div>
                                     );
                                   })}
@@ -1382,30 +1403,36 @@ export default function AgendaSchedule() {
                                     </div>
                                   ) : (
                                   <div className="flex flex-col h-full">
-                                    {activeId !== "tutorials" && session.sessionChair && (
-                                      <div className="inline-flex items-center gap-1.5 mb-3 w-fit bg-white/[0.08] hover:bg-white/[0.12] transition-colors border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)] backdrop-blur-md">
-                                        <div className="bg-sky-400/20 rounded-full p-1">
-                                          <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                                        </div>
-                                        <div className="flex items-center gap-1.5">
-                                          <span className="text-[9px] font-black text-sky-300 uppercase tracking-widest mt-0.5">
-                                            CHAIR
-                                          </span>
-                                          <span className="text-[10px] font-bold text-white tracking-wide mt-0.5">
-                                            {session.sessionChair.replace(/^Session\s*Chair:\s*/i, "")}
-                                          </span>
-                                        </div>
+                                    {activeId !== "tutorials" && (
+                                      <div className="h-[36px] mb-2 shrink-0">
+                                        {session.sessionChair && (
+                                          <div className="inline-flex items-center gap-1.5 w-fit bg-white/[0.08] hover:bg-white/[0.12] transition-colors border border-white/[0.15] rounded-full pl-1.5 pr-3 py-[3px] shadow-[0_2px_8px_rgba(0,0,0,0.2)] backdrop-blur-md">
+                                            <div className="bg-sky-400/20 rounded-full p-1">
+                                              <svg className="w-2.5 h-2.5 text-sky-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                            </div>
+                                            <div className="flex items-center gap-1.5">
+                                              <span className="text-[9px] font-black text-sky-300 uppercase tracking-widest mt-0.5">
+                                                CHAIR
+                                              </span>
+                                              <span className="text-[10px] font-bold text-white tracking-wide mt-0.5">
+                                                {session.sessionChair.replace(/^Session\s*Chair:\s*/i, "")}
+                                              </span>
+                                            </div>
+                                          </div>
+                                        )}
                                       </div>
                                     )}
-                                    <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-4">
-                                      {session.title}
-                                    </h4>
-                                    {session.subtitle && (
-                                      <div className="text-xs sm:text-sm text-sky-200 mt-[-8px] mb-4 font-bold italic">
-                                        {session.subtitle}
-                                      </div>
-                                    )}
-                                    <div className="mt-auto pt-3 flex flex-col gap-3">
+                                    <div className={`${activeId === "tutorials" ? "h-[88px] sm:h-[104px]" : "h-[64px] sm:h-[80px]"} flex flex-col shrink-0`}>
+                                      <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-2 line-clamp-4">
+                                        {session.title}
+                                      </h4>
+                                      {session.subtitle && (
+                                        <div className="text-xs sm:text-sm text-sky-200 mt-1 mb-2 font-bold italic line-clamp-2">
+                                          {session.subtitle}
+                                        </div>
+                                      )}
+                                    </div>
+                                    <div className="flex-1 pt-2 flex flex-col gap-3">
                                       {session.items && session.items.length > 0 && (
                                         <div className="space-y-[6px]">
                                           {session.items.map(
@@ -1416,6 +1443,7 @@ export default function AgendaSchedule() {
                                               
                                               const isPanel = item.toLowerCase().startsWith("panel:");
                                               const isDAItem = item.toLowerCase().startsWith("distinguished address:");
+                                              const isPaperBest = isBestPaper(item);
 
                                               return isPanel ? (
                                                 <div
@@ -1473,7 +1501,11 @@ export default function AgendaSchedule() {
                                               ) : (
                                                 <div
                                                   key={idx}
-                                                  className={`flex items-start gap-2 text-[12px] font-normal leading-[1.3] ${
+                                                  className={`flex flex-col gap-1.5 text-[12px] font-normal leading-[1.3] ${
+                                                    isPaperBest
+                                                      ? "mt-2 mb-2 p-3 sm:p-4 bg-gradient-to-br from-white/[0.08] to-transparent backdrop-blur-md border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.3)] relative group"
+                                                      : ""
+                                                  } ${
                                                     isItemClickable
                                                       ? "text-sky-300 cursor-pointer hover:text-white transition-colors"
                                                       : isTutorialTile ? "text-sky-300" : "text-[#a3b8cc]"
@@ -1486,10 +1518,20 @@ export default function AgendaSchedule() {
                                                   }}
                                                   {...(isItemClickable ? { "title": "Click to read more details" } : {})}
                                                 >
-                                                  {["day1", "day2"].includes(activeId)
-                                                    ? ICONS.bullet
-                                                    : ICONS.user}
-                                                  <span>{item}</span>
+                                                  <div className="flex items-start gap-2 z-10">
+                                                    <div className={isPaperBest ? "mt-0.5 ml-1" : ""}>
+                                                      {["day1", "day2"].includes(activeId) ? ICONS.bullet : ICONS.user}
+                                                    </div>
+                                                    <span className="flex-1">{item}</span>
+                                                  </div>
+                                                  {isPaperBest && (
+                                                    <div className="ml-0 sm:ml-6 z-10 mt-1">
+                                                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 backdrop-blur-sm border border-amber-500/20 text-amber-300 text-[9px] font-bold tracking-widest uppercase shadow-[0_4px_12px_rgba(245,158,11,0.15)]">
+                                                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                                                        Best Paper Nominee
+                                                      </span>
+                                                    </div>
+                                                  )}
                                                 </div>
                                               );
                                             },
