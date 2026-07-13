@@ -242,31 +242,31 @@ export const tutorialsData = [
       {
         name: "Jyotirmoy Saikia",
         affiliation: "Cadence",
-        bio: "Jyotirmoy is a Software Architect in Modus DFT R&D of Cadence Design Systems where he leads iJTAG, 3DIC Test and Hierarchical Test. Jyotirmoy has 22 years of DFT experience in both EDA and Design. He is co-inventor of 9 US patents. Jyotirmoy did his M.Tech. in Computer Science & Engineering from IIT Kanpur.",
+        bio: "Jyotirmoy is a Software Architect in the Modus DFT R&D group at Cadence Design Systems, where he leads the development of iJTAG, 3DIC Test, and Hierarchical Test technologies. With over 22 years of experience spanning both Electronic Design Automation (EDA) and semiconductor design, he has developed deep expertise in advanced Design-for-Test methodologies. He is a co-inventor of nine U.S. patents and holds an M.Tech. in Computer Science and Engineering from IIT Kanpur.\n\nHis extensive work in developing next-generation DFT solutions for advanced semiconductor technologies has given him valuable insight into the evolving challenges of hierarchical testing, chiplet-based architectures, and 3D integrated circuits. By driving innovation in test automation and design enablement, Jyotirmoy continues to contribute to the advancement of scalable and reliable semiconductor test methodologies.",
         image: "/images/tutorials/tut_527_1.png"
       },
       {
         name: "Sagar Kumar",
         affiliation: "Cadence",
-        bio: "Sagar works as a Principal Product Engineer in Modus DFT Software Solution group at Cadence Design Systems, Noida. His 8+ years of experience at Cadence involves working on multiple areas of DFT mainly including IJTAG, Hierarchical Test, Boundary Scan Verification and 3DIC. He holds two patents in his name. He received his M. Tech in VLSI Systems from VIT, Vellore.",
+        bio: "Sagar is a Principal Product Engineer in the Modus DFT Software Solutions group at Cadence Design Systems, where he has spent over eight years developing advanced Design-for-Test technologies. His expertise spans iJTAG, Hierarchical Test, Boundary Scan Verification, and 3DIC test methodologies, contributing to the advancement of modern semiconductor test solutions. He holds two patents and earned his M.Tech. in VLSI Systems from VIT Vellore.\n\nThrough his work on next-generation DFT technologies and test automation solutions, Sagar has developed strong expertise in addressing the challenges of complex semiconductor architectures. His experience in iJTAG, hierarchical testing, and 3DIC enables him to provide practical insights into scalable and efficient test methodologies for advanced integrated circuits.",
         image: "/images/tutorials/tut_527_2.png"
       },
       {
         name: "Dr. Binod Kumar",
         affiliation: "IIT Jodhpur",
-        bio: "Dr. Binod Kumar earned his Ph.D. and Master's degrees in Electrical Engineering from IIT Bombay (IITB) in 2020, and holds a Bachelor's degree in Electronics & Communication Engineering from NIT Silchar. At IIT Jodhpur, he teaches courses including Embedded Systems, Digital Systems Laboratory, Hardware-Software Co-design, Formal Verification, Digital ASIC Design Lab, Processor Design, Network-on-Chip, and ML in VLSI CAD. He has been recognized with the Distinguished Teacher Award from IIT Jodhpur (September 2024) and the Qualcomm Faculty Award (April 2024). His research and teaching interests align closely with the DfT, verification, and CAD aspects of this tutorial.",
+        bio: "Dr. Binod Kumar is an Assistant Professor in the Department of Electrical Engineering at the Indian Institute of Technology Jodhpur. He received his Ph.D. and M.Tech. in Electrical Engineering from IIT Bombay and his Bachelor's degree in Electronics and Communication Engineering from NIT Silchar. Prior to joining academia, he spent nearly two years at Qualcomm India, where he worked on SoC Design-for-Test, debug, and post-silicon validation strategy development. His contributions to teaching and research have been recognized with the IIT Jodhpur Distinguished Teacher Award (2024) and the Qualcomm Faculty Award (2024).\n\nDrawing on both industrial and academic experience, Dr. Kumar's work focuses on Design-for-Test, validation, and debug methodologies for modern semiconductor systems. His research bridges theoretical advancements with practical implementation, enabling him to provide valuable insights into next-generation DFT and post-silicon validation techniques.",
         image: "/images/tutorials/tut_527_3.png"
       },
       {
         name: "Dr. Jaynarayan T. Tudu",
         affiliation: "IIT Tirupati",
-        bio: "Dr. Jaynarayan T. Tudu received his Ph.D. from the Indian Institute of Science (IISc), Bangalore. His research interests lie in Power-aware Computer Architecture and Digital VLSI Test and Verification, with a broader focus on Reliable and Energy-aware Computing Hardware. His current work spans Design-for-Testability (DfT), low-power test methodologies, post-silicon debug and diagnosis, fault-tolerant design, and CAD tools for next-generation AI hardware and intelligent computing systems. His research addresses the emerging challenges of dependability and energy efficiency in modern VLSI and AI accelerator platforms, from IoT edge nodes to high-performance processors.",
+        bio: "Dr. Jaynarayan T. Tudu is an Assistant Professor in the Department of Computer Science and Engineering at the Indian Institute of Technology Tirupati. He received his Ph.D. from the Indian Institute of Science (IISc), Bangalore, and his research focuses on power-aware computer architecture, Digital VLSI test and verification, and reliable, energy-efficient computing hardware. His work spans Design-for-Testability (DfT), low-power testing, post-silicon debug and diagnosis, fault-tolerant design, and CAD tools for next-generation AI hardware.\n\nThrough his research on dependable and energy-efficient semiconductor systems, Dr. Tudu has developed deep expertise in addressing the reliability and testing challenges of modern VLSI and AI accelerator platforms. His work bridges advanced DFT methodologies with emerging computing architectures, offering valuable perspectives on building robust, high-performance hardware from edge devices to data-center-scale processors.",
         image: "/images/tutorials/tut_527_4.png"
       },
       {
         name: "Manisha Kumari",
         affiliation: "IIT Jodhpur",
-        bio: "Manisha Kumari is pursuing her Ph.D. in the Department of Electrical Engineering at IIT Jodhpur. Her research lies at the intersection of VLSI Testing and Electronic Design Automation (EDA), with a specific emphasis on 3D chiplet testing and Through-Glass Via (TGV) based interconnect testing. Her broader research interests include semiconductor test, reliability, and the emerging challenges associated with heterogeneous integration and advanced 3D packaging in modern VLSI systems.",
+        bio: "Manisha Kumari is a Ph.D. Scholar in the Department of Electrical Engineering at the Indian Institute of Technology Jodhpur. Her research focuses on the intersection of VLSI Testing and Electronic Design Automation (EDA), with particular emphasis on 3D chiplet testing and Through-Glass Via (TGV)-based interconnect testing. Her broader interests include semiconductor test, reliability, and the challenges associated with heterogeneous integration and advanced 3D packaging technologies.\n\nThrough her research on next-generation testing methodologies for advanced packaging and chiplet-based systems, Manisha is contributing to solutions for the evolving reliability and test challenges of modern VLSI designs. Her work provides valuable insights into emerging test strategies that will support future heterogeneous and three-dimensional semiconductor architectures.",
         image: "/images/tutorials/tut_527_5.png"
       }
     ],
@@ -533,9 +533,45 @@ export const distinguishedAddressesData = [
 ];
 
 export const panelsData = [
-  { id: 0, title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?", affiliation: "Moderator: Sameer Chillarige", comingSoon: true },
-  { id: 1, title: "India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges", affiliation: "Moderator: Gaurav Bhargava", comingSoon: true },
-  { id: 2, title: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?", affiliation: "Moderator: Kamlesh Pandey", comingSoon: true }
+  { 
+    id: 0, 
+    title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?", 
+    affiliation: "Moderator: Sameer Chillarige", 
+    comingSoon: true 
+  },
+  { 
+    id: 1, 
+    title: "The Economics of Test: Where Should We Spend the Budget?", 
+    affiliation: "Panel Chair: Navin Bishnoi", 
+    panelists: [
+      { name: "Alpa Sood", affiliation: "Teradyne", image: "/images/Alpa-Sood.png" },
+      { name: "Ruchir Dixit", affiliation: "Siemens" },
+      { name: "Gowrisankar A.", affiliation: "Caliber Interconnects" },
+      { name: "Jeff Rearick", affiliation: "AMD", image: "/images/keynote/jeff_rearick_2024.png" }
+    ] 
+  },
+  { 
+    id: 2, 
+    title: "India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges", 
+    affiliation: "Panel Chair: Gaurav Bhargava", 
+    panelists: [
+      { name: "Jayashree Saxena", affiliation: "Anora Labs", image: "/images/jayashree_saxena.png" },
+      { name: "Jaynarayan T. Tudu", affiliation: "IIT Tirupati", image: "/images/tutorials/tut_527_4.png" },
+      { name: "Dr. Rubin Parekji", affiliation: "Texas Instruments" },
+      { name: "Musunuri Surya", affiliation: "Infineon" }
+    ] 
+  },
+  { 
+    id: 3, 
+    title: "In the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplet based designs?", 
+    affiliation: "Panel Chair: Kamlesh Pandey", 
+    panelists: [
+      { name: "Dr. Yervant Zorian", affiliation: "Synopsys", image: "/images/Yervant_Zorian.png" },
+      { name: "Dr. Shalini Pathak", affiliation: "STMicroelectronics" },
+      { name: "Rajesh Vaddempudi", affiliation: "Advantest", image: "/images/Rajesh_Vaddempudi.png" },
+      { name: "Srinivas Vooka", affiliation: "Google" }
+    ] 
+  }
 ];
 
 export const industryShowcaseData = [

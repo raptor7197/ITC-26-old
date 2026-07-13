@@ -18,12 +18,44 @@ export default function Panels() {
                 </p>
               )}
               <div className="h-[2px] w-12 sm:w-16 bg-[#00b0f0]/50 mb-4 md:mb-5 rounded-full"></div>
-              <p className="text-[#caddf0] font-bold text-[12px] sm:text-[14px] md:text-base tracking-widest uppercase flex items-center gap-2 sm:gap-3">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                More details coming soon
-              </p>
+              {panel.panelists ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 w-full">
+                  {panel.panelists.map((panelist: any, idx: number) => (
+                    <div key={idx} className="flex flex-col items-center gap-4 group">
+                      <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-white/10 group-hover:border-[#00b0f0]/50 transition-colors bg-white/5 flex items-center justify-center">
+                        {panelist.image ? (
+                          <img 
+                            src={panelist.image} 
+                            alt={panelist.name} 
+                            className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                          />
+                        ) : (
+                          <span className="text-3xl sm:text-4xl text-white/30 font-light">
+                            {panelist.name.charAt(0)}
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-center">
+                        <p className="text-white font-semibold text-sm sm:text-base">
+                          {panelist.name}
+                        </p>
+                        {panelist.affiliation && (
+                          <p className="text-white/60 text-xs sm:text-sm mt-1">
+                            {panelist.affiliation}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-[#caddf0] font-bold text-[12px] sm:text-[14px] md:text-base tracking-widest uppercase flex items-center gap-2 sm:gap-3">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  More details coming soon
+                </p>
+              )}
             </div>
           ))}
         </div>
