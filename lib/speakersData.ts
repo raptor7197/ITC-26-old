@@ -544,10 +544,10 @@ export const panelsData = [
     title: "The Economics of Test: Where Should We Spend the Budget?", 
     affiliation: "Panel Chair: Navin Bishnoi", 
     panelists: [
-      "AlpaSood (alpa.sood@teradyne.com)", 
-      "Ruchir Dixit (ruchir.dixit@siemens.com)", 
-      "Gowrisankar A. (gowrisankar@caliberinterconnect.com)", 
-      "Jeff Rearick (Jeff.Rearick@amd.com)"
+      { name: "Alpa Sood", affiliation: "Teradyne", image: "/images/Alpa-Sood.png" },
+      { name: "Ruchir Dixit", affiliation: "Siemens" },
+      { name: "Gowrisankar A.", affiliation: "Caliber Interconnects" },
+      { name: "Jeff Rearick", affiliation: "AMD", image: "/images/keynote/jeff_rearick_2024.png" }
     ] 
   },
   { 
@@ -555,10 +555,10 @@ export const panelsData = [
     title: "India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges", 
     affiliation: "Panel Chair: Gaurav Bhargava", 
     panelists: [
-      "Jayashree (jayashree@anoralabs.com)", 
-      "Jaynarayan Tudu (jtt@iittp.ac.in)", 
-      "Dr. Rubin Parekji (parekhji@ti.com)", 
-      "Musunuri Surya (Surya.Musunuri@infineon.com)"
+      { name: "Jayashree Saxena", affiliation: "Anora Labs", image: "/images/jayashree_saxena.png" },
+      { name: "Jaynarayan T. Tudu", affiliation: "IIT Tirupati", image: "/images/tutorials/tut_527_4.png" },
+      { name: "Dr. Rubin Parekji", affiliation: "Texas Instruments" },
+      { name: "Musunuri Surya", affiliation: "Infineon" }
     ] 
   },
   { 
@@ -566,10 +566,10 @@ export const panelsData = [
     title: "In the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplet based designs?", 
     affiliation: "Panel Chair: Kamlesh Pandey", 
     panelists: [
-      "Dr. Yervant Zorian (Yervant.Zorian@synopsys.com)", 
-      "Dr. Shalini Pathak (shalini.pathak@st.com)", 
-      "Rajesh Vaddempudi (rajesh.vaddempudi@advantest.com)", 
-      "Srinivas Vooka (vooka@google.com)"
+      { name: "Dr. Yervant Zorian", affiliation: "Synopsys", image: "/images/Yervant_Zorian.png" },
+      { name: "Dr. Shalini Pathak", affiliation: "STMicroelectronics" },
+      { name: "Rajesh Vaddempudi", affiliation: "Advantest", image: "/images/Rajesh_Vaddempudi.png" },
+      { name: "Srinivas Vooka", affiliation: "Google" }
     ] 
   }
 ];

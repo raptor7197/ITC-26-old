@@ -366,9 +366,9 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Industry Session 1",
             items: [
-              "Talk 1: Jayashree Saxena, Vice President – Semiconductor DFT, Anora Labs",
-              "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Senior Member Technical Staff, Texas Instruments",
-              "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Director of Engineering, Marvell"
+              "Talk 1: A Day in the Life of a DFT Engineer - Can Agents Help?, Jayashree Saxena, Anora Labs",
+              "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Texas Instruments",
+              "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Marvell"
             ],
           },
           {
@@ -418,7 +418,7 @@ export const agendaDays: AgendaDay[] = [
             title: "Industry Session 2",
             items: [
               "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava",
-              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High Speed Flash Interface IOs.",
+              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High-Speed NAND Flash Interface I/Os for Silicon Quality and Production Readiness.",
               "Talk 5: Anand Muthaiah (Tessolve) : On-chip Intelligence Transforming IC Testing."
             ],
           },
@@ -489,7 +489,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Grand Victoria 1",
             title: "Panel: Kamlesh Pandey",
-            subtitle: "In the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplet based designs?",
+            subtitle: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?",
             colSpan: 3,
             location: "Grand Victoria",
           },
