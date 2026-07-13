@@ -121,7 +121,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           { hall: "Grand Victoria 1", title: "Understanding Test Escapes and the Limitations of Scan DFT Testing", items: ["Adit Singh (Auburn university)"] },
           { hall: "Grand Victoria 2", title: "Scalable ATE Hardware Design: From Concept to Manufacturing with Reusable Architecture", items: ["Lokapriya B, Senthilkumar Dhamodharan and Dyaneswaran Anguraj (Caliber Interconnects)"] },
-          { hall: "Arabica & Robusta", title: "Customer Centric Post Silicon Validation Approach for System on Chip (SoC)", items: ["Ravishankar Manishankar and Siloni Pilani (Intel)"] },
+          { hall: "Arabica & Robusta", title: "Customer Centric Post Silicon Validation Approach for System on Chip (SoC)", items: ["Ravishankar Manishankar and Siloni Palani (Intel)"] },
         ],
       },
       {
