@@ -546,7 +546,7 @@ export const panelsData = [
     panelists: [
       { name: "Alpa Sood", affiliation: "Teradyne", image: "/images/Alpa-Sood.png" },
       { name: "Ruchir Dixit", affiliation: "Siemens" },
-      { name: "Gowrisankar A.", affiliation: "Caliber Interconnects" },
+      { name: "Gowrisankar A.", affiliation: "Caliber Interconnects", image: "/images/gowrisankar_a.jpeg" },
       { name: "Jeff Rearick", affiliation: "AMD", image: "/images/keynote/jeff_rearick_2024.png" }
     ] 
   },
@@ -567,7 +567,7 @@ export const panelsData = [
     affiliation: "Panel Chair: Kamlesh Pandey", 
     panelists: [
       { name: "Dr. Yervant Zorian", affiliation: "Synopsys", image: "/images/Yervant_Zorian.png" },
-      { name: "Dr. Shalini Pathak", affiliation: "STMicroelectronics" },
+      { name: "Dr. Shalini Pathak", affiliation: "STMicroelectronics", image: "/images/shalini_pathak.jpeg" },
       { name: "Rajesh Vaddempudi", affiliation: "Advantest", image: "/images/Rajesh_Vaddempudi.png" },
       { name: "Srinivas Vooka", affiliation: "Google" }
     ] 
