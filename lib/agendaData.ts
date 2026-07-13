@@ -410,10 +410,10 @@ export const agendaDays: AgendaDay[] = [
             hall: "Brain Box",
             title: "ART Track 1",
             items: [
-              "ART1: A Unified Fault Detection and Repair Framework for Memristor-Based Non-Volatile Memories - Aryan Anand and Vishal Gupta (VIT)",
-              "ART2: Towards Secure IoT: A Lightweight PUF-Based Proximity-Aware Authentication Protocol for Resource-Constrained IoT Devices - Abdulla Syed, Navya Sri Tulluru and Mounika Mellamarthi (SRM University)",
+              "ART1: A Unified Fault Detection and Repair Framework for Memristor-Based Non-Volatile Memories - Aryan Anand and Vishal Gupta (Vellore Institute of Technology, Vellore)",
+              "ART2: Towards Secure IoT: A Lightweight PUF-Based Proximity-Aware Authentication Protocol for Resource-Constrained IoT Devices - Abdulla Syed, Navya Sri Tulluru and Mounika Mellamarthi (SRM University, AP)",
               "ART3: Functional Safety Testing of On-Chip Cache Memories - Siyana Bijju, Simi Sukamaran and Tripti S Warrier (Cochin University of Science and Technology)",
-              "ART4: Assertion-Centric UVM Verification of a Fault-Injectable 32-bit RISC-V ALU–IFU Subsystem - Divyanshi Sharma and Sandeep Patel (MANIT Bhopal)"
+              "ART4: Assertion-Centric UVM Verification of a Fault-Injectable 32-bit RISC-V ALU–IFU Subsystem - Divyanshi Sharma and Sandeep Patel (Manit Bhopal, India)"
             ],
           },
         ],
