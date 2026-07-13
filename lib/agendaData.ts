@@ -316,7 +316,22 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "break",
         time: "05:30 PM – 06:30 PM",
-        title: "BREAK",
+        title: "BREAK (NO ACTIVITY PLANNED)",
+      },
+      {
+        kind: "single",
+        time: "06:30 PM – 08:30 PM",
+        title: "Banquet Sit Down Dinner (Invite Only)",
+        subtitle: "ITC India - 10th Edition Reflections",
+        location: "Grand Victoria",
+        items: [
+          "Panel: The Economics of Test: Where Should We Spend the Budget?",
+          "Moderator: Navin Bishnoi, Marvell",
+          "Panelists:",
+          "Felicitation of the Past Committee Members",
+          "Dinner"
+        ],
+        variant: "plenary",
       },
 
     ],

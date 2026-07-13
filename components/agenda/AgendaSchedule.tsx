@@ -567,7 +567,7 @@ export default function AgendaSchedule() {
                       </p>
                     )}
                     {slot.items && slot.items.length > 0 && (
-                      <div className="flex flex-col gap-4 mt-2">
+                      <div className="flex flex-col gap-1.5 mt-2">
                         {slot.items.map((item, idx) => {
                           const isClickable = getMatchData(slot.title, [item]);
                           const parts = item.split("| Topic :");
@@ -1243,7 +1243,7 @@ export default function AgendaSchedule() {
                               </div>
                               
                               {slot.items && slot.items.length > 0 && (
-                                <div className="flex flex-col gap-5 mt-4 w-full px-2 sm:px-4">
+                                <div className="flex flex-col gap-2 mt-3 w-full px-2 sm:px-4">
                                   {slot.items.map((item, idx) => {
                                     const isClickable = getMatchData(slot.title, [item]);
                                     const parts = item.split("| Topic :");
@@ -1255,7 +1255,7 @@ export default function AgendaSchedule() {
                                         {topic ? (
                                           <>
                                             <div 
-                                              className={`text-sm sm:text-base font-semibold text-sky-200 mt-1.5 uppercase leading-tight ${isClickable ? "cursor-pointer hover:brightness-125 transition-all" : ""}`}
+                                              className={`text-sm sm:text-base font-semibold text-sky-200 mt-1 uppercase leading-tight ${isClickable ? "cursor-pointer hover:brightness-125 transition-all" : ""}`}
                                               onClick={(e) => {
                                                 if (isClickable) {
                                                   e.stopPropagation();
@@ -1266,13 +1266,13 @@ export default function AgendaSchedule() {
                                             >
                                               {topic}
                                             </div>
-                                            <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5">
+                                            <div className="text-xs sm:text-sm text-[#a3b8cc] mt-0.5">
                                               {speaker}
                                             </div>
                                           </>
                                         ) : (
                                           <div 
-                                            className={`text-xs sm:text-sm mt-1.5 ${isClickable ? "text-sky-200 font-semibold cursor-pointer hover:brightness-125 transition-all" : "text-[#a3b8cc]"}`}
+                                            className={`text-xs sm:text-sm mt-0.5 ${isClickable ? "text-sky-200 font-semibold cursor-pointer hover:brightness-125 transition-all" : "text-[#a3b8cc]"}`}
                                             onClick={(e) => {
                                               if (isClickable) {
                                                 e.stopPropagation();
