@@ -169,7 +169,7 @@ export const agendaDays: AgendaDay[] = [
         location: "Grand Victoria",
         items: [
           "Keynote: Yervant Zorian (Synopsys) | Topic : Designing Chiplets and 3DIC for Quality and Reliability",
-          "Keynote: Subhashish Mitra (Stanford University) | Topic : Silent Data corruption by 10x Test Escapes Threatens Reliable computing",
+          "Keynote: Subhashish Mitra (Stanford University) | Topic : Silent Data corruption by 10x Test Escapes Threatens Reliable Computing",
           "Keynote: Senthilkumar Dhamodharan (Caliber Interconnects) | Topic : SI Complexity to AI Revolution: India’s Silicon Leap 2047"
         ]
       },
@@ -300,8 +300,8 @@ export const agendaDays: AgendaDay[] = [
         title: "Distinguished Addresses",
         location: "Grand Victoria",
         items: [
-          "Distinguished Address: Alpa Sood (Teradyne) | Topic : The critical role of Test Strategy in India's Semiconductor Growth",
-          "Distinguished Address: Don Chan (Cadence) | Topic : From Point Tools to Agentic AI: How EDA has impacted Semiconductor Industry",
+          "Distinguished Address: Alpa Sood (Teradyne) | Topic : The Critical Role of Test Strategy in India's Semiconductor Growth",
+          "Distinguished Address: Don Chan (Cadence) | Topic : From Point Tools to Agentic AI: How EDA has impacted the Semiconductor Industry",
           "Distinguished Address: Rajesh Vaddempudi (Advantest, India) | Topic : The Intelligent Silicon Era: Redefining Semiconductor Test Through Innovation, AI, and Collaboration"
         ]
       },
@@ -347,7 +347,7 @@ export const agendaDays: AgendaDay[] = [
         title: "Keynote Addresses",
         location: "Grand Victoria",
         items: [
-          "Keynote: Jeff Rearick (AMD) | Topic : AI in Test: Fear it or harness it",
+          "Keynote: Jeff Rearick (AMD) | Topic : AI in Test: Fear It or Harness It",
           "Keynote: Nilanjan Mukherjee (Siemens) | Topic : Built-in Intelligence – Leveraging Advanced DFT for Silicon Health Monitoring",
           "Keynote: Bizhan Delgoshaei (Google) | Topic : From Silent Patient to Self-Healing Silicon: The Four Evolutionary Stages of DFT in Mass Production"
         ]
@@ -418,7 +418,7 @@ export const agendaDays: AgendaDay[] = [
             title: "Industry Session 2",
             items: [
               "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava",
-              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High-Speed NAND Flash Interface I/Os for Silicon Quality and Production Readiness.",
+              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High Speed Flash Interface IOs.",
               "Talk 5: Anand Muthaiah (Tessolve) : On-chip Intelligence Transforming IC Testing."
             ],
           },
@@ -489,7 +489,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Grand Victoria 1",
             title: "Panel: Kamlesh Pandey",
-            subtitle: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?",
+            subtitle: "In the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplet based designs?",
             colSpan: 3,
             location: "Grand Victoria",
           },

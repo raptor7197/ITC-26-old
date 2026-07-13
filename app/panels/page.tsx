@@ -18,12 +18,22 @@ export default function Panels() {
                 </p>
               )}
               <div className="h-[2px] w-12 sm:w-16 bg-[#00b0f0]/50 mb-4 md:mb-5 rounded-full"></div>
-              <p className="text-[#caddf0] font-bold text-[12px] sm:text-[14px] md:text-base tracking-widest uppercase flex items-center gap-2 sm:gap-3">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                More details coming soon
-              </p>
+              {panel.panelists ? (
+                <div className="flex flex-col items-center justify-center gap-2 mt-2">
+                  {panel.panelists.map((panelist, idx) => (
+                    <p key={idx} className="text-white/90 text-sm md:text-base font-medium">
+                      {panelist}
+                    </p>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-[#caddf0] font-bold text-[12px] sm:text-[14px] md:text-base tracking-widest uppercase flex items-center gap-2 sm:gap-3">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  More details coming soon
+                </p>
+              )}
             </div>
           ))}
         </div>

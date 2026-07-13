@@ -533,9 +533,45 @@ export const distinguishedAddressesData = [
 ];
 
 export const panelsData = [
-  { id: 0, title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?", affiliation: "Moderator: Sameer Chillarige", comingSoon: true },
-  { id: 1, title: "India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges", affiliation: "Moderator: Gaurav Bhargava", comingSoon: true },
-  { id: 2, title: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?", affiliation: "Moderator: Kamlesh Pandey", comingSoon: true }
+  { 
+    id: 0, 
+    title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?", 
+    affiliation: "Moderator: Sameer Chillarige", 
+    comingSoon: true 
+  },
+  { 
+    id: 1, 
+    title: "The Economics of Test: Where Should We Spend the Budget?", 
+    affiliation: "Panel Chair: Navin Bishnoi", 
+    panelists: [
+      "AlpaSood (alpa.sood@teradyne.com)", 
+      "Ruchir Dixit (ruchir.dixit@siemens.com)", 
+      "Gowrisankar A. (gowrisankar@caliberinterconnect.com)", 
+      "Jeff Rearick (Jeff.Rearick@amd.com)"
+    ] 
+  },
+  { 
+    id: 2, 
+    title: "India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges", 
+    affiliation: "Panel Chair: Gaurav Bhargava", 
+    panelists: [
+      "Jayashree (jayashree@anoralabs.com)", 
+      "Jaynarayan Tudu (jtt@iittp.ac.in)", 
+      "Dr. Rubin Parekji (parekhji@ti.com)", 
+      "Musunuri Surya (Surya.Musunuri@infineon.com)"
+    ] 
+  },
+  { 
+    id: 3, 
+    title: "In the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplet based designs?", 
+    affiliation: "Panel Chair: Kamlesh Pandey", 
+    panelists: [
+      "Dr. Yervant Zorian (Yervant.Zorian@synopsys.com)", 
+      "Dr. Shalini Pathak (shalini.pathak@st.com)", 
+      "Rajesh Vaddempudi (rajesh.vaddempudi@advantest.com)", 
+      "Srinivas Vooka (vooka@google.com)"
+    ] 
+  }
 ];
 
 export const industryShowcaseData = [
