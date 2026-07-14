@@ -107,7 +107,7 @@ export const agendaDays: AgendaDay[] = [
           { hall: "Grand Victoria 1", subtitle: "Tutorial Track 1(b)", sessionChair: "Session chair: Bharath Nandakumar", title: "Testing to Self Testing: Self Test Driven Functional Safety for ISO 26262 Compliant Automotive SoCs", items: ["Rajesh Kumar Tiwari and Mohammed Zuber P Malek (Qualcomm)"] },
           { hall: "Grand Victoria 2", subtitle: "Tutorial Track 2(b)", sessionChair: "Session chair: Rajit Karmakar", title: "The Seamless Integration of Packetized Scan and In-system test with Advanced ATE Equipment", items: ["Lee Harrison (Siemens EDA) and Hagen Goller (Advantest)"] },
           { hall: "Arabica & Robusta", subtitle: "Tutorial Track 3(b)", sessionChair: "Session chair: Rama Sireesha Arisetti", title: "Advanced Test Data Analytics for Yield and Quality Improvement", items: ["Navya Rastogi, Shamitha Rao, Shrestha Hota (Synopsys) and Soumya Mittal (Qualcomm)"] },
-          { hall: "Brain Box", title: "ITC-at-ITC", subtitle: "invite only session", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige | Panelists: Dr. Adit D. Singh (Auburn University), Dr. Yervant Zorian (Synopsys), Dr. Chandan Karfa (IIT Guwahati), Lee Harrison (Siemens)"], rowSpan: 4 },
+          { hall: "Brain Box", title: "Industry Test Challenge", subtitle: "invite only session", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige (Cadence) | Panelists: Udayakiran Yallamaraju (Qualcomm), John Schulze (AMD), C Jagadish Kumar (Intel), Raghu G G (Infineon)"], rowSpan: 4 },
         ],
       },
       {
@@ -223,7 +223,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Brain Box",
             title: "Special Session",
-            items: ["Industry Showcase 1", "Advantest 1 (11:30 AM - 12:15 PM)", "Advantest 2 (12:15 PM - 01:00 PM)"],
+            items: ["Industry Showcase 1", "Evolving DFT Validation Methodologies for Complex Digital Designs - Adir Zonta (Advantest) (11:30 AM - 12:15 PM)", "SSN and iJTAG aware ATE - Hagen Goller (Advantest) (12:15 PM - 01:00 PM)"],
           },
         ],
       },
@@ -273,7 +273,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Brain Box",
             title: "Special Session",
-            items: ["Industry Showcase 2", "Teradyne (02:00 PM - 02:45 PM)", "Caliber Interconnect (02:45 PM - 03:30 PM)"],
+            items: ["Industry Showcase 2", "Wafer to Rack. Chip to Cloud. Tested by Teradyne (Paresh Bharkhada, Teradyne) (02:00 PM - 02:45 PM)", "Caliber Interconnect (02:45 PM - 03:30 PM)"],
           },
         ],
       },
@@ -379,7 +379,7 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Industry Session 1",
             items: [
-              "Talk 1: A Day in the Life of a DFT Engineer - Can Agents Help?, Jayashree Saxena, Anora Labs",
+              "Talk 1: A day in the life of a DFT Engineer – Can AI Agents help?, Jayashree Saxena, Vice President – Semiconductor DFT, Anora Labs",
               "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Texas Instruments",
               "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Marvell"
             ],
@@ -410,8 +410,7 @@ export const agendaDays: AgendaDay[] = [
             items: [
               "ART1: A Unified Fault Detection and Repair Framework for Memristor-Based Non-Volatile Memories - Aryan Anand and Vishal Gupta (Vellore Institute of Technology, Vellore)",
               "ART2: Towards Secure IoT: A Lightweight PUF-Based Proximity-Aware Authentication Protocol for Resource-Constrained IoT Devices - Abdulla Syed, Navya Sri Tulluru and Mounika Mellamarthi (SRM University, AP)",
-              "ART3: Functional Safety Testing of On-Chip Cache Memories - Siyana Bijju, Simi Sukamaran and Tripti S Warrier (Cochin University of Science and Technology)",
-              "ART4: Assertion-Centric UVM Verification of a Fault-Injectable 32-bit RISC-V ALU–IFU Subsystem - Divyanshi Sharma and Sandeep Patel (Manit Bhopal, India)"
+              "ART3: Assertion-Centric UVM Verification of a Fault-Injectable 32-bit RISC-V ALU–IFU Subsystem - Divyanshi Sharma and Sandeep Patel (Manit Bhopal, India)"
             ],
           },
         ],
@@ -502,7 +501,7 @@ export const agendaDays: AgendaDay[] = [
           {
             hall: "Grand Victoria 1",
             title: "Panel: Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets? | Panelists: Dr. Yervant Zorian (Synopsys), Dr. Shalini Pathak (STMicroelectronics), Rajesh Vaddempudi (Advantest), Srinivas Vooka (Google)",
-            subtitle: "Moderator: Kamlesh Pandey",
+            subtitle: "Moderator: Kamlesh Pandey (Krivya Semicon)",
             colSpan: 3,
             location: "Grand Victoria",
           },
