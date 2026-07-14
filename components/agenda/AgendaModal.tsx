@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 
 export type ModalData = {
@@ -19,6 +20,11 @@ export type ModalData = {
     bio?: string;
     image?: string;
   }>;
+  panelists?: Array<{
+    name: string;
+    affiliation?: string;
+    image?: string;
+  }>;
 };
 
 export default function AgendaModal({
@@ -30,8 +36,11 @@ export default function AgendaModal({
   onClose: () => void;
   data: ModalData | null;
 }) {
+  const [mounted, setMounted] = useState(false);
+
   // Prevent scrolling on body and html when modal is open
   useEffect(() => {
+    setMounted(true);
     if (isOpen) {
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
@@ -45,9 +54,9 @@ export default function AgendaModal({
     };
   }, [isOpen]);
 
-  if (!isOpen || !data) return null;
+  if (!isOpen || !data || !mounted) return null;
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-[9999] flex justify-center items-center pt-[100px] sm:p-6 sm:pt-[100px] pointer-events-none">
       {/* Backdrop */}
       <div
@@ -246,14 +255,14 @@ export default function AgendaModal({
                     {/* Content */}
                     <div className="flex-1 flex flex-col justify-start items-center sm:items-start text-center sm:text-left pt-1">
                       <h2 className="font-black text-2xl sm:text-4xl md:text-[42px] tracking-tight mb-1 text-white">
-                        {data.name}
+                        {data.name || data.title}
                       </h2>
                       {data.affiliation && (
                         <p className="text-[#00b0f0] font-bold text-base sm:text-xl mb-4 tracking-wide">
                           {data.affiliation}
                         </p>
                       )}
-                      {data.title && (
+                      {data.name && data.title && (
                         <h3 className="text-sm sm:text-lg md:text-xl font-bold uppercase mb-4 text-white leading-snug tracking-wide">
                           {data.title}
                         </h3>
@@ -290,6 +299,33 @@ export default function AgendaModal({
                       )}
                     </div>
                   )}
+
+                  {/* Panelists */}
+                  {data.panelists && data.panelists.length > 0 && (
+                    <div className="mt-8">
+                      <h4 className="text-white font-bold text-[15px] sm:text-[16px] mb-4 uppercase tracking-widest flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#00b0f0] shadow-[0_0_8px_#00b0f0]"></span>
+                        Panelists
+                      </h4>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {data.panelists.map((panelist, idx) => (
+                          <div key={idx} className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl p-4 hover:border-[#00b0f0]/50 transition-colors">
+                            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shrink-0 bg-white/10 flex items-center justify-center border-2 border-white/10">
+                              {panelist.image ? (
+                                <img src={panelist.image} alt={panelist.name} className="w-full h-full object-cover object-top" />
+                              ) : (
+                                <span className="text-xl text-white/30 font-light">{panelist.name.charAt(0)}</span>
+                              )}
+                            </div>
+                            <div>
+                              <p className="text-white font-bold text-sm sm:text-base">{panelist.name}</p>
+                              {panelist.affiliation && <p className="text-[#00b0f0] text-xs sm:text-sm mt-0.5">{panelist.affiliation}</p>}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </>
@@ -314,6 +350,7 @@ export default function AgendaModal({
           background: rgba(0, 176, 240, 0.6);
         }
       `}} />
-    </div>
+    </div>,
+    document.body
   );
 }

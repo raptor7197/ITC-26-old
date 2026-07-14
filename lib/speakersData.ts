@@ -537,7 +537,12 @@ export const panelsData = [
     id: 0, 
     title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?", 
     affiliation: "Moderator: Sameer Chillarige", 
-    comingSoon: true 
+    panelists: [
+      { name: "Dr. Adit D. Singh", affiliation: "Auburn University" },
+      { name: "Dr. Yervant Zorian", affiliation: "Synopsys", image: "/images/Yervant_Zorian.png" },
+      { name: "Dr. Chandan Karfa", affiliation: "IIT Guwahati" },
+      { name: "Lee Harrison", affiliation: "Siemens" }
+    ]
   },
   { 
     id: 1, 
@@ -563,7 +568,7 @@ export const panelsData = [
   },
   { 
     id: 3, 
-    title: "In the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplet based designs?", 
+    title: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?", 
     affiliation: "Panel Chair: Kamlesh Pandey", 
     panelists: [
       { name: "Dr. Yervant Zorian", affiliation: "Synopsys", image: "/images/Yervant_Zorian.png" },

@@ -267,6 +267,22 @@ export default function AgendaSchedule() {
     if (!title || title.trim() === "") return null;
     const safeTitle = title.toLowerCase();
 
+    // 1. Check Panels first if the title or item explicitly indicates a panel
+    const isExplicitPanel = safeTitle.includes("panel:") || (items && items.some(i => i.toLowerCase().includes("panel:")));
+    if (isExplicitPanel) {
+      const panelMatch = panelsData.find(
+        (p) =>
+          p.title &&
+          (p.title.toLowerCase() === safeTitle ||
+            safeTitle.includes(p.title.toLowerCase()) ||
+            (items &&
+              items.some((item) =>
+                item.toLowerCase().includes(p.title.toLowerCase()) || p.title.toLowerCase().includes(item.toLowerCase().replace(/^panel:\s*/, ''))
+              )))
+      );
+      if (panelMatch) return panelMatch as ModalData;
+    }
+
     // Check Technical Papers
     const paperMatch = technicalPapersData.find(
       (p) =>
@@ -336,7 +352,8 @@ export default function AgendaSchedule() {
     );
     if (industryMatch) return industryMatch as ModalData;
 
-    // Check Panels
+    // Panels are already checked at the beginning if they are explicitly panels.
+    // We check again here just in case as a fallback.
     const panelMatch = panelsData.find(
       (p) =>
         p.title &&
@@ -539,15 +556,19 @@ export default function AgendaSchedule() {
                   </div>
                 )}
 
-                {isSingle && (
-                  <div
-                    className={`bg-gradient-to-b from-[#0a1931] to-[#061124] border border-[#1e3a5f] rounded-[14px] p-4 shadow-xl flex flex-col gap-1.5 ${(!slot.items || slot.items.length === 0) && getMatchData(slot.title) ? "cursor-pointer active:scale-[0.98] active:border-sky-500/50 transition-all" : ""}`}
-                    onClick={() => {
-                      if (!slot.items || slot.items.length === 0) {
-                        handleTileClick(slot.title);
-                      }
-                    }}
-                  >
+                {isSingle && (() => {
+                  const matchItems = slot.subtitle ? [...(slot.items || []), slot.subtitle] : slot.items;
+                  const tileMatch = getMatchData(slot.title, matchItems);
+
+                  return (
+                    <div
+                      className={`bg-gradient-to-b from-[#0a1931] to-[#061124] border border-[#1e3a5f] rounded-[14px] p-4 shadow-xl flex flex-col gap-1.5 ${tileMatch ? "cursor-pointer active:scale-[0.98] active:border-sky-500/50 transition-all" : ""}`}
+                      onClick={() => {
+                        if (tileMatch) {
+                          handleTileClick(slot.title, matchItems);
+                        }
+                      }}
+                    >
                     {slot.variant === "keynote" && (
                       <div className="flex items-center gap-2 mb-0.5">
                         {ICONS.user}
@@ -569,7 +590,31 @@ export default function AgendaSchedule() {
                     {slot.items && slot.items.length > 0 && (
                       <div className="flex flex-col gap-1.5 mt-2">
                         {slot.items.map((item, idx) => {
-                          const isClickable = getMatchData(slot.title, [item]);
+                          const isItemClickable = getMatchData(slot.title, [item]);
+                          const isItemPanel = item.toLowerCase().startsWith("panel:");
+
+                          if (isItemPanel) {
+                            return (
+                              <div
+                                key={idx}
+                                className={`mt-0.5 py-1.5 px-2.5 bg-black/20 border-l-2 border-sky-500 rounded-r-lg flex flex-col gap-0.5 shadow-inner ${isItemClickable ? "active:bg-black/40 cursor-pointer" : ""}`}
+                                onClick={(e) => {
+                                  if (isItemClickable) {
+                                    e.stopPropagation();
+                                    handleTileClick(slot.title, [item]);
+                                  }
+                                }}
+                              >
+                                <div className="text-[9px] font-bold uppercase tracking-wider text-sky-400">
+                                  Panel Discussion
+                                </div>
+                                <div className="text-[12px] font-medium text-slate-200 leading-[1.3]">
+                                  {item.replace(/^Panel:\s*/i, "")}
+                                </div>
+                              </div>
+                            );
+                          }
+
                           const parts = item.split("| Topic :");
                           const topic = parts[1] ? parts[1].trim() : null;
                           const speaker = parts[0].replace(/^(Distinguished Address:?|Keynote:?)\s*/i, "").trim();
@@ -579,9 +624,9 @@ export default function AgendaSchedule() {
                               {topic ? (
                                 <>
                                   <div 
-                                    className={`text-[12px] font-semibold text-sky-200 uppercase mb-0.5 leading-snug w-fit ${isClickable ? "cursor-pointer active:scale-[0.98]" : ""}`}
+                                    className={`text-[12px] font-semibold text-sky-200 uppercase mb-0.5 leading-snug w-fit ${isItemClickable ? "cursor-pointer active:scale-[0.98]" : ""}`}
                                     onClick={(e) => {
-                                      if (isClickable) {
+                                      if (isItemClickable) {
                                         e.stopPropagation();
                                         handleTileClick(slot.title, [item]);
                                       }
@@ -595,9 +640,9 @@ export default function AgendaSchedule() {
                                 </>
                               ) : (
                                 <div 
-                                  className={`text-[12px] ${isClickable ? "text-sky-200 font-semibold cursor-pointer active:scale-[0.98] w-fit" : "text-[#a3b8cc]"}`}
+                                  className={`text-[12px] ${isItemClickable ? "text-sky-200 font-semibold cursor-pointer active:scale-[0.98] w-fit" : "text-[#a3b8cc]"}`}
                                   onClick={(e) => {
-                                    if (isClickable) {
+                                    if (isItemClickable) {
                                       e.stopPropagation();
                                       handleTileClick(slot.title, [item]);
                                     }
@@ -618,7 +663,7 @@ export default function AgendaSchedule() {
                       </div>
                     )}
                   </div>
-                )}
+                )})()}
 
                 {sessionsToRender.length > 0 &&
                   sessionsToRender.map((session: any, sIdx: number) => {
