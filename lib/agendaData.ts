@@ -107,7 +107,7 @@ export const agendaDays: AgendaDay[] = [
           { hall: "Grand Victoria 1", subtitle: "Tutorial Track 1(b)", sessionChair: "Session chair: Bharath Nandakumar", title: "Testing to Self Testing: Self Test Driven Functional Safety for ISO 26262 Compliant Automotive SoCs", items: ["Rajesh Kumar Tiwari and Mohammed Zuber P Malek (Qualcomm)"] },
           { hall: "Grand Victoria 2", subtitle: "Tutorial Track 2(b)", sessionChair: "Session chair: Rajit Karmakar", title: "The Seamless Integration of Packetized Scan and In-system test with Advanced ATE Equipment", items: ["Lee Harrison (Siemens EDA) and Hagen Goller (Advantest)"] },
           { hall: "Arabica & Robusta", subtitle: "Tutorial Track 3(b)", sessionChair: "Session chair: Rama Sireesha Arisetti", title: "Advanced Test Data Analytics for Yield and Quality Improvement", items: ["Navya Rastogi, Shamitha Rao, Shrestha Hota (Synopsys) and Soumya Mittal (Qualcomm)"] },
-          { hall: "Brain Box", title: "ITC-at-ITC", subtitle: "invite only session", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige"], rowSpan: 4 },
+          { hall: "Brain Box", title: "ITC-at-ITC", subtitle: "invite only session", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige | Panelists: Dr. Adit D. Singh (Auburn University), Dr. Yervant Zorian (Synopsys), Dr. Chandan Karfa (IIT Guwahati), Lee Harrison (Siemens)"], rowSpan: 4 },
         ],
       },
       {
@@ -325,9 +325,7 @@ export const agendaDays: AgendaDay[] = [
         subtitle: "ITC India - 10th Edition Reflections",
         location: "Grand Victoria",
         items: [
-          "Panel: The Economics of Test: Where Should We Spend the Budget?",
-          "Moderator: Navin Bishnoi, Marvell",
-          "Panelists:",
+          "Panel: The Economics of Test: Where Should We Spend the Budget? | Moderator: Navin Bishnoi, Marvell | Panelists: Alpa Sood (Teradyne), Ruchir Dixit (Siemens), Gowrisankar A. (Caliber Interconnects), Jeff Rearick (AMD)",
           "Felicitation of the Past Committee Members",
           "Dinner"
         ],
@@ -432,7 +430,7 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Industry Session 2",
             items: [
-              "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava",
+              "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava | Panelists: Jayashree Saxena (Anora Labs), Jaynarayan T. Tudu (IIT Tirupati), Dr. Rubin Parekji (Texas Instruments), Musunuri Surya (Infineon)",
               "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High-Speed NAND Flash Interface I/Os for Silicon Quality and Production Readiness.",
               "Talk 5: Anand Muthaiah (Tessolve) : On-chip Intelligence Transforming IC Testing."
             ],
@@ -503,8 +501,8 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           {
             hall: "Grand Victoria 1",
-            title: "Panel: Kamlesh Pandey",
-            subtitle: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?",
+            title: "Panel: Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets? | Panelists: Dr. Yervant Zorian (Synopsys), Dr. Shalini Pathak (STMicroelectronics), Rajesh Vaddempudi (Advantest), Srinivas Vooka (Google)",
+            subtitle: "Moderator: Kamlesh Pandey",
             colSpan: 3,
             location: "Grand Victoria",
           },
