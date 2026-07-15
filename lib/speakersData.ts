@@ -513,8 +513,7 @@ export const distinguishedAddressesData = [
     bio: [
       "Rajesh Vaddempudi is the Managing Director of Advantest India and a seasoned semiconductor leader with over 26 years of experience driving business growth, engineering innovation, and operational excellence. Throughout his career at Advantest, Texas Instruments, and Tessolve, he has developed deep expertise in semiconductor test, product engineering, and post-silicon validation, leading the establishment of advanced test infrastructures spanning wafer sort, final test, qualification, and reliability.",
       "Having successfully guided complex semiconductor products from silicon validation through production ramp, Rajesh brings a comprehensive understanding of the technologies and collaborative strategies required to deliver high-quality products at scale. His leadership across engineering, manufacturing, and customer engagement provides a valuable perspective on how AI and innovation are transforming the future of semiconductor test."
-    ],
-    image: "/images/Rajesh_Vaddempudi.png",
+    ],    image: "/images/Rajesh_Vaddempudi.png",
     imageClassName: "object-[center_10%]"
   },
   {
