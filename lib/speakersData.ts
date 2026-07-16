@@ -513,7 +513,7 @@ export const distinguishedAddressesData = [
     bio: [
       "Rajesh Vaddempudi is the Managing Director of Advantest India and a seasoned semiconductor leader with over 26 years of experience driving business growth, engineering innovation, and operational excellence. Throughout his career at Advantest, Texas Instruments, and Tessolve, he has developed deep expertise in semiconductor test, product engineering, and post-silicon validation, leading the establishment of advanced test infrastructures spanning wafer sort, final test, qualification, and reliability.",
       "Having successfully guided complex semiconductor products from silicon validation through production ramp, Rajesh brings a comprehensive understanding of the technologies and collaborative strategies required to deliver high-quality products at scale. His leadership across engineering, manufacturing, and customer engagement provides a valuable perspective on how AI and innovation are transforming the future of semiconductor test."
-    ],    image: "/images/Rajesh_Vaddempudi.png",
+    ], image: "/images/Rajesh_Vaddempudi.png",
     imageClassName: "object-[center_10%]"
   },
   {
@@ -532,10 +532,10 @@ export const distinguishedAddressesData = [
 ];
 
 export const panelsData = [
-  { 
-    id: 0, 
-    title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?", 
-    affiliation: "Moderator: Sameer Chillarige", 
+  {
+    id: 0,
+    title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?",
+    affiliation: "Moderator: Sameer Chillarige",
     panelists: [
       { name: "Dr. Adit D. Singh", affiliation: "Auburn University" },
       { name: "Dr. Yervant Zorian", affiliation: "Synopsys", image: "/images/Yervant_Zorian.png" },
@@ -543,38 +543,38 @@ export const panelsData = [
       { name: "Lee Harrison", affiliation: "Siemens" }
     ]
   },
-  { 
-    id: 1, 
-    title: "The Economics of Test: Where Should We Spend the Budget?", 
-    affiliation: "Panel Chair: Navin Bishnoi", 
+  {
+    id: 1,
+    title: "The Economics of Test: Where Should We Spend the Budget?",
+    affiliation: "Panel Chair: Navin Bishnoi",
     panelists: [
       { name: "Alpa Sood", affiliation: "Teradyne", image: "/images/Alpa-Sood.png" },
       { name: "Ruchir Dixit", affiliation: "Siemens" },
       { name: "Gowrisankar A.", affiliation: "Caliber Interconnects", image: "/images/gowrisankar_a.jpeg" },
       { name: "Jeff Rearick", affiliation: "AMD", image: "/images/keynote/jeff_rearick_2024.png" }
-    ] 
+    ]
   },
-  { 
-    id: 2, 
-    title: "India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges", 
-    affiliation: "Panel Chair: Gaurav Bhargava", 
+  {
+    id: 2,
+    title: "India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges",
+    affiliation: "Panel Chair: Gaurav Bhargava",
     panelists: [
       { name: "Jayashree Saxena", affiliation: "Anora Labs", image: "/images/jayashree_saxena.png" },
       { name: "Jaynarayan T. Tudu", affiliation: "IIT Tirupati", image: "/images/tutorials/tut_527_4.png" },
-      { name: "Dr. Rubin Parekji", affiliation: "Texas Instruments" },
-      { name: "Musunuri Surya", affiliation: "Infineon" }
-    ] 
+      { name: "Dr. Rubin Parekhji", affiliation: "Texas Instruments" },
+      { name: "Surya Musunuri", affiliation: "Infineon" }
+    ]
   },
-  { 
-    id: 3, 
-    title: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?", 
-    affiliation: "Panel Chair: Kamlesh Pandey", 
+  {
+    id: 3,
+    title: "Scaling DFT in the era of AI, HPCs, Chiplets - Are traditional DFT approaches efficient for MCMs and Chiplets?",
+    affiliation: "Panel Chair: Kamlesh Pandey",
     panelists: [
       { name: "Dr. Yervant Zorian", affiliation: "Synopsys", image: "/images/Yervant_Zorian.png" },
       { name: "Dr. Shalini Pathak", affiliation: "STMicroelectronics", image: "/images/shalini_pathak.jpeg" },
       { name: "Rajesh Vaddempudi", affiliation: "Advantest", image: "/images/Rajesh_Vaddempudi.png" },
       { name: "Srinivas Vooka", affiliation: "Google" }
-    ] 
+    ]
   }
 ];
 

@@ -222,8 +222,12 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Brain Box",
-            title: "Special Session",
-            items: ["Industry Showcase 1", "Evolving DFT Validation Methodologies for Complex Digital Designs - Adir Zonta (Advantest) (11:30 AM - 12:15 PM)", "SSN and iJTAG aware ATE - Hagen Goller (Advantest) (12:15 PM - 01:00 PM)"],
+            title: "Industry Showcase - 1",
+            subtitle: "11:30 AM – 01:00 PM",
+            items: [
+              "Evolving DFT Validation Methodologies for Complex Digital Designs - Adir Zonta (Advantest)",
+              "SSN and iJTAG aware ATE - Hagen Goller (Advantest)"
+            ],
           },
         ],
       },
@@ -272,8 +276,12 @@ export const agendaDays: AgendaDay[] = [
           },
           {
             hall: "Brain Box",
-            title: "Special Session",
-            items: ["Industry Showcase 2", "Wafer to Rack. Chip to Cloud. Tested by Teradyne (Paresh Bharkhada, Teradyne) (02:00 PM - 02:45 PM)", "Caliber Interconnect (02:45 PM - 03:30 PM)"],
+            title: "Industry Showcase - 2",
+            subtitle: "02:00 PM – 03:30 PM",
+            items: [
+              "Wafer to Rack. Chip to Cloud. Tested by Teradyne - Paresh Bharkhada (Teradyne)",
+              "Caliber Interconnects"
+            ],
           },
         ],
       },
@@ -321,7 +329,7 @@ export const agendaDays: AgendaDay[] = [
       {
         kind: "single",
         time: "06:30 PM – 08:30 PM",
-        title: "Banquet Sit Down Dinner (Invite Only)",
+        title: "Banquet Dinner (Invite Only)",
         subtitle: "ITC India - 10th Edition Reflections",
         location: "Grand Victoria",
         items: [
@@ -380,8 +388,8 @@ export const agendaDays: AgendaDay[] = [
             title: "Industry Session 1",
             items: [
               "Talk 1: A day in the life of a DFT Engineer – Can AI Agents help?, Jayashree Saxena, Vice President – Semiconductor DFT, Anora Labs",
-              "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Texas Instruments",
-              "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Marvell"
+              "Talk 2: Built-in Intelligence in Analog-to-Digital Convertors, Nithin Gopinath, Senior Member Technical Staff, Texas Instruments",
+              "Talk 3: System Level Test at Hyperscale : Transforming DFT for Data Infrastructure, Nikhil Sudhakaran, Director of Engineering, Marvell"
             ],
           },
           {
@@ -429,8 +437,8 @@ export const agendaDays: AgendaDay[] = [
             hall: "Grand Victoria 1",
             title: "Industry Session 2",
             items: [
-              "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. Moderator: Gaurav Bhargava | Panelists: Jayashree Saxena (Anora Labs), Jaynarayan T. Tudu (IIT Tirupati), Dr. Rubin Parekji (Texas Instruments), Musunuri Surya (Infineon)",
-              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High-Speed NAND Flash Interface I/Os for Silicon Quality and Production Readiness.",
+              "Panel: India's Semiconductor Test Ecosystem: Growth story and Sustainability challenges. | Moderator: Gaurav Bhargava (Qualcomm) | Panelists: Jayashree Saxena (Anora Labs), Jaynarayan T. Tudu (IIT Tirupati), Dr. Rubin Parekhji (Texas Instruments), Surya Musunuri (Infineon)",
+              "Talk 4: Gopikrishna Siddula (SanDisk) : Testing High-Speed NAND Flash Interface I/Os for Silicon Quality and Production Readiness",
               "Talk 5: Anand Muthaiah (Tessolve) : On-chip Intelligence Transforming IC Testing."
             ],
           },
