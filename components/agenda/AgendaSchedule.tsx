@@ -1467,7 +1467,7 @@ export default function AgendaSchedule() {
                                         )}
                                       </div>
                                     )}
-                                    <div className={`${activeId === "tutorials" ? "h-[88px] sm:h-[104px]" : "h-[64px] sm:h-[80px]"} flex flex-col shrink-0`}>
+                                    <div className={`${activeId === "tutorials" ? "min-h-[88px] sm:min-h-[104px]" : "min-h-[64px] sm:min-h-[80px]"} flex flex-col shrink-0`}>
                                       <h4 className="font-medium text-[14px] leading-[1.4] text-white mb-2 line-clamp-4">
                                         {session.title}
                                       </h4>
