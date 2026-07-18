@@ -535,12 +535,12 @@ export const panelsData = [
   {
     id: 0,
     title: "Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap?",
-    affiliation: "Moderator: Sameer Chillarige",
+    affiliation: "Moderator: Sameer Chillarige (Cadence)",
     panelists: [
-      { name: "Dr. Adit D. Singh", affiliation: "Auburn University" },
-      { name: "Dr. Yervant Zorian", affiliation: "Synopsys", image: "/images/Yervant_Zorian.png" },
-      { name: "Dr. Chandan Karfa", affiliation: "IIT Guwahati" },
-      { name: "Lee Harrison", affiliation: "Siemens" }
+      { name: "Udayakiran Yallamaraju", affiliation: "Qualcomm" },
+      { name: "John Schulze", affiliation: "AMD" },
+      { name: "C Jagadish Kumar", affiliation: "Intel" },
+      { name: "Raghu G G", affiliation: "Infineon" }
     ]
   },
   {
