@@ -111,13 +111,41 @@ export default function Committee() {
               ))}
             </div>
 
-            {index !== sections.length - 1 && (
-              <div className="w-full h-[1px] mt-24 opacity-20 pointer-events-none flex justify-center">
-                <div className="w-3/4 h-full border-b border-dashed border-white"></div>
-              </div>
-            )}
+            <div className="w-full h-[1px] mt-24 opacity-20 pointer-events-none flex justify-center">
+              <div className="w-3/4 h-full border-b border-dashed border-white"></div>
+            </div>
           </div>
         ))}
+
+        {/* Student Volunteers Section */}
+        <div className="w-full flex flex-col items-center mb-24 relative">
+          <h2 className="text-2xl md:text-4xl font-bold mb-12 text-center text-[#90cbfb] drop-shadow-sm uppercase tracking-wider">
+            ITC Web & Creatives <br />
+            Student Volunteers
+          </h2>
+
+          <div className="flex flex-wrap justify-center gap-6 md:gap-8 max-w-[1200px]">
+            {[
+              "Vamsi Krishna",
+              "Avni Jain",
+              "Aadharshini S",
+              "Sarthak Trivedi",
+              "Karan Anand",
+              "Nitigya Khaneja",
+              "Suhani Das",
+              "Parth Hooda",
+            ].map((name, idx) => (
+              <div
+                key={idx}
+                className="w-[180px] md:w-[220px] border border-white/20 rounded-lg py-5 px-4 flex flex-col items-center justify-center bg-[#03396c]/50 backdrop-blur-sm shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:border-white/40 hover:-translate-y-1 transition-all duration-300"
+              >
+                <h3 className="text-base md:text-lg font-bold text-white text-center leading-tight">
+                  {name}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );
