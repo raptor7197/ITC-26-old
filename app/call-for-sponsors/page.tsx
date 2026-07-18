@@ -424,7 +424,7 @@ export default function CallForSponsors() {
               <div className="bg-[#011f4b] rounded-2xl p-4 md:p-5 flex items-center gap-4 md:gap-5 shadow-lg border border-white/10">
                 <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-green-500 overflow-hidden shrink-0 bg-gray-800 relative">
                   <Image
-                    src="/images/committee/p16.png"
+                    src="/images/committee/gaurav.png"
                     alt="Gaurav Bhargava"
                     fill
                     className="object-cover"

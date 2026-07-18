@@ -25,13 +25,9 @@ export default function Tutorials() {
           <div key={tutorial.id} className="relative flex flex-col w-full bg-gradient-to-br from-white/[0.05] to-transparent backdrop-blur-xl border border-white/10 rounded-2xl p-5 sm:p-8 md:p-10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-white/20 transition-all duration-300">
             {/* Tutorial Title & ID */}
             <div className={`text-center md:text-left flex flex-col items-center md:items-start ${isExpanded ? 'mb-6' : 'mb-4 md:mb-6'}`}>
-              {tutorial.title ? (
+              {tutorial.title && (
                 <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight text-white leading-tight max-w-[1000px]">
                   {tutorial.title}
-                </h2>
-              ) : (
-                <h2 className="font-black text-xl sm:text-2xl md:text-[36px] tracking-tight text-white/50 leading-tight italic">
-                  Title Pending
                 </h2>
               )}
               {/* Divider */}
@@ -113,30 +109,7 @@ export default function Tutorials() {
             )}
 
             {/* Abstract */}
-            {tutorial.status === "pending" || !tutorial.abstract ? (
-              <div className="mt-2 bg-black/20 border border-[#00b0f0]/30 rounded-lg p-5 w-full flex flex-col items-center justify-center shadow-md">
-                <svg
-                  className="w-6 h-6 text-[#00b0f0] mb-2 opacity-80"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <p className="text-[#caddf0] font-bold text-base tracking-widest uppercase">
-                  More Details Coming Soon
-                </p>
-                <p className="text-[#a0b0c0] mt-1 text-xs text-center max-w-[500px]">
-                  The full abstract and author details are pending and will be
-                  updated shortly.
-                </p>
-              </div>
-            ) : (
+            {(!tutorial.status || tutorial.status !== "pending") && tutorial.abstract && (
               <div className="text-[#caddf0] text-[13px] sm:text-[14px] md:text-[15px] leading-relaxed text-justify space-y-2 bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl p-5 sm:p-6 md:p-8 rounded-2xl border border-white/5 mt-2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]">
                 <div className="text-white font-black text-base mb-3 uppercase tracking-widest flex items-center gap-2">
                   Abstract

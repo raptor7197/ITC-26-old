@@ -156,14 +156,7 @@ export default function AgendaModal({
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
-              ) : (
-                <p className="text-[#caddf0] font-bold text-[13px] sm:text-[15px] tracking-widest uppercase flex items-center gap-2 sm:gap-3">
-                  <svg className="w-6 h-6 text-[#00b0f0] opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  More details coming soon
-                </p>
-              )}
+              ) : null}
             </div>
           ) : (
             <>

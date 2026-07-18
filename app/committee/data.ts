@@ -18,7 +18,7 @@ export const members1: Member[] = [
   {
     id: 1,
     link: "https://www.linkedin.com/in/gaurav-bhargava-200bb74",
-    img: "p16.png",
+    img: "gaurav.png",
     name: "Gaurav Bhargava",
     comp: "Qualcomm, India",
   },
