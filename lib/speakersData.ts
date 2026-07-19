@@ -359,13 +359,7 @@ export const tutorialsData = [
     abstract:
       "As semiconductor devices continue to increase in complexity, reducing test cost while maintaining high quality and reliability has become a key industry challenge. Emerging technologies such as packetized scan architectures and in-system test methodologies are transforming how structural tests are delivered, enabling more efficient use of Automatic Test Equipment (ATE), reducing test data volume, and extending test capabilities beyond manufacturing into system-level and in-field environments. This tutorial provides an overview of packetized ATPG data generation, configuration, and deployment, highlighting how seamless integration with advanced ATE platforms supports scalable test delivery, enhanced diagnostics, data logging, and long-term product reliability throughout the silicon lifecycle.",
     authors: [
-      {
-        name: "Lee Harrison",
-        affiliation: "Siemens EDA",
-        bio: "Lee Harrison is Director, Product Marketing, with Siemens Tessent Division. He has over 25 years of industry experience working with Siemens Tessent DFT products, with a focus on safety and security, Lee is working to ensure that current and future DFT requirements of Siemens's Automotive and HPC customers are understood and met. Lee Received his BEng in MicroElectronic Engineering from Brunel University London in 1996.",
-        image: "/images/tutorials/tut_487_1.png",
-        imageClassName: "object-[center_60%] scale-105"
-      },
+
       {
         name: "Hagen Goller",
         affiliation: "Advantest",
@@ -579,9 +573,47 @@ export const panelsData = [
 ];
 
 export const industryShowcaseData = [
-  { id: 0, name: "Caliber", comingSoon: true },
-  { id: 1, name: "Teradyne", comingSoon: true },
-  { id: 2, name: "Advantest", comingSoon: true }
+  { 
+    id: 0, 
+    name: "Caliber and team", 
+    affiliation: "Caliber Interconnects",
+    title: "Research-Driven Semiconductor Test Engineering for Silicon Innovation",
+  },
+  { 
+    id: 1, 
+    name: "Paresh Bharkhada", 
+    affiliation: "Teradyne",
+    title: "Wafer to Rack. Chip to Cloud. Tested by Teradyne",
+    description: "This presentation shows how Teradyne's solutions cover the full electronics manufacturing value chain, wafer to rack, from chip level testing through packaging, memory, board level, and system level test, to fully assembled AI data center infrastructure. It highlights the growing importance of system level test in catching real world defects that traditional test methods can miss, particularly for complex, multi die AI and compute chips. It also covers Teradyne's robotics business as a complementary growth area, supporting automation across manufacturing and logistics operations.",
+    bio: [
+      "Paresh Bharkhada is Managing Director at Teradyne, leading strategic growth and the company's expansion across India and other Emerging Markets. He established Teradyne's India presence and positioned the company for long-term success as the India Semiconductor Mission (ISM) accelerates the country's chip ecosystem, laying the groundwork for the next phase of leadership.",
+      "With over 20 years in the semiconductor industry, he previously scaled Intel's Development Cloud initiative and has been part of several industry-defining tapeouts of the most advanced chips of their time. Paresh holds an MBA from Berkeley Haas, an MS in Electrical Engineering from the University of Windsor, and a Master of Microelectronics Engineering from RMIT University, Australia."
+    ],
+    image: "/images/paresh_bharkhada.png"
+  },
+  { 
+    id: 2, 
+    name: "Adir Zonta",
+    affiliation: "Advantest Europe GmbH",
+    title: "Evolving DFT Validation Methodologies for Complex Digital Designs",
+    description: "As performance-driven digital designs continue to scale in complexity, Design-for-Test (DFT) engineering faces increasing pressure to validate test content rapidly and with high confidence. While DFT structures and patterns are defined pre-silicon, effective validation and debug are typically deferred to post-silicon environments, often relying on internally developed benches with limited observability and inconsistent alignment to downstream ATE requirements.\n\nAt the same time, growing pattern volumes and increasingly complex scan architectures expose the limitations of ad hoc validation approaches, leading to inefficiencies and late-stage rework.\n\nThis work introduces a structured methodology for post-silicon DFT validation, spanning controlled execution of test content, iterative debug and refinement, systematic margin exploration, and readiness preparation for production test. By emphasizing execution fidelity, observability, and workflow consistency, the approach enables earlier insight into test behavior, reduces debug cycles, and improves confidence ahead of ATE deployment.\n\nOverall, this methodology-driven validation provides a more predictable and scalable path to test readiness, supporting the demands of advanced digital designs.",
+    bio: [
+      "Adir Zonta is Product Marketing Manager for Automated Silicon Validation at Advantest, where he focuses on accelerating time-to-market and improving product quality through scalable, automated validation workflows. He collaborates closely with partners across the semiconductor ecosystem, including EDA, to deliver integrated, future-ready solutions.",
+      "With over 20 years of cross-industry experience in ecosystem development and integrated solutions, Adir brings a holistic perspective to silicon validation—spanning the entire value chain from pre-silicon test development to bench validation and ATE engineering.",
+      "He is passionate about translating complex challenges into practical, forward-looking solutions that deliver measurable customer impact."
+    ],
+    image: "/images/adir_zonta.jpg"
+  },
+  {
+    id: 3,
+    name: "Hagen Goller",
+    affiliation: "Advantest",
+    title: "SSN and iJTAG aware ATE",
+    bio: [
+      "Hagen started his work career in 1997 and moved into Semiconductor Test in 2001. Since then, he has held various positions in Application Support, Marketing and R&D around the Advantest V93k ATE Platform. Currently he is a technical director in product marketing, looking into new test methodologies and solutions for both ATE and SLT."
+    ],
+    image: "/images/tutorials/tut_487_2.png"
+  }
 ];
 export const postersData = [
   {

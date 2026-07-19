@@ -324,6 +324,20 @@ export default function AgendaSchedule() {
     );
     if (keynoteMatch) return keynoteMatch as ModalData;
 
+    // Check Industry Showcase
+    if (safeTitle.includes("industry showcase")) {
+      const showcaseMatch = industryShowcaseData.find(
+        (isc) =>
+          isc.name &&
+          (safeTitle.includes(isc.name.toLowerCase()) ||
+            (items &&
+              items.some((item) =>
+                item.toLowerCase().includes(isc.name.toLowerCase()),
+              ))),
+      );
+      if (showcaseMatch) return showcaseMatch as ModalData;
+    }
+
     // Check Tutorials
     // First pass: Match strictly by title
     let tutorialMatch = tutorialsData.find(
@@ -377,18 +391,6 @@ export default function AgendaSchedule() {
             ))),
     );
     if (daMatch) return daMatch as ModalData;
-
-    // Check Industry Showcase
-    const showcaseMatch = industryShowcaseData.find(
-      (isc) =>
-        isc.name &&
-        (safeTitle.includes(isc.name.toLowerCase()) ||
-          (items &&
-            items.some((item) =>
-              item.toLowerCase().includes(isc.name.toLowerCase()),
-            ))),
-    );
-    if (showcaseMatch) return showcaseMatch as ModalData;
 
     // Check Posters
     const posterMatch = postersData.find(
@@ -600,23 +602,14 @@ export default function AgendaSchedule() {
 
                           if (isItemPanel) {
                             const rawTitle = item.replace(/^Panel:\s*/i, "");
-                            const parts = rawTitle.split("|");
-                            const mainTitle = parts[0].trim();
+                            const titleMatch = rawTitle.match(/^(.*?)(?=\s*Moderator:|\s*Panelists:|\s*\||$)/i);
+                            const mainTitle = titleMatch ? titleMatch[1].trim() : rawTitle;
                             
-                            let moderator = "";
-                            let panelists = "";
-                            let others = [];
+                            const modMatch = rawTitle.match(/Moderator:\s*([^|]*)/i);
+                            const moderator = modMatch ? modMatch[1].trim() : "";
                             
-                            for (let i = 1; i < parts.length; i++) {
-                              const p = parts[i].trim();
-                              if (p.toLowerCase().startsWith("moderator:")) {
-                                moderator = p;
-                              } else if (p.toLowerCase().startsWith("panelists:")) {
-                                panelists = p;
-                              } else {
-                                others.push(p);
-                              }
-                            }
+                            const panMatch = rawTitle.match(/Panelists:\s*([^|]*)/i);
+                            const panelists = panMatch ? panMatch[1].trim() : "";
 
                             return (
                               <div
@@ -637,19 +630,22 @@ export default function AgendaSchedule() {
                                     {mainTitle}
                                   </h3>
                                 )}
-                                {panelists && (
-                                  <div className="text-[11px] text-[#a3b8cc] mt-1.5 font-medium leading-[1.4]">
-                                    {panelists}
+                                {moderator && (
+                                  <div className="text-[12px] font-medium text-sky-200/90 flex items-start gap-1.5 mt-2">
+                                    <div className="mt-[2px] w-3 h-3 shrink-0">{ICONS.user}</div>
+                                    <div>
+                                      <span className="font-semibold text-sky-300 mr-1">Moderator:</span>
+                                      {moderator}
+                                    </div>
                                   </div>
                                 )}
-                                {moderator && (
-                                  <p className="text-[12px] text-sky-200/80 font-medium mt-1.5">
-                                    {moderator}
-                                  </p>
-                                )}
-                                {others.length > 0 && (
-                                  <div className="text-[11px] text-[#a3b8cc] mt-1 font-medium leading-[1.4]">
-                                    {others.join(" | ")}
+                                {panelists && (
+                                  <div className="text-[11px] font-medium text-[#a3b8cc] flex items-start gap-1.5 mt-1.5 leading-[1.4]">
+                                    <div className="mt-[1px] w-3 h-3 shrink-0">{ICONS.user}</div>
+                                    <div>
+                                      <span className="font-semibold text-slate-300 mr-1">Panelists:</span>
+                                      {panelists}
+                                    </div>
                                   </div>
                                 )}
                               </div>
@@ -1357,23 +1353,14 @@ export default function AgendaSchedule() {
 
                                     if (isPanelItem) {
                                       const rawTitle = item.replace(/^Panel:\s*/i, "");
-                                      const parts = rawTitle.split("|");
-                                      const mainTitle = parts[0].trim();
+                                      const titleMatch = rawTitle.match(/^(.*?)(?=\s*Moderator:|\s*Panelists:|\s*\||$)/i);
+                                      const mainTitle = titleMatch ? titleMatch[1].trim() : rawTitle;
                                       
-                                      let moderator = "";
-                                      let panelists = "";
-                                      let others = [];
+                                      const modMatch = rawTitle.match(/Moderator:\s*([^|]*)/i);
+                                      const moderator = modMatch ? modMatch[1].trim() : "";
                                       
-                                      for (let i = 1; i < parts.length; i++) {
-                                        const p = parts[i].trim();
-                                        if (p.toLowerCase().startsWith("moderator:")) {
-                                          moderator = p;
-                                        } else if (p.toLowerCase().startsWith("panelists:")) {
-                                          panelists = p;
-                                        } else {
-                                          others.push(p);
-                                        }
-                                      }
+                                      const panMatch = rawTitle.match(/Panelists:\s*([^|]*)/i);
+                                      const panelists = panMatch ? panMatch[1].trim() : "";
 
                                       return (
                                         <div 
@@ -1395,19 +1382,22 @@ export default function AgendaSchedule() {
                                               {mainTitle}
                                             </div>
                                           )}
-                                          {panelists && (
-                                            <div className="text-xs sm:text-sm text-[#a3b8cc] mt-2 text-center max-w-[95%] mx-auto">
-                                              {panelists}
-                                            </div>
-                                          )}
                                           {moderator && (
-                                            <div className="text-sm sm:text-base font-semibold text-sky-200 mt-2 text-center">
-                                              {moderator}
+                                            <div className="text-sm sm:text-base font-semibold text-sky-200 mt-2 text-center flex items-center justify-center gap-1.5">
+                                              <div className="w-4 h-4 shrink-0">{ICONS.user}</div>
+                                              <div>
+                                                <span className="font-bold text-sky-300 mr-1">Moderator:</span>
+                                                {moderator}
+                                              </div>
                                             </div>
                                           )}
-                                          {others.length > 0 && (
-                                            <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5 text-center">
-                                              {others.join(" | ")}
+                                          {panelists && (
+                                            <div className="text-xs sm:text-sm text-[#a3b8cc] mt-1.5 text-center max-w-[95%] mx-auto flex items-start justify-center gap-1.5">
+                                              <div className="w-3.5 h-3.5 mt-[2px] shrink-0">{ICONS.user}</div>
+                                              <div className="text-left">
+                                                <span className="font-bold text-slate-300 mr-1">Panelists:</span>
+                                                {panelists}
+                                              </div>
                                             </div>
                                           )}
                                         </div>
@@ -1641,28 +1631,59 @@ export default function AgendaSchedule() {
                                               const isDAItem = item.toLowerCase().startsWith("distinguished address:");
                                               const isPaperBest = isBestPaper(item);
 
-                                              return isPanel ? (
-                                                <div
-                                                  key={idx}
-                                                  className={`mt-3 mb-1 bg-[#03152d] border-l-4 border-sky-400 rounded-r-lg p-2 sm:p-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] ${
-                                                    isItemClickable ? "cursor-pointer hover:bg-[#062044] active:scale-[0.98] transition-all duration-200" : ""
-                                                  }`}
-                                                  onClick={(e) => {
-                                                    if (isItemClickable) {
-                                                      e.stopPropagation();
-                                                      handleTileClick(session.title, [item]);
-                                                    }
-                                                  }}
-                                                  {...(isItemClickable ? { "title": "Click to read more details" } : {})}
-                                                >
-                                                  <div className="text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-1.5">
-                                                    Panel Discussion
+                                              if (isPanel) {
+                                                const rawTitle = item.replace(/^Panel:\s*/i, "");
+                                                const titleMatch = rawTitle.match(/^(.*?)(?=\s*Moderator:|\s*Panelists:|\s*\||$)/i);
+                                                const mainTitle = titleMatch ? titleMatch[1].trim() : rawTitle;
+                                                
+                                                const modMatch = rawTitle.match(/Moderator:\s*([^|]*)/i);
+                                                const moderator = modMatch ? modMatch[1].trim() : "";
+                                                
+                                                const panMatch = rawTitle.match(/Panelists:\s*([^|]*)/i);
+                                                const panelists = panMatch ? panMatch[1].trim() : "";
+
+                                                return (
+                                                  <div
+                                                    key={idx}
+                                                    className={`mt-3 mb-1 bg-[#03152d] border-l-4 border-sky-400 rounded-r-lg p-2 sm:p-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] flex flex-col gap-1.5 ${
+                                                      isItemClickable ? "cursor-pointer hover:bg-[#062044] active:scale-[0.98] transition-all duration-200" : ""
+                                                    }`}
+                                                    onClick={(e) => {
+                                                      if (isItemClickable) {
+                                                        e.stopPropagation();
+                                                        handleTileClick(session.title, [item]);
+                                                      }
+                                                    }}
+                                                    {...(isItemClickable ? { "title": "Click to read more details" } : {})}
+                                                  >
+                                                    <div className="text-sky-300 text-[10px] font-bold uppercase tracking-wider mb-1">
+                                                      Panel Discussion
+                                                    </div>
+                                                    <div className="text-[14px] font-bold leading-[1.4] text-white">
+                                                      {mainTitle}
+                                                    </div>
+                                                    {moderator && (
+                                                      <div className="text-[12px] font-medium text-sky-200/90 flex items-start gap-1.5 mt-1">
+                                                        <div className="w-3.5 h-3.5 mt-[1px] shrink-0">{ICONS.user}</div>
+                                                        <div>
+                                                          <span className="font-semibold text-sky-300 mr-1">Moderator:</span>
+                                                          {moderator}
+                                                        </div>
+                                                      </div>
+                                                    )}
+                                                    {panelists && (
+                                                      <div className="text-[11.5px] font-medium text-[#a3b8cc] flex items-start gap-1.5 mt-0.5 leading-[1.4]">
+                                                        <div className="w-3.5 h-3.5 mt-[1.5px] shrink-0">{ICONS.user}</div>
+                                                        <div>
+                                                          <span className="font-semibold text-slate-300 mr-1">Panelists:</span>
+                                                          {panelists}
+                                                        </div>
+                                                      </div>
+                                                    )}
                                                   </div>
-                                                  <div className="text-[13px] font-medium leading-[1.4] text-white">
-                                                    {item.replace(/^Panel:\s*/i, "")}
-                                                  </div>
-                                                </div>
-                                              ) : isDAItem ? (
+                                                );
+                                              }
+                                              return isDAItem ? (
                                                 <div
                                                   key={idx}
                                                   className={`mt-3 mb-1 bg-[#03152d] border-l-4 border-sky-400 rounded-r-lg p-2 sm:p-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] ${
