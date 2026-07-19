@@ -608,7 +608,8 @@ export const industryShowcaseData = [
     id: 3,
     name: "Hagen Goller",
     affiliation: "Advantest",
-    title: "SSN and iJTAG aware ATE",
+    title: "SSN and IJTAG-Aware ATE",
+    description: "Over the past decades, scan and BIST patterns have typically been treated as a black box by most test engineers. These patterns were executed, results were retrieved and logged, and optionally, additional failure data was recorded for diagnosis and yield learning.\n\nThe abundance of replicated units with spares is changing this approach. The SSN On-Chip Compare feature enables the testing of an unlimited number of units in parallel with a constant size pattern and efficiently identifies defective units that must be replaced by spares. To utilize features like on-chip compare or per-core Pass/Fail detection, semantic information about the content of the pattern is required. Specific bits of the patterns must be read or modified during test program execution. In the past, this has been achieved by adding semantic information to STIL annotations, which are converted to external csv files or pattern comments and parsed by user code.\n\nTessent Shell and SmarTest introduce new capabilities that establish a solid foundation for handling the SSN metadata and enable convenient and efficient access to it at both the API level and in user interfaces for interactive usage and debugging. This paper explains these new capabilities and demonstrates how an end-to-end solution, including pattern translation tools, works.",
     bio: [
       "Hagen started his work career in 1997 and moved into Semiconductor Test in 2001. Since then, he has held various positions in Application Support, Marketing and R&D around the Advantest V93k ATE Platform. Currently he is a technical director in product marketing, looking into new test methodologies and solutions for both ATE and SLT."
     ],
