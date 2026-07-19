@@ -48,9 +48,7 @@ export default function Panels() {
                     </div>
                   ))}
                 </div>
-              ) : (
-
-              )}
+              ) : null}
             </div>
           ))}
         </div>
