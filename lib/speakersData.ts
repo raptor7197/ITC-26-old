@@ -393,12 +393,6 @@ export const tutorialsData = [
         bio: "Navya Rastogi is a Staff Applications Engineer at Synopsys with expertise spanning semiconductor process engineering, yield analysis, fabrication technologies, and data science. Prior to joining Synopsys, she gained experience in both the semiconductor capital equipment industry and at Amazon, bringing a multidisciplinary perspective to advanced manufacturing analytics. She holds a PhD in Nanoscience from the Indian Institute of Science.\n\nHer background across semiconductor processes, yield engineering, and data-driven problem solving provides her with valuable insight into the application of analytics for improving manufacturing performance and product quality in advanced semiconductor technologies.",
         image: "/images/tutorials/tut_531_3.png",
       },
-      {
-        name: "Soumya Mittal",
-        affiliation: "Qualcomm",
-        bio: "Soumya Mittal is a Staff Engineer at Qualcomm specializing in AI-driven diagnostic intelligence for next-generation semiconductor platforms. His work focuses on developing scalable frameworks that automate failure analysis and transform complex diagnostic data into actionable engineering insights, accelerating silicon development and deployment. He holds a PhD from Carnegie Mellon University and is an alumnus of IIT Roorkee.\n\nHis expertise at the intersection of semiconductor diagnostics, artificial intelligence, and large-scale data analysis has enabled him to drive innovative approaches to yield learning and quality improvement. This experience provides him with a unique perspective on how advanced analytics and AI are reshaping semiconductor manufacturing and test methodologies.",
-        image: "/images/tutorials/tut_531_4.png",
-      },
     ],
     status: "ready",
   },
