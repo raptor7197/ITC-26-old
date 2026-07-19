@@ -578,6 +578,7 @@ export const industryShowcaseData = [
     name: "Caliber and team", 
     affiliation: "Caliber Interconnects",
     title: "Research-Driven Semiconductor Test Engineering for Silicon Innovation",
+    description: "The rapid evolution of semiconductor technologies, including AI accelerators, chiplet architectures, high-speed interfaces, and advanced packaging, requires innovative test engineering solutions to ensure product quality, reliability, and reduced time-to-market. This presentation highlights a research-driven approach to semiconductor test engineering that integrates Automatic Test Equipment (ATE), advanced test hardware, package design, signal and power integrity analysis, and AI-assisted automation across the silicon development lifecycle.\n\nIt presents a portfolio of research covering production test optimization, post-silicon validation, intelligent fault diagnosis, scan optimization, reliability assessment, and emerging methodologies for photonics, neuromorphic, quantum, and heterogeneous semiconductor devices. The presentation also demonstrates how reusable hardware architectures, predictive analytics, and design automation enhance testing efficiency and manufacturing readiness. By combining industrial engineering expertise with applied research, the proposed framework establishes semiconductor test engineering as a key enabler of silicon innovation, delivering scalable, reliable, and cost-effective solutions for next-generation integrated circuits and advanced electronic systems.",
   },
   { 
     id: 1, 
