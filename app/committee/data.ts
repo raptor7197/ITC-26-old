@@ -353,7 +353,7 @@ export const members16: Member[] = [
     link: "https://www.linkedin.com/in/yervant-zorian-40522b1/",
     img: "p43.png",
     name: "Dr. Yervant Zorian",
-    comp: "Synopsys, India",
+    comp: "Synopsys, US",
   },
   {
     id: 45,
@@ -419,7 +419,7 @@ export const members17: Member[] = [
     link: "https://www.linkedin.com/in/yervant-zorian-40522b1/",
     img: "p43.png",
     name: "Dr. Yervant Zorian",
-    comp: "Synopsys, India",
+    comp: "Synopsys, US",
   },
   {
     id: 35,
