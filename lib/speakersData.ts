@@ -537,7 +537,7 @@ export const panelsData = [
     affiliation: "Panel Chair: Navin Bishnoi",
     panelists: [
       { name: "Alpa Sood", affiliation: "Teradyne", image: "/images/Alpa-Sood.png" },
-      { name: "Ruchir Dixit", affiliation: "Siemens" },
+      { name: "Nilanjan Mukherjee", affiliation: "Siemens", image: "/images/keynote/Nilanjan_Mukherjee.png" },
       { name: "Gowrisankar A.", affiliation: "Caliber Interconnects", image: "/images/gowrisankar_a.jpeg" },
       { name: "Jeff Rearick", affiliation: "AMD", image: "/images/keynote/jeff_rearick_2024.png" }
     ]

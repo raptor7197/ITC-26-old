@@ -333,7 +333,7 @@ export const agendaDays: AgendaDay[] = [
         subtitle: "ITC India - 10th Edition Reflections",
         location: "Grand Victoria",
         items: [
-          "Panel: The Economics of Test: Where Should We Spend the Budget? | Moderator: Navin Bishnoi, Marvell | Panelists: Alpa Sood (Teradyne), Ruchir Dixit (Siemens), Gowrisankar A. (Caliber Interconnects), Jeff Rearick (AMD)",
+          "Panel: The Economics of Test: Where Should We Spend the Budget? | Moderator: Navin Bishnoi, Marvell | Panelists: Alpa Sood (Teradyne), Nilanjan Mukherjee (Siemens), Gowrisankar A. (Caliber Interconnects), Jeff Rearick (AMD)",
           "Felicitation of the Past Committee Members",
           "Dinner"
         ],
