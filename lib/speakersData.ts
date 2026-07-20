@@ -549,8 +549,13 @@ export const panelsData = [
     panelists: [
       { name: "Jayashree Saxena", affiliation: "Anora Labs", image: "/images/jayashree_saxena.png" },
       { name: "Jaynarayan T. Tudu", affiliation: "IIT Tirupati", image: "/images/tutorials/tut_527_4.png" },
-      { name: "Dr. Rubin Parekhji", affiliation: "Texas Instruments" },
-      { name: "Surya Musunuri", affiliation: "Infineon" }
+      { name: "Dr. Rubin Parekhji", affiliation: "Texas Instruments", image: "/images/rubin_parekhji.png", imageClassName: "object-[center_20%]" },
+      { name: "Surya Musunuri", affiliation: "Infineon", image: "/images/surya_musunuri.jpg", bio: [
+        "Surya Musunuri is a Senior Principal Engineer specializing in automotive microcontrollers at Infineon Technologies. In this role, he leads chip architecture definition and ensures that the most stringent automotive robustness and safety requirements are rigorously met — bridging cutting-edge silicon engineering with the reliability imperatives of the automotive industry.",
+        "Before joining Infineon, Surya held a architect role at Apple Inc. in Cupertino, California, where he drove hardware power management features across multiple iPhone generations — including the iPhone 5s, 6, 7, and future platforms. Prior to Apple, he spent formative years at Intel Corporation, where he architected, designed, validated, and enabled high-volume manufacturing of foundational silicon IPs: Voltage Regulators, Phase-Locked Loops, Clock Control Units, Random Number Generators, and Security Engines. Across both organizations, his expertise spanned clock and power management, high-speed I/Os (PCIe, SATA), and audio subsystems — serving PC, datacenter, ultramobile, and smartphone platforms alike.",
+        "Surya holds Masters and Doctoral degrees in Electrical and Computer Engineering from the University of Illinois at Urbana-Champaign, where his research pioneered integrated voltage regulators leveraging advanced MEMS-based fabrication technologies. Complementing his doctoral work, he earned a Masters Certificate in Systems Design from the Massachusetts Institute of Technology.",
+        "Outside of his professional pursuits, Surya is an avid cyclist and hiker who also finds great enjoyment in the precision and agility of table tennis and tennis."
+      ] }
     ]
   },
   {
