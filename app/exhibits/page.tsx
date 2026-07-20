@@ -4,14 +4,14 @@ import PageHeader from "@/components/ui/PageHeader";
 import React, { useState } from "react";
 
 const exhibitors = [
-  { id: "1", company: "Cadence" },
+  { id: "1", company: "Qualcomm" },
   { id: "2", company: "Caliber Interconnect" },
   { id: "3", company: "Caliber Interconnect" },
   { id: "4", company: "Siemens" },
   { id: "5", company: "Siemens" },
   { id: "6", company: "Google" },
   { id: "7", company: "Google" },
-  { id: "8", company: "Qualcomm" },
+  { id: "8", company: "Cadence" },
   { id: "9", company: "Synopsys" },
   { id: "10", company: "Amazon" },
   { id: "11", company: "Solitontech" },
@@ -21,7 +21,6 @@ const exhibitors = [
   { id: "15", company: "Tessolve" },
   { id: "16", company: "Tessolve" },
   { id: "17", company: "Anora" },
-  { id: "17A", company: "Anora" },
   { id: "18", company: "Advantest" },
   { id: "19", company: "Maven Silicon" },
   { id: "20", company: "Marvell" },
@@ -33,7 +32,7 @@ export default function Exhibits() {
   const getBoothX = (id: string) => {
     const left1 = ["1", "2", "3"];
     const left2 = ["4", "5", "6", "7", "8", "9"];
-    const mid = ["10", "11", "12", "13", "14", "15", "16", "17", "17A", "18"];
+    const mid = ["10", "11", "12", "13", "14", "15", "16", "17", "18"];
     const right = ["19", "20"];
 
     if (left1.includes(id)) {
@@ -43,7 +42,7 @@ export default function Exhibits() {
       return 156 + left2.indexOf(id) * 36.5;
     }
     if (mid.includes(id)) {
-      return 405 + mid.indexOf(id) * 34;
+      return 415 + mid.indexOf(id) * 36.5;
     }
     if (right.includes(id)) {
       return 755 + right.indexOf(id) * 36.5;
@@ -130,9 +129,9 @@ export default function Exhibits() {
                 GRAND VICTORIA BALLROOM 1 & 2
               </text>
 
-              {/* Arabica & Robusta Text */}
+              {/* Arabic & Robusta Text */}
               <text x="575" y="150" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">TECHNICAL SESSIONS</text>
-              <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABICA & ROBUSTA</text>
+              <text x="575" y="180" fill="#ffffff" fontSize="13" fontWeight="bold" fontFamily="inherit" textAnchor="middle" letterSpacing="0.1em">ARABIC & ROBUSTA</text>
 
               {/* Brainbox Text */}
               <text x="967" y="283" fill="#94a3b8" fontSize="11" fontFamily="inherit" fontWeight="500" letterSpacing="0.05em" textAnchor="middle">LEVEL 1</text>
@@ -167,7 +166,7 @@ export default function Exhibits() {
                     <text 
                       x="16" y="21" 
                       fill={isHovered ? "#000000" : "#e2e8f0"} 
-                      fontSize={ex.id === "17A" ? "10" : "12"} fontWeight="600" fontFamily="inherit" textAnchor="middle" 
+                      fontSize="12" fontWeight="600" fontFamily="inherit" textAnchor="middle" 
                       className="transition-colors duration-200"
                     >
                       {ex.id}
