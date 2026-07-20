@@ -27,7 +27,7 @@ export default function Panels() {
                           <img 
                             src={panelist.image} 
                             alt={panelist.name} 
-                            className="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                            className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${panelist.imageClassName || 'object-top'}`}
                           />
                         ) : (
                           <span className="text-3xl sm:text-4xl text-white/30 font-light">
