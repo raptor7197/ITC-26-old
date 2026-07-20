@@ -106,7 +106,7 @@ export const agendaDays: AgendaDay[] = [
         sessions: [
           { hall: "Grand Victoria 1", subtitle: "Tutorial Track 1(b)", sessionChair: "Session chair: Bharath Nandakumar", title: "Testing to Self Testing: Self Test Driven Functional Safety for ISO 26262 Compliant Automotive SoCs", items: ["Rajesh Kumar Tiwari and Mohammed Zuber P Malek (Qualcomm)"] },
           { hall: "Grand Victoria 2", subtitle: "Tutorial Track 2(b)", sessionChair: "Session chair: Rajit Karmakar", title: "The Seamless Integration of Packetized Scan and In-system test with Advanced ATE Equipment", items: ["Hagen Goller (Advantest)"] },
-          { hall: "Arabica & Robusta", subtitle: "Tutorial Track 3(b)", sessionChair: "Session chair: Rama Sireesha Arisetti", title: "Advanced Test Data Analytics for Yield and Quality Improvement", items: ["Navya Rastogi, Shamitha Rao, Shrestha Hota (Synopsys) and Soumya Mittal (Qualcomm)"] },
+          { hall: "Arabica & Robusta", subtitle: "Tutorial Track 3(b)", sessionChair: "Session chair: Rama Sireesha Arisetti", title: "Advanced Test Data Analytics for Yield and Quality Improvement", items: ["Navya Rastogi, Shamitha Rao, Shrestha Hota (Synopsys)"] },
           { hall: "Brain Box", title: "Industry Test Challenge", subtitle: "invite only session", items: ["Talk1", "Talk2", "Break", "Talk3", "Talk4", "Break", "Panel: Correlation Crisis in Semiconductor Test: Can AI Bridge the Gap? Moderator: Sameer Chillarige (Cadence) | Panelists: Udayakiran Yallamaraju (Qualcomm), John Schulze (AMD), C Jagadish Kumar (Intel), Raghu G G (Infineon)"], rowSpan: 4 },
         ],
       },
