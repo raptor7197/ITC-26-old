@@ -5,14 +5,7 @@ import React from "react";
 import Link from 'next/link';
 
 const MARQUEE_ITEMS = [
-  <span key="1">Early Bird Registration is closed. Bulk Registration is now open — register today! Early Bird rates for IEEE Members are still available.</span>,
-  <span key="2">Upcoming: Hackathon Round 2 Submission (10th July 2026)</span>,
-  <span key="3">
-    Round 1 Fellowship Selection Results are out!{' '}
-    <Link href="/fellowship/results" className="underline hover:text-white font-bold ml-1 text-sky-400">
-      Click here to check the list
-    </Link>
-  </span>,
+  <span key="1">Thank you for making IEEE ITC India 2026 a grand success!</span>,
 ]; 
 
 export default function UpdatesMarquee() {
