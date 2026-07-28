@@ -3,22 +3,7 @@
 import { useState } from "react";
 import RegistrationHeroCTA from "@/components/ui/RegistrationHeroCTA";
 
-const REGISTER_PORTAL_URL = "https://itc.expoplato.com/";
 
-function RegisterNowButton({ className = "" }: { className?: string }) {
-  return (
-    <a
-      href={REGISTER_PORTAL_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`group inline-flex items-center justify-center rounded-lg border border-[#d8efff]/80 bg-gradient-to-br from-[#8cc9fb] via-[#89c6f9] to-[#7abcf4] px-8 py-3 font-poppins text-sm font-bold tracking-wide text-[#022241] shadow-[0_0_20px_rgba(166,219,255,0.55),0_0_42px_rgba(106,175,241,0.42),0_10px_24px_rgba(106,175,241,0.36)] transition-all duration-500 ease-out hover:-translate-y-0.5 hover:border-[#e6f5ff] hover:bg-gradient-to-br hover:from-[#9fd5ff] hover:via-[#95cffc] hover:to-[#84c5fa] hover:shadow-[0_0_28px_rgba(182,229,255,0.72),0_0_56px_rgba(106,175,241,0.58),0_14px_30px_rgba(106,175,241,0.46)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6aaff1] sm:text-base ${className}`}
-    >
-      <span className="transition-transform duration-300 group-hover:scale-[1.03]">
-        Register Now
-      </span>
-    </a>
-  );
-}
 
 const indianPricing = [
   {
@@ -128,30 +113,24 @@ function EarlyBirdOffers() {
           </p>
         </div>
 
-        <div className="flex flex-col rounded-xl border border-[#6aaff1]/50 bg-[#6aaff1]/10 p-5 sm:p-6 shadow-[0_0_24px_rgba(106,175,241,0.15)]">
-          <span className="mb-3 inline-block self-start rounded-full bg-[#6aaff1] px-3 py-1 font-poppins text-xs font-bold uppercase tracking-wide text-[#03396c]">
-            IEEE Offer
+        <div className="flex flex-col rounded-xl border border-white/10 bg-white/5 p-5 sm:p-6 opacity-75">
+          <span className="mb-3 inline-block self-start rounded-full bg-white/10 px-3 py-1 font-poppins text-xs font-semibold uppercase tracking-wide text-white/50">
+            Closed
           </span>
-          <h4 className="font-poppins text-base sm:text-lg font-semibold text-white">
+          <h4 className="font-poppins text-base sm:text-lg font-semibold text-white/70">
             IEEE Members
           </h4>
-          <p className="mt-1 font-poppins text-sm text-white/80">
+          <p className="mt-1 font-poppins text-sm text-white/50">
             Extended Early Bird for IEEE members
           </p>
-          <p className="mt-4 font-poppins text-xs uppercase tracking-wide text-white/60">
-            Register by
+          <p className="mt-4 font-poppins text-xs uppercase tracking-wide text-white/40">
+            Deadline Passed
           </p>
-          <p className="font-angkor text-2xl sm:text-3xl font-bold leading-tight text-white">
+          <p className="font-poppins text-xl sm:text-2xl font-bold leading-tight text-white/40">
             21 July 2026
           </p>
-          <p className="mt-3 font-poppins text-xs sm:text-sm text-white/70">
-            Applies to{" "}
-            <span className="font-medium text-[#6aaff1]">Tutorial Only</span>,{" "}
-            <span className="font-medium text-[#6aaff1]">Conference Only</span>
-            , and{" "}
-            <span className="font-medium text-[#6aaff1]">
-              Tutorial + Conference
-            </span>
+          <p className="mt-3 font-poppins text-xs sm:text-sm text-white/50">
+            Early bird registration has concluded. Regular pricing now applies.
           </p>
         </div>
       </div>
@@ -168,15 +147,7 @@ function PricingTable({
 }) {
   return (
     <div>
-      <p className="mb-3 font-poppins text-xs sm:text-sm text-white/60 text-center sm:text-left">
-        <span className="text-white/50 line-through">Regular</span>
-        <span className="mx-2 text-white/40">·</span>
-        <span className="font-semibold text-[#6aaff1]">Early Bird</span>
-        <span className="text-white/50">
-          {" "}
-          — Extended exclusively for IEEE Members
-        </span>
-      </p>
+
       <div className="overflow-x-auto">
       <table className="w-full text-sm md:text-base border-collapse min-w-[500px]">
         <thead>
@@ -195,29 +166,21 @@ function PricingTable({
         </thead>
         <tbody>
           {data.map((row, idx) => {
-            const isIeee = row.category === "IEEE Members";
             return (
             <tr
               key={row.category}
               className={`border-b border-white/10 ${
-                isIeee
-                  ? "bg-[#6aaff1]/10 border-l-4 border-l-[#6aaff1]"
-                  : idx % 2 === 1
-                    ? "bg-white/5"
-                    : ""
+                idx % 2 === 1
+                  ? "bg-white/5"
+                  : ""
               }`}
             >
               <td className="p-3 font-medium text-white">
                 {row.category}
-                {isIeee && (
-                  <span className="ml-2 hidden sm:inline rounded bg-[#6aaff1]/25 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#6aaff1]">
-                    Extended offer
-                  </span>
-                )}
               </td>
-              <PriceCell price={row.tutorialOnly} currency={currency} isEarlyBirdActive={isIeee} />
-              <PriceCell price={row.confOnly} currency={currency} isEarlyBirdActive={isIeee} />
-              <PriceCell price={row.tutorialConf} currency={currency} isEarlyBirdActive={isIeee} />
+              <PriceCell price={row.tutorialOnly} currency={currency} isEarlyBirdActive={false} />
+              <PriceCell price={row.confOnly} currency={currency} isEarlyBirdActive={false} />
+              <PriceCell price={row.tutorialConf} currency={currency} isEarlyBirdActive={false} />
             </tr>
           );
           })}
@@ -368,8 +331,7 @@ export default function RegistrationPricing() {
             <p className="font-poppins text-xs sm:text-sm text-white/50 text-center">
               Prices are NOT inclusive of GST
             </p>
-            <RegisterNowButton />
-            <div className="text-white/60 text-xs sm:text-sm text-center">
+            <div className="text-white/60 text-xs sm:text-sm text-center mt-4">
               For bulk registration queries: register.itcindia@gmail.com
             </div>
           </div>

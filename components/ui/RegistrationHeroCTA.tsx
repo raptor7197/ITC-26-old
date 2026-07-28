@@ -118,14 +118,6 @@ export default function RegistrationHeroCTA({
     return (
       <div className={`${wrapperClass} flex flex-col sm:flex-row gap-4 sm:gap-5 items-center flex-wrap`}>
         <Link
-          href="/registration"
-          role="button"
-          title="View Registration Details"
-          className="hero-register-btn shrink-0"
-        >
-          <span className="hero-register-btn-text">Register Now</span>
-        </Link>
-        <Link
           href="/agenda"
           role="button"
           title="View Our Agenda"
