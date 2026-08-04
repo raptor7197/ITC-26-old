@@ -6,6 +6,7 @@ import Link from 'next/link';
 
 const MARQUEE_ITEMS = [
   <span key="1">Thank you for making IEEE ITC India 2026 a grand success!</span>,
+  <span key="2">Certificates have been sent to all participants (excluding committee members and speakers), volunteers, and reviewers. If you haven't received yours, please contact us for a resend.</span>,
 ]; 
 
 export default function UpdatesMarquee() {
